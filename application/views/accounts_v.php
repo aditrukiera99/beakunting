@@ -20,7 +20,7 @@
                         </ol> 
                     </div>
                     </div>
-                </div>
+                </div> 
             </header>
                 <br>
                     <div class="row">
