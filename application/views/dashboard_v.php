@@ -556,7 +556,7 @@ z-index: 999999">
                         <i class="fa fa-calendar"> </i> &nbsp; Calender
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="ion-pie-graph"> </i> &nbsp; Snapshot
                     </a>
@@ -576,17 +576,17 @@ z-index: 999999">
                         <i class="ion-android-user-menu"> </i> &nbsp; Employees
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-file-archive-o"> </i> &nbsp; Docs
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="ion-clipboard"> </i> &nbsp; Reports
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-laptop"> </i> &nbsp; App Center
                     </a>
@@ -611,7 +611,7 @@ z-index: 999999">
                         <i class="fa fa-shopping-cart"> </i> &nbsp; Bill
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-tasks"> </i> &nbsp; Reg
                     </a>
@@ -621,32 +621,32 @@ z-index: 999999">
                         <i class="fa fa-calendar-o"> </i> &nbsp; Accnt
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-clock-o"> </i> &nbsp; Rmnd
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-search"> </i> &nbsp; Find
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-comments"> </i> &nbsp; Feedback
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="fa fa-plus-square"> </i> &nbsp; Service
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="ion-card"> </i> &nbsp; Add Payroll
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gallery.html">
                         <i class="ion-closed-captioning"> </i> &nbsp; Credit Cards
                     </a>
