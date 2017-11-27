@@ -41,7 +41,7 @@
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/c3/css/c3.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/toastr/css/toastr.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/switchery/css/switchery.min.css" />
-    <!-- <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/new_dashboard.css"/> -->
+    
 
     <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
 
@@ -286,10 +286,10 @@
                                 <a class="dropdown-item" href="#">
                                     Customers Center
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>estimate_c">
                                     Create Estimates
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>sales_order_c">
                                     Create Sales Order
                                 </a>
                                 <a class="dropdown-item" href="#">
