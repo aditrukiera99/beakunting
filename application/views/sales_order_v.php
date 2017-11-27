@@ -262,19 +262,20 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-lg-3 col-xl-5 text-lg-right">
+                                        <div class="col-lg-12 col-xl-12 text-lg-right">
                                             
                                         </div>
                                         
                                         
-                                        <div class="col-lg-3 col-xl-4 text-lg-right">
+                                        <div class="col-lg-6 col-xl-6 text-lg-right">
                                             <button type="button" class="btn btn-labeled btn-success">
                                                 <span class="btn-label">
                                                     <i class="fa fa-save"></i>
                                                 </span>
                                                           Simpan
                                                    </button>
-
+                                        </div>
+                                         <div class="col-lg-3 col-xl-3 text-lg-right"> 
                                             <button type="button" class="btn btn-labeled btn-primary">
                                                 <span class="btn-label">
                                                     <i class="fa fa-times"></i>
