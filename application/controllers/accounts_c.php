@@ -21,6 +21,7 @@ class Accounts_c extends CI_Controller {
 	{
 		$data = array(
 			'page' => 'accounts_v', 
+			'view' => 'accounts',
 		);
 
 		$this->load->view('dashboard_v', $data);
