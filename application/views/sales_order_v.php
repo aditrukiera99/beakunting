@@ -32,6 +32,7 @@
             <div class="card-block cards_section_margin">
                 
                 <div class="card-block">
+                    <br>
                     <div class="row">
                         <div class="col-lg-6">
                                         <form class="form-horizontal">
@@ -52,8 +53,6 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    
-                                                    
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-lg-3 col-xl-3 text-lg-right">
