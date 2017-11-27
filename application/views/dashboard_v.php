@@ -15,12 +15,9 @@ error_reporting(0);
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/components.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/custom.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/themify/css/themify-icons.css">
-
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/vendors/ionicons/css/ionicons.min.css">
- 
 
     <!-- end of global styles-->
-
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/datatables/css/scroller.bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/datatables/css/colReorder.bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/datatables/css/dataTables.bootstrap.min.css" />
@@ -46,6 +43,7 @@ error_reporting(0);
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/switchery/css/switchery.min.css" />
     
 
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/toastr.css" />
     <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
 
 </head>
@@ -665,7 +663,6 @@ error_reporting(0);
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/fixed_menu.js"></script>
 
 <!-- global scripts end-->
-
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/select2/js/select2.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pluginjs/dataTables.tableTools.js"></script>
@@ -698,10 +695,15 @@ error_reporting(0);
 <!-- end of plugin scripts -->
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/calendar.js"></script>
 
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/noty/js/jquery.noty.packaged.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/js/pages/toastr_notifications.js"></script>
+
 <!--end of plugin scripts-->
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/simple_datatables.js"></script>
-<script type="text/javascript" src="<?=base_url();?>assets/js/pages/new_dashboard.js"></script>
+<!-- <script type="text/javascript" src="<?=base_url();?>assets/js/pages/new_dashboard.js"></script> -->
 <script type="text/javascript" src="<?=base_url();?>assets/js/form.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/form_elements.js"></script>
+
+
 </body>
 </html>
