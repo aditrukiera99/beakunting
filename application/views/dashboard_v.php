@@ -460,7 +460,7 @@
                             <button type="button" class="btn btn-warning" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Banking </label>
                             </button>
-                            <div class="dropdown-menu admire_admin" style="width: 270px;">
+                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
                                     Write Check
                                 </a>
