@@ -1,3 +1,4 @@
+<link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/new_dashboard.css"/>
 <header class="head">
                 <div class="main-bar">
                     <div class="row">
