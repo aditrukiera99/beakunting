@@ -460,7 +460,7 @@
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Banking </label>
                             </button>
-                            <div class="dropdown-menu admire_admin" style="width: 270px;">
+                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
                                     Write Check
                                 </a>
