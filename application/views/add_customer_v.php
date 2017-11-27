@@ -572,7 +572,5 @@
     </div>
 </div>
 
-<span class="runner btn-outline-primary" data-layout="bottomCenter" data-type="alert">Alert</span>
-
 </form>
 

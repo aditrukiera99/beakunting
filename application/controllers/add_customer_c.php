@@ -52,6 +52,8 @@ class Add_customer_c extends CI_Controller {
 				('$cust_name','$cust_balance','$cust_company','$cust_fullname','$cust_job_title','$cust_main_phone','$cust_mobile','$cust_fax','$cust_email','$cust_website','$cust_bill_to','$cust_ship_to','$acc_no','$acc_terms','$acc_method','$cc_no','$cc_exp_month','$cc_exp_year','$cc_name','$cc_address','$cc_zip')
 			");
 
+			$msg = 1;
+
 		}
 
 		$data = array(
