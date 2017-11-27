@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/themify/css/themify-icons.css">
 
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/vendors/ionicons/css/ionicons.min.css">
-
+ 
 
     <!-- end of global styles-->
 
