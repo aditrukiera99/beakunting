@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Be-Accounting</title>
+    <title>Dashboard | Admire</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/logo1.ico"/>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/themify/css/themify-icons.css">
 
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/vendors/ionicons/css/ionicons.min.css">
-
+ 
 
     <!-- end of global styles-->
 
@@ -56,7 +56,7 @@
 <div class="bg-dark" id="wrap">
     <div id="top" class="fixed">
         <!-- .navbar -->
-        <nav class="navbar navbar-static-top" style="background: #539CC1;">
+        <nav class="navbar navbar-static-top" style="background: #f0f5f5;">
             <div class="container-fluid m-0">
                 <a class="navbar-brand float-left text-center" href="index.html">
                     <h4 class="text-white"><img src="img/logow.png" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
@@ -70,8 +70,8 @@
                     <div class="btn-group" style="margin-left: 25px;margin-top: 3px;">
                         <div class="user-settings no-bg">
 
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">File </label>
+                            <button type="button" class="btn bg-gray" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; ">File </label>
                             </button>
                             <div class="dropdown-menu admire_admin">
                                 
@@ -85,8 +85,8 @@
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">List </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">List </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
                                 <a class="dropdown-item" href="<?=base_url();?>accounts_c">
@@ -140,8 +140,8 @@
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">Accountant </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Accountant </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
                                 <a class="dropdown-item" href="edit_user.html">
@@ -203,8 +203,8 @@
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">Company </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Company </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 220px;">
                                 <a class="dropdown-item" href="#">
@@ -279,8 +279,8 @@
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">Customers </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Customers </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -355,8 +355,8 @@
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">Vendors </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Vendors </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -394,8 +394,8 @@
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">Employee </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Employee </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -453,12 +453,12 @@
                                     Billing Rate Level List
                                 </a>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;">Banking </label>
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Banking </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -659,6 +659,7 @@
 <!-- global scripts-->
 <script type="text/javascript" src="<?=base_url();?>assets/js/components.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/custom.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/js/pages/fixed_menu.js"></script>
 
 <!-- global scripts end-->
 
