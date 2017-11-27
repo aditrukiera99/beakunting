@@ -269,19 +269,15 @@
                                         
                                         <div class="col-lg-6 col-xl-6 text-lg-right">
                                             <button type="button" class="btn btn-labeled btn-success">
-                                                <span class="btn-label">
-                                                    <i class="fa fa-save"></i>
-                                                </span>
-                                                          Simpan
-                                                   </button>
+                                                <span class="btn-label"><i class="fa fa-save"></i></span>
+                                                Simpan
+                                            </button>
                                         </div>
                                          <div class="col-lg-3 col-xl-3 text-lg-right"> 
                                             <button type="button" class="btn btn-labeled btn-primary">
-                                                <span class="btn-label">
-                                                    <i class="fa fa-times"></i>
-                                                </span>
-                                                          Batal
-                                                   </button>
+                                                <span class="btn-label"><i class="fa fa-times"></i></span>
+                                                Batal
+                                            </button>
                                         </div>
                                     </div>
 
