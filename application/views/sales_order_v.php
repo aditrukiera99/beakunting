@@ -28,7 +28,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">SALES ORDER</div>
+            <div class="card-header bg-primary">SALES ORDER</div>
             <div class="card-block cards_section_margin">
                 
                 <div class="card-block">
@@ -131,13 +131,13 @@
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="bg-mint">ITEM</th>
-                                            <th class="bg-mint">DESCRIPTION</th>
-                                            <th class="bg-mint">QUANTITY</th>
-                                            <th class="bg-mint">U/M</th>
-                                            <th class="bg-mint">RATE</th>
-                                            <th class="bg-mint">AMOUNT</th>
-                                            <th class="bg-mint">TAX</th>
+                                            <th class="bg-primary">ITEM</th>
+                                            <th class="bg-primary">DESCRIPTION</th>
+                                            <th class="bg-primary">QUANTITY</th>
+                                            <th class="bg-primary">U/M</th>
+                                            <th class="bg-primary">RATE</th>
+                                            <th class="bg-primary">AMOUNT</th>
+                                            <th class="bg-primary">TAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
