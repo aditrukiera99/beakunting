@@ -69,7 +69,7 @@ z-index: 999999">
 <div class="bg-dark" id="wrap">
     <div id="top">
         <!-- .navbar -->
-        <nav class="navbar navbar-static-top" style="background: #539CC1;">
+        <nav class="navbar navbar-static-top" style="background: #bac4c5;">
             <div class="container-fluid m-0">
                 <a class="navbar-brand float-left text-center" href="index.html">
                     <h4 class="text-white"><img src="img/logow.png" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
@@ -83,7 +83,7 @@ z-index: 999999">
                     <div class="btn-group" style="margin-left: 25px;margin-top: 3px;">
                         <div class="user-settings no-bg">
 
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn bg-gray" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">File </label>
                             </button>
                             <div class="dropdown-menu admire_admin">
@@ -98,7 +98,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">List </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
@@ -153,7 +153,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Accountant </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
@@ -216,7 +216,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Company </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 220px;">
@@ -292,7 +292,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Customers </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
@@ -368,7 +368,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Vendors </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
@@ -407,7 +407,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Employee </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
@@ -470,7 +470,7 @@ z-index: 999999">
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
-                            <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown">
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;">Banking </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
