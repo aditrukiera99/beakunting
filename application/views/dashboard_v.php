@@ -453,7 +453,7 @@
                                     Billing Rate Level List
                                 </a>
                             </div>
-                        </div>
+                        </div>  
                     </div>
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
