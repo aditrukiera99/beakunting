@@ -21,6 +21,7 @@ class Add_customer_c extends CI_Controller {
 	{
 		$data = array(
 			'page' => 'add_customer_v', 
+			'view' => 'customer', 
 		);
 
 		$this->load->view('dashboard_v', $data);

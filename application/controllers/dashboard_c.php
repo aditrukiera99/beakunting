@@ -21,6 +21,7 @@ class Dashboard_c extends CI_Controller {
 	{
 		$data = array(
 			'page' => '', 
+			'view' => '', 
 		);
 
 		$this->load->view('dashboard_v', $data);

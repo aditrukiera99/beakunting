@@ -1,3 +1,6 @@
+<?PHP 
+error_reporting(0);
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -48,22 +51,22 @@
 </head>
 
 <body class="fixed_header">
-<div class="preloader" style=" position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 100000; backface-visibility: hidden; background: #ffffff;">
+<!-- <div class="preloader" style=" position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 100000; backface-visibility: hidden; background: #ffffff;">
     <div class="preloader_img" style="width: 200px; height: 200px; position: absolute; left: 48%; top: 48%; background-position: center; z-index: 999999">
         <img src="<?=base_url();?>assets/img/loader.gif" style=" width: 40px;" alt="loading...">
     </div>
-</div>
+</div> -->
 <div class="bg-dark" id="wrap">
     <div id="top" class="fixed">
         <!-- .navbar -->
         <nav class="navbar navbar-static-top" style="background: #f0f5f5;">
             <div class="container-fluid m-0">
                 <a class="navbar-brand float-left text-center" href="index.html">
-                    <h4 class="text-white"><img src="img/logow.png" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
+                    <h4 class="" style="color:#0091cd;">BE.ACCOUNTING</h4>
                 </a>
-                <div class="menu">
-                    <span class="toggle-left" id="menu-toggle">
-                        <i class="fa fa-bars text-white"></i>
+                <div class="menu" style="margin-top: 13px;">
+                    <span class="toggle-left" id="menu-toggle" style="margin-top: 2px;">
+                        <i class="fa fa-bars" style="color:#008C62;"></i>
                     </span>
                 </div>
                 <div class="topnav dropdown-menu-right">
@@ -71,7 +74,7 @@
                         <div class="user-settings no-bg">
 
                             <button type="button" class="btn bg-gray" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; ">File </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">File </label>
                             </button>
                             <div class="dropdown-menu admire_admin">
                                 
@@ -86,7 +89,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">List </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">List </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
                                 <a class="dropdown-item" href="<?=base_url();?>accounts_c">
@@ -141,7 +144,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Accountant </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Accountant </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
                                 <a class="dropdown-item" href="edit_user.html">
@@ -204,7 +207,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Company </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Company </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 220px;">
                                 <a class="dropdown-item" href="#">
@@ -280,7 +283,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Customers </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Customers </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -356,7 +359,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Vendors </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Vendors </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -395,7 +398,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Employee </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Employee </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -458,7 +461,7 @@
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62;">Banking </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Banking </label>
                             </button>
                              <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="#">
@@ -541,12 +544,12 @@
                         <i class="fa fa-calendar"> </i> &nbsp; Calender
                     </a>
                 </li>
-                <li >
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="ion-pie-graph"> </i> &nbsp; Snapshot
                     </a>
-                </li>
-                <li>
+                </li> -->
+                <li <?PHP if($view == "customer"){?> class="active" <?PHP } ?>>
                     <a href="<?=base_url();?>customer_c">
                         <i class="fa fa-users"> </i> &nbsp; Customer
                     </a>
@@ -561,21 +564,21 @@
                         <i class="ion-android-user-menu"> </i> &nbsp; Employees
                     </a>
                 </li>
-                <li >
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="fa fa-file-archive-o"> </i> &nbsp; Docs
                     </a>
-                </li>
+                </li> -->
                 <li >
                     <a href="gallery.html">
                         <i class="ion-clipboard"> </i> &nbsp; Reports
                     </a>
                 </li>
-                <li >
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="fa fa-laptop"> </i> &nbsp; App Center
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?=base_url();?>invoice_c">
                         <i class="ti-receipt"> </i> &nbsp; Invoice

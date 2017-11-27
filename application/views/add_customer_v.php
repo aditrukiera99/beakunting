@@ -29,11 +29,13 @@
         <div class="col-lg-12">
         <div class="card">
             <div class="card-header bg-success">CUSTOMER</div>
+
                     <div class="card-block cards_section_margin">
                         <div class="row">
                             <div class="col-lg-12">
+                                <br>
                                 <div class="form-group row">
-                                    <div class="col-lg-2 col-xl-1">
+                                    <div class="col-lg-2 col-xl-2">
                                         <label for="name4" class=" col-form-label">Customer Name</label>
                                     </div>
                                     <div class="col-lg-4 col-xl-4">
@@ -41,12 +43,12 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-users"></i>
                                             </span>
-                                            <input type="text" name="" class="form-control" placeholder="">
+                                            <input type="text" name="cust_name" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-lg-2 col-xl-1">
+                                    <div class="col-lg-2 col-xl-2">
                                         <label for="name4" class=" col-form-label">Opening Balance</label>
                                     </div>
                                     <div class="col-lg-4 col-xl-4">
@@ -54,7 +56,9 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-money"></i>
                                             </span>
-                                            <input type="text" name="" class="form-control" placeholder=""><label for="name4" class=" col-form-label">&nbsp As Of &nbsp </label><input type="date" name="" class="form-control" placeholder="">
+                                            <input type="text" name="cust_balance" class="form-control" placeholder="">
+                                            <!-- <label for="name4" class=" col-form-label">&nbsp; As Of &nbsp; </label> -->
+                                            <!-- <input type="date" name="" class="form-control" placeholder=""> -->
                                         </div>
                                     </div>
                                 </div>
@@ -86,14 +90,14 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group row">
                                                         <div class="col-lg-2 col-xl-2">
-                                                            <label for="name4" class=" col-form-label">Company Name</label>
+                                                            <label for="name4" class=" col-form-label">Company</label>
                                                         </div>
                                                         <div class="col-lg-4 col-xl-8">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-users"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name="cust_company" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -106,7 +110,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-home"></i>
                                                                 </span>
-                                                                    <input type="text" name="" class="form-control" placeholder="">
+                                                                    <input type="text" name="cust_fullname" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -119,7 +123,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-users"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name="cust_job_title" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -132,20 +136,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-phone-square"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-lg-2 col-xl-2">
-                                                            <label for="name4" class=" col-form-label">Work Phone</label>
-                                                        </div>
-                                                        <div class="col-lg-4 col-xl-8">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-phone"></i>
-                                                                </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name="cust_main_phone" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -158,7 +149,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-mobile-phone fa-2x"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name="cust_mobile" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -171,7 +162,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-fax"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name=""cust_fax class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -184,7 +175,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-envelope"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name="cust_email" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -197,7 +188,7 @@
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-bookmark"></i>
                                                                 </span>
-                                                                <input type="text" name="" class="form-control" placeholder="">
+                                                                <input type="text" name="cust_website" class="form-control" placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -205,27 +196,27 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group row">
                                                     <div class="col-lg-2 col-xl-3">
-                                                        <label for="name4" class=" col-form-label">Alamat Pembayaran</label>
+                                                        <label for="name4" class=" col-form-label">Bill To</label>
                                                     </div>
                                                     <div class="col-lg-4 col-xl-8">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-home"></i>
                                                             </span>
-                                                            <textarea class="form-control" rows="4"></textarea>
+                                                            <textarea class="form-control" rows="4" name="cust_bill_to"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-lg-2 col-xl-3">
-                                                        <label for="name4" class=" col-form-label">Alamat Pengiriman</label>
+                                                        <label for="name4" class=" col-form-label">Ship To</label>
                                                     </div>
                                                     <div class="col-lg-4 col-xl-8">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-home"></i>
                                                             </span>
-                                                            <textarea class="form-control" rows="4"></textarea>
+                                                            <textarea class="form-control" rows="4" name="cust_ship_to"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>  
@@ -249,7 +240,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-users"></i>
                                                         </span>
-                                                        <input type="text" name="" class="form-control" placeholder="">
+                                                        <input type="text" name="acc_no" class="form-control" placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -262,20 +253,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-credit-card"></i>
                                                         </span>
-                                                            <input type="text" name="" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-2 col-xl-4">
-                                                    <label for="name4" class=" col-form-label">Preferred Delivery Method</label>
-                                                </div>
-                                                <div class="col-lg-4 col-xl-8">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-credit-card"></i>
-                                                        </span>
-                                                        <input type="text" name="" class="form-control" placeholder="">
+                                                            <input type="text" name="acc_terms" class="form-control" placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -288,62 +266,17 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-credit-card"></i>
                                                         </span>
-                                                        <input type="text" name="" class="form-control" placeholder="">
+                                                        <input type="text" name="acc_method" class="form-control" placeholder="">
                                                     </div>
                                                 </div>
+                                            </div>                                            
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-2 col-xl-4">
-                                                    <label for="name4" class=" col-form-label">Credit Limit</label>
-                                                </div>
-                                                <div class="col-lg-4 col-xl-8">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-credit-card"></i>
-                                                        </span>
-                                                        <input type="text" name="" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-2 col-xl-4">
-                                                    <label for="name4" class=" col-form-label">Price Level</label>
-                                                </div>
-                                                <div class="col-lg-4 col-xl-8">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-money"></i>
-                                                        </span>
-                                                        <select class="form-control">
-                                                            <option></option>
-                                                            <option>Commercial</option>
-                                                            <option>Industrial</option>
-                                                        </select>
-                                                        <span class="input-group-addon">
-                                                            <a href="<?=base_url();?>add_price_c"><i class="fa fa-plus-circle"></i></a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-2 col-xl-4">
-                                                    <label for="name4" class=" col-form-label">Add Online Payment Link To Invoice</label>
-                                                </div>
-                                                <div class="col-lg-4 col-xl-8">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-credit-card"></i>
-                                                        </span>
-                                                        <input type="text" name="" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-6" style="border: 2px solid;">
                                                 <div class="form-group row">
-                                                    <div class="col-lg-2 col-xl-3">
-                                                        <label for="name4" class=" col-form-label">Credit Card Information</label>
+                                                    <div class="col-lg-12 col-xl-12">
+                                                        <center>
+                                                        <label for="name4" class=" col-form-label"><h4>Credit Card Information</h4></label>
+                                                        </center>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -355,7 +288,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-credit-card"></i>
                                                             </span>
-                                                            <input type="text" name="" class="form-control" placeholder="">
+                                                            <input type="text" name="cc_no" class="form-control" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -365,7 +298,9 @@
                                                     </div>
                                                     <div class="col-lg-4 col-xl-3">
                                                         <div class="input-group">
-                                                            <input type="text" name="" class="form-control" placeholder=""> &nbsp  / &nbsp <input type="text" name="" class="form-control" placeholder="">
+                                                            <input type="text" name="cc_exp_month" class="form-control" placeholder=""> 
+                                                            &nbsp  / &nbsp 
+                                                            <input type="text" name="cc_exp_year" class="form-control" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -391,7 +326,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-home"></i>
                                                             </span>
-                                                            <textarea class="form-control" rows="3"></textarea>
+                                                            <input type="text" name="" class="form-control" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -412,6 +347,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div role="tabpanel" class="tab-pane fade" id="tab3">
                                     <div class="card_nav_body_padding follower_images">
                                         <div class="row">
