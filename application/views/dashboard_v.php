@@ -41,33 +41,20 @@
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/c3/css/c3.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/toastr/css/toastr.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/switchery/css/switchery.min.css" />
-    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/new_dashboard.css"/>
+    <!-- <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/new_dashboard.css"/> -->
 
     <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
 
 </head>
 
-<body class="body">
-<div class="preloader" style=" position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100000;
-  backface-visibility: hidden;
-  background: #ffffff;">
-    <div class="preloader_img" style="width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 48%;
-  top: 48%;
-  background-position: center;
-z-index: 999999">
+<body class="fixed_header">
+<div class="preloader" style=" position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 100000; backface-visibility: hidden; background: #ffffff;">
+    <div class="preloader_img" style="width: 200px; height: 200px; position: absolute; left: 48%; top: 48%; background-position: center; z-index: 999999">
         <img src="<?=base_url();?>assets/img/loader.gif" style=" width: 40px;" alt="loading...">
     </div>
 </div>
 <div class="bg-dark" id="wrap">
-    <div id="top">
+    <div id="top" class="fixed">
         <!-- .navbar -->
         <nav class="navbar navbar-static-top" style="background: #539CC1;">
             <div class="container-fluid m-0">
@@ -510,13 +497,11 @@ z-index: 999999">
                 </div>
                 
             </div>
-
-            <!-- /.container-fluid --> </nav>
-        <!-- /.navbar -->
-        <!-- /.head --> </div>
+        </nav>
+    </div>
     <!-- /#top -->
     <div class="wrapper">
-        <div id="left">
+        <div id="left" class="fixed">
             <div class="media user-media bg-mint dker">
                 <div class="user-media-toggleHover">
                     <span class="fa fa-user"></span>
@@ -531,16 +516,16 @@ z-index: 999999">
                         <div class="input-group">
                             <input type="search" class="form-control" placeholder="search">
                             <span class="input-group-btn">
-<button class="btn without_border" type="button"><span class="fa fa-search">
-</span></button>
-</span>
+                            <button class="btn without_border" type="button">
+                            <span class="fa fa-search"></span>
+                            </button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #menu -->
             <ul id="menu" class="bg-mint dker">
-                
                 <li>
                     <a href="<?=base_url();?>company_c">
                         <i class="fa fa-bank"> </i> &nbsp; My Company
@@ -626,7 +611,7 @@ z-index: 999999">
                         <i class="fa fa-clock-o"> </i> &nbsp; Rmnd
                     </a>
                 </li>
-                <li >
+                <li>
                     <a href="gallery.html">
                         <i class="fa fa-search"> </i> &nbsp; Find
                     </a>
@@ -651,176 +636,31 @@ z-index: 999999">
                         <i class="ion-closed-captioning"> </i> &nbsp; Credit Cards
                     </a>
                 </li>
-                
-                
             </ul>
             <!-- /#menu -->
         </div>
         <!-- /#left -->
-        <div id="content" class="bg-container">
+        <div id="content" class="bg-container fixed_header_menu_conainer fixed_header_menu_page">
             <div class="outer">
                 <div class="inner bg-container">
-            <?php 
-            if($page != ''){
-                $this->load->view($page);
-            }
-            ?>
+                    <?php 
+                    if($page != ''){
+                        $this->load->view($page);
+                    }
+                    ?>
                 </div>
             </div>
         </div>
-            <!-- /#content -->
-        </div>
+        <!-- /#content -->
     </div>
     <!--wrapper-->
-    <div id="right">
-        <div class="right_content">
-            <div class="alert alert-success white_txt">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Welcome Micheal
-                    <br/></strong>
-                Set Your Skin Here. Checkout Admin Statistics. Good Day!.
-            </div>
-            <div class="well well-small dark">
-                <div class="xs_skin_hide hidden-sm-up toggle-right"> <i class="fa fa-cog"></i></div>
-                <h4 class="brown_txt">
-                    <span class="fa-stack fa-sm">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
-                </span>
-                    Skins
-                </h4>
-                <br/>
-
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('blue_black_skin.css','css')">
-                    <div class="skin_blue skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('green_black_skin.css','css')">
-                    <div class="skin_green skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('purple_black_skin.css','css')">
-                    <div class="skin_purple skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('orange_black_skin.css','css')">
-                    <div class="skin_orange skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('red_black_skin.css','css')">
-                    <div class="skin_red skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('mint_black_skin.css','css')">
-                    <div class="skin_mint skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('brown_black_skin.css','css')">
-                    <div class="skin_brown skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('black_skin.css','css')">
-                    <div class="skin_black skin_size"></div>
-                    <div class="skin_black skin_size"></div>
-                </div>
-                <div class="skin_btn skin_blue" onclick="javascript:loadjscssfile('blue_skin.css','css')"></div>
-                <div class="skin_btn skin_green" onclick="javascript:loadjscssfile('green_skin.css','css')"></div>
-                <div class="skin_btn skin_purple" onclick="javascript:loadjscssfile('purple_skin.css','css')"></div>
-                <div class="skin_btn skin_orange" onclick="javascript:loadjscssfile('orange_skin.css','css')"></div>
-                <div class="skin_btn skin_red" onclick="javascript:loadjscssfile('red_skin.css','css')"></div>
-                <div class="skin_btn skin_mint" onclick="javascript:loadjscssfile('mint_skin.css','css')"></div>
-                <div class="skin_btn skin_brown" onclick="javascript:loadjscssfile('brown_skin.css','css')"></div>
-                <div class="skin_btn skin_black" onclick="javascript:loadjscssfile('black_skin.css','css')"></div>
-
-            </div>
-            <div class="well well-small dark">
-                <h4 class="brown_txt margin15_bottom">
-                    <img src="img/admin.jpg" width="32" height="32" class="rounded-circle avatar-img" alt="avatar"> &nbsp;Admin
-                    Statistics</h4>
-                <br/>
-                <ul class="list-unstyled">
-                    <li class="green_txt margin15_bottom">
-                <span class="fa-stack fa-sm">
-                    <i class="fa fa-circle fa-stack-2x text-mint"></i>
-                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
-                        &nbsp; Last Login
-                        <span class="inlinesparkline float-right">2hrs Back</span>
-                    </li>
-                    <li class="warning_txt margin15_bottom">
-                        <span class="fa-stack fa-sm">
-                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
-                      <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                    </span>
-                        &nbsp; Pending Tasks
-                        <span class="dynamicsparkline float-right">12</span>
-                    </li>
-                    <li class="primary_txt margin15_bottom">
-                        <span class="fa-stack fa-sm">
-                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
-                    </span>
-                        &nbsp; Weather Today
-                        <span class="dynamicbar float-right">Rainy</span>
-                    </li>
-                    <li class="margin15_bottom">
-                        <span class="fa-stack fa-sm">
-                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
-                      <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
-                    </span>
-                        &nbsp; Events
-                        <span class="inlinebar float-right">Team Out</span>
-                    </li>
-                    <li class="success_txt margin15_bottom">
-                        <span class="fa-stack fa-sm">
-                      <i class="fa fa-circle fa-stack-2x text-success"></i>
-                      <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
-                    </span>
-                        &nbsp; Notifications
-                        <span class="inlinebar float-right">5</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="well well-small dark right_progressbar_section">
-                <h4 class="brown_txt">
-                    <span class="fa-stack fa-sm">
-                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
-                      <i class="fa fa-hand-o-down fa-stack-1x fa-inverse"></i>
-                    </span>
-                    Alerts
-                </h4>
-                <br/>
-                <span>Sales Improvement</span>
-                <span class="float-right">
-                <small>20%</small>
-            </span>
-
-                <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span>Server Load</span>
-                <span class="float-right">
-                <small>80%</small>
-            </span>
-                <div class="progress">
-                    <div class="progress-bar bg-mint" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span>Traffic Improvement</span>
-                <span class="float-right">
-                <small>55%</small>
-            </span>
-                <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- # right side -->
 </div>
 <!-- /#wrap -->
 <!-- global scripts-->
 <script type="text/javascript" src="<?=base_url();?>assets/js/components.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/custom.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/js/pages/fixed_menu.js"></script>
+
 <!-- global scripts end-->
 
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/select2/js/select2.js"></script>
@@ -860,6 +700,5 @@ z-index: 999999">
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/new_dashboard.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/form.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/form_elements.js"></script>
-
 </body>
 </html>
