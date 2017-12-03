@@ -27,10 +27,12 @@
 
 <br>
 
+<?PHP if($msg == 1){ ?>
 <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <strong>Well done!</strong> You successfully read this important alert message.
+    <strong>Saved!</strong> New customer data has been saved.
 </div>
+<?PHP } ?>
 
 <form method="post" action="<?=base_url();?>add_customer_c">
 <div class="row">
@@ -49,7 +51,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-users"></i>
                                     </span>
-                                    <input type="text" name="cust_name" class="form-control" placeholder="">
+                                    <input type="text" name="cust_name" class="form-control" required="">
                                 </div>
                             </div>
                         </div>
@@ -62,7 +64,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-money"></i>
                                     </span>
-                                    <input type="text" name="cust_balance" class="form-control" placeholder="">
+                                    <input type="text" name="cust_balance" class="form-control" placeholder="" onkeyup="FormatCurrency(this);">
                                 </div>
                             </div>
                         </div>

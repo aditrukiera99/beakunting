@@ -15,30 +15,6 @@ table th{
 }
 
 </style>
-<!-- <header class="head">
-    <div class="main-bar">
-        <div class="row">
-        <div class="col-sm-4">
-            <h4 class="nav_top_align">
-                <i class="fa fa-inbox"></i>
-                Customer
-            </h4>
-        </div>
-        <div class="col-sm-8">
-            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                <li class="breadcrumb-item">
-                    <a href="index.html">
-                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="active breadcrumb-item">Customer</li>
-            </ol>
-        </div>
-        </div>
-    </div>
-</header>
-<br> -->
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
@@ -141,12 +117,14 @@ table th{
 
         <div class="card">
             <div class="card-header bg-primary disabled">TRANSACTION
+                <a href="<?=base_url();?>sales_order_c">
                 <button type="button" class="btn btn-labeled btn-info" style="float: right;">
                     <span class="btn-label">
                         <i class="fa fa-plus-square"></i>
                     </span>
                     New Transaction
                 </button>
+                </a>
             </div>
             <div class="card-block cards_section_margin" style="padding: 0px;">
                 <div class="row">

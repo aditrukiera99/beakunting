@@ -6,10 +6,10 @@ error_reporting(0);
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard | Admire</title>
+    <title>Be Account</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="img/logo1.ico"/>
+    <link rel="shortcut icon" href="<?=base_url();?>assets/img/logo1.ico"/>
 
     <!--global styles-->
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/components.css"/>
@@ -23,15 +23,15 @@ error_reporting(0);
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/datatables/css/dataTables.bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/dataTables.bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/select2/css/select2.min.css" />
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/datepicker/css/bootstrap-datepicker.min.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/fullcalendar/css/fullcalendar.min.css" />
-    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/calendar_custom.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/chosen/css/chosen.css"/>
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/calendar_custom.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/bootstrap-switch/css/bootstrap-switch.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/jasny-bootstrap/css/jasny-bootstrap.min.css"/>
 
 
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/tables.css" />
-    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/general_components.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/form_layouts.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/form_elements.css"/>
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/css/pages/icon.css">
@@ -41,11 +41,16 @@ error_reporting(0);
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/c3/css/c3.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/toastr/css/toastr.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/switchery/css/switchery.min.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/general_components.css"/> -->
     
 
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/toastr.css" />
     <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
-
+    <style type="text/css">
+        .chosen-single{
+            color: #000 !important;
+        }
+    </style>
 </head>
 
 <body class="fixed_header">
@@ -547,12 +552,12 @@ error_reporting(0);
                         <i class="ion-pie-graph"> </i> &nbsp; Snapshot
                     </a>
                 </li> -->
-                <li <?PHP if($view == "customer"){?> class="active" <?PHP } ?>>
+                <li <?PHP if($view == "customer"){ ?> class="active" <?PHP } ?>>
                     <a href="<?=base_url();?>customer_c">
                         <i class="fa fa-users"> </i> &nbsp; Customer
                     </a>
                 </li>
-                <li>
+                <li <?PHP if($view == "vendors"){ ?> class="active" <?PHP } ?>>
                     <a href="<?=base_url();?>vendors_c">
                         <i class="ion-android-contacts"> </i> &nbsp; Vendors
                     </a>
@@ -582,7 +587,7 @@ error_reporting(0);
                         <i class="ti-receipt"> </i> &nbsp; Invoice
                     </a>
                 </li>
-                <li>
+                <li <?PHP if($view == "items"){ ?> class="active" <?PHP } ?>>
                     <a href="<?=base_url();?>items_c">
                         <i class="fa fa-cubes"> </i> &nbsp; Item
                     </a>
@@ -602,9 +607,9 @@ error_reporting(0);
                         <i class="fa fa-tasks"> </i> &nbsp; Reg
                     </a>
                 </li>
-                <li>
+                <li <?PHP if($view == "accounts"){ ?> class="active" <?PHP } ?>>
                     <a href="<?=base_url();?>accounts_c">
-                        <i class="fa fa-calendar-o"> </i> &nbsp; Accnt
+                        <i class="fa fa-calendar-o"> </i> &nbsp; Acccount
                     </a>
                 </li>
                 <li >
@@ -661,8 +666,11 @@ error_reporting(0);
 <script type="text/javascript" src="<?=base_url();?>assets/js/components.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/custom.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/fixed_menu.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/js/js-form.js"></script>
 
 <!-- global scripts end-->
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/jquery.uniform/js/jquery.uniform.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/chosen/js/chosen.jquery.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/select2/js/select2.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pluginjs/dataTables.tableTools.js"></script>
@@ -692,6 +700,13 @@ error_reporting(0);
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/moment/js/moment.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/fullcalendar/js/fullcalendar.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pluginjs/calendarcustom.js" ></script>
+
+
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/inputlimiter/js/jquery.inputlimiter.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/validval/js/jquery.validVal.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/datetimepicker/js/DateTimePicker.min.js"></script>
+
 <!-- end of plugin scripts -->
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/calendar.js"></script>
 
@@ -699,11 +714,11 @@ error_reporting(0);
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/toastr_notifications.js"></script>
 
 <!--end of plugin scripts-->
+<script type="text/javascript" src="<?=base_url();?>assets/js/pages/datetime_piker.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/simple_datatables.js"></script>
 <!-- <script type="text/javascript" src="<?=base_url();?>assets/js/pages/new_dashboard.js"></script> -->
 <script type="text/javascript" src="<?=base_url();?>assets/js/form.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/form_elements.js"></script>
-
 
 </body>
 </html>

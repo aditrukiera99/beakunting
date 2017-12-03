@@ -19,10 +19,12 @@ class Add_customer_c extends CI_Controller {
 	 */
 	public function index()
 	{
-
+		$msg = "";
 		if($this->input->post('save')){
 			$cust_name 	 	 = $this->input->post('cust_name');
 			$cust_balance 	 = $this->input->post('cust_balance');
+			$cust_balance    = str_replace(',', '', $cust_balance);
+			
 			$cust_company    = $this->input->post('cust_company');
 			$cust_fullname   = $this->input->post('cust_fullname');
 			$cust_job_title  = $this->input->post('cust_job_title');
@@ -59,6 +61,7 @@ class Add_customer_c extends CI_Controller {
 		$data = array(
 			'page' => 'add_customer_v', 
 			'view' => 'customer', 
+			'msg' => $msg, 
 		);
 
 		$this->load->view('dashboard_v', $data);

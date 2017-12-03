@@ -19,8 +19,31 @@ class Add_accounts_c extends CI_Controller {
 	 */
 	public function index()
 	{
+		$msg = "";
+		
+		if($this->input->post('kode_akun')){
+			$msg = 1;
+			$kategori  = $this->input->post('kategori');
+			$kode_akun = $this->input->post('kode_akun');
+			$nama_akun = $this->input->post('nama_akun');
+			$anak_dari = $this->input->post('anak_dari');
+			$deskripsi = addslashes($this->input->post('deskripsi'));
+
+			$this->db->query("
+				INSERT INTO ak_kode_akuntansi
+				(KATEGORI, KODE_AKUN, NAMA_AKUN, ANAK_DARI, DESKRIPSI)
+				VALUES 
+				('$kategori', '$kode_akun', '$nama_akun', '$anak_dari', '$deskripsi')
+			");
+		}
+
+		$data_akun = $this->db->query("SELECT * FROM ak_kode_akuntansi WHERE ANAK_DARI = '' OR ANAK_DARI IS NULL ORDER BY ID ASC")->result();
+
 		$data = array(
 			'page' => 'add_accounts_v', 
+			'view' => 'accounts',
+			'data_akun' => $data_akun,
+			'msg' => $msg,
 		);
 
 		$this->load->view('dashboard_v', $data);

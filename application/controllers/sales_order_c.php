@@ -19,11 +19,67 @@ class Sales_order_c extends CI_Controller {
 	 */
 	public function index()
 	{
+
+		if($this->input->post('cust_id')){
+			$so_number 		= $this->input->post('so_number');
+			$cust_id 		= $this->input->post('cust_id');
+			$cust_name 		= $this->input->post('cust_name');
+			$tgl 			= $this->input->post('tgl');
+			$cust_address 	= addslashes($this->input->post('cust_address'));
+			$ship_to 		= addslashes($this->input->post('ship_to'));
+			$memo 		    = addslashes($this->input->post('memo'));
+			$cust_msg 		= addslashes($this->input->post('cust_msg'));
+			$subtotal 		= addslashes($this->input->post('subtotal'));
+
+			$this->db->query("
+				INSERT INTO ak_penjualan
+				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUBTOTAL)
+				VALUES 
+				('Sales Order', '$so_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal')
+			");
+
+			$id_penjualan = $this->db->insert_id();
+
+			$id_produk   = $this->input->post('id_produk');
+			$kode_akun   = $this->input->post('kode_akun');
+			$nama_produk = $this->input->post('nama_produk');
+			$satuan      = $this->input->post('satuan');
+			$qty         = $this->input->post('qty');
+			$harga       = $this->input->post('harga');
+			$total       = $this->input->post('total');
+
+			foreach ($id_produk as $key => $val) {
+				$this->simpan_detail_penjualan($kode_akun[$key], $nama_produk[$key], $satuan[$key], $qty[$key], $harga[$key], $total[$key]);
+			}
+		}
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$get_tax = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+
 		$data = array(
 			'page' => 'sales_order_v', 
+			'view' => 'customer', 
+			'get_item' => $get_item, 
+			'get_cust' => $get_cust, 
+			'get_tax' => $get_tax, 
 		);
 
 		$this->load->view('dashboard_v', $data);
+	}
+
+	function get_item_info(){
+		$id = $this->input->post('id');
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE ID = '$id' ")->row();
+		echo json_encode($get_item);
+	}
+
+	function get_info_pajak(){
+		$id = $this->input->post('id');
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE ID = '$id' ")->row();
+		echo json_encode($get_item);
 	}
 }
 

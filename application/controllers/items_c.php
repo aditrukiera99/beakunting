@@ -19,8 +19,13 @@ class Items_c extends CI_Controller {
 	 */
 	public function index()
 	{
+
+		$data_item = $this->db->query("SELECT * FROM ak_produk ORDER BY ID DESC")->result();
+
 		$data = array(
 			'page' => 'items_v', 
+			'view' => 'items', 
+			'data_item' => $data_item, 
 		);
 
 		$this->load->view('dashboard_v', $data);
