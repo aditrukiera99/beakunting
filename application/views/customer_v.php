@@ -115,7 +115,7 @@ table th{
             
         <br>
 
-        <div class="card">
+        <div class="card" style="display: none;" id="info_3">
             <div class="card-header bg-primary disabled">TRANSACTION
                 <a href="<?=base_url();?>sales_order_c">
                 <button type="button" class="btn btn-labeled btn-info" style="float: right;">
@@ -176,6 +176,7 @@ table th{
 
                 $('#info_1').hide();
                 $('#info_2').show();
+                $('#info_3').show();
 
             }
         });

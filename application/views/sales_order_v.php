@@ -15,6 +15,13 @@
 }
 </style>
 
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> Sales Order has been created.
+</div>
+<?PHP } ?>
+
 <form class="form-horizontal" method="post" action="<?=base_url();?>sales_order_c">
 <div class="row">
     <div class="col-lg-12">
@@ -38,7 +45,13 @@
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-                                                <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+
+                                                    <?PHP if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+                                                    <?PHP } else { ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_USAHA;?></option>
+                                                    <?PHP } ?>
+
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="">
@@ -196,7 +209,7 @@
                         <div class="col-lg-6 col-xl-7 text-lg-right">
                             <button type="submit" class="btn btn-labeled btn-success">
                                 <span class="btn-label"><i class="fa fa-save"></i></span>
-                                Save S.O
+                                Save & Create
                             </button>
                         </div>
                         <div class="col-lg-3 col-xl-3 text-lg-right"> 
@@ -224,7 +237,7 @@
                 </button>
                 <input type="text" class="form-control form-control-success" id="username" style="width: 50%;" placeholder="Search item ...">
             </div>
-            <div class="modal-body" style="height: 460px; padding: 0px; background: #606061;">
+            <div class="modal-body" style="height: 460px; padding: 6px; background: #fff;">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -267,6 +280,9 @@
                 var total = 1 * parseFloat(price);
                 total = NumberToMoney(total).split('.00').join('');
 
+                var jml = $('#item_row').find('tr').length;
+                var id2 = parseFloat(jml) + parseFloat(id);
+
                 var isi  =  '<tr>'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
@@ -275,19 +291,19 @@
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="qty_'+id+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+res.ID+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="harga_'+id+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+res.ID+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
+                                    '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="total_'+id+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
+                                    '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
                                 '</td>'+
                             '</tr>';
 
                 $('#item_row').append(isi);
-                hitung_total(res.ID);
+                hitung_total(id2);
                 $('#modal_item_close').click();
 
             }
@@ -350,7 +366,11 @@
             success : function(res){   
                 $('#cust_address').val(res.ALAMAT_TAGIH);
                 $('#ship_to').val(res.ALAMAT_KIRIM);
-                $('#cust_name').val(res.NAMA_PELANGGAN);
+                if(res.NAMA_USAHA == "" || res.NAMA_USAHA == null){
+                    $('#cust_name').val(res.NAMA_PELANGGAN);                    
+                } else {
+                    $('#cust_name').val(res.NAMA_USAHA);                    
+                }
             }
         });
     }

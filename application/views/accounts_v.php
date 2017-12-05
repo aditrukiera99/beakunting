@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12">
         <a href="<?=base_url();?>add_accounts_c">
-            <button type="button" class="btn btn-labeled btn-danger" >
+            <button type="button" class="btn btn-labeled btn-info" >
                 <span class="btn-label">
                     <i class="fa fa-plus-square"></i>
                 </span>
@@ -12,9 +12,9 @@
         <table class="display table table-stripped table-bordered table-hover">
             <thead>
             <tr>
-                <th style="padding: 1px; background: #b9cfed; text-align: center;">NAME</th>
-                <th style="padding: 1px; background: #b9cfed; text-align: center;">TYPE</th>
-                <th style="padding: 1px; background: #b9cfed; text-align: center;">BALANCE TOTAL</th>
+                <th class="bg-success" style="padding: 1px; text-align: center;">NAME</th>
+                <th class="bg-success" style="padding: 1px; text-align: center;">TYPE</th>
+                <th class="bg-success" style="padding: 1px; text-align: center;">BALANCE TOTAL</th>
             </tr>
             </thead>
             <tbody>
