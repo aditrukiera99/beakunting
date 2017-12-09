@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12">
         <a href="<?=base_url();?>add_accounts_c">
-            <button type="button" class="btn btn-labeled btn-info" >
+            <button type="button" class="btn btn-labeled btn-success" >
                 <span class="btn-label">
                     <i class="fa fa-plus-square"></i>
                 </span>

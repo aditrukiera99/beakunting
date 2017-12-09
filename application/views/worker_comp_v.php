@@ -4,7 +4,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-4">
                         <h4 class="nav_top_align">
                             <i class="fa fa-th"></i>
-                            PRICE LIST
+                            WORKER COMP LIST 
                         </h4>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-8">
@@ -15,7 +15,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="#">Price Level List</a>
+                                <a href="#">WORKER COMP LIST</a>
                             </li>
                         </ol>
                     </div>
@@ -28,16 +28,16 @@
                         <div class="col-12 data_tables">
                             <div class="card">
                                 <div class="card-header bg-white">
-                                    <i class="fa fa-table"></i> Price Level List
+                                    <i class="fa fa-table"></i> WORKER COMP LIST
                                 </div>
                                 <div class="card-block">
                                     <br>
-                                    <a href="<?=base_url();?>add_price_list_c">
+                                    <a href="<?=base_url();?>add_worker_comp_c">
                                         <button type="button" class="btn btn-labeled btn-success" >
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>
                                             </span>
-                                                  Tambah Price List
+                                                  Tambah Worker Comp
                                         </button>
                                     </a>
                                     <br>
@@ -49,11 +49,10 @@
                                                         Name
                                                     </th>
                                                     <th class="hidden-xs">
-                                                        Type
+                                                        Description
                                                     </th>
-                                                    <th>
-                                                        Details
-                                                    </th>
+                                                    <th>Rate</th>
+                                                    <th>Effective Date</th>
                                                     <th>Actions</th>
                                                 </tr>
                                                 </thead>
@@ -63,61 +62,77 @@
                                                         <a href="#">Pixel Ltd</a>
                                                     </td>
                                                     <td class="hidden-xs">Server Purchase</td>
+                                                    
+                                                    <td>Server Purchase</td>
+                                                    <td>Server Purchase</td>
+                                                    
                                                     <td>
-                                                        52560.10$
-                                                        <span class="tag tag-primary">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                        <a href="#" class="btn btn-success">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
+                                                        </a>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <a href="#">Smart House</a>
+                                                        <a href="#">Pixel Ltd</a>
                                                     </td>
-                                                    <td class="hidden-xs">Furniture Purchase</td>
+                                                    <td class="hidden-xs">Server Purchase</td>
+                                                    
+                                                    <td>Server Purchase</td>
+                                                    <td>Server Purchase</td>
+                                                    
                                                     <td>
-                                                        5760.00$
-                                                        <span class="tag tag-warning">Pending</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                        <a href="#" class="btn btn-success">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
+                                                        </a>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <a href="#">FoodMaster Ltd</a>
+                                                        <a href="#">Pixel Ltd</a>
                                                     </td>
-                                                    <td class="hidden-xs">Annual Expenses</td>
+                                                    <td class="hidden-xs">Server Purchase</td>
+                                                    
+                                                    <td>Server Purchase</td>
+                                                    <td>Server Purchase</td>
+                                                    
                                                     <td>
-                                                        12400.00$
-                                                        <span class="tag tag-success">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                        <a href="#" class="btn btn-success">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
+                                                        </a>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <a href="#">WaterPure Ltd</a>
+                                                        <a href="#">Pixel Ltd</a>
                                                     </td>
-                                                    <td class="hidden-xs">Payment 2013</td>
+                                                    <td class="hidden-xs">Server Purchase</td>
+                                                    
+                                                    <td>Server Purchase</td>
+                                                    <td>Server Purchase</td>
+                                                    
                                                     <td>
-                                                        610.50$
-                                                        <span class="tag tag-danger">Overdue</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                        <a href="#" class="btn btn-success">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
+                                                        </a>
+
                                                     </td>
-                                                </tr>
+                                                </tr>   
                                                 </tbody>
                                             </table>
                                 </div>

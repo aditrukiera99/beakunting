@@ -110,19 +110,22 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>price_list_c">
                                     Price Level List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>billing_rate_c">
                                     Billing Rate Level List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>sales_tax_code_c">
                                     Sales Tax Code List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>payroll_item_c">
                                     Payroll Item List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>payroll_schedule_c">
+                                    Payroll Schedule List
+                                </a> -->
+                                <a class="dropdown-item" href="<?=base_url();?>class_list_c">
                                     Class List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>worker_comp_c">
                                     Worker Comp List
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -153,10 +156,10 @@ error_reporting(0);
                                 <a class="dropdown-item" href="edit_user.html">
                                     Accountant Center
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <a class="dropdown-item" href="<?=base_url();?>accounts_c">
                                     Chart Of Acountant
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <a class="dropdown-item" href="<?=base_url();?>fixed_item_c">
                                     Fixed Asset Item List
                                 </a>
                                 <a class="dropdown-item" href="edit_user.html">

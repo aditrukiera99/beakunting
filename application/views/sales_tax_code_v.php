@@ -4,7 +4,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-4">
                         <h4 class="nav_top_align">
                             <i class="fa fa-th"></i>
-                            PRICE LIST
+                            SALES TAX CODE LIST
                         </h4>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-8">
@@ -15,7 +15,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="#">Price Level List</a>
+                                <a href="#">Sales Tax Code</a>
                             </li>
                         </ol>
                     </div>
@@ -28,16 +28,16 @@
                         <div class="col-12 data_tables">
                             <div class="card">
                                 <div class="card-header bg-white">
-                                    <i class="fa fa-table"></i> Price Level List
+                                    <i class="fa fa-table"></i> Sales Tax Code
                                 </div>
                                 <div class="card-block">
                                     <br>
-                                    <a href="<?=base_url();?>add_price_list_c">
+                                    <a href="<?=base_url();?>add_sales_tax_code_c">
                                         <button type="button" class="btn btn-labeled btn-success" >
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>
                                             </span>
-                                                  Tambah Price List
+                                                  Tambah Sales Tax Code
                                         </button>
                                     </a>
                                     <br>
@@ -46,13 +46,13 @@
                                                 <thead>
                                                 <tr>
                                                     <th>
-                                                        Name
+                                                        Code
                                                     </th>
                                                     <th class="hidden-xs">
-                                                        Type
+                                                        Description
                                                     </th>
                                                     <th>
-                                                        Details
+                                                        Taxable
                                                     </th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -68,9 +68,13 @@
                                                         <span class="tag tag-primary">Paid</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                        <a href="#" class="btn btn-success">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
+                                                        </a>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -85,6 +89,9 @@
                                                     <td>
                                                         <a href="#" class="btn btn-success btn-xs purple">
                                                             <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -101,6 +108,9 @@
                                                         <a href="#" class="btn btn-success btn-xs purple">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -115,6 +125,9 @@
                                                     <td>
                                                         <a href="#" class="btn btn-success btn-xs purple">
                                                             <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger">
+                                                            <i class="fa fa-edit"></i> Hapus
                                                         </a>
                                                     </td>
                                                 </tr>
