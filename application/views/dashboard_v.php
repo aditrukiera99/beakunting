@@ -162,7 +162,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>fixed_item_c">
                                     Fixed Asset Item List
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <a class="dropdown-item" href="<?=base_url();?>batch_transactions_c">
                                     Batch Enter Transaction
                                 </a>
                                 <a class="dropdown-item" href="edit_user.html">
