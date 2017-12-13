@@ -212,13 +212,13 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Calendar
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Document
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Lead Center
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>company_c">
                                     My Company
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -251,7 +251,7 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Maintenance Alerts
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>accounts_c">
                                     Chart Of Accounts
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -279,7 +279,7 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Customers </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>customer_c">
                                     Customers Center
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>estimate_c">
@@ -291,7 +291,7 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Sales Order Fullfilment Worksheet
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>invoice_c">
                                     Create Invoices
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -300,7 +300,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Enter Sales Receipt
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Enter Statement Charges
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -308,22 +308,22 @@ error_reporting(0);
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Assess Finance Charge
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> -->
+                                <a class="dropdown-item" href="<?=base_url();?>receive_payments_c">
                                     Receive Payments
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Create Credit Memos/Refund
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>income_tracker_c">
                                     Income Tracker
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Lead Center
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Add Credit Card Processing
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Link Payment Service To Company File
                                 </a> -->
@@ -336,15 +336,15 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Learn About Point Of Sale
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>items_c">
                                     Item List
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Change Item Prices
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Advance Pricing Rules
-                                </a>
+                                </a> -->
                                 
                             </div>
                         </div>
@@ -358,7 +358,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Vendors Center
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>bill_c">
                                     Enter Bills
                                 </a>
                                 <a class="dropdown-item" href="#">
