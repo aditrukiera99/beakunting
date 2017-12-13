@@ -18,13 +18,7 @@ table th{
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
-            <div class="card-header bg-success">CUSTOMER
-                <a href="<?=base_url();?>add_customer_c">
-                    <button type="button" class="btn btn-danger" style="float: right;">
-                        <i class="fa fa-plus-square"></i>  Add New
-                    </button>
-                </a>
-            </div>
+            <div class="card-header bg-success">CUSTOMER </div>
 
             <div class="card-block cards_section_margin" style="padding: 0px;">
                 <table class="table table-bordered table-hover">
@@ -38,7 +32,7 @@ table th{
                     <?PHP foreach ($dt as $key => $row) { ?>
                     <tr id="data_<?=$row->ID;?>" onclick="get_information('<?=$row->ID;?>');" style="cursor: pointer;" class="tbl_customer">
                         <td><?php if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ echo $row->NAMA_PELANGGAN; } else { echo $row->NAMA_USAHA; } ?></td>
-                        <td>0.00</td>
+                        <td><?=number_format($row->BALANCE);?></td>
                     </tr>
                     <?PHP } ?>
                 </tbody>
@@ -48,7 +42,12 @@ table th{
         </div>
     </div>
     <div class="col-lg-9">
-        <div class="card">
+        <button onclick="window.location = '<?=base_url();?>add_customer_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Customer</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary">Create Estimate</button>
+        <button onclick="window.location = '<?=base_url();?>sales_order_c'; " class="btn btn-secondary">Create Sales Order</button>
+        <button onclick="window.location = '<?=base_url();?>invoice_c'; " class="btn btn-secondary">Invoice</button>
+        <button onclick="window.location = '<?=base_url();?>receive_payments_c'; " class="btn btn-secondary">Receive Payments</button>
+        <div class="card" style="margin-top:10px;">
             <div class="card-header bg-success">CUSTOMER INFORMATION 
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
                     <span class="btn-label">
@@ -112,20 +111,12 @@ table th{
                 </div>
             </div>
         </div>
-            
+
         <br>
 
         <div class="card" style="display: none;" id="info_3">
-            <div class="card-header bg-success">TRANSACTION
-                <a href="<?=base_url();?>sales_order_c">
-                <button type="button" class="btn btn-labeled btn-info" style="float: right;">
-                    <span class="btn-label">
-                        <i class="fa fa-plus-square"></i>
-                    </span>
-                    New Transaction
-                </button>
-                </a>
-            </div>
+
+            <div class="card-header bg-success">TRANSACTION</div>
             <div class="card-block cards_section_margin" style="padding: 0px;">
                 <div class="row">
                     <div class="col-lg-12">

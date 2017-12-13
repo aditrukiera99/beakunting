@@ -54,6 +54,35 @@ class Add_customer_c extends CI_Controller {
 				('$cust_name','$cust_balance','$cust_company','$cust_fullname','$cust_job_title','$cust_main_phone','$cust_mobile','$cust_fax','$cust_email','$cust_website','$cust_bill_to','$cust_ship_to','$acc_no','$acc_terms','$acc_method','$cc_no','$cc_exp_month','$cc_exp_year','$cc_name','$cc_address','$cc_zip')
 			");
 
+			if($cust_balance > 0){
+				// INSERT KE VOUCHER
+				$tgl = date('d-m-Y');
+				$this->db->query("
+					INSERT INTO ak_input_voucher
+					(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+					VALUES 
+					('', '$tgl', 'Opening Balance', '$cust_name', 'INVOICE')
+				");
+				$id_voucher = $this->db->insert_id();
+
+				// DETAIL
+				$this->db->query("
+					INSERT INTO ak_input_voucher_detail
+					(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI, MEMO)
+					VALUES 
+					('$id_voucher', '11000', '$cust_balance', '0', '', 'Opening Balance')
+				");
+
+				$this->db->query("
+					INSERT INTO ak_input_voucher_detail
+					(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI, MEMO)
+					VALUES 
+					('$id_voucher', '49900', '0', '$cust_balance', '', 'Opening Balance')
+				");
+				// END OF DETAIL
+
+		    }
+
 			$msg = 1;
 
 		}

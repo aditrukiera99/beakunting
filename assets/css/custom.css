@@ -827,7 +827,8 @@ a.list-group-item {
 
 .outer {
   padding: 10px;
-  margin-top: 25px; }
+  /*margin-top: 25px; */
+}
 
 .outer:before, .outer:after {
   content: " ";

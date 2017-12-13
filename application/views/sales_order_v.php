@@ -23,6 +23,7 @@
 <?PHP } ?>
 
 <form class="form-horizontal" method="post" action="<?=base_url();?>sales_order_c">
+<input type="hidden" id="jml_tr" value="0">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -79,7 +80,7 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-tags"></i>
                                             </span>
-                                            <input type="text" name="so_number" class="form-control" placeholder="">
+                                            <input type="text" name="so_number" class="form-control" placeholder="" required>
                                         </div>
                                     </div>
                                     
@@ -277,8 +278,8 @@
                 var total = 1 * parseFloat(price);
                 total = NumberToMoney(total).split('.00').join('');
 
-                var jml = $('#item_row').find('tr').length;
-                var id2 = parseFloat(jml) + parseFloat(id);
+                var jml_tr = $('#jml_tr').val();
+                var id2 = parseFloat(jml_tr) + 1;
 
                 var isi  =  '<tr>'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
@@ -301,6 +302,7 @@
 
                 $('#item_row').append(isi);
                 hitung_total(id2);
+                $('#jml_tr').val(id2);
                 $('#modal_item_close').click();
 
             }

@@ -9,8 +9,21 @@ class Customer_m extends CI_Model
 
 	function get_all_pelanggan(){
         $sql = "
-        SELECT * FROM ak_pelanggan
-        ORDER BY ID DESC
+        SELECT a.*,
+        IFNULL(IFNULL(b.DEBET, 0) - IFNULL(c.KREDIT,0), 0) AS BALANCE
+        FROM ak_pelanggan a 
+        LEFT JOIN (
+            SELECT ID_PELANGGAN, SUM(SUB_TOTAL) AS DEBET FROM ak_penjualan
+            WHERE TIPE = 'INVOICE'
+            GROUP BY ID_PELANGGAN
+        ) b ON a.ID = b.ID_PELANGGAN
+
+        LEFT JOIN (
+            SELECT ID_PELANGGAN, SUM(SUB_TOTAL) AS KREDIT FROM ak_penjualan
+            WHERE TIPE = 'RECEIVE'
+            GROUP BY ID_PELANGGAN
+        ) c ON a.ID = c.ID_PELANGGAN
+        ORDER BY a.ID DESC
         ";
 
         return $this->db->query($sql)->result();
