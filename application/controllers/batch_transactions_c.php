@@ -22,6 +22,7 @@ class Batch_transactions_c extends CI_Controller {
 	{
 		parent::__construct();
 	    $this->load->model('accounts_m','model');
+	    $this->load->model('vendors_m','model2');
 
 	}
 
@@ -29,11 +30,16 @@ class Batch_transactions_c extends CI_Controller {
 	{
 
 		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$data_item = $this->db->query("SELECT * FROM ak_produk ORDER BY ID DESC")->result();
+		$data_item_tax = $this->db->query("SELECT * FROM ak_produk WHERE TIPE = 'Sales Tax Item' ORDER BY ID DESC")->result();
 
 		$data = array(
 			'page' => 'batch_transactions_v', 
 			'get_cust' => $get_cust,
+			'data_item' => $data_item, 
+			'data_item_tax' => $data_item_tax, 
 			'dt'   => $this->model->get_accounts(),
+			'sp'   => $this->model2->get_all_supplier(),
 		);
 
 		

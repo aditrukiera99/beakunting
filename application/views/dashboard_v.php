@@ -116,15 +116,15 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>sales_tax_code_c">
                                     Sales Tax Code List
                                 </a>
-                                <a class="dropdown-item" href="<?=base_url();?>payroll_item_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>payroll_item_c">
                                     Payroll Item List
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="<?=base_url();?>payroll_schedule_c">
                                     Payroll Schedule List
                                 </a> -->
-                                <a class="dropdown-item" href="<?=base_url();?>class_list_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>class_list_c">
                                     Class List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>worker_comp_c">
                                     Worker Comp List
                                 </a>
@@ -134,12 +134,10 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Customer & Vendor Profile List
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Template
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                
+                                <!-- <a class="dropdown-item" href="#">
                                     Memorized Transaction List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Add/Edit Multiple List Entries
                                 </a>
@@ -195,18 +193,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="edit_user.html">
                                     Manage Fixed Assets
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
-                                    Quikbooks File Manager
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
-                                    Quikbooks Statement Write
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
-                                    ProAdvisor Program
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
-                                    Online Accountant Resource
-                                </a>
+                                
                             </div>
                         </div>
                     </div>
@@ -234,15 +221,15 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     My Company
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Advance Service Administrator
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Users
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Costumer Credit Card Protection
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Change Your Password
                                 </a>
@@ -258,12 +245,12 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Rimenders
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Alerts Manager
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="#">
                                     Maintenance Alerts
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Chart Of Accounts
                                 </a>
@@ -279,9 +266,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Enter Vihicle Mileage
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Prepare Letters with Envelope
-                                </a>
+                                </a> -->
                                 
                             </div>
                         </div>
@@ -301,9 +288,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>sales_order_c">
                                     Create Sales Order
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Sales Order Fullfilment Worksheet
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Create Invoices
                                 </a>
@@ -337,18 +324,18 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Add Credit Card Processing
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Link Payment Service To Company File
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Enter Time
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Add Marketing and Customers Tools
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="#">
                                     Learn About Point Of Sale
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Item List
                                 </a>
@@ -410,54 +397,54 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Employee Center
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Payroll Center
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Enter Time
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Pay Employees
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Add or Edit Payroll Schedule
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Edit/Void Paychecks
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Payroll Taxes and Liabilities
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Payroll Tax Forms & W-2s
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Labor Law Posters
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Worker Compensation
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Intuit Health Benefit
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Employee Organizer
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     My Payroll Service
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Pay With Direct Deposit
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Payroll Setup
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="#">
                                     Manage Payroll Items
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Get Payroll Updates
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Billing Rate Level List
                                 </a>
@@ -476,12 +463,12 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Order Check & Envelope
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Enter Credit Card Charges
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="#">
                                     Use Register
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Make Deposits
                                 </a>
@@ -491,12 +478,12 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Reconcile
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Bank Feeds
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="#">
                                     Loan Manager
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Order Names List
                                 </a>
