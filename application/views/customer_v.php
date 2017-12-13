@@ -49,7 +49,7 @@ table th{
     </div>
     <div class="col-lg-9">
         <div class="card">
-            <div class="card-header bg-primary disabled">CUSTOMER INFORMATION 
+            <div class="card-header bg-success">CUSTOMER INFORMATION 
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
                     <span class="btn-label">
                         <i class="fa fa-edit"></i>
@@ -116,7 +116,7 @@ table th{
         <br>
 
         <div class="card" style="display: none;" id="info_3">
-            <div class="card-header bg-primary disabled">TRANSACTION
+            <div class="card-header bg-success">TRANSACTION
                 <a href="<?=base_url();?>sales_order_c">
                 <button type="button" class="btn btn-labeled btn-info" style="float: right;">
                     <span class="btn-label">
@@ -130,24 +130,23 @@ table th{
                 <div class="row">
                     <div class="col-lg-12">
                         <table class="display table table-stripped table-bordered  table-hover">
-                                <thead>
-                                    <tr>
-                                        <th style="background: #d7d7d8;">Type</th>
-                                        <th style="background: #d7d7d8;">Num</th>
-                                        <th style="background: #d7d7d8;">Date</th>
-                                        <th style="background: #d7d7d8;">Account</th>
-                                        <th style="background: #d7d7d8;">Amount</th>
-                                    </tr>
-                                </thead>
-                               
-                                <tbody>
-                                    <tr>
-                                        <td>Payment</td>
-                                        <td>1923</td>
-                                        <td>05-09-2017</td>
-                                        <td>1100 - Account Reliable</td>
-                                        <td>1,926.00</td>
-                                    </tr>
+                            <thead>
+                                <tr>
+                                    <th style="background: #d7d7d8;">Type</th>
+                                    <th style="background: #d7d7d8;">Num</th>
+                                    <th style="background: #d7d7d8;">Date</th>
+                                    <th style="background: #d7d7d8;">Account</th>
+                                    <th style="background: #d7d7d8;">Amount</th>
+                                </tr>
+                            </thead>                           
+                            <tbody id="data_transaction">
+                                <tr>
+                                    <td>Payment</td>
+                                    <td>1923</td>
+                                    <td>05-09-2017</td>
+                                    <td>1100 - Account Reliable</td>
+                                    <td>1,926.00</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -174,10 +173,41 @@ table th{
                 $('#info_email').html(res.EMAIL);
                 $('#info_alamat_tagih').html(res.ALAMAT_TAGIH);
 
+                get_transaction(id);
+
                 $('#info_1').hide();
                 $('#info_2').show();
                 $('#info_3').show();
 
+            }
+        });
+    }
+
+    function get_transaction(id) {
+        $(".tbl_customer").removeClass("selected_cust");
+        $("#data_"+id).addClass("selected_cust");
+        $.ajax({
+            url : '<?php echo base_url(); ?>customer_c/get_transaction_info',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(result){   
+                var isine = "";
+                if(result.length > 0){
+                    $.each(result,function(i,res){
+                        isine += '<tr>'+
+                                    '<td style="text-align:left;">'+res.TIPE+'</td>'+
+                                    '<td style="text-align:left;">'+res.NO_BUKTI+'</td>'+
+                                    '<td style="text-align:left;">'+res.TGL_TRX+'</td>'+
+                                    '<td style="text-align:left;">'+res.KODE_AKUN+' - '+res.NAMA_AKUN+'</td>'+
+                                    '<td style="text-align:right;">'+NumberToMoney(res.SUB_TOTAL)+'</td>'+
+                                '</tr>';
+                    });
+                } else {
+                    isine = "<tr><td colspan='5' style='text-align:center;'> There are no transaction for this customer </td></tr>";
+                }
+
+                $('#data_transaction').html(isine);
             }
         });
     }

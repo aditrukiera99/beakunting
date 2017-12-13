@@ -35,13 +35,10 @@
                             <fieldset>
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="name4" class=" col-form-label">Customer Name</label>
+                                        <label style="margin-top: 0px;" for="name4" class=" col-form-label">Customer Name</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-8">
                                         <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-users"></i>
-                                            </span>
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
@@ -61,7 +58,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="username4" class="col-form-label">Date</label>
+                                        <label style="margin-top: 0px;" for="username4" class="col-form-label">Date</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">
@@ -75,7 +72,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="so" class="col-form-label">S.O NO</label>
+                                        <label style="margin-top: 0px;" for="so" class="col-form-label">S.O NO</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">

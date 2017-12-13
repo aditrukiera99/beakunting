@@ -25,6 +25,13 @@ class Customer_c extends CI_Controller {
 
 		echo json_encode($data);
 	}
+
+	function get_transaction_info(){
+		$id = $this->input->post('id');
+		$data = $this->model->get_transaction_info($id);
+
+		echo json_encode($data);
+	}
 }
 
 /* End of file welcome.php */

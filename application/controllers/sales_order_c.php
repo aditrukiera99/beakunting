@@ -36,9 +36,9 @@ class Sales_order_c extends CI_Controller {
 
 			$this->db->query("
 				INSERT INTO ak_penjualan
-				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL)
+				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL, KODE_AKUN)
 				VALUES 
-				('Sales Order', '$so_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal')
+				('Sales Order', '$so_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '90300')
 			");
 
 			$id_penjualan = $this->db->insert_id();
