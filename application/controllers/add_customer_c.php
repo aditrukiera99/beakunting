@@ -53,6 +53,7 @@ class Add_customer_c extends CI_Controller {
 				VALUES 
 				('$cust_name','$cust_balance','$cust_company','$cust_fullname','$cust_job_title','$cust_main_phone','$cust_mobile','$cust_fax','$cust_email','$cust_website','$cust_bill_to','$cust_ship_to','$acc_no','$acc_terms','$acc_method','$cc_no','$cc_exp_month','$cc_exp_year','$cc_name','$cc_address','$cc_zip')
 			");
+			$id_pelanggan = $this->db->insert_id();
 
 			if($cust_balance > 0){
 				// INSERT KE VOUCHER
@@ -80,6 +81,14 @@ class Add_customer_c extends CI_Controller {
 					('$id_voucher', '49900', '0', '$cust_balance', '', 'Opening Balance')
 				");
 				// END OF DETAIL
+
+				// INSERT KE NO PENJUALAN / PEMBELIAN
+				$this->db->query("
+					INSERT INTO ak_penjualan
+					(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL, KODE_AKUN)
+					VALUES 
+					('INVOICE', '', '$id_pelanggan', '$cust_name', '$tgl', '$cust_bill_to', '$cust_ship_to', 'Opening Balance', '', '$cust_balance', '11000')
+				");
 
 		    }
 

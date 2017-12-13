@@ -1,32 +1,3 @@
-<header class="head">
-    <div class="main-bar">
-        <div class="row">
-        <div class="col-sm-4">
-            <h4 class="nav_top_align">
-                <i class="fa fa-inbox"></i>
-                Add Customer
-            </h4>
-        </div>
-        <div class="col-sm-8">
-            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                <li class="breadcrumb-item">
-                    <a href="index.html">
-                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="#">Customer</a>
-                </li>
-                <li class="active breadcrumb-item">Add Customer</li>
-            </ol>
-        </div>
-        </div>
-    </div>
-</header>
-
-<br>
-
 <?PHP if($msg == 1){ ?>
 <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -38,6 +9,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
+            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> ADD NEW CUSTOMER</div>
             <div class="card-block cards_section_margin">
                 <div class="row">
                     <div class="col-lg-12">
