@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="card-block">
                                     <br>
-                                    <a href="<?=base_url();?>add_fixed_item_c">
+                                    <a href="<?=base_url();?>add_um_list">
                                         <button type="button" class="btn btn-labeled btn-success" >
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>
@@ -53,78 +53,16 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <?PHP foreach ($um_data as $key => $row) { $i++; ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
+                                            <td><?=$i; ?></td>
+                                            <td><?=$row->NAMA_SATUAN;?></td>
+                                            <td><?=$row->BASE;?></td>
+                                            <td><?=$row->PURCHASE;?></td>
+                                            <td><?=$row->SALES;?></td>
+                                            <td><?=$row->SHIPPING;?></td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
+                                        <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

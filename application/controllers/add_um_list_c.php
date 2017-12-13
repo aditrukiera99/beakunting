@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Um_set_list_c extends CI_Controller {
+class Add_um_list_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,11 +19,8 @@ class Um_set_list_c extends CI_Controller {
 	 */
 	public function index()
 	{
-		$um_data = $this->db->query("SELECT * FROM ak_satuan ORDER BY ID DESC")->result();
-
 		$data = array(
-			'page' => 'um_set_list_v', 
-			'um_data' => $um_data,
+			'page' => 'add_um_list_v', 
 		);
 
 		$this->load->view('dashboard_v', $data);

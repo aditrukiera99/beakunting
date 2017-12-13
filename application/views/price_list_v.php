@@ -37,7 +37,7 @@
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>
                                             </span>
-                                                  Tambah Price List
+                                                  Add Price List
                                         </button>
                                     </a>
                                     <br>
@@ -45,10 +45,11 @@
                                         <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
                                                 <thead>
                                                 <tr>
+                                                    <th>No</th>
                                                     <th>
                                                         Name
                                                     </th>
-                                                    <th class="hidden-xs">
+                                                    <th>
                                                         Type
                                                     </th>
                                                     <th>
@@ -58,14 +59,17 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php foreach ($data_price as $key => $row) {
+                                                        $i++;
+                                                    ?>
                                                 <tr>
+                                                    <td><?=$i;?></td>
                                                     <td>
-                                                        <a href="#">Pixel Ltd</a>
+                                                        <?=$row->NAMA_PRICE;?>
                                                     </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
+                                                    <td><?=$row->TIPE_PRICE;?></td>
                                                     <td>
-                                                        52560.10$
-                                                        <span class="tag tag-primary">Paid</span>
+                                                        <?=$row->DETAILS_PRICE;?>
                                                     </td>
                                                     <td>
                                                         <a href="#" class="btn btn-success btn-xs purple">
@@ -73,51 +77,7 @@
                                                         </a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Smart House</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Furniture Purchase</td>
-                                                    <td>
-                                                        5760.00$
-                                                        <span class="tag tag-warning">Pending</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">FoodMaster Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Annual Expenses</td>
-                                                    <td>
-                                                        12400.00$
-                                                        <span class="tag tag-success">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">WaterPure Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Payment 2013</td>
-                                                    <td>
-                                                        610.50$
-                                                        <span class="tag tag-danger">Overdue</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <?php } ?>
                                                 </tbody>
                                             </table>
                                 </div>

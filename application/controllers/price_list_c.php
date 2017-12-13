@@ -19,8 +19,11 @@ class Price_list_c extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data_price = $this->db->query("SELECT * FROM ak_price ORDER BY ID DESC")->result();
+
 		$data = array(
 			'page' => 'price_list_v', 
+			'data_price' => $data_price,
 		);
 
 		$this->load->view('dashboard_v', $data);
