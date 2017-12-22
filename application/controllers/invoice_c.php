@@ -72,6 +72,7 @@ class Invoice_c extends CI_Controller {
 				VALUES 
 				('INVOICE', '$inv_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '11000')
 			");
+			
 			$id_penjualan = $this->db->insert_id();
 
 			$id_produk   = $this->input->post('id_produk');
