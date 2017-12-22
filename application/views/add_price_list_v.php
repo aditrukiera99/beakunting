@@ -1,3 +1,14 @@
+<script>
+    function showDiv(val) {
+        
+        if(val == "Per Item"){
+            $('#itemproduk').show();
+        }else if(val == "Fixed %"){
+            $('#itemproduk').hide();
+        }
+    }
+
+</script>
 <header class="head">
     <div class="main-bar">
         <div class="row">
@@ -33,7 +44,7 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" action="<?=base_url();?>add_price_list_c">
                                 <fieldset>
                                     <br>
                                     <div class="form-group row">
@@ -45,7 +56,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-tag"></i>
                                                 </span>
-                                                <input type="text" class="form-control" name="" placeholder="Name.....">
+                                                <input type="text" class="form-control" name="nama" placeholder="Name.....">
                                             </div>
                                         </div>
                                     </div>
@@ -59,10 +70,10 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-tag"></i>
                                                 </span>
-                                                <select id="gender4" class="form-control">
+                                                <select id="gender4" name="tipe" class="form-control" onchange="showDiv(this.value)">
                                                     <option>Choose Price List</option>
-                                                    <option>Fixed %</option>
-                                                    <option>Per Item</option>
+                                                    <option value="Fixed %">Fixed %</option>
+                                                    <option value="Per Item">Per Item</option>
                                                 </select>
                                                
                                             </div>
@@ -116,6 +127,47 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="form-group row" id="itemproduk" style="display: none;">
+                                        <div class="col-lg-2 col-xl-2 ">
+                                            <label for="name4" class=" col-form-label">Table Item</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-6" style="overflow-y:scroll;height:300px;">
+                                            <div class="input-group">
+                                                <table class="display table table-stripped table-bordered table-hover">
+                                                    <thead>
+                                                        <tr >
+                                                            <th></th>
+                                                            <th>Nama</th>
+                                                            <th>Price</th>
+                                                            <th>U/M</th>
+                                                            <th>Custom Price</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                         <?PHP foreach ($get_item as $key => $row) {
+                                                           
+                                                         ?>
+                                                        <tr>
+                                                            <td><input type="checkbox" name=""></td>
+                                                            <td><?=$row->NAMA_PRODUK;?></td>
+                                                            <td><?=$row->HARGA_SATUAN;?></td>
+                                                            <td><?=$row->SATUAN;?></td>
+                                                            <td align="center" style="vertical-align:middle;"> 
+                                                                <div class="span12">
+                                                                <div class="controls">
+                                                                    <input type="text" name="" class="form-control" style="width: 100%;">
+                                                                </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                         <?PHP } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </fieldset>
                             </form>
                         </div>       

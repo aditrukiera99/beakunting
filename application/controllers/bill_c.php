@@ -17,10 +17,29 @@ class Bill_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct()
+	{
+		parent::__construct();
+	    $this->load->model('vendors_m','model');
+	    $this->load->model('accounts_m','model2');
+
+	}
+
 	public function index()
 	{
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID")->result();
+
 		$data = array(
 			'page' => 'bill_v', 
+			'dt'   => $this->model->get_all_supplier(),
+			'accn'   => $this->model2->get_accounts_lims(),
+			'get_item' => $get_item,
+			'get_cust' => $get_cust,
 		);
 
 		$this->load->view('dashboard_v', $data);

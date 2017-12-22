@@ -1,158 +1,161 @@
-<header class="head">
-                <div class="main-bar">
-                    <div class="row">
-                    <div class="col-sm-4">
-                        <h4 class="nav_top_align">
-                            <i class="fa fa-inbox"></i>
-                            EMPLOYEE
-                        </h4>
-                    </div>
-                    <div class="col-sm-8">
-                        <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                            <li class="breadcrumb-item">
-                                <a href="index.html">
-                                    <i class="fa fa-home" data-pack="default" data-tags=""></i>
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Email</a>
-                            </li>
-                            <li class="active breadcrumb-item">EMPLOYEE</li>
-                        </ol>
-                    </div>
-                    </div>
-                </div>
-            </header>
-   <br>
+<style type="text/css">
+table th{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+.selected_cust  {
+    background: #49a942;
+    color: #FFF;
+}
+
+.selected_cust:hover {
+    background: #49a942 !important;
+    color: #FFF;
+}
+
+</style>
+<!-- <header class="head">
+    <div class="main-bar">
+        <div class="row">
+        <div class="col-sm-4">
+            <h4 class="nav_top_align">
+                <i class="fa fa-inbox"></i>
+                Customer
+            </h4>
+        </div>
+        <div class="col-sm-8">
+            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="active breadcrumb-item">Customer</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</header>
+<br> -->
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
             <div class="card-header bg-success">EMPLOYEE
-                <button type="button" class="btn btn-labeled btn-danger" style="float: right;">
-                    <span class="btn-label">
-                        <i class="fa fa-plus-square"></i>
-                    </span>
-                          Tambah EMPLOYEE
-           </button>
+                <a href="<?=base_url();?>add_employee_c">
+                    <button type="button" class="btn btn-danger" style="float: right;">
+                        <i class="fa fa-plus-square"></i>  Add New
+                    </button>
+                </a>
             </div>
-            <div class="card-block cards_section_margin">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th>NAME</th>
-                            <th>BALANCE TOTAL</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        <tr>
-                            <td>Kampret</td>
-                            <td>0.00</td>
-                        </tr>
-
-                        <tr>
-                            <td>Allard, Robert</td>
-                            <td>1450.00</td>
-                        </tr>
-
-                        <tr>
-                            <td>Aditya Eka</td>
-                            <td>50.00</td>
-                        </tr>
-                    </tbody>
-                    </table>
+            <div class="card-block cards_section_margin" style="padding: 0px;">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th style="background: #d7d7d8;">NAME</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?PHP foreach ($get_pekerja as $key => $row) { ?>
+                    <tr id="data_<?=$row->ID;?>" onclick="get_information('<?=$row->ID;?>');" style="cursor: pointer;" class="tbl_customer">
+                        <td><?=$row->FULL_NAME;?></td>
+                    </tr>
+                    <?PHP } ?>
+                </tbody>
+                </table>
                         
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
     <div class="col-lg-9">
         <div class="card">
             <div class="card-header bg-primary disabled">EMPLOYEE INFORMATION 
-                <button type="button" class="btn btn-warning" style="float: right;">
+                <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
                     <span class="btn-label">
                         <i class="fa fa-edit"></i>
                     </span>
-                          Edit
-           </button>
-       </div>
-            <div class="card-block cards_section_margin">
-                     <div class="card-block">
-                                <div class="form-group row">
-                                    <div class="col-lg-2  text-lg-right">
-                                        Full Name
-                                    </div>
-                                    <div class="col-lg-2">
-                                        Ms Renee Barley    
-                                    </div>
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-2">
-                                        Main Phone    
-                                    </div>
-                                    <div class="col-lg-3">
-                                        08927166126    
-                                    </div>
-                                </div>
+                    Edit
+                </button>
+            </div>
+            <br>
+            <div class="card-block cards_section_margin" style="padding: 0px;">
+                <center id="info_1"> <h4>Choose a employee from the list to see their information</h4> <br></center>
+                <div class="card-block" style="display: none;" id="info_2">
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2 text-lg-right">
+                            Full Name
+                        </div>
+                        <div class="col-lg-3" id="full_name" style="font-weight: bold;">
+                            Ms Renee Barley    
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-1">
+                            Phone
+                        </div>
+                        <div class="col-lg-4" id="info_phone" style="font-weight: bold;">
+                            08927166126    
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-2 text-lg-right">
+                            Date Birth
+                        </div>
+                        <div class="col-lg-3" id="date_birth" style="font-weight: bold;">
+                            Ms Renee Barley    
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-1">
+                            Email
+                        </div>
+                        <div class="col-lg-4" id="info_email" style="font-weight: bold;">
+                            adityaeka99@gmail.com    
+                        </div>
+                    </div>
 
-                                <div class="form-group row">
-                                    <div class="col-lg-2  text-lg-right">
-                                        EMPLOYEE Type
-                                    </div>
-                                    <div class="col-lg-2">
-                                        Residental
-                                    </div>
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-2">
-                                        Email    
-                                    </div>
-                                    <div class="col-lg-3">
-                                        adityaeka99@gmail.com    
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-lg-2  text-lg-right">
-                                        Terms
-                                    </div>
-                                    <div class="col-lg-2">
-                                        Net 25
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-lg-2  text-lg-right">
-                                        Bill To
-                                    </div>
-                                    <div class="col-lg-2">
-                                        JL . Pahlawan 375 B Malang
-                                    </div>
-                                </div>
-                            </div>
-                        
+                    <div class="form-group row">
+                        <div class="col-lg-2 text-lg-right">
+                            Address
+                        </div>
+                        <div class="col-lg-3" id="info_alamat_tagih" style="font-weight: bold;">
+                            JL . Pahlawan 37aaa5 B Malang   
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-1">
+                            Code Pos
+                        </div>
+                        <div class="col-lg-4" id="code_pos" style="font-weight: bold;">
+                            fax   
+                        </div>
                     </div>
                 </div>
-                <br>
-                <div class="card">
-                    <div class="card-header bg-primary disabled">TRANSAKSI EMPLOYEE</div>
-                    <div class="card-block cards_section_margin">
-                        <div class="col-lg-12">
-                            <button type="button" class="btn btn-labeled btn-danger">
-                                <span class="btn-label">
-                                    <i class="fa fa-plus-square"></i>
-                                </span>
-                                       Tambah Transaksi
-                            </button>        
-                        </div>
-                        <br>
-                       <div class="col-lg-12">
-                        <table id="example1" class="display table table-stripped table-bordered table-hover">
+            </div>
+        </div>
+            
+        <br>
+
+        <div class="card">
+            <div class="card-header bg-primary disabled">TRANSACTION
+                <button type="button" class="btn btn-labeled btn-info" style="float: right;">
+                    <span class="btn-label">
+                        <i class="fa fa-plus-square"></i>
+                    </span>
+                    New Transaction
+                </button>
+            </div>
+            <div class="card-block cards_section_margin" style="padding: 0px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="display table table-stripped table-bordered  table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Type</th>
-                                        <th>Num</th>
-                                        <th>Date</th>
-                                        <th>Account</th>
-                                        <th>Amount</th>
+                                        <th style="background: #d7d7d8;">Type</th>
+                                        <th style="background: #d7d7d8;">Num</th>
+                                        <th style="background: #d7d7d8;">Date</th>
+                                        <th style="background: #d7d7d8;">Account</th>
+                                        <th style="background: #d7d7d8;">Amount</th>
                                     </tr>
                                 </thead>
                                
@@ -167,8 +170,33 @@
                             </tbody>
                         </table>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+</div>
+
+<script type="text/javascript">
+    function get_information(id) {
+        $(".tbl_customer").removeClass("selected_cust");
+        $("#data_"+id).addClass("selected_cust");
+        $.ajax({
+            url : '<?php echo base_url(); ?>employee_c/get_employee_info',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(res){   
+                $('#full_name').html(res.FULL_NAME);
+                $('#info_phone').html(res.MOBILE_PHONE);
+                $('#date_birth').html(res.TANGGAL_LAHIR);
+                $('#info_email').html(res.EMAIL);
+                $('#info_alamat_tagih').html(res.ALAMAT);
+                $('#code_pos').html(res.KODE_POS);
+
+                $('#info_1').hide();
+                $('#info_2').show();
+
+            }
+        });
+    }
+</script>

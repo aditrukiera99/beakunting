@@ -37,7 +37,7 @@
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>
                                             </span>
-                                                  Tambah Sales Tax Code
+                                                  Add Sales Tax Code
                                         </button>
                                     </a>
                                     <br>
@@ -48,7 +48,7 @@
                                                     <th>
                                                         Code
                                                     </th>
-                                                    <th class="hidden-xs">
+                                                    <th>
                                                         Description
                                                     </th>
                                                     <th>
@@ -58,14 +58,23 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php foreach ($get_tax as $key => $row) {
+                                                
+                                                ?>
                                                 <tr>
                                                     <td>
-                                                        <a href="#">Pixel Ltd</a>
+                                                        <?=$row->CODE_NAMA;?>
                                                     </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
+                                                    <td><?=$row->DESCRIPTION;?></td>
                                                     <td>
-                                                        52560.10$
-                                                        <span class="tag tag-primary">Paid</span>
+                                                        
+                                                        <?php 
+                                                            if($row->TYPE == '1'){
+                                                                ?>
+                                                                <i class="fa fa-check-circle fa-2x"></i>
+                                                                <?php
+                                                            }
+                                                        ?>
                                                     </td>
                                                     <td>
                                                         <a href="#" class="btn btn-success">
@@ -77,60 +86,8 @@
 
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Smart House</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Furniture Purchase</td>
-                                                    <td>
-                                                        5760.00$
-                                                        <span class="tag tag-warning">Pending</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">FoodMaster Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Annual Expenses</td>
-                                                    <td>
-                                                        12400.00$
-                                                        <span class="tag tag-success">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">WaterPure Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Payment 2013</td>
-                                                    <td>
-                                                        610.50$
-                                                        <span class="tag tag-danger">Overdue</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <?php } ?>
+                                                
                                                 </tbody>
                                             </table>
                                 </div>

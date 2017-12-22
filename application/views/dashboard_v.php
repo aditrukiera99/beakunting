@@ -110,9 +110,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>price_list_c">
                                     Price Level List
                                 </a>
-                                <a class="dropdown-item" href="<?=base_url();?>billing_rate_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>billing_rate_c">
                                     Billing Rate Level List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>sales_tax_code_c">
                                     Sales Tax Code List
                                 </a>
@@ -128,9 +128,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>worker_comp_c">
                                     Worker Comp List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Other Name List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Customer & Vendor Profile List
                                 </a>
@@ -355,34 +355,34 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Vendors </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>vendors_c">
                                     Vendors Center
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>bill_c">
                                     Enter Bills
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>pay_bill_c">
                                     Pay Bills
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Sales Tax
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>purchase_order_c">
                                     Create Purchase Order
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>bill_c">
                                     Receive Item And Enter Bills
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>bill_c">
                                     Receive Items
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>enter_bill_receive_item_c">
                                     Enter Bills For Receive Items
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Inventory Activities
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>items_c">
                                     Item List
                                 </a>
                             </div>

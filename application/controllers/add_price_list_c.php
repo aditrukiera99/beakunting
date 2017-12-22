@@ -19,8 +19,28 @@ class Add_price_list_c extends CI_Controller {
 	 */
 	public function index()
 	{
+
+		if($this->input->post('kode_akun')){
+			$msg = 1;
+			$kategori  = $this->input->post('kategori');
+			$kode_akun = $this->input->post('kode_akun');
+			$nama_akun = $this->input->post('nama_akun');
+			$anak_dari = $this->input->post('anak_dari');
+			$deskripsi = addslashes($this->input->post('deskripsi'));
+
+			$this->db->query("
+				INSERT INTO ak_kode_akuntansi
+				(KATEGORI, KODE_AKUN, NAMA_AKUN, ANAK_DARI, DESKRIPSI)
+				VALUES 
+				('$kategori', '$kode_akun', '$nama_akun', '$anak_dari', '$deskripsi')
+			");
+		}
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk ORDER BY ID DESC")->result();
+
 		$data = array(
 			'page' => 'add_price_list_v', 
+			'get_item' => $get_item,
 		);
 
 		$this->load->view('dashboard_v', $data);

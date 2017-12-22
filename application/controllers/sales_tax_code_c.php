@@ -19,8 +19,12 @@ class Sales_tax_code_c extends CI_Controller {
 	 */
 	public function index()
 	{
+
+		$get_tax = $this->db->query("SELECT * FROM ak_sales_tax ORDER BY ID DESC")->result();
+
 		$data = array(
-			'page' => 'sales_tax_code_v', 
+			'page' => 'sales_tax_code_v',
+			'get_tax' => $get_tax , 
 		);
 
 		$this->load->view('dashboard_v', $data);

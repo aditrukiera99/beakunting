@@ -26,7 +26,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-4">
                         <br>
                         <div class="form-group row">
-                            <div class="col-lg-2 col-xl-2">
+                            <div class="col-lg-3 col-xl-3">
                                 <label for="name4" class=" col-form-label">Transaction Type</label>
                             </div>
                             <div class="col-lg-4 col-xl-4">

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Sales_order_c extends CI_Controller {
+class Purchase_order_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -24,6 +24,7 @@ class Sales_order_c extends CI_Controller {
 
 		if($this->input->post('cust_id')){
 			$msg = 1;
+			$inv_number 	= $this->input->post('inv_number');
 			$so_number 		= $this->input->post('so_number');
 			$cust_id 		= $this->input->post('cust_id');
 			$cust_name 		= $this->input->post('cust_name');
@@ -33,14 +34,44 @@ class Sales_order_c extends CI_Controller {
 			$memo 		    = addslashes($this->input->post('memo'));
 			$cust_msg 		= addslashes($this->input->post('cust_msg'));
 			$subtotal 		= addslashes($this->input->post('subtotal'));
+			$tgl            = date('d-m-Y');
+
+			if($so_number != ""){
+				$this->db->query("
+					UPDATE ak_penjualan SET NO_INV = '$inv_number'
+					WHERE NO_BUKTI = '$so_number'
+				");
+			}
+
+			// INSERT KE VOUCHER
+
+			$this->db->query("
+				INSERT INTO ak_input_voucher
+				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+				VALUES 
+				('$inv_number', '$tgl', '$memo', '$cust_name', 'INVOICE')
+			");
+
+			$id_voucher = $this->db->insert_id();
+
+			// RECEIVABLE
+			$this->db->query("
+				INSERT INTO ak_input_voucher_detail
+				(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
+				VALUES 
+				('$id_voucher', '11000', '$subtotal', '0', '$inv_number')
+			");
+			// END OF RECEIVABLE
+
+
+			// INSERT KE NO PENJUALAN / PEMBELIAN
 
 			$this->db->query("
 				INSERT INTO ak_penjualan
 				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL, KODE_AKUN)
 				VALUES 
-				('Sales Order', '$so_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '90300')
+				('INVOICE', '$inv_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '11000')
 			");
-
 			$id_penjualan = $this->db->insert_id();
 
 			$id_produk   = $this->input->post('id_produk');
@@ -59,29 +90,52 @@ class Sales_order_c extends CI_Controller {
 
 			foreach ($id_produk as $key => $val) {
 				$this->simpan_detail_penjualan($id_penjualan, $val, $kode_akun[$key], $nama_produk[$key], $satuan[$key], $qty[$key], $harga[$key], $total[$key]);
+				$this->simpan_detail_voucher($id_voucher, $inv_number,  $kode_akun[$key],  $total[$key]);
 			}
 
 			if($kode_akun_pajak != ""){
 				$this->simpan_detail_penjualan_pajak($id_penjualan, $id_pajak, $kode_akun_pajak, $nama_pajak, $nilai_pajak);
+				$this->simpan_detail_penjualan_pajak_voucher($id_voucher, $inv_number, $kode_akun_pajak, $nilai_pajak);
 			}
 		}
 
 		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
 					ORDER BY ID DESC LIMIT 10")->result();
 
-		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
-		$get_tax = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+		$get_vendor = $this->db->query("SELECT * FROM ak_supplier ORDER BY ID DESC")->result();
+		$get_customer = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$get_tax  = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+		$get_so   = $this->db->query("SELECT * FROM ak_penjualan WHERE TIPE LIKE 'Sales Order' AND (NO_INV IS NULL OR NO_INV = '') ORDER BY ID DESC")->result();
 
 		$data = array(
-			'page' => 'sales_order_v', 
-			'view' => 'customer', 
+			'page' => 'purchase_order_v', 
+			'msg'  => $msg,
 			'get_item' => $get_item, 
-			'get_cust' => $get_cust, 
-			'get_tax' => $get_tax, 
-			'msg' => $msg, 
+			'get_vendor' => $get_vendor, 
+			'get_tax' => $get_tax,
+			'get_so' => $get_so,
+			'get_customer' => $get_customer,
 		);
 
 		$this->load->view('dashboard_v', $data);
+	}
+
+	function get_so_number(){
+		$id = $this->input->post('id');
+		$data = $this->db->query("SELECT * FROM ak_penjualan WHERE ID_PELANGGAN = '$id' AND TIPE = 'Sales Order' AND  (NO_INV IS NULL OR NO_INV = '') ORDER BY ID DESC ")->result();
+		echo json_encode($data);
+	}
+
+	function get_item_from_so(){
+		$no_bukti = $this->input->post('no_bukti');
+		$data = $this->db->query("
+			SELECT b.*, c.DESKRIPSI FROM ak_penjualan a 
+			JOIN ak_penjualan_detail b ON a.ID = b.ID_PENJUALAN
+			JOIN ak_produk c ON b.ID_PRODUK = c.ID
+			WHERE a.NO_BUKTI = '$no_bukti'
+			ORDER BY b.ID ASC
+		")->result();
+		echo json_encode($data);
 	}
 
 	function simpan_detail_penjualan($id_penjualan, $id_produk, $kode_akun, $nama_produk, $satuan, $qty, $harga, $total){
@@ -94,6 +148,19 @@ class Sales_order_c extends CI_Controller {
 		(ID_PENJUALAN, ID_PRODUK, KODE_AKUN, NAMA_PRODUK, QTY, SATUAN, HARGA_SATUAN, TOTAL, TIPE)
 		VALUES 
 		('$id_penjualan', '$id_produk', '$kode_akun', '$nama_produk', '$qty', '$satuan', '$harga', '$total', 'ITEM')
+		";
+
+		$this->db->query($sql);
+	}
+
+	function simpan_detail_voucher($id_voucher, $inv_number, $kode_akun,  $total){
+		$total = str_replace(',', '', $total);
+
+		$sql = "
+		INSERT INTO ak_input_voucher_detail
+		(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
+		VALUES 
+		('$id_voucher', '$kode_akun', '0', '$total', '$inv_number')
 		";
 
 		$this->db->query($sql);
@@ -112,23 +179,19 @@ class Sales_order_c extends CI_Controller {
 		$this->db->query($sql);
 	}
 
-	function get_item_info(){
-		$id = $this->input->post('id');
-		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE ID = '$id' ")->row();
-		echo json_encode($get_item);
+	function simpan_detail_penjualan_pajak_voucher($id_voucher, $inv_number, $kode_akun_pajak, $nilai_pajak){
+		$nilai_pajak = str_replace(',', '', $nilai_pajak);
+
+		$sql = "
+		INSERT INTO ak_input_voucher_detail
+		(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
+		VALUES 
+		('$id_voucher', '$kode_akun_pajak', '0', '$nilai_pajak', '$inv_number')
+		";
+
+		$this->db->query($sql);
 	}
 
-	function get_accn_info(){
-        $id = $this->input->post('id');
-        $get_item = $this->db->query("SELECT * FROM ak_kode_akuntansi WHERE ID = '$id' ")->row();
-        echo json_encode($get_item);
-    }
-
-	function get_info_pajak(){
-		$id = $this->input->post('id');
-		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE ID = '$id' ")->row();
-		echo json_encode($get_item);
-	}
 }
 
 /* End of file welcome.php */

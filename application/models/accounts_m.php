@@ -17,6 +17,18 @@ class Accounts_m extends CI_Model
         return $this->db->query($sql)->result();
     }
 
+    
+
+    function get_accounts_lims(){
+        $sql = "
+        SELECT * FROM ak_kode_akuntansi
+        WHERE ANAK_DARI = '' OR ANAK_DARI IS NULL
+        ORDER BY ID ASC LIMIT 10
+        ";
+
+        return $this->db->query($sql)->result();
+    }
+
     function get_anak_akun($kode_akun){
         $sql = "
         SELECT * FROM ak_kode_akuntansi

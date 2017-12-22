@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Worker_comp_c extends CI_Controller {
+class Enter_bill_receive_item_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,14 +17,18 @@ class Worker_comp_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct()
+	{
+		parent::__construct();
+	    $this->load->model('vendors_m','model');
+
+	}
+
 	public function index()
 	{
-
-		$get_worker = $this->db->query("SELECT * FROM ak_worker ORDER BY ID")->result();
-
 		$data = array(
-			'page' => 'worker_comp_v', 
-			'get_worker' => $get_worker ,
+			'page' => 'enter_bill_receive_item_v', 
+			'get_ven'   => $this->model->get_all_supplier(),
 		);
 
 		$this->load->view('dashboard_v', $data);

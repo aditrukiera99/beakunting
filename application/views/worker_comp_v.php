@@ -48,7 +48,7 @@
                                                     <th>
                                                         Name
                                                     </th>
-                                                    <th class="hidden-xs">
+                                                    <th>
                                                         Description
                                                     </th>
                                                     <th>Rate</th>
@@ -57,71 +57,17 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php foreach ($get_worker as $key => $row) {
+                                                    
+                                                    ?>
                                                 <tr>
                                                     <td>
-                                                        <a href="#">Pixel Ltd</a>
+                                                        <?=$row->WORKER_CODE;?>
                                                     </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
+                                                    <td class="hidden-xs"><?=$row->DESCRIPTION;?></td>
                                                     
-                                                    <td>Server Purchase</td>
-                                                    <td>Server Purchase</td>
-                                                    
-                                                    <td>
-                                                        <a href="#" class="btn btn-success">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Pixel Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    
-                                                    <td>Server Purchase</td>
-                                                    <td>Server Purchase</td>
-                                                    
-                                                    <td>
-                                                        <a href="#" class="btn btn-success">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Pixel Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    
-                                                    <td>Server Purchase</td>
-                                                    <td>Server Purchase</td>
-                                                    
-                                                    <td>
-                                                        <a href="#" class="btn btn-success">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Pixel Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    
-                                                    <td>Server Purchase</td>
-                                                    <td>Server Purchase</td>
+                                                    <td><?=$row->RATE;?></td>
+                                                    <td><?=$row->TANGGAL;?></td>
                                                     
                                                     <td>
                                                         <a href="#" class="btn btn-success">
@@ -133,6 +79,7 @@
 
                                                     </td>
                                                 </tr>   
+                                                <?php } ?>
                                                 </tbody>
                                             </table>
                                 </div>

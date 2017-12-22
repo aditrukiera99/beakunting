@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Worker_comp_c extends CI_Controller {
+class Laporan_purchase_order_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,12 +19,8 @@ class Worker_comp_c extends CI_Controller {
 	 */
 	public function index()
 	{
-
-		$get_worker = $this->db->query("SELECT * FROM ak_worker ORDER BY ID")->result();
-
 		$data = array(
-			'page' => 'worker_comp_v', 
-			'get_worker' => $get_worker ,
+			'page' => 'laporan_purchase_order_v', 
 		);
 
 		$this->load->view('dashboard_v', $data);
