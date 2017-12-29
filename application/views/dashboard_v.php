@@ -318,18 +318,18 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>income_tracker_c">
                                     Income Tracker
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Lead Center
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Add Credit Card Processing
                                 </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Link Payment Service To Company File
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Enter Time
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Add Marketing and Customers Tools
                                 </a> -->

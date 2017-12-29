@@ -15,11 +15,19 @@
 }
 </style>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>sales_order_c">
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> Estimates has been created.
+</div>
+<?PHP } ?>
+
+<form class="form-horizontal" method="post" action="<?=base_url();?>estimate_c">
+<input type="hidden" id="jml_tr" value="0">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">CUSTOMER PAYMENT</div>
+            <div class="card-header bg-success">Create Estimate</div>
             <div class="card-block cards_section_margin">                
                 <div class="card-block">
                     <br>
@@ -28,17 +36,20 @@
                             <fieldset>
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="name4" class=" col-form-label">Received From</label>
+                                        <label style="margin-top: 0px;" for="name4" class=" col-form-label">Customer Name</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-8">
                                         <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-users"></i>
-                                            </span>
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-                                                <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+
+                                                    <?PHP if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+                                                    <?PHP } else { ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_USAHA;?></option>
+                                                    <?PHP } ?>
+
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="">
@@ -48,22 +59,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="so" class="col-form-label">Amount</label>
-                                    </div>
-                                    <div class="col-lg-8 col-xl-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-money"></i>
-                                            </span>
-                                            <input type="text" name="so_number" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    
-                                </div> 
-
-                                <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="username4" class="col-form-label">Date</label>
+                                        <label style="margin-top: 0px;" for="username4" class="col-form-label">Date</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">
@@ -77,73 +73,41 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label for="so" class="col-form-label">#Referrence</label>
+                                        <label style="margin-top: 0px;" for="so" class="col-form-label">SALE NO #</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-tags"></i>
                                             </span>
-                                            <input type="text" name="so_number" class="form-control" placeholder="">
+                                            <input type="text" name="so_number" class="form-control" placeholder="" required>
                                         </div>
                                     </div>
                                     
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        
-                                    </div>
-                                    <div class="col-lg-8 col-xl-4">
-                                        <div class="btn-group button_group_rounded btn_group_padding" role="group" >
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-money"></i>
-                                                    </span>
-                                                       CASH
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-credit-card"></i>
-                                                    </span>
-                                                       CREDIT CARD
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="ion-ios7-paper"></i>
-                                                    </span>
-                                                       CHECK
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="ion-ios7-paper"></i>
-                                                    </span>
-                                                       E CHECK
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="ti-wallet"></i>
-                                                    </span>
-                                                       MASTER CARD
-                                                </button>
-                                                           
-                                                       </div>
-                                    </div>
-                                    
-                                </div>  
-                                <                             
+                                </div>                                    
                                 <!-- last name-->
                             </fieldset>
                         </div>
                                    
-                       
+                        <div class="col-lg-6">                            
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <label for="username4" class="col-form-label">Bill To</label>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <textarea name="cust_address" id="cust_address" class="form-control" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            
+                        </div>
                     </div>                                
                 </div>
 
-               
+                <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
+                    <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
+                </button>
+
                 <br><br>
 
                 <table class="table table-bordered table-hover table-striped">
@@ -167,35 +131,96 @@
 
             <div class="row">
                 <div class="col-lg-5">
-                    
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-xl-3 text-lg-right">
+                            <label for="username4" class="col-form-label">MEMO</label>
+                        </div>
+                        <div class="col-lg-8 col-xl-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <textarea class="form-control" name="memo" rows="3" placeholder="Type Text Here...."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-xl-3 text-lg-right">
+                            <label for="username4" class="col-form-label">Customer Message</label>
+                        </div>
+                            <div class="col-lg-8 col-xl-8">
+                                <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <select class="form-control">
+                                    <option>Choose your messages....</option>
+                                    <?PHP foreach ($get_message as $key => $row_pesan) {
+                                        
+                                    ?>
+                                    <option value="<?=$row_pesan->ID;?>"><?=$row_pesan->PESAN;?></option>
+                                    <?php } ?>
+                                </select>
+                                <span class="input-group-addon">
+                                    <a href="<?=base_url();?>add_messages_c"><i class="fa fa-plus-circle"></i></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-xl-3 text-lg-right">
+                            <label for="username4" class="col-form-label">Customer Tax Code</label>
+                        </div>
+                            <div class="col-lg-8 col-xl-8">
+                                <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <select class="form-control">
+                                    <option>Choose your tax....</option>
+                                    <?PHP foreach ($get_tax_code as $key => $row_tax) {
+                                        
+                                    ?>
+                                    <option value="<?=$row_tax->ID;?>"><?=$row_tax->CODE_NAMA;?></option>
+                                    <?php } ?>
+                                </select>
+                                <span class="input-group-addon">
+                                    <a href="<?=base_url();?>add_sales_tax_code_c"><i class="fa fa-plus-circle"></i></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-lg-7">
-                    
-
                     <div class="form-group row">
-                        <div class="col-lg-3 col-xl-6 text-lg-right">
-                            <label for="name4" class=" col-form-label"> Amount Due </label> 
+                        <div class="col-lg-3 col-xl-1 text-lg-right">
+                            <label for="name4" class=" col-form-label">TAX</label> 
+                        </div>
+                        <div class="col-lg-8 col-xl-4" style="margin-top: 5px;">
+                            <select id="gender4" class="form-control" name="id_pajak" onchange="get_info_pajak(this.value);">
+                                <option value="">None</option>
+                                <?PHP foreach ($get_tax as $key => $row) { ?>
+                                <option value="<?=$row->ID;?>"><?=$row->NAMA_PRODUK;?></option>
+                                <?PHP } ?>
+                            </select>
+                            <input type="hidden" name="kode_akun_pajak" id="kode_akun_pajak" value="">
+                            <input type="hidden" name="nama_pajak" id="nama_pajak" value="">
+                            <input type="hidden" name="prosen_pajak" id="prosen_pajak" value="0">
+                            <input type="hidden" name="nilai_pajak" id="nilai_pajak" value="0">
+
+                        </div>
+                        <div class="col-lg-3 col-xl-1 text-lg-right">
+                            <label for="name4" class=" col-form-label" id="prosen_txt">(0%) </label> 
                         </div>
                         <div class="col-lg-3 col-xl-4 text-lg-right">
-                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
-                            <input type="hidden" name="subtotal" id="subtotal">
+                            <label for="name4" class=" col-form-label" id="nilai_pajak_txt">0.00</label> 
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-lg-3 col-xl-6 text-lg-right">
-                            <label for="name4" class=" col-form-label"> Applied </label> 
-                        </div>
-                        <div class="col-lg-3 col-xl-4 text-lg-right">
-                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
-                            <input type="hidden" name="subtotal" id="subtotal">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-lg-3 col-xl-6 text-lg-right">
-                            <label for="name4" class=" col-form-label"> Discount And Credit Applied </label> 
+                            <label for="name4" class=" col-form-label"> TOTAL </label> 
                         </div>
                         <div class="col-lg-3 col-xl-4 text-lg-right">
                             <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
@@ -208,7 +233,7 @@
                         <div class="col-lg-6 col-xl-7 text-lg-right">
                             <button type="submit" class="btn btn-labeled btn-success">
                                 <span class="btn-label"><i class="fa fa-save"></i></span>
-                                Save S.O
+                                Save & Create
                             </button>
                         </div>
                         <div class="col-lg-3 col-xl-3 text-lg-right"> 
@@ -236,7 +261,7 @@
                 </button>
                 <input type="text" class="form-control form-control-success" id="username" style="width: 50%;" placeholder="Search item ...">
             </div>
-            <div class="modal-body" style="height: 460px; padding: 0px; background: #606061;">
+            <div class="modal-body" style="height: 460px; padding: 6px; background: #fff;">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -279,6 +304,10 @@
                 var total = 1 * parseFloat(price);
                 total = NumberToMoney(total).split('.00').join('');
 
+                var jml_tr = $('#jml_tr').val();
+                var id2 = parseFloat(jml_tr) + 1;
+
+
                 var isi  =  '<tr>'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
@@ -287,19 +316,20 @@
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="qty_'+id+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+res.ID+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="harga_'+id+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+res.ID+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
+                                    '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="total_'+id+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
+                                    '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
                                 '</td>'+
                             '</tr>';
 
                 $('#item_row').append(isi);
-                hitung_total(res.ID);
+                hitung_total(id2);
+                $('#jml_tr').val(id2);
                 $('#modal_item_close').click();
 
             }
@@ -362,7 +392,11 @@
             success : function(res){   
                 $('#cust_address').val(res.ALAMAT_TAGIH);
                 $('#ship_to').val(res.ALAMAT_KIRIM);
-                $('#cust_name').val(res.NAMA_PELANGGAN);
+                if(res.NAMA_USAHA == "" || res.NAMA_USAHA == null){
+                    $('#cust_name').val(res.NAMA_PELANGGAN);                    
+                } else {
+                    $('#cust_name').val(res.NAMA_USAHA);                    
+                }
             }
         });
     }
