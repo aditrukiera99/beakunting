@@ -10,7 +10,8 @@ class Customer_m extends CI_Model
 	function get_all_pelanggan(){
         $sql = "
         SELECT a.*,
-        IFNULL(IFNULL(b.DEBET, 0) - IFNULL(c.KREDIT,0), 0) AS BALANCE
+        IFNULL(IFNULL(b.DEBET, 0) - IFNULL(c.KREDIT,0), 0) AS BALANCE,
+        IFNULL(d.PAID, 0) AS PAID
         FROM ak_pelanggan a 
         LEFT JOIN (
             SELECT ID_PELANGGAN, SUM(SUB_TOTAL) AS DEBET FROM ak_penjualan
@@ -23,6 +24,11 @@ class Customer_m extends CI_Model
             WHERE TIPE = 'RECEIVE'
             GROUP BY ID_PELANGGAN
         ) c ON a.ID = c.ID_PELANGGAN
+
+        LEFT JOIN (
+            SELECT ID_PELANGGAN, SUM(TOTAL) AS PAID FROM ak_receive_payment
+            GROUP BY ID_PELANGGAN
+        ) d ON a.ID = d.ID_PELANGGAN
         ORDER BY a.ID DESC
         ";
 
@@ -36,10 +42,19 @@ class Customer_m extends CI_Model
 
     function get_transaction_info($id){
         $sql = "
-        SELECT a.*, b.NAMA_AKUN FROM ak_penjualan a
+        SELECT a.* FROM (
+        SELECT a.TIPE, a.NO_BUKTI, a.TGL_TRX, a.KODE_AKUN, a.SUB_TOTAL, b.NAMA_AKUN FROM ak_penjualan a
         LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
         WHERE ID_PELANGGAN = '$id' 
-        ORDER BY a.ID ASC
+
+        UNION ALL 
+
+        SELECT 'Payment' AS TIPE, a.NO_BUKTI, a.TGL AS TGL_TRX, a.KODE_AKUN, a.TOTAL AS SUB_TOTAL, b.NAMA_AKUN FROM ak_receive_payment a
+        LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
+        WHERE ID_PELANGGAN = '$id' 
+        ) a 
+        ORDER BY a.TGL_TRX
+
         ";
 
         return $this->db->query($sql)->result();
