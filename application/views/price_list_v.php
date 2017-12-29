@@ -47,13 +47,13 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>
-                                                        Name
+                                                        Name &nbsp <?= date('F');?>
                                                     </th>
                                                     <th>
-                                                        Type
+                                                        Type &nbsp <?= date('d');?>
                                                     </th>
                                                     <th>
-                                                        Details
+                                                        Details &nbsp <?= date('H');?>
                                                     </th>
                                                     <th>Actions</th>
                                                 </tr>

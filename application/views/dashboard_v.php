@@ -131,16 +131,16 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Other Name List
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Customer & Vendor Profile List
-                                </a>
+                                </a> -->
                                 
                                 <!-- <a class="dropdown-item" href="#">
                                     Memorized Transaction List
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Add/Edit Multiple List Entries
-                                </a>
+                                </a> -->
                                 
                             </div>
                         </div>
@@ -151,7 +151,7 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Accountant </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
-                                <a class="dropdown-item" href="edit_user.html">
+                                <a class="dropdown-item" href="<?=base_url();?>akun_center_c">
                                     Accountant Center
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>accounts_c">
@@ -297,7 +297,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Create Batch Invoices
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>sales_receipt_c">
                                     Enter Sales Receipt
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -394,7 +394,7 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Employee </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url()?>employee_c">
                                     Employee Center
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -486,6 +486,42 @@ error_reporting(0);
                                 </a> -->
                                 <a class="dropdown-item" href="#">
                                     Order Names List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group" style="margin-top: 3px;">
+                        <div class="user-settings no-bg">
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Master </label>
+                            </button>
+                             <div class="dropdown-menu admire_admin" style="width: 270px;">
+                                <a class="dropdown-item" href="#">
+                                    Sales Rep List
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>customer_type_c">
+                                    Customer Type List
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>vendor_type_c">
+                                    Vendor Type List
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>job_type_c">
+                                    Job Type List
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>terms_c">
+                                    Terms List
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>messages_c">
+                                    Customer Messages List
+                                </a>
+                                <!-- <a class="dropdown-item" href="#">
+                                    Payment Method List
+                                </a> -->
+                                <a class="dropdown-item" href="<?=base_url()?>ship_via_c">
+                                    Ship Via List
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>vehicle_c">
+                                    Vehicle List
                                 </a>
                             </div>
                         </div>
