@@ -83,6 +83,35 @@ class Estimate_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	function simpan_detail_penjualan($id_penjualan, $id_produk, $kode_akun, $nama_produk, $satuan, $qty, $harga, $total){
+		$qty   = str_replace(',', '', $qty);
+		$harga = str_replace(',', '', $harga);
+		$total = str_replace(',', '', $total);
+
+		$sql = "
+		INSERT INTO ak_penjualan_detail
+		(ID_PENJUALAN, ID_PRODUK, KODE_AKUN, NAMA_PRODUK, QTY, SATUAN, HARGA_SATUAN, TOTAL, TIPE)
+		VALUES 
+		('$id_penjualan', '$id_produk', '$kode_akun', '$nama_produk', '$qty', '$satuan', '$harga', '$total', 'ITEM')
+		";
+
+		$this->db->query($sql);
+	}
+
+	function simpan_detail_penjualan_pajak($id_penjualan, $id_pajak, $kode_akun_pajak, $nama_pajak, $nilai_pajak){
+		$nilai_pajak   = str_replace(',', '', $nilai_pajak);
+
+		$sql = "
+		INSERT INTO ak_penjualan_detail
+		(ID_PENJUALAN, ID_PRODUK, KODE_AKUN, NAMA_PRODUK, QTY, SATUAN, HARGA_SATUAN, TOTAL, TIPE)
+		VALUES 
+		('$id_penjualan', '$id_pajak', '$kode_akun_pajak', '$nama_pajak', '1', '', '$nilai_pajak', '$nilai_pajak', 'PAJAK')
+		";
+
+		$this->db->query($sql);
+	}
+
 }
 
 /* End of file welcome.php */

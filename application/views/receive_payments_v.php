@@ -13,9 +13,31 @@
     border: 2px solid #00bf86;
     background: #fff !important;
 }
+
+.selected_btn{
+    background: green !important;
+    color: #FFF !important;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+
 </style>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>sales_order_c">
+<link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/radio_css/css/radiobox.min.css" />
+<link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/checkbox_css/css/checkbox.min.css" />
+<!--End of Plugin styles-->
+<!--Page level styles-->
+<link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/radio_checkbox.css" />
+
+<form class="form-horizontal" method="post" action="<?=base_url();?>receive_payments_c">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -27,18 +49,21 @@
                         <div class="col-lg-6">
                             <fieldset>
                                 <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right" style="margin-top: -4px;">
                                         <label for="name4" class=" col-form-label">Received From</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-8">
                                         <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-users"></i>
-                                            </span>
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-                                                <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+
+                                                    <?PHP if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+                                                    <?PHP } else { ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_USAHA;?></option>
+                                                    <?PHP } ?>
+
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="">
@@ -47,7 +72,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right" style="margin-top: -4px;">
                                         <label for="so" class="col-form-label">Amount</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
@@ -55,14 +80,14 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-money"></i>
                                             </span>
-                                            <input type="text" name="so_number" class="form-control" placeholder="">
+                                            <input readonly="" type="text" name="amount" id="amount" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     
                                 </div> 
 
                                 <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right" style="margin-top: -4px;">
                                         <label for="username4" class="col-form-label">Date</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
@@ -76,7 +101,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right" style="margin-top: -4px;">
                                         <label for="so" class="col-form-label">#Referrence</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
@@ -84,57 +109,49 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-tags"></i>
                                             </span>
-                                            <input type="text" name="so_number" class="form-control" placeholder="">
+                                            <input type="text" name="no_reff" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        
+                                    <div class="col-lg-3 col-xl-3 text-lg-right" style="margin-top: -4px;">
+                                        <label for="so" class="col-form-label">Payment Method</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="btn-group button_group_rounded btn_group_padding" role="group" >
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-money"></i>
-                                                    </span>
-                                                       CASH
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-credit-card"></i>
-                                                    </span>
-                                                       CREDIT CARD
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="ion-ios7-paper"></i>
-                                                    </span>
-                                                       CHECK
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="ion-ios7-paper"></i>
-                                                    </span>
-                                                       E CHECK
-                                                </button>
-
-                                                <button type="button" class="btn btn-labeled btn-success" style="font-size: 22px;">
-                                                    <span class="btn-label">
-                                                        <i class="ti-wallet"></i>
-                                                    </span>
-                                                       MASTER CARD
-                                                </button>
-                                                           
-                                                       </div>
-                                    </div>
-                                    
+                                            <button type="button" class="btn btn-labeled btn-default btn_method selected_btn" style="font-size: 22px;" onclick="get_metode_bayar(this, 'cash');">
+                                                <span class="btn-label">
+                                                    <i class="fa fa-money"></i>
+                                                </span>
+                                                   CASH
+                                            </button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-labeled btn-default btn_method" style="font-size: 22px;" onclick="get_metode_bayar(this, 'cc');">
+                                                <span class="btn-label">
+                                                    <i class="fa fa-credit-card"></i>
+                                                </span>
+                                                   CREDIT CARD
+                                            </button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-labeled btn-default btn_method" style="font-size: 22px;" onclick="get_metode_bayar(this, 'check');">
+                                                <span class="btn-label">
+                                                    <i class="ion-ios7-paper"></i>
+                                                </span>
+                                                   CHECK
+                                            </button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-labeled btn-default btn_method" style="font-size: 22px;" onclick="get_metode_bayar(this, 'echeck');">
+                                                <span class="btn-label">
+                                                    <i class="ion-ios7-paper"></i>
+                                                </span>
+                                                   e-CHECK
+                                            </button>
+                                            <input type="hidden" name="metode_bayar" id="metode_bayar" value="cash" />                                                        
+                                        </div>
+                                    </div>                                    
                                 </div>  
-                                <                             
+                                                         
                                 <!-- last name-->
                             </fieldset>
                         </div>
@@ -149,17 +166,19 @@
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
-                            <th class="bg-success">ITEM</th>
-                            <th class="bg-success">DESCRIPTION</th>
-                            <th class="bg-success" style="width: 5%;">QUANTITY</th>
-                            <th class="bg-success" style="text-align: center; width: 5%;">U/M</th>
-                            <th class="bg-success" style="width: 15%;">RATE</th>
-                            <th class="bg-success" style="width: 15%;">AMOUNT</th>
+                            <th class="bg-success" style="text-align: center; vertical-align: middle;">
+                                SELECT
+                            </th>
+                            <th class="bg-success" style="text-align: center; vertical-align: middle;">DATE</th>
+                            <th class="bg-success" style="text-align: center; vertical-align: middle;">NUMBER</th>
+                            <th class="bg-success" style="text-align: center; vertical-align: middle;">ORIGINAL AMOUNT</th>
+                            <th class="bg-success" style="text-align: center; vertical-align: middle;">AMOUNT DUE</th>
+                            <th class="bg-success" style="text-align: center; vertical-align: middle;">PAYMENT</th>
                         </tr>
                     </thead>
                     <tbody id="item_row">
                         <tr style="background: #FFF !important;" id="no_item">
-                            <td style="vertical-align: middle; text-align: center;" colspan="6">Please choose an item</td>
+                            <td style="vertical-align: middle; text-align: center;" colspan="6">There are no unpaid invoices for this customer</td>
                         </tr>
                     </tbody>
                 </table>                                                   
@@ -167,7 +186,16 @@
 
             <div class="row">
                 <div class="col-lg-5">
-                    
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-xl-3 text-lg-right">
+                            <label for="username4" class="col-form-label">MEMO</label>
+                        </div>
+                        <div class="col-lg-8 col-xl-8">
+                            <div class="input-group">
+                                <textarea class="form-control" name="memo" rows="3" placeholder="Type Memo Here...."></textarea>
+                            </div>
+                        </div>
+                    </div>  
                 </div>
 
                 <div class="col-lg-7">
@@ -177,9 +205,9 @@
                         <div class="col-lg-3 col-xl-6 text-lg-right">
                             <label for="name4" class=" col-form-label"> Amount Due </label> 
                         </div>
-                        <div class="col-lg-3 col-xl-4 text-lg-right">
-                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
-                            <input type="hidden" name="subtotal" id="subtotal">
+                        <div class="col-lg-3 col-xl-4 text-lg-right" style="margin-top: -13px;">
+                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0</label>
+                            <input type="hidden" name="amount_due" id="amount_due">
                         </div>
                     </div>
 
@@ -187,13 +215,13 @@
                         <div class="col-lg-3 col-xl-6 text-lg-right">
                             <label for="name4" class=" col-form-label"> Applied </label> 
                         </div>
-                        <div class="col-lg-3 col-xl-4 text-lg-right">
-                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
-                            <input type="hidden" name="subtotal" id="subtotal">
+                        <div class="col-lg-3 col-xl-4 text-lg-right" style="margin-top: -13px;">
+                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="applied_txt">0</label>
+                            <input type="hidden" name="applied_amount" id="applied_amount">
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <div class="col-lg-3 col-xl-6 text-lg-right">
                             <label for="name4" class=" col-form-label"> Discount And Credit Applied </label> 
                         </div>
@@ -201,14 +229,14 @@
                             <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
                             <input type="hidden" name="subtotal" id="subtotal">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                         <div class="col-lg-12 col-xl-12 text-lg-right"></div>                        
                         <div class="col-lg-6 col-xl-7 text-lg-right">
                             <button type="submit" class="btn btn-labeled btn-success">
                                 <span class="btn-label"><i class="fa fa-save"></i></span>
-                                Save S.O
+                                Save Payments
                             </button>
                         </div>
                         <div class="col-lg-3 col-xl-3 text-lg-right"> 
@@ -261,6 +289,7 @@
         </div>
     </div>
 </div>
+
 
 <script type="text/javascript">
     function add_row(id) {
@@ -363,34 +392,98 @@
                 $('#cust_address').val(res.ALAMAT_TAGIH);
                 $('#ship_to').val(res.ALAMAT_KIRIM);
                 $('#cust_name').val(res.NAMA_PELANGGAN);
+
+                get_invoice_aktif(id);
             }
         });
     }
 
-    function get_info_pajak(id){
-        if(id == ""){
-            $('#kode_akun_pajak').val('');
-            $('#nama_pajak').val('');
-            $('#prosen_pajak').val(0);
-            $('#nilai_pajak').val(0);
-            $('#nilai_pajak_txt').html('0.00')
+    function get_invoice_aktif(id){
+        $.ajax({
+            url : '<?php echo base_url(); ?>receive_payments_c/get_invoice_aktif',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(result){
+                var isine = "";
+                if(result.length > 0){
+                    $.each(result,function(i,res){
 
-            $('#prosen_txt').html("(0%)");
-            hitung_all();
-        } else {
-            $.ajax({
-                url : '<?php echo base_url(); ?>sales_order_c/get_info_pajak',
-                data : {id:id},
-                type : "POST",
-                dataType : "json",
-                success : function(res){   
-                    $('#kode_akun_pajak').val(res.KODE_AKUN);
-                    $('#nama_pajak').val(res.NAMA_PRODUK);
-                    $('#prosen_pajak').val(res.HARGA_SATUAN);
-                    $('#prosen_txt').html("("+res.HARGA_SATUAN+"%)");
-                    hitung_all();
+                        var subtotal = parseFloat(res.SUB_TOTAL);
+                        var terbayar = parseFloat(res.TOTAL_TERBAYAR);
+
+                        var am_due = subtotal - terbayar;
+
+                        isine += '<tr>'+
+                                    '<td style="vertical-align:middle; text-align:center;">'+
+                                    '<input name="id_penjualan[]" type="checkbox" value="'+res.ID+'" class="cek_invoice" onclick="cek_applied(this, '+res.ID+');" >'+
+                                    '</td>'+
+                                    '<td style="vertical-align:middle; text-align:left;">'+res.TGL_TRX+'</td>'+
+                                    '<td style="vertical-align:middle; text-align:left;">'+res.NO_BUKTI+'</td>'+
+                                    '<td style="vertical-align:middle; text-align:right;">'+NumberToMoney(res.SUB_TOTAL).split('.00').join('')+'</td>'+
+                                    '<td style="vertical-align:middle; text-align:right;">'+NumberToMoney(am_due).split('.00').join('')+'</td>'+
+                                    '<td style="vertical-align:middle; text-align:center;">'+
+                                    '<input style="text-align:right;" type="text" name="payment[]" value="" onkeyup="FormatCurrency(this); hitung_applied();" id="payment_'+res.ID+'" />'+
+                                    '<input style="text-align:right;" type="hidden" name="orig_due[]" value="'+res.SUB_TOTAL+'" onkeyup="FormatCurrency(this);" id="orig_due_'+res.ID+'" />'+
+                                    '<input style="text-align:right;" type="hidden" name="am_due[]" value="'+am_due+'" onkeyup="FormatCurrency(this);" id="am_due_'+res.ID+'" />'+
+                                    '<input style="text-align:right;" type="hidden" name="no_bukti[]" value="'+res.NO_BUKTI+'"/>'+
+                                    '<input style="text-align:right;" type="hidden" name="tgl_invoice[]" value="'+res.TGL_TRX+'"/>'+
+                                    '</td>'+
+                                '</tr>';
+                    });
+                } else {
+                    isine = "<tr><td colspan='6' style='text-align:center;'> There are no unpaid invoices for this customer </td></tr>";
                 }
-            })
+
+                $('#item_row').html(isine);
+                hitung_amount_due();
+            }
+        });
+    }
+
+    function cek_applied(e, id){
+        if ($(e).is(':checked')) {
+            var am_due = $('#am_due_'+id).val();
+            $('#payment_'+id).val(NumberToMoney(am_due).split('.00').join(''));
+        } else {
+            $('#payment_'+id).val('');
         }
+
+        hitung_amount_due();
+    }
+
+    function hitung_amount_due(){
+        var nilai = 0;
+
+        $("input:checkbox[class=cek_invoice]:checked").each(function () {
+            var a = $(this).val();
+            nilai += parseFloat($('#am_due_'+a).val());
+        });
+
+        $('#subtotal_txt').html(NumberToMoney(nilai).split('.00').join(''));
+        $('#amount_due').val(nilai);
+
+        hitung_applied();
+    }
+
+    function hitung_applied(){
+        var nilai = 0;
+
+        $("input:checkbox[class=cek_invoice]:checked").each(function () {
+            var a = $(this).val();
+            var b = parseFloat($('#payment_'+a).val().split(',').join(''));
+
+            nilai += parseFloat(b);
+        });
+
+        $('#applied_txt').html(NumberToMoney(nilai).split('.00').join(''));
+        $('#amount').val(NumberToMoney(nilai).split('.00').join(''));
+        $('#applied_amount').val(nilai);
+    }
+    
+    function get_metode_bayar(e, metode){
+        $('#metode_bayar').val(metode);
+        $('.btn_method').removeClass('selected_btn');
+        $(e).addClass("selected_btn");
     }
 </script>

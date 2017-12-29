@@ -114,6 +114,7 @@ class Invoice_c extends CI_Controller {
 			'get_cust' => $get_cust, 
 			'get_tax' => $get_tax,
 			'get_so' => $get_so,
+			'view' => 'customer', 
 		);
 
 		$this->load->view('dashboard_v', $data);

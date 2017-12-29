@@ -22,7 +22,7 @@
 </div>
 <?PHP } ?>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>sales_order_c">
+<form class="form-horizontal" method="post" action="<?=base_url();?>estimate_c">
 <input type="hidden" id="jml_tr" value="0">
 <div class="row">
     <div class="col-lg-12">

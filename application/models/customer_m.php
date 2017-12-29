@@ -39,6 +39,7 @@ class Customer_m extends CI_Model
         SELECT a.*, b.NAMA_AKUN FROM ak_penjualan a
         LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
         WHERE ID_PELANGGAN = '$id' 
+        ORDER BY a.ID ASC
         ";
 
         return $this->db->query($sql)->result();
