@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Add_worker_comp_c extends CI_Controller {
+class working_balance_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,28 +19,12 @@ class Add_worker_comp_c extends CI_Controller {
 	 */
 	public function index()
 	{
-		$msg = "";
-
-		if($this->input->post('codek')){
-			$msg = 1;
-			$codek  = $this->input->post('codek');
-			$description = $this->input->post('description');
-			$rate = $this->input->post('rate');
-			$tanggal = $this->input->post('tanggal');
-
-			$this->db->query("
-				INSERT INTO ak_worker
-				(WORKER_CODE, DESCRIPTION, RATE, TANGGAL)
-				VALUES 
-				('$codek', '$description', '$rate','$tanggal')
-			");
-		}
-
+		$data_price = $this->db->query("SELECT * FROM ak_price ORDER BY ID DESC")->result();
 
 		$data = array(
-			'page' => 'add_worker_comp_v',
-			'msg' => $msg,
-
+			'page' => 'working_balance_v',
+			'view' => 'accounts',
+			'data_price' => $data_price,
 		);
 
 		$this->load->view('dashboard_v', $data);

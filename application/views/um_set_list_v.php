@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="card-block">
                                     <br>
-                                    <a href="<?=base_url();?>add_um_list">
+                                    <a href="<?=base_url();?>add_um_list_c">
                                         <button type="button" class="btn btn-labeled btn-success" >
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>

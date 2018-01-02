@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Add_worker_comp_c extends CI_Controller {
+class Reconcile_next_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,30 +17,29 @@ class Add_worker_comp_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct()
+	{
+		parent::__construct();
+	    $this->load->model('vendors_m','model');
+	    $this->load->model('accounts_m','model2');
+
+	}
+
 	public function index()
 	{
-		$msg = "";
 
-		if($this->input->post('codek')){
-			$msg = 1;
-			$codek  = $this->input->post('codek');
-			$description = $this->input->post('description');
-			$rate = $this->input->post('rate');
-			$tanggal = $this->input->post('tanggal');
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
 
-			$this->db->query("
-				INSERT INTO ak_worker
-				(WORKER_CODE, DESCRIPTION, RATE, TANGGAL)
-				VALUES 
-				('$codek', '$description', '$rate','$tanggal')
-			");
-		}
-
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID")->result();
 
 		$data = array(
-			'page' => 'add_worker_comp_v',
-			'msg' => $msg,
-
+			'page' => 'reconcile_next_v', 
+			'dt'   => $this->model->get_all_supplier(),
+			'accn'   => $this->model2->get_accounts_lims(),
+			'get_item' => $get_item,
+			'get_cust' => $get_cust,
 		);
 
 		$this->load->view('dashboard_v', $data);

@@ -163,33 +163,33 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>batch_transactions_c">
                                     Batch Enter Transaction
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     Client Data Riview
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                </a> -->
+                                <a class="dropdown-item" href="<?=base_url();?>general_journal_c">
                                     Make General Journal Entries
                                 </a>
                                 <a class="dropdown-item" href="edit_user.html">
                                     Send General Journal Entries
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <a class="dropdown-item" href="<?=base_url();?>reconcile_c">
                                     Reconcile
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <a class="dropdown-item" href="<?=base_url();?>working_balance_c">
                                     Working Trial Balance
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     Set Closing Date
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     Condense Data
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     View Conversation List
-                                </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     Remote Access
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="edit_user.html">
                                     Manage Fixed Assets
                                 </a>
@@ -209,7 +209,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Company Snapshot
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>calender_c">
                                     Calendar
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -325,7 +325,7 @@ error_reporting(0);
                                     Add Credit Card Processing
                                 </a> -->
                                 <!-- <a class="dropdown-item" href="#">
-                                    Link Payment Service To Company File
+                                    Link Payment Service To File
                                 </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Enter Time

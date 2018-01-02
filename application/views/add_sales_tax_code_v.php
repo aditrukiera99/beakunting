@@ -25,6 +25,12 @@
     </div>
 </header>
 <br>
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> New Price has been saved.
+</div>
+<?PHP } ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -33,7 +39,7 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" action="<?=base_url();?>add_sales_tax_code_c">
                                 <fieldset>
                                     <br>
                                     <div class="form-group row">
@@ -45,7 +51,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-code"></i>
                                                 </span>
-                                                <input type="text" maxlength="3" class="form-control" name="" placeholder="character"> &nbsp &nbsp (maximum 3 character)
+                                                <input type="text" maxlength="3" class="form-control" name="nama" placeholder="character"> &nbsp &nbsp (maximum 3 character)
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +68,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-edit"></i>
                                                 </span>
-                                                <textarea type="text" class="form-control" name="" placeholder="Hours....">
+                                                <textarea type="text" class="form-control" name="description" placeholder="Hours....">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -74,13 +80,13 @@
                                         <div class="col-lg-2 col-xl-2">
                                             <div class="input-group">
                                                <label class="custom-control custom-radio">
-                                                        <input name="radio3" class="custom-control-input"  type="radio">
+                                                        <input name="tipe" class="custom-control-input" value="1"  type="radio">
                                                         <span class="custom-control-indicator"></span>
                                                         <span class="custom-control-description">Taxable</span>
                                                     </label>
                                                     <br>
                                                     <label class="custom-control custom-radio">
-                                                    <input name="radio3" class="custom-control-input"  type="radio">
+                                                    <input name="tipe" class="custom-control-input" value="0"  type="radio">
                                                     <span class="custom-control-indicator"></span>
                                                     <span class="custom-control-description">Non Taxable</span>
                                                 </label>
@@ -89,30 +95,31 @@
                                     </div>
                                     
                                 </fieldset>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="form-group row">
+                                            <div class="col-lg-6 col-xl-12 text-lg-right">
+                                                <button type="submit" class="btn btn-labeled btn-success">
+                                                    <span class="btn-label">
+                                                        <i class="fa fa-save"></i>
+                                                    </span>
+                                                            Simpan
+                                                </button>
+                                                <button type="button" class="btn btn-labeled btn-primary">
+                                                    <span class="btn-label">
+                                                        <i class="fa fa-times"></i>
+                                                    </span>
+                                                            Batal
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                             </form>
                         </div>       
                     </div>      
                 </div>
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="form-group row">
-                            <div class="col-lg-6 col-xl-12 text-lg-right">
-                                <button type="button" class="btn btn-labeled btn-success">
-                                    <span class="btn-label">
-                                        <i class="fa fa-save"></i>
-                                    </span>
-                                            Simpan
-                                </button>
-                                <button type="button" class="btn btn-labeled btn-primary">
-                                    <span class="btn-label">
-                                        <i class="fa fa-times"></i>
-                                    </span>
-                                            Batal
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>                                         
+                                                        
             </div>    
         </div> 
     </div>

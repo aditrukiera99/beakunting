@@ -47,13 +47,13 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>
-                                                        Name &nbsp <?= date('F');?>
+                                                        Name
                                                     </th>
                                                     <th>
-                                                        Type &nbsp <?= date('d');?>
+                                                        Type
                                                     </th>
                                                     <th>
-                                                        Details &nbsp <?= date('H');?>
+                                                        Details
                                                     </th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -69,7 +69,7 @@
                                                     </td>
                                                     <td><?=$row->TIPE_PRICE;?></td>
                                                     <td>
-                                                        <?=$row->DETAILS_PRICE;?>
+                                                        <?=$row->DETAILS_PRICE;?>%
                                                     </td>
                                                     <td>
                                                         <a href="#" class="btn btn-success btn-xs purple">
