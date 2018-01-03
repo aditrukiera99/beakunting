@@ -36,6 +36,12 @@
     </div>
 </header>
 <br>
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> New Price has been saved.
+</div>
+<?PHP } ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -89,9 +95,9 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-tag"></i>
                                                 </span>
-                                                <select id="gender4" class="form-control">
-                                                    <option>Decrease</option>
-                                                    <option>Incease</option>
+                                                <select id="gender4" name="detail" class="form-control">
+                                                    <option value="-">Decrease</option>
+                                                    <option value="+">Increase</option>
                                                 </select>
                                                
                                             </div>
@@ -100,7 +106,7 @@
                                             <label for="name4" class=" col-form-label">Item Price By</label>
                                         </div>
                                         <div class="col-lg-4 col-xl-2">
-                                            <input type="text" class="form-control" name="" placeholder="">
+                                            <input type="text" class="form-control" name="persen" placeholder="">
                                             
                                         </div>
                                     </div>
@@ -167,32 +173,32 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="form-group row">
+                                                <div class="col-lg-6 col-xl-12 text-lg-right">
+                                                    <button type="submit" class="btn btn-labeled btn-success">
+                                                        <span class="btn-label">
+                                                            <i class="fa fa-save"></i>
+                                                        </span>
+                                                                Simpan
+                                                    </button>
+                                                    <button type="button" class="btn btn-labeled btn-primary">
+                                                        <span class="btn-label">
+                                                            <i class="fa fa-times"></i>
+                                                        </span>
+                                                                Batal
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>       
                     </div>      
                 </div>
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="form-group row">
-                            <div class="col-lg-6 col-xl-12 text-lg-right">
-                                <button type="button" class="btn btn-labeled btn-success">
-                                    <span class="btn-label">
-                                        <i class="fa fa-save"></i>
-                                    </span>
-                                            Simpan
-                                </button>
-                                <button type="button" class="btn btn-labeled btn-primary">
-                                    <span class="btn-label">
-                                        <i class="fa fa-times"></i>
-                                    </span>
-                                            Batal
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>                                         
+                                                         
             </div>    
         </div> 
     </div>

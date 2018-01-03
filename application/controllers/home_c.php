@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Add_sales_tax_code_c extends CI_Controller {
+class Home_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,28 +19,8 @@ class Add_sales_tax_code_c extends CI_Controller {
 	 */
 	public function index()
 	{
-		$msg = "";
-
-		if($this->input->post('nama')){
-			$msg = 1;
-			$nama  = $this->input->post('nama');
-			$description = $this->input->post('description');
-			$tipe = $this->input->post('tipe');
-
-			$this->db->query("
-				INSERT INTO ak_sales_tax
-				(CODE_NAMA, DESCRIPTION, TYPE)
-				VALUES 
-				('$nama', '$description', '$tipe')
-			");
-		}
-
-
-
 		$data = array(
-			'page' => 'add_sales_tax_code_v',
-			'msg' => $msg,
-			
+			'page' => 'home_v', 
 		);
 
 		$this->load->view('dashboard_v', $data);

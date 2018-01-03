@@ -19,8 +19,26 @@ class Add_um_list_c extends CI_Controller {
 	 */
 	public function index()
 	{
+
+		$msg = "";
+		
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama  = $this->input->post('nama');
+			$tipe  = $this->input->post('tipe');
+
+			$this->db->query("
+				INSERT INTO ak_satuan
+				(NAMA_SATUAN,BASE,PURCHASE,SALES,SHIPPING)
+				VALUES 
+				('$nama','$tipe','$tipe','$tipe','$tipe')
+			");
+		}
+		
+
 		$data = array(
-			'page' => 'add_um_list_v', 
+			'page' => 'add_um_list_v',
+			'msg' => $msg, 
 		);
 
 		$this->load->view('dashboard_v', $data);
