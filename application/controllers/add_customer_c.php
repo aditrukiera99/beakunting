@@ -18,7 +18,7 @@ class Add_customer_c extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
+	{ 
 		$msg = "";
 		if($this->input->post('save')){
 			$cust_name 	 	 = $this->input->post('cust_name');

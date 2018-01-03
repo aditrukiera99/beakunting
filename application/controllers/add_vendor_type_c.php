@@ -21,7 +21,7 @@ class Add_vendor_type_c extends CI_Controller {
 	{
 		$msg = "";
 		
-		if($this->input->post('nama')){
+		if($this->input->post('nama')){ 
 			$msg = 1;
 			$nama  = $this->input->post('nama');
 			$sub = $this->input->post('anak_dari');

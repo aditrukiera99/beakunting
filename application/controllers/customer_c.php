@@ -5,7 +5,7 @@ class Customer_c extends CI_Controller {
 	{
 		parent::__construct();
 	    $this->load->model('customer_m','model');
-
+ 
 	}
 
 	public function index()

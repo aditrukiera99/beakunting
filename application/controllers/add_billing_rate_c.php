@@ -18,7 +18,7 @@ class Add_billing_rate_c extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
+	{ 
 		$data = array(
 			'page' => 'add_billing_rate_v', 
 		);

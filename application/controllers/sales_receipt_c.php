@@ -20,7 +20,7 @@ class Sales_receipt_c extends CI_Controller {
 	public function index()
 	{
 
-		$msg = "";
+		$msg = ""; 
 		if($this->input->post('cust_id')){
 			$msg = 1;
 			$so_number 		= $this->input->post('so_number');

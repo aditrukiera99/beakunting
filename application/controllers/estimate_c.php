@@ -3,7 +3,7 @@
 class Estimate_c extends CI_Controller {
 
 	/**
-	 * Index Page for this controller.
+	 * Index Page for this controller. 
 	 *
 	 * Maps to the following URL
 	 * 		http://example.com/index.php/welcome
@@ -18,7 +18,7 @@ class Estimate_c extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
+	{ 
 
 		$msg = "";
 		if($this->input->post('cust_id')){
