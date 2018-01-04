@@ -1,0 +1,1994 @@
+<header class="head">
+    <div class="main-bar">
+        <div class="row">
+        <div class="col-sm-4">
+            <h4 class="nav_top_align">
+                <i class="fa fa-inbox"></i>
+                REPORT
+            </h4>
+        </div>
+        <div class="col-sm-8">
+            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="<?=base_url();?>report_c">Report</a>
+                </li>
+                
+            </ol>
+        </div>
+        </div>
+    </div>
+</header>
+
+<div class="card m-t-35">
+    <div class="card-header bg-white" style="font-size: 14px;">
+        <ul class="nav nav-tabs card-header-tabs float-left">
+            <li class="nav-item">
+                <a class="nav-link active" href="#tab1" data-toggle="tab">Company & Financial</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Customer & Receivable</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab3" data-toggle="tab">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab4" data-toggle="tab">Jobs, Time & Miliage</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab5" data-toggle="tab">Vendor & Payable</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab6" data-toggle="tab">Purchases</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Inventory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Employee & Payroll</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Banking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Acountant & Taxes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Budgets & Forecast</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Contractor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Mfg & Wholesale</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Profesional Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Retail</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab">Non Profit</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-block">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <br>
+                <h3>Profit & Loss</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss Standart</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss YTD Comparison</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss Prev Year Comparison</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss By Job</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss By Class</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss Unclassified</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Income & Expenses </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Income By Customer Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Income By Customer Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Income By Vendor Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Income By Vendor Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Income & Expenses Graph</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Balance Sheet & Net Worth </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Balance Sheet Standart</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Balance Sheet Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Balance Sheet Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Balance Sheet Prev Year Comparison</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Balance Sheet By Class</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Net Worth Graph</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Cash Flow </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Statement of Cash Flow</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Cash Flow Forecast</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab2">
+                <br>
+                <h3>A/R Aging</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">A/R Aging Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">A/R Aging Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Accounts Receivable Graph</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Invoices</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Collections Report</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Average Days To Pay Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Average Days To Pay</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Customer Balance </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Customer Balance Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Customer Balance Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Uncosted Cost By Job</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Transaction List By Customer</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>List </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Customer Phone List</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Customer Contact List</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Item Price List</h5>
+                    </div>
+                </div>
+                 
+            </div>
+
+            <div class="tab-pane" id="tab3">
+                <br>
+                <h3>Sales</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Customer Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Customer Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Ship To Address</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Pending Sales</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales Graph</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Sales By Item </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Item Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Item Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Sales By Rep </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Rep Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales By Rep Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Open Sales Order </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Sales Order By Customer</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Sales Order By Item</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab4">
+                <br>
+                <h3>Job & Profitability</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Job Profitability Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Job Profitability Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Profit & Loss By Job</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Item Profitability</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Unbilled Cost By Job</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Job Estimate </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Job Estimate vs Actual Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Job Estimate vs Actual Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Job Progress Invoices vs Estimate</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Item Estimate vs Actuals</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Estimate By Job</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Purchase Order By Job</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Time</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Time By Job Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Time By Job Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Time By Name</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Time By Item</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Mileage </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Miliage By Vehicle Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Miliage By Vehicle Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Miliage By Job Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Miliage By Job Detail</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab5">
+                <br>
+                <h3>A/P Aging</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">A/P Aging Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">A/P Aging Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Accounts Payable Graph</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Vendor Balance </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Vendor Balance Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Vendor Balance Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Unpaid Bills Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Transaction List By Vendor</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>1099</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">1099 Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">1099 Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Sales Tax </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales Tax Liability</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Sales Tax Revenue Summary</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>List</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Vendor Phone List</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Vendor Contact List</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab6">
+                <br>
+                <h3>Purchase By Vendor</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Purchase By Vendor Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Purchase By Vendor Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Purchase By Item </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Purchase By Item Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Purchase By Item Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Open Purchase Order</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Purchase Orders</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Purchase Orders Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Open Purchase Orders By Job</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab7">
+                <br>
+                <h3>Inventory Valuation</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Inventory Valuation Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Inventory Valuation Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Inventory Stock Status </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Inventory Stock Status By Item</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Inventory Stock Status By Vendor</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Physical Inventory Worksheet</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Pending Builds</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab8">
+                <br>
+                <h3>Payroll</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Item Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Detail Review</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Transaction By Payee</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Transaction Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Lialibility Balances</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Payroll Item Listing</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Employee Earnings Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Employee State Taxes Detail</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Employee </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Employee Contact List</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Employee With Holding</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Paid Time Off List</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Employee Organizer </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Emergency Contact List</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">New Hire List</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Terminated Employees List</h5>
+                    </div>
+                </div>
+                <br>
+                <h3>Worker Compensation </h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Worker Compensation Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Worker Compensation By Code and Employee</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Worker Compensation By Job Summary</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Worker Compensation Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Worker Compensation Listing</h5>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="tab-pane" id="tab9">
+                <br>
+                <h3>Banking</h3>
+               <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Deposit Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Check Detail</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Missing Checks</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Reconciliation Discrepancy</h5>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                        <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.jpg" alt="example-image"/>
+                            <figcaption >
+                                <div style="margin: 0 auto;text-align: center;" >
+                                <button class="btn btn-labeled btn-success" name="">
+                                    <span class="btn-label">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    VIEW
+                                </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <h5 align="center">Previous Reconciliation</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane" id="tab1">
+                <br>
+                
+                   <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large_2">
+                        <span class="btn-label">
+                            <i class="fa fa-plus"></i>
+                        </span>
+                                  ADD ACCOUNTS
+                    </button>
+                
+                <br>
+                <br>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="bg-primary">ACCOUNT</th>
+                            <th class="bg-primary">AMOUNT</th>
+                            <th class="bg-primary">MEMO</th>
+                            <th class="bg-primary">CUSTOMER JOB</th>
+                            <th class="bg-primary">BILL</th>
+                            <th class="bg-primary">CLASS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="item_row_2">
+
+                        <tr style="background: #FFF !important;" id="no_item_2">
+                            <td style="vertical-align: middle; text-align: center;" colspan="9">Please choose an item</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>

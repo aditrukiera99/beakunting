@@ -29,8 +29,12 @@ error_reporting(0);
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/calendar_custom.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/bootstrap-switch/css/bootstrap-switch.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/jasny-bootstrap/css/jasny-bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/fancybox/css/jquery.fancybox.css"/>
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/fancybox/css/jquery.fancybox-buttons.css" />
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/fancybox/css/jquery.fancybox-thumbs.css" />
+    <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/imagehover/css/imagehover.min.css" />
 
-
+    <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/css/pages/gallery.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/tables.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/form_layouts.css" />
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/form_elements.css"/>
@@ -526,6 +530,20 @@ error_reporting(0);
                             </div>
                         </div>
                     </div>
+                    <div class="btn-group" style="margin-top: 3px;">
+                        <div class="user-settings no-bg">
+                        
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Report </label>
+                            </button>
+                            <div class="dropdown-menu admire_admin" style="width: 270px;">
+                                <a class="dropdown-item" href="<?=base_url()?>report_c">
+                                    Report Center
+                                </a>
+                            </div>
+                             
+                        </div>
+                    </div>
                 </div>
                 
             </div>
@@ -726,6 +744,15 @@ error_reporting(0);
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/moment/js/moment.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/fullcalendar/js/fullcalendar.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pluginjs/calendarcustom.js" ></script>
+
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/holderjs/js/holder.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/fancybox/js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/fancybox/js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/fancybox/js/jquery.fancybox-buttons.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/fancybox/js/jquery.fancybox-thumbs.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/vendors/fancybox/js/jquery.fancybox-media.js"></script>
+<!--End of plugin scripts-->
+<script type="text/javascript" src="<?=base_url();?>assets/js/pages/gallery.js"></script>
 
 
 <script type="text/javascript" src="<?=base_url();?>assets/vendors/inputlimiter/js/jquery.inputlimiter.js"></script>
