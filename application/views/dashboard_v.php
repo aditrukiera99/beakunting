@@ -316,7 +316,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>receive_payments_c">
                                     Receive Payments
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>credit_memo_c">
                                     Create Credit Memos/Refund
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>income_tracker_c">

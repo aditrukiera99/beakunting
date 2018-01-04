@@ -47,7 +47,7 @@ table th{
         <button onclick="window.location = '<?=base_url();?>sales_order_c'; " class="btn btn-secondary">Create Sales Order</button>
         <button onclick="window.location = '<?=base_url();?>invoice_c'; " class="btn btn-secondary">Invoice</button>
         <button onclick="window.location = '<?=base_url();?>receive_payments_c'; " class="btn btn-secondary">Receive Payments</button>
-        <button onclick="window.location = '<?=base_url();?>receive_payments_c'; " class="btn btn-secondary">Credit Memo / Refund</button>
+        <button onclick="window.location = '<?=base_url();?>credit_memo_c'; " class="btn btn-secondary">Credit Memo / Refund</button>
         <div class="card" style="margin-top:10px;">
             <div class="card-header bg-success">CUSTOMER INFORMATION 
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
