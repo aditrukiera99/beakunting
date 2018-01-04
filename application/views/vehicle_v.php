@@ -1,3 +1,31 @@
+<header class="head">
+    <div class="main-bar">
+        <div class="row">
+        <div class="col-sm-4">
+            <h4 class="nav_top_align">
+                <i class="fa fa-inbox"></i>
+                VEHICLE
+            </h4>
+        </div>
+        <div class="col-sm-8">
+            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="<?=base_url();?>items_c">Vehicle</a>
+                </li>
+                
+            </ol>
+        </div>
+        </div>
+    </div>
+</header>
+<br>
+
 <div class="row">
     <div class="col-12 data_tables">
         <a href="<?=base_url();?>add_vehicle_c">

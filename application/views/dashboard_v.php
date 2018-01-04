@@ -203,7 +203,7 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Company </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 220px;">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>company_c">
                                     Home Page
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -215,7 +215,7 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Document
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>lead_c">
                                     Lead Center
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>company_c">
@@ -224,7 +224,7 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Advance Service Administrator
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>user_c">
                                     Users
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
