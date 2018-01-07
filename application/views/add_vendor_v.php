@@ -1,32 +1,3 @@
-<header class="head">
-    <div class="main-bar">
-        <div class="row">
-        <div class="col-sm-4">
-            <h4 class="nav_top_align">
-                <i class="fa fa-plus"></i>
-                Add New Vendors
-            </h4>
-        </div>
-        <div class="col-sm-8">
-            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                <li class="breadcrumb-item">
-                    <a href="index.html">
-                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="#">Vendors</a>
-                </li>
-                <li class="active breadcrumb-item">Add New Vendors</li>
-            </ol>
-        </div>
-        </div>
-    </div>
-</header>
-
-<br>
-
 <?PHP if($msg == 1){ ?>
 <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -38,6 +9,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
+            <div class="card-header bg-success"><a href="<?=base_url();?>vendors_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> ADD NEW VENDOR</div>
             <div class="card-block cards_section_margin">
                 <div class="row">
                     <div class="col-lg-12">
@@ -240,7 +212,7 @@
                                     <div class="col-lg-4 col-xl-8">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                <i class="fa fa-users"></i>
+                                                <i class="fa fa-credit-card"></i>
                                             </span>
                                             <input type="text" name="acc_no" class="form-control" placeholder="">
                                         </div>
@@ -252,10 +224,12 @@
                                     </div>
                                     <div class="col-lg-4 col-xl-8">
                                         <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-credit-card"></i>
-                                            </span>
-                                                <input type="text" name="acc_terms" class="form-control" placeholder="">
+                                            <select class="form-control" name="acc_terms">
+                                                <option value="Cash">Due On Receipt</option>
+                                                <option value="Credit Card">Net 15</option>
+                                                <option value="Check">Net 30</option>
+                                                <option value="Other">Net 60</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -265,10 +239,12 @@
                                     </div>
                                     <div class="col-lg-4 col-xl-8">
                                         <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-credit-card"></i>
-                                            </span>
-                                            <input type="text" name="acc_method" class="form-control" placeholder="">
+                                            <select class="form-control" name="acc_method">
+                                                <option value="Cash">Cash</option>
+                                                <option value="Credit Card">Credit Card</option>
+                                                <option value="Check">Check</option>
+                                                <option value="Other">Other</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>                                            

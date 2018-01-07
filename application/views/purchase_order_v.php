@@ -22,11 +22,11 @@
 </div>
 <?PHP } ?>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>invoice_c">
+<form class="form-horizontal" method="post" action="<?=base_url();?>purchase_order_c">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">PURCHASE ORDER</div>
+            <div class="card-header bg-success"> <a href="<?=base_url();?>vendors_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> PURCHASE ORDER</div>
             <div class="card-block cards_section_margin">                
                 <div class="card-block">
                     <br>
@@ -39,16 +39,13 @@
                                     </div>
                                     <div class="col-lg-8 col-xl-8">
                                         <div class="input-group">
-                                            <select class="form-control chzn-select" name="cust_id" onchange="get_vendor_info(this.value);" required>
+                                            <select class="form-control chzn-select" name="vend_id" onchange="get_vendor_info(this.value);" required>
                                                 <option value="">Choose a vendors</option>
-                                                <?PHP foreach ($get_vendor as $key => $row) { ?>
-
-                                                    
+                                                <?PHP foreach ($get_vendor as $key => $row) { ?>                                                    
                                                     <option value="<?=$row->ID;?>"><?=$row->NAMA_SUPPLIER;?></option>
-
                                                 <?PHP } ?>
                                             </select>
-                                            <input type="hidden" name="cust_name" id="cust_name" value="">
+                                            <input type="hidden" name="vend_name" id="vend_name" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +66,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label style="margin-top: 0px;" for="so" class="col-form-label">INVOICE#</label>
+                                        <label style="margin-top: 0px;" for="so" class="col-form-label">P.O. NO.</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">
@@ -78,20 +75,41 @@
                                             </span>
                                             <input required type="text" name="inv_number" class="form-control" placeholder="">
                                         </div>
-                                    </div>
-                                    
+                                    </div>                                    
                                 </div>                                    
-                                <!-- last name-->
+                                
+                                <div class="form-group row">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                        <label style="margin-top: 0px;" for="name4" class=" col-form-label">Drop Ship To</label>
+                                    </div>
+                                    <div class="col-lg-8 col-xl-8">
+                                        <div class="input-group">
+                                            <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);">
+                                                <option value="">Choose a customer</option>
+                                                <?PHP foreach ($get_cust as $key => $row) { ?>
+
+                                                    <?PHP if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+                                                    <?PHP } else { ?>
+                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_USAHA;?></option>
+                                                    <?PHP } ?>
+
+                                                <?PHP } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </fieldset>
                         </div>
                                    
                         <div class="col-lg-6">                            
                             <div class="form-group row">
                                 <div class="col-lg-3 col-xl-3 text-lg-right">
-                                    <label for="username4" class="col-form-label">Bill To</label>
+                                    <label for="username4" class="col-form-label">Vendor Address</label>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
-                                    <textarea name="cust_address" id="cust_address" class="form-control" rows="4"></textarea>
+                                    <textarea name="vend_address" id="vend_address" class="form-control" rows="4"></textarea>
                                 </div>
                             </div>
 
@@ -109,20 +127,6 @@
 
                 <hr>
 
-                <div class="form-group" id="head_so" style="display: none;">
-                    <div class="col-lg-5 col-xl-5" style="padding-left: 0px;">
-                        <label for="name4" class=" col-form-label">Select from Sales Order</label>
-                        <div class="input-group">
-                            <select class="form-control chzn-select" name="so_number" id="so_number" onchange="get_item_from_so(this.value);">
-                                <option value="">Choose a Sales Order</option>
-                                <?PHP foreach ($get_so as $key => $row) { ?>
-                                    <option value="<?=$row->NO_BUKTI;?>"><?=$row->NO_BUKTI;?> - <?=$row->MEMO;?></option>
-                                <?PHP } ?>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <br>
                 <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
                     <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
                 </button>
@@ -134,7 +138,6 @@
                         <tr>
                             <th class="bg-success">ITEM</th>
                             <th class="bg-success">DESCRIPTION</th>
-                            <th class="bg-success">CUSTOMER</th>
                             <th class="bg-success" style="width: 5%;">QUANTITY</th>
                             <th class="bg-success" style="text-align: center; width: 5%;">U/M</th>
                             <th class="bg-success" style="width: 15%;">RATE</th>
@@ -166,46 +169,44 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-3 col-xl-3 text-lg-right">
-                            <label for="username4" class="col-form-label">Vendors Message</label>
+                            <label for="username4" class="col-form-label">Vendors <br> Message</label>
                         </div>
                             <div class="col-lg-8 col-xl-8">
                                 <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope"></i>
                                 </span>
-                                <textarea class="form-control" name="cust_msg" rows="3" placeholder="Type Text Here...."></textarea>
+                                <textarea class="form-control" name="vend_msg" rows="3" placeholder="Type Text Here...."></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-7">
-                    <div class="form-group row">
-                        
+                    <div class="form-group row">    
                         <div class="col-lg-8 col-xl-4" style="margin-top: 5px;">
-                           
                             <input type="hidden" name="kode_akun_pajak" id="kode_akun_pajak" value="">
                             <input type="hidden" name="nama_pajak" id="nama_pajak" value="">
                             <input type="hidden" name="prosen_pajak" id="prosen_pajak" value="0">
                             <input type="hidden" name="nilai_pajak" id="nilai_pajak" value="0">
-
                         </div>
-                       
                     </div>
 
                     <div class="form-group row">
                         <div class="col-lg-3 col-xl-6 text-lg-right">
-                            <label for="name4" class=" col-form-label"> TOTAL </label> 
+                            <label for="name4" class=" col-form-label" style="font-size: 20px;"> TOTAL </label> 
                         </div>
-                        <div class="col-lg-3 col-xl-4 text-lg-right">
-                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
+                        <div class="col-lg-3 col-xl-6 text-lg-center">
+                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px; margin-top: 0px;" id="subtotal_txt">0.00</label>
                             <input type="hidden" name="subtotal" id="subtotal">
                         </div>
                     </div>
+
                     <br>
                     <br>
                     <br>
                     <br>
+
                     <div class="form-group row">
                         <div class="col-lg-12 col-xl-12 text-lg-right"></div>                        
                         <div class="col-lg-6 col-xl-7 text-lg-right">
@@ -215,7 +216,7 @@
                             </button>
                         </div>
                         <div class="col-lg-3 col-xl-3 text-lg-right"> 
-                            <a href="<?=base_url();?>customer_c" class="btn btn-labeled btn-primary">
+                            <a href="<?=base_url();?>vendors_c" class="btn btn-labeled btn-primary">
                                 <span class="btn-label"><i class="fa fa-times"></i></span>
                                 Cancel
                             </a>
@@ -266,6 +267,18 @@
 </div>
 
 <script type="text/javascript">
+    function get_cust_info(id){
+        $.ajax({
+            url : '<?php echo base_url(); ?>customer_c/get_customer_info',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(res){   
+                $('#ship_to').val(res.ALAMAT_KIRIM);
+            }
+        });
+    }
+
     function add_row(id) {
         $('#no_item').hide();
         $.ajax({
@@ -283,7 +296,7 @@
                 total = NumberToMoney(total).split('.00').join('');
 
                 var jml = $('#item_row').find('tr').length;
-                var id2 = parseFloat(jml) + parseFloat(id);
+                var id2 = parseFloat(jml) * parseFloat(id);
                 
 
                 var isi  =  '<tr class="item_selected">'+
@@ -293,14 +306,6 @@
                                 '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
-                                '<td style="vertical-align: middle;">'+
-                                    '<select class="form-control chzn-select" name="customer_id" required>'+
-                                            '<option value="">Choose a customer</option>'+
-                                            '<?PHP foreach ($get_customer as $key => $row2) { ?>'+
-                                                '<option value="<?=$row2->ID;?>"><?=$row2->NAMA_PELANGGAN;?></option>'+
-                                            '<?PHP } ?>'+
-                                        '</select>'+
-                                '</td>'+
                                 '<td style="vertical-align: middle;">'+
                                     '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
@@ -372,27 +377,15 @@
         $('.item_selected').remove();
         $('#no_item').show();
 
-        if(id == ""){
-            $('#head_so').hide();
-        } else {
-            $('#head_so').show();
-        }
-
         $.ajax({
             url : '<?php echo base_url(); ?>vendors_c/get_vendor_info',
             data : {id:id},
             type : "POST",
             dataType : "json",
             success : function(res){   
-                $('#cust_address').val(res.ALAMAT_TAGIH);
-                $('#ship_to').val(res.ALAMAT_KIRIM);
-                if(res.NAMA_USAHA == "" || res.NAMA_USAHA == null){
-                    $('#cust_name').val(res.NAMA_SUPPLIER);                    
-                } else {
-                    $('#cust_name').val(res.NAMA_USAHA);                    
-                }
-
-                get_so_number(id);
+                $('#vend_address').val(res.ALAMAT_TAGIH);
+                // $('#ship_to').val(res.ALAMAT_KIRIM);
+                $('#vend_name').val(res.NAMA_SUPPLIER);
             }
         });
     }

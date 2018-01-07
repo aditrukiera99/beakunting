@@ -36,20 +36,13 @@ class Credit_memo_c extends CI_Controller {
 			$subtotal 		= addslashes($this->input->post('subtotal'));
 			$tgl            = date('d-m-Y');
 
-			if($so_number != ""){
-				$this->db->query("
-					UPDATE ak_penjualan SET NO_INV = '$inv_number'
-					WHERE NO_BUKTI = '$so_number'
-				");
-			}
-
 			// INSERT KE VOUCHER
 
 			$this->db->query("
 				INSERT INTO ak_input_voucher
 				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
 				VALUES 
-				('$inv_number', '$tgl', '$memo', '$cust_name', 'INVOICE')
+				('$inv_number', '$tgl', '$memo', '$cust_name', 'CREDIT')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -59,7 +52,7 @@ class Credit_memo_c extends CI_Controller {
 				INSERT INTO ak_input_voucher_detail
 				(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
 				VALUES 
-				('$id_voucher', '11000', '$subtotal', '0', '$inv_number')
+				('$id_voucher', '11000', '0', '$subtotal', '$inv_number')
 			");
 			// END OF RECEIVABLE
 
@@ -70,7 +63,7 @@ class Credit_memo_c extends CI_Controller {
 				INSERT INTO ak_penjualan
 				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL, KODE_AKUN)
 				VALUES 
-				('INVOICE', '$inv_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '11000')
+				('CREDIT', '$inv_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$cust_address', '$memo', '$cust_msg', '$subtotal', '11000')
 			");
 			
 			$id_penjualan = $this->db->insert_id();
@@ -160,7 +153,7 @@ class Credit_memo_c extends CI_Controller {
 		INSERT INTO ak_input_voucher_detail
 		(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
 		VALUES 
-		('$id_voucher', '$kode_akun', '0', '$total', '$inv_number')
+		('$id_voucher', '$kode_akun', '$total', '0', '$inv_number')
 		";
 
 		$this->db->query($sql);
@@ -186,7 +179,7 @@ class Credit_memo_c extends CI_Controller {
 		INSERT INTO ak_input_voucher_detail
 		(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
 		VALUES 
-		('$id_voucher', '$kode_akun_pajak', '0', '$nilai_pajak', '$inv_number')
+		('$id_voucher', '$kode_akun_pajak', '$nilai_pajak', '0', '$inv_number')
 		";
 
 		$this->db->query($sql);

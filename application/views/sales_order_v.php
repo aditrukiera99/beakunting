@@ -340,8 +340,6 @@
             }
         });
 
-        $('#subtotal').val(sum);
-
         var inc_pajak = (parseFloat(sum) * parseFloat(prosen_pajak)) / 100;
         inc_pajak = Math.round(inc_pajak);
 
@@ -352,6 +350,7 @@
 
 
         $('#subtotal_txt').html(NumberToMoney(subtotal_all).split('.00').join(''));
+        $('#subtotal').val(subtotal_all);
     }
 
     function get_cust_info(id){

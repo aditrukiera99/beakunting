@@ -42,14 +42,7 @@ table th{
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
-            <div class="card-header bg-success">VENDORS
-                <a href="<?=base_url();?>add_vendor_c">
-                    <button type="button" class="btn btn-danger" style="float: right;">
-                        <i class="fa fa-plus-square"></i>  Add New
-                    </button>
-                </a>
-            </div>
-
+            <div class="card-header bg-success">VENDORS</div>
             <div class="card-block cards_section_margin" style="padding: 0px;">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -72,8 +65,15 @@ table th{
         </div>
     </div>
     <div class="col-lg-9">
-        <div class="card">
-            <div class="card-header bg-primary disabled">VENDOR INFORMATION 
+        <button onclick="window.location = '<?=base_url();?>add_vendor_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Vendor</button>
+        <button onclick="window.location = '<?=base_url();?>purchase_order_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Purchase Order</button>
+        <button onclick="window.location = '<?=base_url();?>item_receipts_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Item Receipts</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bills</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bill Payment</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Checks</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Sales Tax Payments</button>
+        <div class="card" style="margin-top:10px;">
+            <div class="card-header bg-success">VENDOR INFORMATION 
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
                     <span class="btn-label">
                         <i class="fa fa-edit"></i>
@@ -138,14 +138,7 @@ table th{
         <br>
 
         <div class="card">
-            <div class="card-header bg-primary disabled">TRANSACTION
-                <button type="button" class="btn btn-labeled btn-info" style="float: right;">
-                    <span class="btn-label">
-                        <i class="fa fa-plus-square"></i>
-                    </span>
-                    New Transaction
-                </button>
-            </div>
+            <div class="card-header bg-success">TRANSACTION</div>
             <div class="card-block cards_section_margin" style="padding: 0px;">
                 <div class="row">
                     <div class="col-lg-12">

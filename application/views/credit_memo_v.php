@@ -18,11 +18,11 @@
 <?PHP if($msg == 1){ ?>
 <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <strong>Saved!</strong> Invoice has been created.
+    <strong>Saved!</strong> Credit / Memo has been created.
 </div>
 <?PHP } ?>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>invoice_c">
+<form class="form-horizontal" method="post" action="<?=base_url();?>credit_memo_c">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -72,7 +72,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label style="margin-top: 0px;" for="so" class="col-form-label">INVOICE#</label>
+                                        <label style="margin-top: 0px;" for="so" class="col-form-label">Credit No</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">
@@ -91,19 +91,10 @@
                         <div class="col-lg-6">                            
                             <div class="form-group row">
                                 <div class="col-lg-3 col-xl-3 text-lg-right">
-                                    <label for="username4" class="col-form-label">Bill To</label>
+                                    <label for="username4" class="col-form-label">Customer Address</label>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
                                     <textarea name="cust_address" id="cust_address" class="form-control" rows="4"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-3 col-xl-3 text-lg-right">
-                                    <label for="username4" class="col-form-label">Ship To</label>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <textarea name="ship_to" id="ship_to" class="form-control" rows="4"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -112,20 +103,6 @@
 
                 <hr>
 
-                <div class="form-group" id="head_so" style="display: none;">
-                    <div class="col-lg-5 col-xl-5" style="padding-left: 0px;">
-                        <label for="name4" class=" col-form-label">Select from Sales Order</label>
-                        <div class="input-group">
-                            <select class="form-control chzn-select" name="so_number" id="so_number" onchange="get_item_from_so(this.value);">
-                                <option value="">Choose a Sales Order</option>
-                                <?PHP foreach ($get_so as $key => $row) { ?>
-                                    <option value="<?=$row->NO_BUKTI;?>"><?=$row->NO_BUKTI;?> - <?=$row->MEMO;?></option>
-                                <?PHP } ?>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <br>
                 <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
                     <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
                 </button>
@@ -354,7 +331,6 @@
             }
         });
 
-        $('#subtotal').val(sum);
 
         var inc_pajak = (parseFloat(sum) * parseFloat(prosen_pajak)) / 100;
         inc_pajak = Math.round(inc_pajak);
@@ -364,8 +340,8 @@
 
         var subtotal_all = parseFloat(sum) + parseFloat(inc_pajak);
 
-
         $('#subtotal_txt').html(NumberToMoney(subtotal_all).split('.00').join(''));
+        $('#subtotal').val(subtotal_all);
     }
 
     function get_cust_info(id){
@@ -373,12 +349,6 @@
         $("#data_"+id).addClass("selected_cust");
         $('.item_selected').remove();
         $('#no_item').show();
-
-        if(id == ""){
-            $('#head_so').hide();
-        } else {
-            $('#head_so').show();
-        }
 
         $.ajax({
             url : '<?php echo base_url(); ?>customer_c/get_customer_info',
@@ -393,8 +363,6 @@
                 } else {
                     $('#cust_name').val(res.NAMA_USAHA);                    
                 }
-
-                get_so_number(id);
             }
         });
     }

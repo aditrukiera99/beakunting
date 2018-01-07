@@ -32,7 +32,7 @@ table th{
                     <?PHP foreach ($dt as $key => $row) { ?>
                     <tr id="data_<?=$row->ID;?>" onclick="get_information('<?=$row->ID;?>');" style="cursor: pointer;" class="tbl_customer">
                         <td><?php if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ echo $row->NAMA_PELANGGAN; } else { echo $row->NAMA_USAHA; } ?></td>
-                        <td><?=number_format($row->BALANCE - $row->PAID);?></td>
+                        <td><?=number_format($row->BALANCE - $row->PAID - $row->PAID2);?></td>
                     </tr>
                     <?PHP } ?>
                 </tbody>
@@ -43,11 +43,11 @@ table th{
     </div>
     <div class="col-lg-9">
         <button onclick="window.location = '<?=base_url();?>add_customer_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Customer</button>
-        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary">Create Estimate</button>
-        <button onclick="window.location = '<?=base_url();?>sales_order_c'; " class="btn btn-secondary">Create Sales Order</button>
-        <button onclick="window.location = '<?=base_url();?>invoice_c'; " class="btn btn-secondary">Invoice</button>
-        <button onclick="window.location = '<?=base_url();?>receive_payments_c'; " class="btn btn-secondary">Receive Payments</button>
-        <button onclick="window.location = '<?=base_url();?>credit_memo_c'; " class="btn btn-secondary">Credit Memo / Refund</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Estimate</button>
+        <button onclick="window.location = '<?=base_url();?>sales_order_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Sales Order</button>
+        <button onclick="window.location = '<?=base_url();?>invoice_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Invoice</button>
+        <button onclick="window.location = '<?=base_url();?>receive_payments_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Receive Payments</button>
+        <button onclick="window.location = '<?=base_url();?>credit_memo_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Credit Memo / Refund</button>
         <div class="card" style="margin-top:10px;">
             <div class="card-header bg-success">CUSTOMER INFORMATION 
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
@@ -187,12 +187,19 @@ table th{
                 var isine = "";
                 if(result.length > 0){
                     $.each(result,function(i,res){
-                        isine += '<tr>'+
+
+                        var subtotal = res.SUB_TOTAL;
+                        var sty = "";
+                        if(res.TIPE == 'CREDIT'){
+                            subtotal = res.SUB_TOTAL * -1;
+                            sty = "color:red;";
+                        }
+                        isine += '<tr style="'+sty+'">'+
                                     '<td style="text-align:left;">'+res.TIPE+'</td>'+
                                     '<td style="text-align:left;">'+res.NO_BUKTI+'</td>'+
                                     '<td style="text-align:left;">'+res.TGL_TRX+'</td>'+
                                     '<td style="text-align:left;">'+res.KODE_AKUN+' - '+res.NAMA_AKUN+'</td>'+
-                                    '<td style="text-align:right;">'+NumberToMoney(res.SUB_TOTAL)+'</td>'+
+                                    '<td style="text-align:right;">'+NumberToMoney(subtotal)+'</td>'+
                                 '</tr>';
                     });
                 } else {

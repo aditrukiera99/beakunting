@@ -13,7 +13,7 @@
                     <a href="index.html">
                         <i class="fa fa-home" data-pack="default" data-tags=""></i>
                         Dashboard
-                    </a>
+                    </a> 
                 </li>
                 <li class="breadcrumb-item">
                     <a href="#">Employee</a>

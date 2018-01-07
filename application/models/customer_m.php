@@ -11,7 +11,8 @@ class Customer_m extends CI_Model
         $sql = "
         SELECT a.*,
         IFNULL(IFNULL(b.DEBET, 0) - IFNULL(c.KREDIT,0), 0) AS BALANCE,
-        IFNULL(d.PAID, 0) AS PAID
+        IFNULL(d.PAID, 0) AS PAID,
+        IFNULL(e.PAID2, 0) AS PAID2
         FROM ak_pelanggan a 
         LEFT JOIN (
             SELECT ID_PELANGGAN, SUM(SUB_TOTAL) AS DEBET FROM ak_penjualan
@@ -29,6 +30,12 @@ class Customer_m extends CI_Model
             SELECT ID_PELANGGAN, SUM(TOTAL) AS PAID FROM ak_receive_payment
             GROUP BY ID_PELANGGAN
         ) d ON a.ID = d.ID_PELANGGAN
+
+        LEFT JOIN (
+            SELECT ID_PELANGGAN, SUM(SUB_TOTAL) AS PAID2 FROM ak_penjualan
+            WHERE TIPE = 'CREDIT'
+            GROUP BY ID_PELANGGAN
+        ) e ON a.ID = e.ID_PELANGGAN
         ORDER BY a.ID DESC
         ";
 

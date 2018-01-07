@@ -24,6 +24,11 @@ class Add_vendor_c extends CI_Controller {
 		if($this->input->post('save')){
 			$ven_name 	 	 = $this->input->post('ven_name');
 			$ven_balance 	 = $this->input->post('ven_balance');
+
+			if($ven_balance == ""){
+				$ven_balance = 0;
+			}
+
 			$ven_balance     = str_replace(',', '', $ven_balance);
 			
 			$ven_company      = $this->input->post('ven_company');
@@ -47,6 +52,45 @@ class Add_vendor_c extends CI_Controller {
 				VALUES 
 				('$ven_name','$ven_balance','$ven_company','$ven_fullname','$ven_job_title','$ven_main_phone','$ven_mobile','$ven_fax','$ven_email','$ven_website','$ven_bill_from','$ven_ship_from','$acc_no','$acc_terms','$acc_method')
 			");
+
+			$id_supplier = $this->db->insert_id();
+
+			if($ven_balance > 0){
+				// INSERT KE VOUCHER
+				$tgl = date('d-m-Y');
+				$this->db->query("
+					INSERT INTO ak_input_voucher
+					(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+					VALUES 
+					('', '$tgl', 'Opening Balance', '$ven_name', 'BILL')
+				");
+				$id_voucher = $this->db->insert_id();
+
+				// DETAIL
+				$this->db->query("
+					INSERT INTO ak_input_voucher_detail
+					(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI, MEMO)
+					VALUES 
+					('$id_voucher', '69800', '$ven_balance', '0', '', 'Opening Balance')
+				");
+
+				$this->db->query("
+					INSERT INTO ak_input_voucher_detail
+					(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI, MEMO)
+					VALUES 
+					('$id_voucher', '20000', '0', '$ven_balance', '', 'Opening Balance')
+				");
+				// END OF DETAIL
+
+				// INSERT KE NO PENJUALAN / PEMBELIAN
+				$this->db->query("
+					INSERT INTO ak_pembelian
+					(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN)
+					VALUES 
+					('BILL', '', '$id_supplier', '$ven_name', '$tgl', '$ven_bill_from', '$ven_ship_from', 'Opening Balance', '', '$ven_balance', '20000')
+				");
+
+		    }
 
 			$msg = 1;
 

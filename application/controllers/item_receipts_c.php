@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Employee_c extends CI_Controller {
+class Item_receipts_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -9,7 +9,7 @@ class Employee_c extends CI_Controller {
 	 * 		http://example.com/index.php/welcome
 	 *	- or -  
 	 * 		http://example.com/index.php/welcome/index
-	 *	- or - 
+	 *	- or -
 	 * Since this controller is set as the default controller in 
 	 * config/routes.php, it's displayed at http://example.com/
 	 *
@@ -21,30 +21,30 @@ class Employee_c extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-	    $this->load->model('employee_m','model');
+	    $this->load->model('vendors_m','model');
+	    $this->load->model('accounts_m','model2');
 
 	}
 
 	public function index()
 	{
-		$get_pekerja = $this->db->query("SELECT * FROM ak_pekerja ORDER BY ID")->result();
 
-		
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID")->result();
 
 		$data = array(
-			'page' => 'employee_v', 
-			'get_pekerja' => $get_pekerja,
+			'page' => 'item_receipts_v', 
+			'dt'   => $this->model->get_all_supplier(),
+			'accn'   => $this->model2->get_accounts_lims(),
+			'get_item' => $get_item,
+			'get_cust' => $get_cust,
+			'view' => 'vendors',
 		);
 
 		$this->load->view('dashboard_v', $data);
 	}
-
-	function get_employee_info(){
-			$id = $this->input->post('id');
-			$data = $this->model->get_employee_by_id($id);
-
-			echo json_encode($data);
-		}
 }
 
 /* End of file welcome.php */

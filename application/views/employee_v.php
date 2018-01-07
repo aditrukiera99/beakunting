@@ -21,7 +21,7 @@ table th{
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-inbox"></i>
-                Customer
+                Customer 
             </h4>
         </div>
         <div class="col-sm-8">

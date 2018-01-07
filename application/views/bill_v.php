@@ -12,7 +12,7 @@
 .table-bordered {
     border: 2px solid #00bf86;
     background: #fff !important;
-}
+} 
 </style>
 
 <script type="text/javascript">
@@ -54,21 +54,7 @@
                
                 
             </h4>
-        </div>
-        <div class="col-sm-8">
-            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                <li class="breadcrumb-item">
-                    <a href="index.html">
-                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="#">Email</a>
-                </li>
-                <li class="active breadcrumb-item">BILL</li>
-            </ol>
-        </div>
+        </div> 
         </div>
     </div>
 </header>

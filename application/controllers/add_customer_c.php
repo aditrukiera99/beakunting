@@ -23,6 +23,11 @@ class Add_customer_c extends CI_Controller {
 		if($this->input->post('save')){
 			$cust_name 	 	 = $this->input->post('cust_name');
 			$cust_balance 	 = $this->input->post('cust_balance');
+
+			if($cust_balance == ""){
+				$cust_balance = 0;
+			}
+			
 			$cust_balance    = str_replace(',', '', $cust_balance);
 			
 			$cust_company    = $this->input->post('cust_company');
