@@ -537,7 +537,7 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Report </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
-                                <a class="dropdown-item" href="<?=base_url()?>report_c">
+                                <a class="dropdown-item" href="<?=base_url()?>report_back_c">
                                     Report Center
                                 </a>
                             </div>
