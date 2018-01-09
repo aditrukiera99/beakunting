@@ -19,7 +19,7 @@
     function tipe(id){
         $('.baris').hide();
         if(id == "Bill"){
-            $('#bill').show();
+            $('#bill').show(); 
         }else if(id == "Credit"){
             $('#chek').show();
         }else if(id == "Item"){

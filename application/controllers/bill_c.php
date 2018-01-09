@@ -19,7 +19,7 @@ class Bill_c extends CI_Controller {
 	 */
 
 	function __construct()
-	{
+	{ 
 		parent::__construct();
 	    $this->load->model('vendors_m','model');
 	    $this->load->model('accounts_m','model2');

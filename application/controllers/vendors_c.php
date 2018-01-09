@@ -9,7 +9,7 @@ class Vendors_c extends CI_Controller {
 
 	}
 
-	public function index()
+	public function index() 
 	{
 		$data = array(
 			'page' => 'vendors_v', 

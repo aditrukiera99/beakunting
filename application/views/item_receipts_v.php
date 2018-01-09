@@ -30,40 +30,11 @@
     }
 </script>
 
-<header class="head">
-    <div class="main-bar">
-        <div class="row">
-        <div class="col-sm-4">
-            <h4 class="nav_top_align">
-                <div class="form-group row">
-                    <div class="col-lg-2 col-xl-3 ">
-                        <label for="name4" class=" col-form-label">Type</label>
-                    </div>
-                    <div class="col-lg-8 col-xl-8">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-tags"></i>
-                            </span>
-                            <select class="form-control" onchange="tipe(this.value);">
-                                <option value="Bill">Bill</option>
-                                <option value="Credit">Credit</option>
-                                <option value="Item">Item Receipt</option>
-                            </select>
-                    </div>
-                </div>
-               
-                
-            </h4>
-        </div> 
-        </div>
-    </div>
-</header>
-<br>
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">BILL</div>
+            <div class="card-header bg-success">ITEM RECEIPTS</div>
             <div class="card-block cards_section_margin">
                 <div class="card-block">
                     <br>
@@ -120,6 +91,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-lg-6">
                                     <div class="form-group row">
                                         <div class="col-lg-2 col-xl-3 ">
                                             <label for="name4" class=" col-form-label">Total</label>

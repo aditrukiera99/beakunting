@@ -11,7 +11,7 @@ class Customer_m extends CI_Model
         $sql = "
         SELECT a.*,
         IFNULL(IFNULL(b.DEBET, 0) - IFNULL(c.KREDIT,0), 0) AS BALANCE,
-        IFNULL(d.PAID, 0) AS PAID,
+        IFNULL(d.PAID, 0) AS PAID, 
         IFNULL(e.PAID2, 0) AS PAID2
         FROM ak_pelanggan a 
         LEFT JOIN (

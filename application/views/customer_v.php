@@ -12,7 +12,7 @@ table th{
 .selected_cust:hover {
     background: #49a942 !important;
     color: #FFF;
-}
+} 
 
 </style>
 <div class="row">

@@ -19,7 +19,7 @@ class Report_c extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data = array(
+		$data = array( 
 			'page' => 'report_v', 
 		);
 

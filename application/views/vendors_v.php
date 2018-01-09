@@ -68,7 +68,7 @@ table th{
         <button onclick="window.location = '<?=base_url();?>add_vendor_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Vendor</button>
         <button onclick="window.location = '<?=base_url();?>purchase_order_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Purchase Order</button>
         <button onclick="window.location = '<?=base_url();?>item_receipts_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Item Receipts</button>
-        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bills</button>
+        <button onclick="window.location = '<?=base_url();?>bill_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bills</button>
         <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bill Payment</button>
         <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Checks</button>
         <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Sales Tax Payments</button>
