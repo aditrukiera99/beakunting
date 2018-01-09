@@ -43,237 +43,182 @@ input[type=checkbox]
 <?PHP if($msg == 1){ ?>
 <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <strong>Saved!</strong> Bill has been created.
+    <strong>Saved!</strong> Credit has been created.
 </div>
 <?PHP } ?>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>bill_c">
+<form class="form-horizontal" method="post" action="<?=base_url();?>credit_vendor_c">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success"> <a href="<?=base_url();?>vendors_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> BILL </div>
+            <div class="card-header bg-success"> <a href="<?=base_url();?>vendors_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> CREDIT </div>
             <div class="card-block cards_section_margin">
                 <div class="card-block">
                     <br>
                     <div class="row baris" id="bank">
                         <div class="col-lg-6">
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3 ">
-                                    <label for="name4" class=" col-form-label">Vendor</label>
-                                </div>
-                                <div class="col-lg-4 col-xl-6">
-                                    <div class="input-group">
-                                        <select class="form-control chzn-select" name="vend_id" onchange="get_ven_info(this.value);" required>
-                                            <option value="">Choose Vendors</option>
-                                            <?php 
-                                                foreach ($dt as $key => $value) {
-                                                    
-                                            ?>
-                                            <option value="<?=$value->ID;?>"><?=$value->NAMA_SUPPLIER;?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <input type="hidden" name="vend_name" id="vend_name" value="">
+                                <fieldset>
+                                    <div class="form-group row">
+                                        <div class="col-lg-2 col-xl-3 ">
+                                            <label for="name4" class=" col-form-label">Vendor</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-6">
+                                            <div class="input-group">
+                                                <select class="form-control chzn-select" name="vend_id" onchange="get_ven_info(this.value);" required>
+                                                    <option value="">Choose Vendors</option>
+                                                    <?php 
+                                                        foreach ($dt as $key => $value) {
+                                                            
+                                                    ?>
+                                                    <option value="<?=$value->ID;?>"><?=$value->NAMA_SUPPLIER;?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <input type="hidden" name="vend_name" id="vend_name" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-lg-2 col-xl-3">
+                                            <label for="username4" class="col-form-label">Date</label>
+                                        </div>
+                                        <div class="col-lg-8 col-xl-4">
+                                            <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar-o"></i>
+                                            </span>
+                                                <input type="text" name="tgl" class="form-control" placeholder="dd-mm-yyyy" id="dp1" value="<?=date('d-m-Y');?>">
+                                            </div>
+                                        </div>                                    
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-lg-2 col-xl-3 ">
+                                            <label for="name4" class=" col-form-label">Ref No</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-tags"></i>
+                                                </span>
+                                                    <input type="text" class="form-control" name="ref_no">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3 ">
-                                    <label for="name4" class=" col-form-label"> Address</label>
-                                </div>
-                                <div class="col-lg-4 col-xl-6">
-                                    <div class="input-group">
-                                        <textarea class="form-control" type="text" rows="3" name="ven_address" id="ven_address"></textarea>
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <div class="col-lg-2 col-xl-3 ">
+                                            <label for="name4" class=" col-form-label">Credit Amount</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-6">
+                                            <div class="input-group">
+                                                <input readonly type="text" id="tititi3" class="form-control" name="sub_total">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3 ">
-                                    <label for="name4" class=" col-form-label"> Memo</label>
-                                </div>
-                                <div class="col-lg-4 col-xl-6">
-                                    <div class="input-group">
-                                        <textarea class="form-control" type="text" rows="3" name="memo"></textarea>
+                                    <div class="form-group row">
+                                        <div class="col-lg-2 col-xl-3 ">
+                                            <label for="name4" class=" col-form-label"> Memo</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope"></i>
+                                                </span>
+                                                <textarea class="form-control" type="text" rows="3" name="memo"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </fieldset>
+                        </div>       
+                    </div>                                
+                </div>
 
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3 ">
-                                    <label for="name4" class=" col-form-label">Terms</label>
-                                </div>
-                                <div class="col-lg-4 col-xl-6">
-                                    <div class="input-group">
-                                        <select class="form-control" name="terms" onchange="get_due_date(this.value);" required>
-                                            <option value="Due on Receipt">Due on Receipt</option>
-                                            <option value="NET 15">NET 15</option>
-                                            <option value="NET 30">NET 30</option>
-                                            <option value="NET 60">NET 60</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>                                
-                        </div>
+                <div class="card m-t-35">
+                    <div class="card-header bg-white">
+                        <ul class="nav nav-tabs card-header-tabs float-left">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#tab2" data-toggle="tab">Items <b id="amount_due2_txt"></b> </a>
+                            </li>
 
-                        <div class="col-lg-6">
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3">
-                                    <label for="username4" class="col-form-label">Date</label>
-                                </div>
-                                <div class="col-lg-8 col-xl-4">
-                                    <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-calendar-o"></i>
-                                    </span>
-                                        <input readonly style="background: #FFF;" type="text" name="tgl" class="form-control" placeholder="dd-mm-yyyy" id="dp1" value="<?=date('d-m-Y');?>">
-                                    </div>
-                                </div>                                    
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3 ">
-                                    <label for="name4" class=" col-form-label">Ref No</label>
-                                </div>
-                                <div class="col-lg-4 col-xl-6">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-tags"></i>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tab1" data-toggle="tab">Expenses <b id="amount_due_txt"></b> </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-block">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab2">
+                                <br>                                
+                                    <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
+                                        <span class="btn-label">
+                                            <i class="fa fa-plus"></i>
                                         </span>
-                                            <input type="text" class="form-control" name="ref_no">
-                                    </div>
-                                </div>
-                            </div>
+                                        ADD ITEM
+                                    </button>                                
+                                <br>
+                                <br>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-success">ITEM</th>
+                                            <th class="bg-success">DESCRIPTION</th>
+                                            <th class="bg-success" style="width: 7%;">QTY</th>
+                                            <th class="bg-success">U/M</th>
+                                            <th class="bg-success">COST</th>
+                                            <th class="bg-success">AMOUNT</th>
+                                            <th class="bg-success">CUSTOMER JOB</th>
+                                            <th class="bg-success">BILL ?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="item_row">
 
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3 ">
-                                    <label for="name4" class=" col-form-label">Amount Due</label>
-                                </div>
-                                <div class="col-lg-4 col-xl-6">
-                                    <div class="input-group">
-                                        <input readonly type="text" id="tititi3" class="form-control" name="sub_total">
-                                    </div>
-                                </div>
+                                        <tr style="background: #FFF !important;" id="no_item">
+                                            <td style="vertical-align: middle; text-align: center;" colspan="9">Please choose an item</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <div class="tab-pane" id="tab1">
+                                <br>
+                                
+                                   <button type="button" class="btn btn-labeled btn-primary" data-toggle="modal" data-target="#large_2">
+                                        <span class="btn-label">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                        ADD ACCOUNTS
+                                    </button>
+                                
+                                <br>
+                                <br>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-primary">ACCOUNT</th>
+                                            <th class="bg-primary">AMOUNT</th>
+                                            <th class="bg-primary">MEMO</th>
+                                            <th class="bg-primary">CUSTOMER JOB</th>
+                                            <th class="bg-primary">BILL ?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="item_row_2">
 
-                            <div class="form-group row">
-                                <div class="col-lg-2 col-xl-3">
-                                    <label for="username4" class="col-form-label">Bill Due</label>
-                                </div>
-                                <div class="col-lg-8 col-xl-4">
-                                    <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-calendar-o"></i>
-                                    </span>
-                                        <input readonly style="background: #FFF;" type="text" name="bill_due" class="form-control" placeholder="dd-mm-yyyy" id="bill_due" value="<?=date('d-m-Y');?>">
-                                    </div>
-                                </div>                                    
+                                        <tr style="background: #FFF !important;" id="no_item_2">
+                                            <td style="vertical-align: middle; text-align: center;" colspan="9">Please choose an item</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                    </div>       
-                </div>                                
-            </div>
-
-            <div class="row" style="margin-left: 10px;">
-                <div class="col-lg-12">
-                    <div class="form-group" id="head_po" style="display: none;">
-                        <div class="col-lg-5 col-xl-5" style="padding-left: 0px;">
-                            <label for="name4" class=" col-form-label">Select Purchase Order</label>
-                            <div class="input-group">
-                                <select class="form-control chzn-select" name="po_number" id="po_number" onchange="get_item_from_po(this.value);">
-                                    <option value="">Choose a Sales Order</option>
-                                    <?PHP foreach ($get_so as $key => $row) { ?>
-                                        <option value="<?=$row->ID;?>"><?=$row->NO_BUKTI;?> - <?=$row->MEMO;?></option>
-                                    <?PHP } ?>
-                                </select>
-                            </div>
+                            
                         </div>
                     </div>
-                </div>
+                </div>                                                     
             </div>
-            <br>
 
-            <div class="card m-t-35">
-                <div class="card-header bg-white">
-                    <ul class="nav nav-tabs card-header-tabs float-left">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#tab2" data-toggle="tab">Items <b id="amount_due2_txt"></b> </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab1" data-toggle="tab">Expenses <b id="amount_due_txt"></b> </a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                <div class="card-block">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab2">
-                            <br>                                
-                                <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
-                                    <span class="btn-label">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                                    ADD ITEM
-                                </button>                                
-                            <br>
-                            <br>
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="bg-success">ITEM</th>
-                                        <th class="bg-success">DESCRIPTION</th>
-                                        <th class="bg-success" style="width: 7%;">QTY</th>
-                                        <th class="bg-success">U/M</th>
-                                        <th class="bg-success">COST</th>
-                                        <th class="bg-success">AMOUNT</th>
-                                        <th class="bg-success">CUSTOMER JOB</th>
-                                        <th class="bg-success">BILL ?</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="item_row">
-
-                                    <tr style="background: #FFF !important;" id="no_item">
-                                        <td style="vertical-align: middle; text-align: center;" colspan="9">Please choose an item</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tab-pane" id="tab1">
-                            <br>
-                            
-                               <button type="button" class="btn btn-labeled btn-primary" data-toggle="modal" data-target="#large_2">
-                                    <span class="btn-label">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                                    ADD ACCOUNTS
-                                </button>
-                            
-                            <br>
-                            <br>
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="bg-primary">ACCOUNT</th>
-                                        <th class="bg-primary">AMOUNT</th>
-                                        <th class="bg-primary">MEMO</th>
-                                        <th class="bg-primary">CUSTOMER JOB</th>
-                                        <th class="bg-primary">BILL ?</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="item_row_2">
-
-                                    <tr style="background: #FFF !important;" id="no_item_2">
-                                        <td style="vertical-align: middle; text-align: center;" colspan="9">Please choose an item</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <br>
             <div class="row">
                 <div class="col-lg-12" style="float: right;">
                     <div class="form-group row">                                        
@@ -288,14 +233,12 @@ input[type=checkbox]
                         </div>
                     </div>
                 </div>                                    
-            </div>                                                    
-        </div>                                      
-    </div>                        
+            </div>                                
+        </div>                        
+    </div>
 </div>
-
 <input type="hidden" onkeyup="FormatCurrency(this);" value="0" id="amount_due" class="form-control" placeholder="Nominal.....">
 <input type="hidden" onkeyup="FormatCurrency(this);" value="0" id="amount_due2" class="form-control" placeholder="Nominal.....">
-<input type="hidden" value="<?=date('m-d-Y');?>" id="tgl_now" class="form-control" placeholder="Nominal.....">
 </form>
 
 <div class="modal fade" id="large" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
@@ -663,70 +606,6 @@ input[type=checkbox]
 
             }
         });
-    }
-
-    function get_due_date(val){
-        if(val == "Due on Receipt"){
-            $('#bill_due').val('<?=date('d-m-Y');?>');
-        } else if(val == "NET 15"){
-            // var tgl = $('#tgl_now').val();
-            var tt = document.getElementById('tgl_now').value;
-
-            var date = new Date(tt);
-            var newdate = new Date(date);
-
-            newdate.setDate(newdate.getDate() + 15);
-            
-            var dd = newdate.getDate();
-            var mm = newdate.getMonth() + 1;
-            var y = newdate.getFullYear();
-
-            dd = pad(dd, 2);
-            mm = pad(mm, 2);
-            var someFormattedDate = dd + '-' + mm + '-' + y;
-            document.getElementById('bill_due').value = someFormattedDate;
-
-        } else if(val == "NET 30"){
-            // var tgl = $('#tgl_now').val();
-            var tt = document.getElementById('tgl_now').value;
-
-            var date = new Date(tt);
-            var newdate = new Date(date);
-
-            newdate.setDate(newdate.getDate() + 30);
-            
-            var dd = newdate.getDate();
-            var mm = newdate.getMonth() + 1;
-            var y = newdate.getFullYear();
-
-            dd = pad(dd, 2);
-            mm = pad(mm, 2);
-            var someFormattedDate = dd + '-' + mm + '-' + y;
-            document.getElementById('bill_due').value = someFormattedDate;
-
-        } else if(val == "NET 60"){
-            // var tgl = $('#tgl_now').val();
-            var tt = document.getElementById('tgl_now').value;
-
-            var date = new Date(tt);
-            var newdate = new Date(date);
-
-            newdate.setDate(newdate.getDate() + 60);
-            
-            var dd = newdate.getDate();
-            var mm = newdate.getMonth() + 1;
-            var y = newdate.getFullYear();
-
-            dd = pad(dd, 2);
-            mm = pad(mm, 2);
-            var someFormattedDate = dd + '-' + mm + '-' + y;
-            document.getElementById('bill_due').value = someFormattedDate;
-        }
-    }
-
-    function pad (str, max) {
-      str = str.toString();
-      return str.length < max ? pad("0" + str, max) : str;
     }
 
 </script>

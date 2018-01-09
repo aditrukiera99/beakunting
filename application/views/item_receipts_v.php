@@ -43,11 +43,11 @@ input[type=checkbox]
 <?PHP if($msg == 1){ ?>
 <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <strong>Saved!</strong> Purchase Order has been created.
+    <strong>Saved!</strong> Item Receipts has been created.
 </div>
 <?PHP } ?>
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>item_receipts">
+<form class="form-horizontal" method="post" action="<?=base_url();?>item_receipts_c">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -114,7 +114,7 @@ input[type=checkbox]
                                         </div>
                                         <div class="col-lg-4 col-xl-6">
                                             <div class="input-group">
-                                                <input readonly type="text" id="tititi3" class="form-control" name="total">
+                                                <input readonly type="text" id="tititi3" class="form-control" name="sub_total">
                                             </div>
                                         </div>
                                     </div>
@@ -137,26 +137,43 @@ input[type=checkbox]
                     </div>                                
                 </div>
 
+                <div class="form-group" id="head_po" style="display: none;">
+                    <div class="col-lg-5 col-xl-5" style="padding-left: 0px;">
+                        <label for="name4" class=" col-form-label">Select Purchase Order</label>
+                        <div class="input-group">
+                            <select class="form-control chzn-select" name="po_number" id="po_number" onchange="get_item_from_po(this.value);">
+                                <option value="">Choose a Sales Order</option>
+                                <?PHP foreach ($get_so as $key => $row) { ?>
+                                    <option value="<?=$row->ID;?>"><?=$row->NO_BUKTI;?> - <?=$row->MEMO;?></option>
+                                <?PHP } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
                 <div class="card m-t-35">
                     <div class="card-header bg-white">
                         <ul class="nav nav-tabs card-header-tabs float-left">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#tab1" data-toggle="tab">Expenses <b id="amount_due_txt"></b> </a>
+                                <a class="nav-link active" href="#tab2" data-toggle="tab">Items <b id="amount_due2_txt"></b> </a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" href="#tab2" data-toggle="tab">Items <b id="amount_due2_txt"></b> </a>
+                                <a class="nav-link" href="#tab1" data-toggle="tab">Expenses <b id="amount_due_txt"></b> </a>
                             </li>
+                            
                         </ul>
                     </div>
                     <div class="card-block">
                         <div class="tab-content">
-                            <div class="tab-pane" id="tab2">
+                            <div class="tab-pane active" id="tab2">
                                 <br>                                
                                     <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
                                         <span class="btn-label">
                                             <i class="fa fa-plus"></i>
                                         </span>
-                                    ADD ITEM
+                                        ADD ITEM
                                     </button>                                
                                 <br>
                                 <br>
@@ -165,12 +182,12 @@ input[type=checkbox]
                                         <tr>
                                             <th class="bg-success">ITEM</th>
                                             <th class="bg-success">DESCRIPTION</th>
-                                            <th class="bg-success">QTY</th>
+                                            <th class="bg-success" style="width: 7%;">QTY</th>
                                             <th class="bg-success">U/M</th>
                                             <th class="bg-success">COST</th>
                                             <th class="bg-success">AMOUNT</th>
                                             <th class="bg-success">CUSTOMER JOB</th>
-                                            <th class="bg-success">BILLABLE ?</th>
+                                            <th class="bg-success">BILL ?</th>
                                         </tr>
                                     </thead>
                                     <tbody id="item_row">
@@ -181,14 +198,14 @@ input[type=checkbox]
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-pane active" id="tab1">
+                            <div class="tab-pane" id="tab1">
                                 <br>
                                 
-                                   <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large_2">
+                                   <button type="button" class="btn btn-labeled btn-primary" data-toggle="modal" data-target="#large_2">
                                         <span class="btn-label">
                                             <i class="fa fa-plus"></i>
                                         </span>
-                                                  ADD ACCOUNTS
+                                        ADD ACCOUNTS
                                     </button>
                                 
                                 <br>
@@ -200,7 +217,7 @@ input[type=checkbox]
                                             <th class="bg-primary">AMOUNT</th>
                                             <th class="bg-primary">MEMO</th>
                                             <th class="bg-primary">CUSTOMER JOB</th>
-                                            <th class="bg-primary">BILLABLE ?</th>
+                                            <th class="bg-primary">BILL ?</th>
                                         </tr>
                                     </thead>
                                     <tbody id="item_row_2">
@@ -349,7 +366,7 @@ input[type=checkbox]
                                     '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '        <select class="form-control chzn-select" name="cust_id[]" required>'+
+                                    '        <select class="form-control chzn-select" name="cust_id[]">'+
                                     '            <option value="">Choose a CUSTOMER</option>'+
                                     '            <?PHP foreach ($get_cust as $key => $row2) { ?>'+
                                     '                <option value="<?=$row2->ID;?>"><?=$row2->NAMA_PELANGGAN;?></option>'+
@@ -400,7 +417,7 @@ input[type=checkbox]
                                     '   <input type="text" class="form-control" name="memo_table[]">     '+        
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '        <select class="form-control chzn-select" name="cust_id2[]" required>'+
+                                    '        <select class="form-control chzn-select" name="cust_id2[]">'+
                                     '            <option value="">Choose a CUSTOMER</option>'+
                                     '            <?PHP foreach ($get_cust as $key => $row2) { ?>'+
                                     '                <option value="<?=$row2->ID;?>"><?=$row2->NAMA_PELANGGAN;?></option>'+
@@ -501,13 +518,17 @@ input[type=checkbox]
     function get_ven_info(id){
         $(".tbl_customer").removeClass("selected_cust");
         $("#data_"+id).addClass("selected_cust");
-        // $('.item_selected').remove();
+        $('.item_selected').remove();
+        $('#amount_due_txt').html('');
+        $('#amount_due2_txt').html('');
+        $('.item_selected').remove();
         $('#no_item').show();
 
+
         if(id == ""){
-            $('#head_so').hide();
+            $('#head_po').hide();
         } else {
-            $('#head_so').show();
+            $('#head_po').show();
         }
 
         $.ajax({
@@ -518,8 +539,88 @@ input[type=checkbox]
             success : function(res){   
                 $('#ven_address').val(res.ALAMAT_TAGIH);
                 $('#vend_name').val(res.NAMA_SUPPLIER);
-                get_so_number(id);
+                get_po_number(id);
             }
         });
     }
+
+    function get_po_number(id){
+        $.ajax({
+            url : '<?php echo base_url(); ?>item_receipts_c/get_po_number',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(result){   
+                var isine = "<option value=''>Choose a Purchase Order</option>";
+                $.each(result,function(i,res){
+                    isine += '<option value="'+res.ID+'">'+res.NO_BUKTI+' - '+res.MEMO+'</option>';
+                });
+
+                $('#po_number').html(isine);
+                $("#po_number").trigger("chosen:updated");
+            }
+        });
+    }
+
+    function get_item_from_po(id){
+        $('.item_selected').remove();
+        $.ajax({
+            url : '<?php echo base_url(); ?>item_receipts_c/get_item_from_po',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(result){   
+
+                if(result.length > 0){
+                    $('#no_item').hide();
+                    $.each(result,function(i,res){      
+                        if(res.TIPE == 'ITEM'){
+                            var jml = $('#item_row').find('tr').length;
+                            var id2 = parseFloat(jml) * parseFloat(res.ID_PRODUK);
+                            var isi  =  '<tr class="item_selected">'+
+                                            '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
+                                            '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
+                                            '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
+                                            '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
+                                            '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
+                                            '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
+                                            '<td style="vertical-align: middle;">'+
+                                                '<input id="qty_'+id2+'" value="'+res.QTY+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+'); coba();" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                            '</td>'+
+                                            '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
+                                            '<td style="vertical-align: middle;">'+
+                                                '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
+                                            '</td>'+
+                                            '<td style="vertical-align: middle;">'+
+                                                '<input id="total_'+id2+'" value="'+NumberToMoney(res.TOTAL).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
+                                            '</td>'+
+
+                                            '<td style="vertical-align: middle;">'+
+                                                '        <select class="form-control chzn-select" name="cust_id[]">'+
+                                                '            <option value="">Choose a CUSTOMER</option>'+
+                                                '            <?PHP foreach ($get_cust as $key => $row2) { ?>'+
+                                                '                <option value="<?=$row2->ID;?>"><?=$row2->NAMA_PELANGGAN;?></option>'+
+                                                '            <?PHP } ?>'+
+                                                '        </select>'+        
+                                            '</td>'+
+                                            
+                                            '<td style="vertical-align: middle;">'+
+                                                '   <input type="checkbox" class="form-control" name="billable[]" value="1">     '+        
+                                            '</td>'+
+                                        '</tr>';
+
+                            $('#item_row').append(isi);
+                            hitung_total(id2);
+           
+                        }
+                    });
+                coba();
+                } else {
+                    $('#no_item').show();
+                }
+
+            }
+        });
+    }
+
 </script>

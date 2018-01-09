@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Bill_c extends CI_Controller {
+class Credit_vendor_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -33,31 +33,21 @@ class Bill_c extends CI_Controller {
 		$msg = "";
 		if($this->input->post('vend_id')){
 			$msg = 1;
-			$vend_id     = $this->input->post('vend_id');
-			$vend_name   = addslashes($this->input->post('vend_name'));
-			$ven_address = addslashes($this->input->post('ven_address'));
-			$tgl         = $this->input->post('tgl');
-			$ref_no      = addslashes($this->input->post('ref_no'));
-			$terms       = $this->input->post('terms');
-			$bill_due    = $this->input->post('bill_due');
+			$vend_id = $this->input->post('vend_id');
+			$vend_name = $this->input->post('vend_name');
+			$tgl     = $this->input->post('tgl');
+			$ref_no  = $this->input->post('ref_no');
 			$sub_total   = $this->input->post('sub_total');
 			$sub_total   = str_replace(',', '', $sub_total);	
-			$memo        = addslashes($this->input->post('memo'));
-			$po_number   = $this->input->post('po_number');
-
-			if($po_number != ""){
-				$this->db->query("
-					UPDATE ak_pembelian SET IS_ACTIVE = '1'
-					WHERE ID = '$po_number'
-				");
-			}
+			$memo    = addslashes($this->input->post('memo'));
+			$po_number = $this->input->post('po_number');
 
 			// INSERT KE VOUCHER
 			$this->db->query("
 				INSERT INTO ak_input_voucher
 				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
 				VALUES 
-				('$ref_no', '$tgl', '$memo', '$vend_name', 'Bill')
+				('$ref_no', '$tgl', '$memo', '$vend_name', 'Credit Vendor')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -67,15 +57,15 @@ class Bill_c extends CI_Controller {
 				INSERT INTO ak_input_voucher_detail
 				(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI)
 				VALUES 
-				('$id_voucher', '20000', '0', '$sub_total', '$ref_no')
+				('$id_voucher', '20000', '$sub_total', '0', '$ref_no')
 			");
 			// END OF RECEIVABLE
 
 			$this->db->query("
 				INSERT INTO ak_pembelian
-				(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, ID_PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN, TGL_JATUH_TEMPO, TERMS)
+				(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, ID_PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN)
 				VALUES 
-				('Bill', '$ref_no', '$vend_id', '$vend_name', '0', '$tgl', '$ven_address', '$ven_address', '$memo', '', '$sub_total', '20000', '$bill_due', '$terms')
+				('Credit Vendor', '$ref_no', '$vend_id', '$vend_name', '0', '$tgl', '', '', '$memo', '', '$sub_total', '20000')
 			");
 			$id_pembelian = $this->db->insert_id();
 
@@ -113,7 +103,7 @@ class Bill_c extends CI_Controller {
 		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID")->result();
 
 		$data = array(
-			'page' => 'bill_v', 
+			'page' => 'credit_vendor_v', 
 			'dt'   => $this->model->get_all_supplier(),
 			'accn'   => $this->model2->get_accounts_lims(),
 			'get_item' => $get_item,
@@ -180,7 +170,7 @@ class Bill_c extends CI_Controller {
 		INSERT INTO ak_input_voucher_detail
 		(ID_VOUCHER, KODE_AKUN, DEBET, KREDIT, NO_BUKTI, MEMO)
 		VALUES 
-		('$id_voucher', '$kode_akun', '$total', '0', '$inv_number', '$memo')
+		('$id_voucher', '$kode_akun', '0', '$total', '$inv_number', '$memo')
 		";
 
 		$this->db->query($sql);

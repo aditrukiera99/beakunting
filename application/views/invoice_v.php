@@ -294,7 +294,7 @@
                 total = NumberToMoney(total).split('.00').join('');
 
                 var jml = $('#item_row').find('tr').length;
-                var id2 = parseFloat(jml) + parseFloat(id);
+                var id2 = parseFloat(jml) * parseFloat(id);
 
                 var isi  =  '<tr class="item_selected">'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
@@ -430,7 +430,7 @@
                     $.each(result,function(i,res){      
                         if(res.TIPE == 'ITEM'){
                             var jml = $('#item_row').find('tr').length;
-                            var id2 = parseFloat(jml) + parseFloat(res.ID_PRODUK);
+                            var id2 = parseFloat(jml) * parseFloat(res.ID_PRODUK);
 
                             var isi  =  '<tr class="item_selected">'+
                                             '<input type="hidden" name="id_produk[]" value="'+res.ID_PRODUK+'"/>'+

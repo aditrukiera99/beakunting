@@ -9,6 +9,14 @@ $(document).ready(function () {
         autoclose: true,
         orientation:"bottom"
     });
+
+    $('#bill_due').datepicker({
+        format: 'dd-mm-yyyy',
+        todayHighlight: true,
+        autoclose: true,
+        orientation:"bottom"
+    });
+
     $('#dp2').datepicker({
         todayHighlight: true,
         autoclose: true,
