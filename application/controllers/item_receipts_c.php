@@ -29,6 +29,25 @@ class Item_receipts_c extends CI_Controller {
 	public function index()
 	{
 
+		if($this->input->post('vend_id')){
+			$vend_id = $this->input->post('vend_id');
+			$tgl     = $this->input->post('tgl');
+			$ref_no  = $this->input->post('ref_no');
+			$total   = $this->input->post('total');
+			$total   = str_replace(',', '', $total);	
+			$memo    = addslashes($this->input->post('memo'));
+
+			$this->db->query("
+				INSERT INTO ak_pembelian
+				(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, ID_PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN)
+				VALUES 
+				('Item Receipt', '$inv_number', '$vend_id', '$vend_name', '$cust_id', '$tgl', '$vend_address', '$ship_to', '$memo', '$vend_msg', '$subtotal', '90100')
+			");
+			$id_pembelian = $this->db->insert_id();
+
+			// $asd = $this->input->post('vend_id');	
+		}
+
 		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
 					ORDER BY ID DESC LIMIT 10")->result();
 

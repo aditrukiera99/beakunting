@@ -13,6 +13,16 @@
     border: 2px solid #00bf86;
     background: #fff !important;
 }
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
 </style>
 
 <script type="text/javascript">
@@ -30,17 +40,23 @@
     }
 </script>
 
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> Purchase Order has been created.
+</div>
+<?PHP } ?>
 
+<form class="form-horizontal" method="post" action="<?=base_url();?>item_receipts">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">ITEM RECEIPTS</div>
+            <div class="card-header bg-success"> <a href="<?=base_url();?>vendors_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> ITEM RECEIPTS </div>
             <div class="card-block cards_section_margin">
                 <div class="card-block">
                     <br>
                     <div class="row baris" id="bank">
                         <div class="col-lg-6">
-                            <form class="form-horizontal">
                                 <fieldset>
                                     <div class="form-group row">
                                         <div class="col-lg-2 col-xl-3 ">
@@ -48,11 +64,8 @@
                                         </div>
                                         <div class="col-lg-4 col-xl-6">
                                             <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-users"></i>
-                                                </span>
-                                                <select id="gender4" class="form-control" onchange="get_ven_info(this.value);">
-                                                    <option>Choose Vendors</option>
+                                                <select class="form-control chzn-select" name="vend_id" onchange="get_ven_info(this.value);" required>
+                                                    <option value="">Choose Vendors</option>
                                                     <?php 
                                                         foreach ($dt as $key => $value) {
                                                             
@@ -60,6 +73,7 @@
                                                     <option value="<?=$value->ID;?>"><?=$value->NAMA_SUPPLIER;?></option>
                                                     <?php } ?>
                                                 </select>
+                                                <input type="hidden" name="vend_name" id="vend_name" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +101,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-tags"></i>
                                                 </span>
-                                                    <input type="text" class="form-control" name="">
+                                                    <input type="text" class="form-control" name="ref_no">
                                             </div>
                                         </div>
                                     </div>
@@ -100,10 +114,7 @@
                                         </div>
                                         <div class="col-lg-4 col-xl-6">
                                             <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </span>
-                                                    <input type="text" id="tititi3" class="form-control" name="">
+                                                <input readonly type="text" id="tititi3" class="form-control" name="total">
                                             </div>
                                         </div>
                                     </div>
@@ -117,12 +128,11 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
-                                                    <textarea class="form-control" type="text" rows="3"></textarea>
+                                                <textarea class="form-control" type="text" rows="3" name="memo"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
-                            </form>
                         </div>       
                     </div>                                
                 </div>
@@ -131,25 +141,23 @@
                     <div class="card-header bg-white">
                         <ul class="nav nav-tabs card-header-tabs float-left">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#tab1" data-toggle="tab">Expenses</a>
+                                <a class="nav-link active" href="#tab1" data-toggle="tab">Expenses <b id="amount_due_txt"></b> </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#tab2" data-toggle="tab">Items</a>
+                                <a class="nav-link" href="#tab2" data-toggle="tab">Items <b id="amount_due2_txt"></b> </a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-block">
                         <div class="tab-content">
                             <div class="tab-pane" id="tab2">
-                                <br>
-                                
-                                   <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
+                                <br>                                
+                                    <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
                                         <span class="btn-label">
                                             <i class="fa fa-plus"></i>
                                         </span>
-                                                  ADD ITEM
-                                    </button>
-                                
+                                    ADD ITEM
+                                    </button>                                
                                 <br>
                                 <br>
                                 <table class="table table-bordered table-hover">
@@ -162,8 +170,7 @@
                                             <th class="bg-success">COST</th>
                                             <th class="bg-success">AMOUNT</th>
                                             <th class="bg-success">CUSTOMER JOB</th>
-                                            <th class="bg-success">BILLABLE</th>
-                                            <th class="bg-success">CLASS</th>
+                                            <th class="bg-success">BILLABLE ?</th>
                                         </tr>
                                     </thead>
                                     <tbody id="item_row">
@@ -193,8 +200,7 @@
                                             <th class="bg-primary">AMOUNT</th>
                                             <th class="bg-primary">MEMO</th>
                                             <th class="bg-primary">CUSTOMER JOB</th>
-                                            <th class="bg-primary">BILL</th>
-                                            <th class="bg-primary">CLASS</th>
+                                            <th class="bg-primary">BILLABLE ?</th>
                                         </tr>
                                     </thead>
                                     <tbody id="item_row_2">
@@ -215,13 +221,13 @@
                 <div class="col-lg-12" style="float: right;">
                     <div class="form-group row">                                        
                         <div class="col-lg-3 col-xl-11 text-lg-right">
-                            <button type="button" class="btn btn-labeled btn-success">
-                                <span class="btn-label"><i class="fa fa-save"></i></span> Simpan
+                            <button type="submit" class="btn btn-labeled btn-success">
+                                <span class="btn-label"><i class="fa fa-save"></i></span> Save
                             </button>
 
-                            <button type="button" class="btn btn-labeled btn-primary">
-                                <span class="btn-label"><i class="fa fa-times"></i></span> Batal
-                            </button>
+                            <a href="<?=base_url();?>vendors_c" class="btn btn-labeled btn-primary">
+                                <span class="btn-label"><i class="fa fa-times"></i></span> Cancel
+                            </a>
                         </div>
                     </div>
                 </div>                                    
@@ -229,6 +235,9 @@
         </div>                        
     </div>
 </div>
+<input type="hidden" onkeyup="FormatCurrency(this);" value="0" id="amount_due" class="form-control" placeholder="Nominal.....">
+<input type="hidden" onkeyup="FormatCurrency(this);" value="0" id="amount_due2" class="form-control" placeholder="Nominal.....">
+</form>
 
 <div class="modal fade" id="large" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -319,7 +328,7 @@
                 total = NumberToMoney(total).split('.00').join('');
 
                 var jml = $('#item_row').find('tr').length;
-                var id2 = parseFloat(jml) + parseFloat(id);
+                var id2 = parseFloat(jml) * parseFloat(id);
                 
 
                 var isi  =  '<tr class="item_selected">'+
@@ -330,7 +339,7 @@
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');coba();" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+'); coba();" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
                                 '<td style="vertical-align: middle;">'+
@@ -340,7 +349,7 @@
                                     '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '        <select class="form-control chzn-select" name="cust_id" required>'+
+                                    '        <select class="form-control chzn-select" name="cust_id[]" required>'+
                                     '            <option value="">Choose a CUSTOMER</option>'+
                                     '            <?PHP foreach ($get_cust as $key => $row2) { ?>'+
                                     '                <option value="<?=$row2->ID;?>"><?=$row2->NAMA_PELANGGAN;?></option>'+
@@ -348,14 +357,7 @@
                                     '        </select>'+        
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '   <input type="checkbox" class="form-control" name="">     '+        
-                                '</td>'+
-                                '<td style="vertical-align: middle;">'+
-                                    '        <select class="form-control chzn-select" name="cust_id" required>'+
-                                    '            <option value="">Choose a Class</option>'+
-                                    '            <option value="Remodel">Remodel</option>'+
-                                    '            <option value="Overhead">Overhead</option>'+
-                                    '        </select>'+        
+                                    '   <input type="checkbox" class="form-control" name="billable[]" value="1">     '+        
                                 '</td>'+
                             '</tr>';
 
@@ -384,21 +386,21 @@
                 total = NumberToMoney(total).split('.00').join('');
 
                 var jml = $('#item_row_2').find('tr').length;
-                var id2 = parseFloat(jml) + parseFloat(id);
+                var id2 = parseFloat(jml) * parseFloat(id);
                 
 
                 var isi  =  '<tr class="item_selected">'+
-                                
+                                '<input type="hidden" name="kode_akun2[]" value="'+res.KODE_AKUN+'"/>'+
                                 '<td style="vertical-align: middle;">'+res.KODE_AKUN+' '+res.NAMA_AKUN+'</td>'+
                                 '<td style="vertical-align: middle;">'+
                                     '<input id="harga2_'+id2+'" value="0" class="form-control" onkeyup="FormatCurrency(this); hitung_all2();coba();" type="text" name="harga2[]" style="width: 100%; text-align: right;" required>'+
                                 '</td>'+
                                 '<input type="hidden" id="total2_'+id2+'">'+
                                 '<td style="vertical-align: middle;">'+
-                                    '   <input type="text" class="form-control" name="memo_table">     '+        
+                                    '   <input type="text" class="form-control" name="memo_table[]">     '+        
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '        <select class="form-control chzn-select" name="cust_id" required>'+
+                                    '        <select class="form-control chzn-select" name="cust_id2[]" required>'+
                                     '            <option value="">Choose a CUSTOMER</option>'+
                                     '            <?PHP foreach ($get_cust as $key => $row2) { ?>'+
                                     '                <option value="<?=$row2->ID;?>"><?=$row2->NAMA_PELANGGAN;?></option>'+
@@ -406,15 +408,7 @@
                                     '        </select>'+        
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '   <input type="checkbox" class="form-control" name="">     '+        
-                                '</td>'+
-                                
-                                '<td style="vertical-align: middle;">'+
-                                    '        <select class="form-control chzn-select" name="cust_id" required>'+
-                                    '            <option value="">Choose a Class</option>'+
-                                    '            <option value="Remodel">Remodel</option>'+
-                                    '            <option value="Overhead">Overhead</option>'+
-                                    '        </select>'+        
+                                    '   <input type="checkbox" class="form-control" name="billable2[]" value="1">     '+        
                                 '</td>'+
                             '</tr>';
 
@@ -451,6 +445,9 @@
     function coba(){
         var satu = $('#amount_due').val();
         var dua = $('#amount_due2').val();
+
+        $('#amount_due_txt').html("Rp "+NumberToMoney(dua.split(',').join('')).split('.00').join(''));
+        $('#amount_due2_txt').html("Rp "+NumberToMoney(satu.split(',').join('')).split('.00').join(''));
 
         if(satu == "" || satu == null){
             satu = 0;
@@ -504,7 +501,7 @@
     function get_ven_info(id){
         $(".tbl_customer").removeClass("selected_cust");
         $("#data_"+id).addClass("selected_cust");
-        $('.item_selected').remove();
+        // $('.item_selected').remove();
         $('#no_item').show();
 
         if(id == ""){
@@ -520,6 +517,7 @@
             dataType : "json",
             success : function(res){   
                 $('#ven_address').val(res.ALAMAT_TAGIH);
+                $('#vend_name').val(res.NAMA_SUPPLIER);
                 get_so_number(id);
             }
         });
