@@ -4,7 +4,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-4">
                         <h4 class="nav_top_align">
                             <i class="fa fa-th"></i>
-                            U/M SET LIST
+                            CHANGE PRICE
                         </h4>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-8">
@@ -15,7 +15,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="#">U/M Set List</a>
+                                <a href="#">Change Price</a>
                             </li>
                         </ol>
                     </div>
@@ -27,40 +27,38 @@
                         <div class="col-12 data_tables">
                             <div class="card">
                                 <div class="card-header bg-white">
-                                    <i class="fa fa-table"></i> U/M Set List
+                                    <i class="fa fa-money"></i> Change Price
                                 </div>
                                 <div class="card-block">
-                                    <br>
-                                    <a href="<?=base_url();?>add_um_list_c">
-                                        <button type="button" class="btn btn-labeled btn-success" >
-                                            <span class="btn-label">
-                                                <i class="fa fa-plus-square"></i>
-                                            </span>
-                                                  Tambah U/M
-                                        </button>
-                                    </a>
+                                    
+                                    
                                     <br>
                                     <br>
                                     <table id="example1" class="display table table-stripped table-bordered table-hover">
                                         <thead>
                                         <tr>
                                             <th class="bg-success">No</th>
-                                            <th class="bg-success">Name</th>
-                                            <th class="bg-success">Base U/M</th>
-                                            <th class="bg-success">Purchase U/M</th>
-                                            <th class="bg-success">Sales U/M</th>
-                                            <th class="bg-success">Shipping U/M</th>
+                                            <th class="bg-success">Item</th>
+                                            <th class="bg-success">Description</th>
+                                            <th class="bg-success">Current Price</th>
+                                            <th class="bg-success">U/M</th>
+                                            <th class="bg-success">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?PHP foreach ($um_data as $key => $row) { $i++; ?>
+                                        <?PHP $a = 0; 
+                                        foreach ($um_data as $key => $row) { $a++; ?>
                                         <tr>
-                                            <td><?=$i; ?></td>
-                                            <td><?=$row->NAMA_SATUAN;?></td>
-                                            <td><?=$row->BASE;?></td>
-                                            <td><?=$row->PURCHASE;?></td>
-                                            <td><?=$row->SALES;?></td>
-                                            <td><?=$row->SHIPPING;?></td>
+                                            <td><?=$a; ?></td>
+                                            <td><?=$row->NAMA_PRODUK;?></td>
+                                            <td><?=$row->DESKRIPSI;?></td>
+                                            <td><?=$row->HARGA_SATUAN;?></td>
+                                            <td><?=$row->SATUAN;?></td>
+                                            <td align="center">
+                                            <button type="button" class="btn btn-labeled btn-success"><span class="btn-label"><i class="fa fa-eye"></i></span>History</button>
+                                            <button type="button" class="btn btn-labeled btn-warning"><span class="btn-label"><i class="fa fa-plus"></i></span>Update Harga</button>
+                                            <button type="button" class="btn btn-labeled btn-danger"><span class="btn-label"><i class="fa fa-edit"></i></span>Edit</button>
+                                            </td>
                                         </tr>
                                         <?php } ?>
                                         </tbody>

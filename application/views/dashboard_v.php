@@ -234,18 +234,21 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Costumer Credit Card Protection
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Change Your Password
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Set Closing Date
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Planning & Budgeting
+                                <a class="dropdown-item" href="<?=base_url();?>set_budgets_c">
+                                    Set Budgets
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>set_forecast_c">
+                                    Set Forecast
+                                </a>
+                                <!-- <a class="dropdown-item" href="#">
                                     To Do List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Rimenders
                                 </a>
@@ -258,16 +261,16 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>accounts_c">
                                     Chart Of Accounts
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>general_journal_c">
                                     Make General Journal Entries
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Manage Currency
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="#">
                                     Manage Fixed Assets
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>add_vehicle_service_c">
                                     Enter Vihicle Mileage
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -298,7 +301,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>invoice_c">
                                     Create Invoices
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>batch_invoice_c">
                                     Create Batch Invoices
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>sales_receipt_c">
@@ -343,7 +346,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>items_c">
                                     Item List
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url();?>change_price_c">
                                     Change Item Prices
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -383,8 +386,14 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>enter_bill_receive_item_c">
                                     Enter Bills For Receive Items
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Inventory Activities
+                                <a class="dropdown-item" href="<?=base_url();?>inventory_center_c">
+                                    Inventory Center
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url();?>onhand_c">
+                                    Adjust Quantity/Value On Hand
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url();?>build_assembleis_c">
+                                    Build Assembleis
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>items_c">
                                     Item List

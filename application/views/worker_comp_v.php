@@ -45,15 +45,11 @@
                                         <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
                                                 <thead>
                                                 <tr>
-                                                    <th>
-                                                        Name
-                                                    </th>
-                                                    <th>
-                                                        Description
-                                                    </th>
-                                                    <th>Rate</th>
-                                                    <th>Effective Date</th>
-                                                    <th>Actions</th>
+                                                    <th class="bg-success">Name</th>
+                                                    <th class="bg-success">Description</th>
+                                                    <th class="bg-success">Rate</th>
+                                                    <th class="bg-success">Effective Date</th>
+                                                    <th class="bg-success">Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>

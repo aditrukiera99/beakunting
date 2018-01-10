@@ -15,12 +15,12 @@
                 <table id="example1" class="display table table-stripped table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Qty</th>
-                        <th>Account</th>
-                        <th>Price</th>
+                        <th class="bg-success">Name</th>
+                        <th class="bg-success">Description</th>
+                        <th class="bg-success">Type</th>
+                        <th class="bg-success">Qty</th>
+                        <th class="bg-success">Account</th>
+                        <th class="bg-success">Price</th>
                     </tr>
                     </thead>
                     <tbody>

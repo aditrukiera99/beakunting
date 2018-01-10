@@ -19,8 +19,22 @@ class Add_items_c extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data_tax_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE = 'Sales Tax Item' ORDER BY ID ASC LIMIT 10")->result();
+		$data_item = $this->db->query("SELECT * FROM ak_produk ORDER BY ID ASC LIMIT 10")->result();
+		$data_accn = $this->db->query("SELECT * FROM ak_kode_akuntansi ORDER BY ID DESC")->result();
+		$data_um = $this->db->query("SELECT * FROM ak_satuan ORDER BY ID DESC")->result();
+		$data_tax = $this->db->query("SELECT * FROM ak_sales_tax ORDER BY ID DESC")->result();
+		$data_vendor = $this->db->query("SELECT * FROM ak_supplier ORDER BY ID DESC")->result();
+
 		$data = array(
 			'page' => 'add_items_v', 
+			'view' => 'item',
+			'data_item' => $data_item,
+			'data_accn' => $data_accn,
+			'data_um' => $data_um,
+			'data_tax' => $data_tax,
+			'data_tax_item' => $data_tax_item,
+			'data_vendor' => $data_vendor,
 		);
 
 		$this->load->view('dashboard_v', $data);

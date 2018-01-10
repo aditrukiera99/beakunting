@@ -1,0 +1,504 @@
+<script>
+    function showDiv(val) {
+        $('.display').hide();
+        if(val == "Quantity"){
+            $('#div1').show();
+        } else if(val == "Total Value"){
+            $('#div2').show();
+        }else if(val == "Quantity and Total Value"){
+            $('#div3').show();
+        }
+    }
+
+</script>
+<style type="text/css">
+.data_item:hover{
+    background: #0f723a;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #c4dff6 !important;
+}
+
+.table-bordered {
+    border: 2px solid #00bf86;
+    background: #fff !important;
+}
+</style>
+
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> Estimates has been created.
+</div>
+<?PHP } ?>
+<input id="tr_utama_count" value="1" type="hidden"/>
+<input id="tr_utama_count2" value="1" type="hidden"/>
+<input id="tr_utama_count3" value="1" type="hidden"/>
+<form class="form-horizontal" method="post" action="<?=base_url();?>estimate_c">
+<input type="hidden" id="jml_tr" value="0">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header bg-success">ON HAND</div>
+            <div class="card-block cards_section_margin">                
+                <div class="card-block">
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                        <label style="margin-top: 0px;" for="username4" class="col-form-label">Adjustment Type</label>
+                                    </div>
+                                    <div class="col-lg-8 col-xl-4">
+                                        <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-tags"></i>
+                                        </span>
+                                            <select name="type" id="type" class="form-control" onchange="showDiv(this.value);">
+                                                <option value="Quantity">Quantity</option>
+                                                <option value="Total Value">Total Value</option>
+                                                <option value="Quantity and Total Value">Quantity and Total Value</option>
+                                            </select>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                        <label style="margin-top: 0px;" for="username4" class="col-form-label">Adjustment Date</label>
+                                    </div>
+                                    <div class="col-lg-8 col-xl-4">
+                                        <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar-o"></i>
+                                        </span>
+                                            <input type="date" name="adjust" class="form-control">
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-3 col-xl-3 text-lg-right">
+                                        <label style="margin-top: 0px;" for="name4" class=" col-form-label">Adjustment Type</label>
+                                    </div>
+                                    <div class="col-lg-8 col-xl-8">
+                                        <div class="input-group">
+                                            <select class="form-control chzn-select" name="cust_id" required>
+                                                <option value="">Choose a account</option>
+                                                <?PHP foreach ($get_acc as $key => $row) { ?>
+
+                                                    <option value="<?=$row->KODE_AKUN;?>"><?=$row->NAMA_AKUN;?></option>
+
+                                                <?PHP } ?>
+                                            </select>
+                                            <input type="hidden" name="cust_name" id="cust_name" value="">
+                                        </div>
+                                    </div>
+                                </div>                                   
+                                <!-- last name-->
+                            </fieldset>
+                        </div>
+                                   
+                        <div class="col-lg-6">                            
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <label style="margin-top: 0px;" for="username4" class="col-form-label">Adjustment Date</label>
+                                </div>
+                                <div class="col-lg-8 col-xl-4">
+                                    <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-navicon"></i>
+                                    </span>
+                                        <input type="date" name="adjust" class="form-control">
+                                    </div>
+                                </div>                                    
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-xl-3 text-lg-right">
+                                    <label for="username4" class="col-form-label">Customer</label>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <select class="form-control chzn-select" name="cust_id" required>
+                                        <option value="">Choose a account</option>
+                                        <?PHP foreach ($get_cust as $key => $row) { ?>
+
+                                            <option value="<?=$row->ID;?>"><?php if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ echo $row->NAMA_PELANGGAN; } else { echo $row->NAMA_USAHA; } ?></option>
+
+                                        <?PHP } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                
+                </div>
+
+                <div id="div1" class="display">
+                <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
+                    <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
+                </button>
+
+                <br><br>
+
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th class="bg-success" style="width: 25%;">ITEM</th>
+                            <th class="bg-success" style="width: 25%;">DESCRIPTION</th>
+                            <th class="bg-success" style="width: 10%;">QTY ON HAND</th>
+                            <th class="bg-success" style="text-align: center; width: 10%;">NEW QTY</th>
+                            <th class="bg-success" style="width: 10%;">QTY DIFFERENCE</th>
+                            <th class="bg-success" style="width: 10%;">U/M</th>
+                            <th class="bg-success" style="width: 10%;">CLASS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="item_row">
+                        <tr style="background: #FFF !important;" id="no_item">
+                            <td style="vertical-align: middle; text-align: center;" colspan="6">Please choose an item</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div> 
+
+                <div id="div2" style="display: none;" class="display">
+                <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large2">
+                    <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
+                </button>
+
+                <br><br>
+
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th class="bg-success" style="width: 25%;">ITEM</th>
+                            <th class="bg-success" style="width: 25%;">DESCRIPTION</th>
+                            <th class="bg-success" style="width: 10%;">QTY ON HAND</th>
+                            <th class="bg-success" style="text-align: center; width: 10%;">TOTAL VALUE</th>
+                            <th class="bg-success" style="width: 10%;">NEW VALUE</th>
+                            <th class="bg-success" style="width: 10%;">U/M</th>
+                            <th class="bg-success" style="width: 10%;">CLASS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="item_row">
+                        <tr style="background: #FFF !important;" id="no_item">
+                            <td style="vertical-align: middle; text-align: center;" colspan="6">Please choose an item</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div> 
+
+                <div id="div3" style="display: none;" class="display">
+                <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large3">
+                    <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
+                </button>
+
+                <br><br>
+
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th class="bg-success" style="width: 25%;">ITEM</th>
+                            <th class="bg-success" style="width: 25%;">DESCRIPTION</th>
+                            <th class="bg-success" style="width: 10%;">QTY ON HAND</th>
+                            <th class="bg-success" style="text-align: center; width: 10%;">NEW QTY</th>
+                            <th class="bg-success" style="width: 10%;">QTY DIFFERENCE</th>
+                            <th class="bg-success" style="width: 10%;">NEW VALUE</th>
+                            <th class="bg-success" style="width: 5%;">U/M</th>
+                            <th class="bg-success" style="width: 5%;">CLASS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="item_row">
+                        <tr style="background: #FFF !important;" id="no_item">
+                            <td style="vertical-align: middle; text-align: center;" colspan="6">Please choose an item</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>                                                   
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    
+
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-xl-6 text-lg-right">
+                            <label for="name4" class=" col-form-label"> TOTAL </label> 
+                        </div>
+                        <div class="col-lg-3 col-xl-4 text-lg-right">
+                            <label for="name4" class=" col-form-label" style="font-weight: bold;font-size: 25px;" id="subtotal_txt">0.00</label>
+                            <input type="hidden" name="subtotal" id="subtotal">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-lg-12 col-xl-12 text-lg-right"></div>                        
+                        <div class="col-lg-6 col-xl-7 text-lg-right">
+                            <button type="submit" class="btn btn-labeled btn-success">
+                                <span class="btn-label"><i class="fa fa-save"></i></span>
+                                Save & Create
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-xl-3 text-lg-right"> 
+                            <a href="<?=base_url();?>customer_c" class="btn btn-labeled btn-primary">
+                                <span class="btn-label"><i class="fa fa-times"></i></span>
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>                                
+        </div>                        
+    </div>
+</div>
+</form>
+
+<div class="modal fade" id="large" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal_item_close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <input type="text" class="form-control form-control-success" id="username" style="width: 50%;" placeholder="Search item ...">
+            </div>
+            <div class="modal-body" style="height: 460px; padding: 6px; background: #fff;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="bg-success" style="text-align: center;">Item</th>
+                        <th class="bg-success" style="text-align: center;">Description</th>
+                        <th class="bg-success" style="text-align: center;">Qty</th>
+                        <th class="bg-success" style="text-align: center;">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?PHP foreach ($get_item as $key => $row) { ?>
+                    <tr class="data_item" onclick="add_row_1('<?=$row->ID;?>');">
+                        <td><?=$row->NAMA_PRODUK;?></td>
+                        <td><?=$row->DESKRIPSI;?></td>
+                        <td style="text-align: center;"><?=$row->STOK;?></td>
+                        <td style="text-align: right;"><?=number_format($row->HARGA_SATUAN);?></td>
+                    </tr>
+                    <?PHP } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="large2" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal_item_close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <input type="text" class="form-control form-control-success" id="username" style="width: 50%;" placeholder="Search item ...">
+            </div>
+            <div class="modal-body" style="height: 460px; padding: 6px; background: #fff;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="bg-success" style="text-align: center;">Item</th>
+                        <th class="bg-success" style="text-align: center;">Description</th>
+                        <th class="bg-success" style="text-align: center;">Qty</th>
+                        <th class="bg-success" style="text-align: center;">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?PHP foreach ($get_item as $key => $row) { ?>
+                    <tr class="data_item" onclick="add_row_2('<?=$row->ID;?>');">
+                        <td><?=$row->NAMA_PRODUK;?></td>
+                        <td><?=$row->DESKRIPSI;?></td>
+                        <td style="text-align: center;"><?=$row->STOK;?></td>
+                        <td style="text-align: right;"><?=number_format($row->HARGA_SATUAN);?></td>
+                    </tr>
+                    <?PHP } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="large3" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal_item_close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <input type="text" class="form-control form-control-success" id="username" style="width: 50%;" placeholder="Search item ...">
+            </div>
+            <div class="modal-body" style="height: 460px; padding: 6px; background: #fff;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="bg-success" style="text-align: center;">Item</th>
+                        <th class="bg-success" style="text-align: center;">Description</th>
+                        <th class="bg-success" style="text-align: center;">Qty</th>
+                        <th class="bg-success" style="text-align: center;">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?PHP foreach ($get_item as $key => $row) { ?>
+                    <tr class="data_item" onclick="add_row_3('<?=$row->ID;?>');">
+                        <td><?=$row->NAMA_PRODUK;?></td>
+                        <td><?=$row->DESKRIPSI;?></td>
+                        <td style="text-align: center;"><?=$row->STOK;?></td>
+                        <td style="text-align: right;"><?=number_format($row->HARGA_SATUAN);?></td>
+                    </tr>
+                    <?PHP } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function add_row(id) {
+        $('#no_item').hide();
+        $.ajax({
+            url : '<?php echo base_url(); ?>sales_order_c/get_item_info',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(res){   
+                var price = res.HARGA_SATUAN;
+                if(price == "" || price == null){
+                    price = 0;
+                }
+
+                var total = 1 * parseFloat(price);
+                total = NumberToMoney(total).split('.00').join('');
+
+                var jml_tr = $('#jml_tr').val();
+                var id2 = parseFloat(jml_tr) + 1;
+
+
+                var isi  =  '<tr>'+
+                                '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
+                                '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
+                                '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
+                                '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
+                                '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
+                                '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
+                                '<td style="vertical-align: middle;">'+
+                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                '</td>'+
+                                '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
+                                '<td style="vertical-align: middle;">'+
+                                    '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
+                                '</td>'+
+                                '<td style="vertical-align: middle;">'+
+                                    '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
+                                '</td>'+
+                            '</tr>';
+
+                $('#item_row').append(isi);
+                hitung_total(id2);
+                $('#jml_tr').val(id2);
+                $('#modal_item_close').click();
+
+            }
+        });
+    }
+
+    function hitung_total(id){
+        var qty = $('#qty_'+id).val();
+        var harga = $('#harga_'+id).val();  
+
+        if(qty == "" || qty == null){
+            qty = 0;
+        }
+
+        if(harga == "" || harga == null){
+            harga = 0;
+        }
+
+        qty   = qty.split(',').join('');
+        harga = harga.split(',').join('');
+
+        var total = parseFloat(qty) * parseFloat(harga);
+        total = NumberToMoney(total).split('.00').join('');
+        $('#total_'+id).val(total);
+        hitung_all();
+    }
+
+    function hitung_all(){
+        var prosen_pajak = $('#prosen_pajak').val();
+        var sum = 0;
+        $("input[name='total[]']").each(function(idx, elm) {
+            var tot = elm.value.split(',').join('');
+            if(tot > 0){
+                sum += parseFloat(tot);
+            }
+        });
+
+        var inc_pajak = (parseFloat(sum) * parseFloat(prosen_pajak)) / 100;
+        inc_pajak = Math.round(inc_pajak);
+
+        $('#nilai_pajak').val(inc_pajak);
+        $('#nilai_pajak_txt').html(NumberToMoney(inc_pajak).split('.00').join(''))
+
+        var subtotal_all = parseFloat(sum) + parseFloat(inc_pajak);
+
+
+        $('#subtotal_txt').html(NumberToMoney(subtotal_all).split('.00').join(''));
+        $('#subtotal').val(subtotal_all);
+    }
+
+    function get_cust_info(id){
+        $(".tbl_customer").removeClass("selected_cust");
+        $("#data_"+id).addClass("selected_cust");
+        $.ajax({
+            url : '<?php echo base_url(); ?>customer_c/get_customer_info',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(res){   
+                $('#cust_address').val(res.ALAMAT_TAGIH);
+                $('#ship_to').val(res.ALAMAT_KIRIM);
+                if(res.NAMA_USAHA == "" || res.NAMA_USAHA == null){
+                    $('#cust_name').val(res.NAMA_PELANGGAN);                    
+                } else {
+                    $('#cust_name').val(res.NAMA_USAHA);                    
+                }
+            }
+        });
+    }
+
+    function get_info_pajak(id){
+        if(id == ""){
+            $('#kode_akun_pajak').val('');
+            $('#nama_pajak').val('');
+            $('#prosen_pajak').val(0);
+            $('#nilai_pajak').val(0);
+            $('#nilai_pajak_txt').html('0.00')
+
+            $('#prosen_txt').html("(0%)");
+            hitung_all();
+        } else {
+            $.ajax({
+                url : '<?php echo base_url(); ?>sales_order_c/get_info_pajak',
+                data : {id:id},
+                type : "POST",
+                dataType : "json",
+                success : function(res){   
+                    $('#kode_akun_pajak').val(res.KODE_AKUN);
+                    $('#nama_pajak').val(res.NAMA_PRODUK);
+                    $('#prosen_pajak').val(res.HARGA_SATUAN);
+                    $('#prosen_txt').html("("+res.HARGA_SATUAN+"%)");
+                    hitung_all();
+                }
+            })
+        }
+    }
+</script>

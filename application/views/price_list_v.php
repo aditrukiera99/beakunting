@@ -45,17 +45,11 @@
                                         <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
                                                 <thead>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>
-                                                        Name
-                                                    </th>
-                                                    <th>
-                                                        Type
-                                                    </th>
-                                                    <th>
-                                                        Details
-                                                    </th>
-                                                    <th>Actions</th>
+                                                    <th class="bg-success">No</th>
+                                                    <th class="bg-success">Name</th>
+                                                    <th class="bg-success">Type</th>
+                                                    <th class="bg-success">Details</th>
+                                                    <th class="bg-success">Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>

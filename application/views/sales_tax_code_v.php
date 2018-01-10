@@ -45,16 +45,10 @@
                                         <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
                                                 <thead>
                                                 <tr>
-                                                    <th>
-                                                        Code
-                                                    </th>
-                                                    <th>
-                                                        Description
-                                                    </th>
-                                                    <th>
-                                                        Taxable
-                                                    </th>
-                                                    <th>Actions</th>
+                                                    <th class="bg-success">Code</th>
+                                                    <th class="bg-success">Description</th>
+                                                    <th class="bg-success">Taxable</th>
+                                                    <th class="bg-success">Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
