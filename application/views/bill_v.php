@@ -500,7 +500,6 @@ input[type=checkbox]
         hitung_all();
     }
 
-    
     function coba(){
         var satu = $('#amount_due').val();
         var dua = $('#amount_due2').val();
@@ -526,9 +525,7 @@ input[type=checkbox]
         $('#tititi3').val(total);
     }
 
-
-    function hitung_all2(){
-        
+    function hitung_all2(){        
         var sum = 0;
         $("input[name='harga2[]']").each(function(idx, elm) {
             var tot = elm.value.split(',').join('');
@@ -537,9 +534,7 @@ input[type=checkbox]
             }
         });
 
-        $('#amount_due2').val(NumberToMoney(sum).split('.00').join(''));
-
-        
+        $('#amount_due2').val(NumberToMoney(sum).split('.00').join(''));   
     }
 
     function hitung_all(){

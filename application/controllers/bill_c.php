@@ -57,7 +57,7 @@ class Bill_c extends CI_Controller {
 				INSERT INTO ak_input_voucher
 				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
 				VALUES 
-				('$ref_no', '$tgl', '$memo', '$vend_name', 'Bill')
+				('$ref_no', '$tgl', '$memo', '$vend_name', 'BILL')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -75,7 +75,7 @@ class Bill_c extends CI_Controller {
 				INSERT INTO ak_pembelian
 				(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, ID_PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN, TGL_JATUH_TEMPO, TERMS)
 				VALUES 
-				('Bill', '$ref_no', '$vend_id', '$vend_name', '0', '$tgl', '$ven_address', '$ven_address', '$memo', '', '$sub_total', '20000', '$bill_due', '$terms')
+				('BILL', '$ref_no', '$vend_id', '$vend_name', '0', '$tgl', '$ven_address', '$ven_address', '$memo', '', '$sub_total', '20000', '$bill_due', '$terms')
 			");
 			$id_pembelian = $this->db->insert_id();
 
