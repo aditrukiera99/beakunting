@@ -32,6 +32,7 @@ class Receive_payments_c extends CI_Controller {
 			$tgl 		    = $this->input->post('tgl');
 
 			$id_penjualan = $this->input->post('id_penjualan');
+			$id_penjualan2 = $this->input->post('id_penjualan2');
 			$payment      = $this->input->post('payment');
 			$orig_due     = $this->input->post('orig_due');
 			$am_due       = $this->input->post('am_due');
@@ -72,8 +73,10 @@ class Receive_payments_c extends CI_Controller {
 			");
 			// END OF RECEIVABLE
 
-			foreach ($id_penjualan as $key => $val) {
-				$this->simpan_payment_detail($id_payment, $cust_id, $val, $tgl_invoice[$key], $no_bukti[$key], $orig_due[$key], $am_due[$key], $payment[$key]);
+			foreach ($id_penjualan2 as $key => $val) {
+				if($val != ""){
+					$this->simpan_payment_detail($id_payment, $cust_id, $val, $tgl_invoice[$key], $no_bukti[$key], $orig_due[$key], $am_due[$key], $payment[$key]);
+				}				
 			}
 
 		}

@@ -50,7 +50,7 @@ table th{
         <button onclick="window.location = '<?=base_url();?>credit_memo_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Credit Memo / Refund</button>
         <div class="card" style="margin-top:10px;">
             <div class="card-header bg-success">CUSTOMER INFORMATION 
-                <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
+                <button type="button" class="btn btn-labeled btn-warning" style="float: right; display: none;" id="info_4">
                     <span class="btn-label">
                         <i class="fa fa-edit"></i>
                     </span>
@@ -170,6 +170,7 @@ table th{
                 $('#info_1').hide();
                 $('#info_2').show();
                 $('#info_3').show();
+                $('#info_4').show();
 
             }
         });
@@ -190,7 +191,7 @@ table th{
 
                         var subtotal = res.SUB_TOTAL;
                         var sty = "";
-                        if(res.TIPE == 'CREDIT'){
+                        if(res.TIPE == 'Credit Vendor'){
                             subtotal = res.SUB_TOTAL * -1;
                             sty = "color:red;";
                         }
@@ -203,7 +204,7 @@ table th{
                                 '</tr>';
                     });
                 } else {
-                    isine = "<tr><td colspan='5' style='text-align:center;'> There are no transaction for this customer </td></tr>";
+                    isine = "<tr><td colspan='5' style='text-align:center;'> There are no transaction for this vendor </td></tr>";
                 }
 
                 $('#data_transaction').html(isine);

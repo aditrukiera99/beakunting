@@ -70,6 +70,7 @@ class Pay_bill_c extends CI_Controller {
 			// END OF RECEIVABLE
 
 			$id_bill     = $this->input->post('id_bill');
+			$id_bill2    = $this->input->post('id_bill2');
 			$id_supplier = $this->input->post('id_supplier');
 			$no_bukti    = $this->input->post('no_bukti');			
 			$disc 		 = $this->input->post('disc');
@@ -77,10 +78,11 @@ class Pay_bill_c extends CI_Controller {
 			$amt_due 	 = $this->input->post('amt_due');
 			$amt_orig    = $this->input->post('amt_orig');
 			$amt_pay 	 = $this->input->post('amt_pay');
-			$amt_pay     = str_replace(',', '', $amt_pay);
 
-			foreach ($id_bill as $key => $val) {
-				$this->simpan_payment_detail($id_payment, $id_supplier[$key], $val, $tgl_pay, $no_bukti[$key], $amt_orig[$key], $amt_due[$key], $amt_pay[$key]);
+			foreach ($id_bill2 as $key => $val) {
+				if($val != ""){
+					$this->simpan_payment_detail($id_payment, $id_supplier[$key], $val, $tgl_pay, $no_bukti[$key], $amt_orig[$key], $amt_due[$key], $amt_pay[$key]);
+				}
 			}
 		}
 

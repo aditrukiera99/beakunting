@@ -54,8 +54,8 @@ table th{
                 <tbody>
                     <?PHP foreach ($dt as $key => $row) { ?>
                     <tr id="data_<?=$row->ID;?>" onclick="get_information('<?=$row->ID;?>');" style="cursor: pointer;" class="tbl_customer">
-                        <td><?php if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ echo $row->NAMA_SUPPLIER; } else { echo $row->NAMA_USAHA; } ?></td>
-                        <td>0.00</td>
+                        <td><?php echo $row->NAMA_SUPPLIER; ?></td>
+                        <td><?=number_format(($row->BALANCE + $row->PAID2) - $row->PAID );?></td>
                     </tr>
                     <?PHP } ?>
                 </tbody>
@@ -71,11 +71,11 @@ table th{
         <button onclick="window.location = '<?=base_url();?>bill_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bills</button>
         <button onclick="window.location = '<?=base_url();?>credit_vendor_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Credit</button>
         <button onclick="window.location = '<?=base_url();?>pay_bill_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Bill Payment</button>
-        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Checks</button>
+        <!-- <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Checks</button> -->
         <!-- <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i>  Sales Tax Payments</button> -->
         <div class="card" style="margin-top:10px;">
             <div class="card-header bg-success">VENDOR INFORMATION 
-                <button type="button" class="btn btn-labeled btn-warning" style="float: right;">
+                <button type="button" class="btn btn-labeled btn-warning" style="float: right; display: none;" id="info_4">
                     <span class="btn-label">
                         <i class="fa fa-edit"></i>
                     </span>
@@ -138,7 +138,7 @@ table th{
             
         <br>
 
-        <div class="card">
+        <div class="card" style="display: none;" id="info_3">
             <div class="card-header bg-success">TRANSACTION</div>
             <div class="card-block cards_section_margin" style="padding: 0px;">
                 <div class="row">
@@ -154,7 +154,7 @@ table th{
                                     </tr>
                                 </thead>
                                
-                                <tbody>
+                                <tbody id="data_transaction">
                                     <tr>
                                         <td>Payment</td>
                                         <td>1923</td>
@@ -188,9 +188,49 @@ table th{
                 $('#info_alamat_tagih').html(res.ALAMAT_TAGIH);
                 $('#info_fax').html(res.FAX);
 
+                get_transaction(id);
+
                 $('#info_1').hide();
                 $('#info_2').show();
+                $('#info_3').show();
+                $('#info_4').show();
 
+            }
+        });
+    }
+
+    function get_transaction(id) {
+        $(".tbl_customer").removeClass("selected_cust");
+        $("#data_"+id).addClass("selected_cust");
+        $.ajax({
+            url : '<?php echo base_url(); ?>vendors_c/get_transaction_info',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(result){   
+                var isine = "";
+                if(result.length > 0){
+                    $.each(result,function(i,res){
+
+                        var subtotal = res.SUB_TOTAL;
+                        var sty = "";
+                        if(res.TIPE == 'CREDIT'){
+                            subtotal = res.SUB_TOTAL * -1;
+                            sty = "color:red;";
+                        }
+                        isine += '<tr style="'+sty+'">'+
+                                    '<td style="text-align:left;">'+res.TIPE+'</td>'+
+                                    '<td style="text-align:left;">'+res.NO_BUKTI+'</td>'+
+                                    '<td style="text-align:left;">'+res.TGL_TRX+'</td>'+
+                                    '<td style="text-align:left;">'+res.KODE_AKUN+' - '+res.NAMA_AKUN+'</td>'+
+                                    '<td style="text-align:right;">'+NumberToMoney(subtotal)+'</td>'+
+                                '</tr>';
+                    });
+                } else {
+                    isine = "<tr><td colspan='5' style='text-align:center;'> There are no transaction for this customer </td></tr>";
+                }
+
+                $('#data_transaction').html(isine);
             }
         });
     }

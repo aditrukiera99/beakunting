@@ -417,6 +417,7 @@ input[type=checkbox]
                         isine += '<tr>'+
                                     '<td style="vertical-align:middle; text-align:center;">'+
                                     '<input name="id_penjualan[]" type="checkbox" value="'+res.ID+'" class="cek_invoice" onclick="cek_applied(this, '+res.ID+');" >'+
+                                    '<input name="id_penjualan2[]" id="id_penjualan2_'+res.ID+'" type="hidden" value="" >'+
                                     '</td>'+
                                     '<td style="vertical-align:middle; text-align:left;">'+res.TGL_TRX+'</td>'+
                                     '<td style="vertical-align:middle; text-align:left;">'+res.NO_BUKTI+'</td>'+
@@ -445,8 +446,10 @@ input[type=checkbox]
         if ($(e).is(':checked')) {
             var am_due = $('#am_due_'+id).val();
             $('#payment_'+id).val(NumberToMoney(am_due).split('.00').join(''));
+            $('#id_penjualan2_'+id).val(id);
         } else {
             $('#payment_'+id).val('');
+            $('#id_penjualan2_'+id).val('');
         }
 
         hitung_amount_due();

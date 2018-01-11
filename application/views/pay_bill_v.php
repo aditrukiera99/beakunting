@@ -277,7 +277,7 @@
 </div>
 </form>
 
-<script type="text/javascript" src="<?=base_url();?>assets/js/components.js"></script>
+<!-- <script type="text/javascript" src="<?=base_url();?>assets/js/components.js"></script> -->
 <script type="text/javascript">
     $(document).ready(function(){
         get_bill_list();
@@ -312,6 +312,7 @@
                         isine +=    '<tr id="tr_'+res.ID+'" class="tr_utama" style="cursor:pointer;" onclick="select_bill(this, '+res.ID+');">'+
                                         '<td align="left" style="vertical-align:middle;"> '+
                                             '<input style="box-shadow: none;" type="checkbox" class="form-control" name="id_bill[]" value="'+res.ID+'" onclick="cek_applied(this, '+res.ID+');">'+
+                                            '<input  type="hidden" class="form-control" name="id_bill2[]" value="" id="id_bill2_'+res.ID+'">'+
                                         '</td>'+
                                         '<td align="center" style="vertical-align:middle;"> '+
                                             res.TGL_JATUH_TEMPO+
@@ -447,8 +448,10 @@
         if ($(e).is(':checked')) {
             var am_due = $('#amt_due_'+id).val();
             $('#amt_pay_'+id).val(NumberToMoney(am_due).split('.00').join(''));
+            $('#id_bill2_'+id).val(id);
         } else {
             $('#amt_pay_'+id).val('');
+            $('#id_bill2_'+id).val('');
         }
 
         hitung_all();
