@@ -17,7 +17,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
-                                     <input type="text" name="tanggal" class="form-control" readonly="" id="dp1">
+                                     <input type="text" name="tgl" class="form-control" readonly="" id="dp1" value="<?=date('d-m-Y');?>">
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-tags"></i>
                                     </span>
-                                     <input type="text" name="no" class="form-control">
+                                     <input type="text" name="no_reff" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -46,12 +46,12 @@
                 <table id="div1" class="display table table-stripped table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th class="bg-success" style="text-align: center;">ACCOUNT</th>
-                        <th class="bg-success" style="text-align: center;">DEBIT</th>
-                        <th class="bg-success" style="text-align: center;">CREDIT</th>
-                        <th class="bg-success" style="text-align: center;">MEMO</th>
-                        <th class="bg-success" style="text-align: center;">NAME</th>
-                        <th class="bg-success" style="text-align: center;">ACTION</th>
+                        <th class="bg-inverse" style="color:#FFF; text-align: center; width: 20%;">ACCOUNT</th>
+                        <th class="bg-inverse" style="color:#FFF; text-align: center; width: 15%;">DEBIT</th>
+                        <th class="bg-inverse" style="color:#FFF; text-align: center; width: 15%;">CREDIT</th>
+                        <th class="bg-inverse" style="color:#FFF; text-align: center; width: 20%;">MEMO</th>
+                        <th class="bg-inverse" style="color:#FFF; text-align: center; width: 20%;">NAME</th>
+                        <th class="bg-inverse" style="color:#FFF; text-align: center; width: 10%;">ACTION</th>
                     </tr>
                     </thead>
                     <tbody id="tes">
@@ -214,7 +214,7 @@ function tambah_data() {
         '<td align="center" style="vertical-align:middle;"> '+
         '    <div class="span12">'+
         '    <div class="controls">'+
-        '        <select class="form-control chzn-select" name="cust_id" required>'+
+        '        <select class="form-control chzn-select" name="kode_akun[]" required>'+
         '            <option value="">Choose a account</option>'+
         '            <?PHP foreach ($dt as $key => $row) { ?>'+
         '                <option value="<?=$row->ID;?>"><?=$row->NAMA_AKUN;?></option>'+
@@ -227,7 +227,7 @@ function tambah_data() {
         '<td align="center" style="vertical-align:middle;"> '+
         '    <div class="span12">'+
         '    <div class="controls">'+
-        '        <input class="form-control" required onkeyup="FormatCurrency(this); hitung_total(1);" style="font-size: 18px; text-align:right; width: 80%;" type="text"  value="" name="harga_satuan[]" id="harga_satuan_1">'+
+        '        <input class="form-control" required onkeyup="FormatCurrency(this); hitung_total(1);" style="font-size: 18px; text-align:right; width: 80%;" type="text"  value="" name="debet[]" id="debet_'+i+'">'+
         '    </div>'+
         '    </div>'+
         '</td>'+
@@ -235,7 +235,7 @@ function tambah_data() {
         '<td align="center" style="vertical-align:middle;"> '+
         '    <div class="span12">'+
         '    <div class="controls">'+
-        '        <input class="form-control" required onkeyup="FormatCurrency(this); hitung_total(1);" style="font-size: 18px; text-align:right; width: 80%;" type="text"  value="" name="harga_satuan[]" id="harga_satuan_1">'+
+        '        <input class="form-control" required onkeyup="FormatCurrency(this); hitung_total(1);" style="font-size: 18px; text-align:right; width: 80%;" type="text"  value="" name="kredit[]" id="kredit_'+i+'">'+
         '    </div>'+
         '    </div>'+
         '</td>'+
@@ -244,7 +244,7 @@ function tambah_data() {
         '    <div class="span12">'+
         '        <div class="control-group">'+
         '            <div class="controls">'+
-        '                <input type="text" class="form-control" name="">'+
+        '                <input type="text" class="form-control" name="memo[]">'+
         '            </div>'+
         '        </div>'+
         '    </div>'+
@@ -253,31 +253,11 @@ function tambah_data() {
         '<td align="center" style="vertical-align:middle;"> '+
         '    <div class="span12">'+
         '    <div class="controls">'+
-        '        <select class="form-control chzn-select" name="cust_id" required>'+
+        '        <select class="form-control chzn-select" name="cust_id[]" required>'+
         '            <option value="">Choose a customer</option>'+
         '            <?PHP foreach ($get_cust as $key => $row) { ?>'+
         '                <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>'+
         '            <?PHP } ?>'+
-        '        </select>'+
-        '    </div>'+
-        '    </div>'+
-        '</td>'+
-
-        '<td align="center" style="vertical-align:middle;"> '+
-        '    <div class="span12">'+
-        '    <div class="controls">'+
-        '        <input type="text" name="" class="form-control">'+
-        '    </div>'+
-        '    </div>'+
-        '</td>'+
-
-        '<td align="center" style="vertical-align:middle;"> '+
-        '    <div class="span12">'+
-        '    <div class="controls">'+
-        '        <select class="form-control chzn-select" name="cust_id" required>'+
-        '            <option value="">Choose a class</option>'+
-        '            <option value="">Remodal</option>'+
-        '            <option value="">Overhead</option>'+
         '        </select>'+
         '    </div>'+
         '    </div>'+
