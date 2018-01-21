@@ -5,6 +5,11 @@
 	    vertical-align: top;
 	    border-top: 1px solid #fff !important;
 	}
+
+	.nilai_report:hover{
+		color: blue;
+		text-decoration: underline;
+	}
 </style>
 <form class="form-horizontal" method="post" action="<?=base_url().$post_url;?>">
 <div class="row">
@@ -69,8 +74,10 @@
         </div>                      
     </div>   
 </div>
+</form>
 
-<header class="head" style="    margin-bottom: -25px;">
+<form class="form-horizontal" method="post" action="<?=base_url().$post_url;?>" target="blank">
+<header class="head" style="margin-bottom: -25px;">
     <div class="main-bar">
         <div class="row">
         <div class="col-sm-4">
@@ -81,13 +88,16 @@
         </div>
         <div class="col-sm-8">
             <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                <button class="btn btn-success">Export to Excel</button>              
-                <button class="btn btn-danger">Export to PDF</button>              
+            	<input type="hidden" name="tgl_awal_2" value="<?=$tgl_awal;?>" />
+            	<input type="hidden" name="tgl_akhir_2" value="<?=$tgl_akhir;?>" />
+                <input type="submit" class="btn btn-success" name="excel" value="Export to Excel">      
+                <input type="submit" class="btn btn-danger" name="pdf" value="Export to PDF">      
             </ol>
         </div>
         </div>
     </div>
 </header>
+</form>
 <br>
 
 <table class="table table-bordered table_report">
@@ -99,16 +109,19 @@
 			<th style="text-align: center;">Name</th>
 			<th style="text-align: center;">Memo</th>
 			<th style="text-align: center;">Account</th>
-			<th style="text-align: center;">Debit</th>
-			<th style="text-align: center;">Credit</th>
+			<th style="text-align: center; width: 10%;">Debit</th>
+			<th style="text-align: center; width: 10%;">Credit</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?PHP 
 		$id_voc = "";
-		$total_deb = 0;
-		$total_kre = 0;
+		$total_deb_all = 0;
+		$total_kre_all = 0;
 		foreach ($dt as $key => $row) { 
+
+			$link = get_link($row->TIPE, $row->ID_TRX);
+
 			$total_deb = 0;
 			$total_kre = 0;
 			$dt_2 = $this->db->query("
@@ -122,6 +135,9 @@
 			foreach ($dt_2 as $key => $row_2) {
 				$total_deb += $row_2->DEBET;
 				$total_kre += $row_2->KREDIT;
+
+				$total_deb_all += $row_2->DEBET;
+				$total_kre_all += $row_2->KREDIT;
 		?>
 
 			<?PHP if($id_voc != $row_2->ID){ ?>
@@ -132,8 +148,8 @@
 				<td><?=$row_2->KONTAK;?></td>
 				<td><?=$row_2->MEMO;?></td>
 				<td><?=$row_2->KODE_AKUN;?> - <?=$row_2->NAMA_AKUN;?></td>
-				<td style="text-align: right;"><?=number_format($row_2->DEBET);?></td>
-				<td style="text-align: right;"><?=number_format($row_2->KREDIT);?></td>
+				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->DEBET);?></td>
+				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->KREDIT);?></td>
 			</tr>
 			<?PHP } else {  ?>
 			<tr>
@@ -143,8 +159,8 @@
 				<td></td>
 				<td><?=$row_2->MEMO;?></td>
 				<td><?=$row_2->KODE_AKUN;?> - <?=$row_2->NAMA_AKUN;?></td>
-				<td style="text-align: right;"><?=number_format($row_2->DEBET);?></td>
-				<td style="text-align: right;"><?=number_format($row_2->KREDIT);?></td>
+				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->DEBET);?></td>
+				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->KREDIT);?></td>
 			</tr>
 			<?PHP } ?>
 
@@ -169,10 +185,44 @@
 		<?PHP 
 		if(count($dt) == 0){
 			echo '<tr><td colspan="8" style="text-align:center;"><b>There is no data available on this date</b></td></tr>';
-		}
-		?>
+		} else { ?>
+		<tr>
+				<td colspan="6" style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>TOTAL</b></td>
+				<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all);?></b></td>
+				<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_kre_all);?></b></td>
+			</tr>
+		<?PHP } ?>
 	</tbody>
 </table>
+
+<?PHP 
+	function get_link($TIPE, $ID){
+		$link = "";
+		if($TIPE == 'Estimate'){
+            $link = base_url()."estimate_c/detail/".$ID;
+        } else if($TIPE == 'Sales Order'){
+            $link = base_url()."sales_order_c/detail/".$ID;
+        } else if($TIPE == 'INVOICE'){
+            $link = base_url()."invoice_c/detail/".$ID;
+        } else if($TIPE == 'Payment'){
+            $link = base_url()."receive_payments_c/detail/".$ID;
+        } else if($TIPE == 'CREDIT'){
+            $link = base_url()."credit_memo_c/detail/".$ID;
+        } else if($TIPE == 'Purchase Order'){
+            $link = base_url()."purchase_order_c/detail/".$ID;
+        } else if($TIPE == 'Item Receipt'){
+            $link = base_url()."item_receipts_c/detail/".$ID;
+        } else if($TIPE == 'BILL'){
+            $link = base_url()."bill_c/detail/".$ID;
+        } else if($TIPE == 'Credit Vendor'){
+            $link = base_url()."credit_vendor_c/detail/".$ID;
+        } else if($TIPE == 'Payment'){
+            $link = base_url()."pay_bill_c/detail/".$ID;
+        }
+
+        return $link;
+}
+?>
 
 <script type="text/javascript">
 	function get_daterange(val) {

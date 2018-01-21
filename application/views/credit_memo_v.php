@@ -23,10 +23,11 @@
 <?PHP } ?>
 
 <form class="form-horizontal" method="post" action="<?=base_url();?>credit_memo_c">
+<input type="hidden" id="jml_tr" value="0">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">CREDIT / MEMO</div>
+            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> CREDIT / MEMO</div>
             <div class="card-block cards_section_margin">                
                 <div class="card-block">
                     <br>
@@ -270,8 +271,8 @@
                 var total = 1 * parseFloat(price);
                 total = NumberToMoney(total).split('.00').join('');
 
-                var jml = $('#item_row').find('tr').length;
-                var id2 = parseFloat(jml) + parseFloat(id);
+                var jml_tr = $('#jml_tr').val();
+                var id2 = parseFloat(jml_tr) + 1;
 
                 var isi  =  '<tr class="item_selected">'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
@@ -294,6 +295,7 @@
 
                 $('#item_row').append(isi);
                 hitung_total(id2);
+                $('#jml_tr').val(id2);
                 $('#modal_item_close').click();
 
             }

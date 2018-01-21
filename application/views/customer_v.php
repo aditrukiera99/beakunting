@@ -191,11 +191,25 @@ table th{
 
                         var subtotal = res.SUB_TOTAL;
                         var sty = "";
-                        if(res.TIPE == 'Credit Vendor'){
+                        if(res.TIPE == 'CREDIT'){
                             subtotal = res.SUB_TOTAL * -1;
                             sty = "color:red;";
                         }
-                        isine += '<tr style="'+sty+'">'+
+
+                        var link = "";
+                        if(res.TIPE == 'Estimate'){
+                            link = "<?=base_url();?>estimate_c/detail/"+res.ID;
+                        } else if(res.TIPE == 'Sales Order'){
+                            link = "<?=base_url();?>sales_order_c/detail/"+res.ID;
+                        } else if(res.TIPE == 'INVOICE'){
+                            link = "<?=base_url();?>invoice_c/detail/"+res.ID;
+                        } else if(res.TIPE == 'Payment'){
+                            link = "<?=base_url();?>receive_payments_c/detail/"+res.ID;
+                        } else if(res.TIPE == 'CREDIT'){
+                            link = "<?=base_url();?>credit_memo_c/detail/"+res.ID;
+                        }
+
+                        isine += '<tr style="'+sty+' cursor:pointer;" onclick="window.open(&quot;'+link+'&quot;);">'+
                                     '<td style="text-align:left;">'+res.TIPE+'</td>'+
                                     '<td style="text-align:left;">'+res.NO_BUKTI+'</td>'+
                                     '<td style="text-align:left;">'+res.TGL_TRX+'</td>'+

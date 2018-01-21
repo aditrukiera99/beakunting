@@ -2081,12 +2081,12 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <a class="btn btn-labeled btn-success" href="<?=base_url();?>report/rep_jurnal_c" target="_blank">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_jurnal_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
                                                         VIEW
-                                                    </a>
+                                                    </button>
                                                     </div>
                                                 </figcaption>
                                             </figure>
@@ -2096,12 +2096,12 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <a class="btn btn-labeled btn-success" href="<?=base_url();?>report/rep_jurnal_c">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_jurnal_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
                                                         VIEW
-                                                    </a>
+                                                    </button>
                                                     </div>
                                                 </figcaption>
                                             </figure>

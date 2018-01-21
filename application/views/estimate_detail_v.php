@@ -298,7 +298,7 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        get_info_pajak(<?=$dt_pajak->ID_PRODUK;?>);
+        get_info_pajak('<?=$dt_pajak->ID_PRODUK;?>');
     });
     function add_row(id) {
         $('#no_item').hide();

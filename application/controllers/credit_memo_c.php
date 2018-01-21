@@ -113,6 +113,42 @@ class Credit_memo_c extends CI_Controller {
 		$this->load->view('dashboard_v', $data);
 	}
 
+	public function detail($id){ 
+
+		$msg = "";
+
+		$cek_data = count($this->db->query("SELECT * FROM ak_penjualan WHERE ID = '$id' AND TIPE = 'CREDIT' ")->result());
+		if($cek_data == 0){
+			redirect(base_url()."credit_memo_c");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_penjualan WHERE ID = '$id'")->row();
+		$dt_detail = $this->db->query("SELECT * FROM ak_penjualan_detail WHERE ID_PENJUALAN = '$id' AND TIPE = 'ITEM' ")->result();
+		$dt_pajak = $this->db->query("SELECT * FROM ak_penjualan_detail WHERE ID_PENJUALAN = '$id' AND TIPE = 'PAJAK' ")->row();
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$get_tax = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+
+		$data = array(
+			'page' => 'credit_memo_detail_v', 
+			'view' => 'customer', 
+			'get_item' => $get_item, 
+			'get_cust' => $get_cust, 
+			'get_tax' => $get_tax, 
+			'msg' => $msg, 
+			'dt' => $dt, 
+			'dt_detail' => $dt_detail, 
+			'dt_pajak' => $dt_pajak, 
+			'post_url' => 'credit_memo_c/detail/'.$id, 
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
+
 	function get_so_number(){
 		$id = $this->input->post('id');
 		$data = $this->db->query("SELECT * FROM ak_penjualan WHERE ID_PELANGGAN = '$id' AND TIPE = 'Sales Order' AND  (NO_INV IS NULL OR NO_INV = '') ORDER BY ID DESC ")->result();

@@ -18,7 +18,7 @@
 <?PHP if($msg == 1){ ?>
 <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <strong>Saved!</strong> Sales Order has been created.
+    <strong>Saved!</strong> Credit / Memo has been created.
 </div>
 <?PHP } ?>
 
@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> SALES ORDER</div>
+            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> CREDIT / MEMO</div>
             <div class="card-block cards_section_margin">                
                 <div class="card-block">
                     <br>
@@ -43,7 +43,7 @@
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-                                                    <option <?PHP if($dt->ID_PELANGGAN == $row->ID){ echo "selected"; } ?> value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+                                                <option <?PHP if($dt->ID_PELANGGAN == $row->ID){ echo "selected"; } ?> value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="<?=$dt->PELANGGAN;?>">
@@ -67,14 +67,14 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3 col-xl-3 text-lg-right">
-                                        <label style="margin-top: 0px;" for="so" class="col-form-label">S.O NO</label>
+                                        <label style="margin-top: 0px;" for="so" class="col-form-label">Credit No</label>
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-tags"></i>
                                             </span>
-                                            <input type="text" name="so_number" class="form-control" placeholder="" required value="<?=$dt->NO_BUKTI;?>">
+                                            <input required type="text" name="inv_number" class="form-control" placeholder="" value="<?=$dt->NO_BUKTI;?>">
                                         </div>
                                     </div>
                                     
@@ -92,21 +92,14 @@
                                     <textarea name="cust_address" id="cust_address" class="form-control" rows="4"><?=$dt->ALAMAT;?></textarea>
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-3 col-xl-3 text-lg-right">
-                                    <label for="username4" class="col-form-label">Ship To</label>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <textarea name="ship_to" id="ship_to" class="form-control" rows="4"><?=$dt->ALAMAT_KIRIM;?></textarea>
-                                </div>
-                            </div>
                         </div>
                     </div>                                
                 </div>
 
+                <hr>
+
                 <button type="button" class="btn btn-labeled btn-success" data-toggle="modal" data-target="#large">
-                    <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item to S.O
+                    <span class="btn-label" style="left: -16px;"><i class="fa fa-plus"></i></span> Add Item
                 </button>
 
                 <br><br>
@@ -185,7 +178,7 @@
                             <label for="name4" class=" col-form-label">TAX</label> 
                         </div>
                         <div class="col-lg-8 col-xl-4" style="margin-top: 5px;">
-                            <select id="gender4" class="form-control" name="id_pajak" onchange="get_info_pajak(this.value);">
+                            <select id="id_pajak" class="form-control" name="id_pajak" onchange="get_info_pajak(this.value);">
                                 <option value="">None</option>
                                 <?PHP foreach ($get_tax as $key => $row) { ?>
                                 <option <?PHP if($dt_pajak->ID_PRODUK == $row->ID){ echo "selected"; } ?> value="<?=$row->ID;?>"><?=$row->NAMA_PRODUK;?></option>
@@ -230,6 +223,7 @@
                             </a>
                         </div>
                     </div>
+
 
                 </div>
 
@@ -279,7 +273,7 @@
 <div class="cd-popup" role="alert">
     <div class="cd-popup-container">
 
-        <form id="delete" method="post" action="<?=base_url();?>sales_order_c">
+        <form id="delete" method="post" action="<?=base_url();?>credit_memo_c">
             <input type="hidden" name="id_hapus" id="id_hapus" value="" />
         </form>   
          
@@ -293,13 +287,11 @@
 </div> <!-- cd-popup -->
 <!-- END HAPUS MODAL -->
 
-
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         get_info_pajak('<?=$dt_pajak->ID_PRODUK;?>');
     });
-
     function add_row(id) {
         $('#no_item').hide();
         $.ajax({
@@ -319,7 +311,7 @@
                 var jml_tr = $('#jml_tr').val();
                 var id2 = parseFloat(jml_tr) + 1;
 
-                var isi  =  '<tr id="tr_'+id2+'">'+
+                var isi  =  '<tr class="item_selected" id="tr_'+id2+'">'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
                                 '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
@@ -380,6 +372,7 @@
             }
         });
 
+
         var inc_pajak = (parseFloat(sum) * parseFloat(prosen_pajak)) / 100;
         inc_pajak = Math.round(inc_pajak);
 
@@ -388,7 +381,6 @@
 
         var subtotal_all = parseFloat(sum) + parseFloat(inc_pajak);
 
-
         $('#subtotal_txt').html(NumberToMoney(subtotal_all).split('.00').join(''));
         $('#subtotal').val(subtotal_all);
     }
@@ -396,6 +388,9 @@
     function get_cust_info(id){
         $(".tbl_customer").removeClass("selected_cust");
         $("#data_"+id).addClass("selected_cust");
+        $('.item_selected').remove();
+        $('#no_item').show();
+
         $.ajax({
             url : '<?php echo base_url(); ?>customer_c/get_customer_info',
             data : {id:id},
@@ -407,8 +402,77 @@
                 if(res.NAMA_USAHA == "" || res.NAMA_USAHA == null){
                     $('#cust_name').val(res.NAMA_PELANGGAN);                    
                 } else {
-                    $('#cust_name').val(res.NAMA_USAHA);                    
+                    $('#cust_name').val(res.NAMA_PELANGGAN);                    
                 }
+            }
+        });
+    }
+
+    function get_so_number(id){
+        $.ajax({
+            url : '<?php echo base_url(); ?>invoice_c/get_so_number',
+            data : {id:id},
+            type : "POST",
+            dataType : "json",
+            success : function(result){   
+                var isine = "<option value=''>Choose a Sales Order</option>";
+                $.each(result,function(i,res){
+                    isine += '<option value="'+res.NO_BUKTI+'">'+res.NO_BUKTI+' - '+res.MEMO+'</option>';
+                });
+
+                $('#so_number').html(isine);
+                $("#so_number").trigger("chosen:updated");
+            }
+        });
+    }
+
+    function get_item_from_so(no_bukti){
+        $('.item_selected').remove();
+        $.ajax({
+            url : '<?php echo base_url(); ?>invoice_c/get_item_from_so',
+            data : {no_bukti:no_bukti},
+            type : "POST",
+            dataType : "json",
+            success : function(result){   
+
+                if(result.length > 0){
+                    $('#no_item').hide();
+                    $.each(result,function(i,res){      
+                        if(res.TIPE == 'ITEM'){
+                            var jml = $('#item_row').find('tr').length;
+                            var id2 = parseFloat(jml) + parseFloat(res.ID_PRODUK);
+
+                            var isi  =  '<tr class="item_selected">'+
+                                            '<input type="hidden" name="id_produk[]" value="'+res.ID_PRODUK+'"/>'+
+                                            '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
+                                            '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
+                                            '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
+                                            '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
+                                            '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
+                                            '<td style="vertical-align: middle;">'+
+                                                '<input id="qty_'+id2+'" value="'+res.QTY+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                            '</td>'+
+                                            '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
+                                            '<td style="vertical-align: middle;">'+
+                                                '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
+                                            '</td>'+
+                                            '<td style="vertical-align: middle;">'+
+                                                '<input id="total_'+id2+'" value="'+NumberToMoney(res.TOTAL).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
+                                            '</td>'+
+                                        '</tr>';
+
+                            $('#item_row').append(isi);
+                            hitung_total(id2);
+                        } else {
+                            $('#id_pajak').val(res.ID_PRODUK);
+                            get_info_pajak(res.ID_PRODUK);
+                        }
+                    });
+                } else {
+                    $('#no_item').show();
+                }
+
+                hitung_all();
             }
         });
     }

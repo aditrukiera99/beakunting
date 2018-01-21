@@ -43,7 +43,7 @@
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-                                                    <option <?PHP if($dt->ID_PELANGGAN == $row->ID){ echo "selected"; } ?> value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
+                                                <option <?PHP if($dt->ID_PELANGGAN == $row->ID){ echo "selected"; } ?> value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="<?=$dt->PELANGGAN;?>">
@@ -312,7 +312,7 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        get_info_pajak(<?=$dt_pajak->ID_PRODUK;?>);
+        get_info_pajak('<?=$dt_pajak->ID_PRODUK;?>');
     });
 
     function add_row(id) {
@@ -431,7 +431,7 @@
                 if(res.NAMA_USAHA == "" || res.NAMA_USAHA == null){
                     $('#cust_name').val(res.NAMA_PELANGGAN);                    
                 } else {
-                    $('#cust_name').val(res.NAMA_USAHA);                    
+                    $('#cust_name').val(res.NAMA_PELANGGAN);                    
                 }
 
                 get_so_number(id);

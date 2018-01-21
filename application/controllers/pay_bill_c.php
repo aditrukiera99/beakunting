@@ -46,9 +46,9 @@ class Pay_bill_c extends CI_Controller {
 			// INSERT KE VOUCHER
 			$this->db->query("
 				INSERT INTO ak_input_voucher
-				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE, ID_TRX)
 				VALUES 
-				('Bill Payment', '$tgl_pay', 'Bill Payment', '', 'BILL PAYMENT')
+				('Bill Payment', '$tgl_pay', 'Bill Payment', '', 'BILL PAYMENT', '$id_payment')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -92,6 +92,38 @@ class Pay_bill_c extends CI_Controller {
 			'dt'   => $this->model->get_all_supplier(),
 			'kode_akun_bank' => $kode_akun_bank,
 			'msg' => $msg,
+			'view' => 'vendors',
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
+	public function detail($id="")
+	{
+		$msg = "";
+
+		$cek_data = count($this->db->query("SELECT * FROM ak_bill_payment WHERE ID = '$id'")->result());
+		if($cek_data == 0){
+			redirect(base_url()."pay_bill_c");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_bill_payment WHERE ID = '$id'")->row();
+		$dt_detail = $this->db->query("
+			SELECT a.*, b.NAMA_SUPPLIER FROM ak_bill_payment_detail a 
+			LEFT JOIN ak_supplier b ON a.ID_SUPPLIER = b.ID
+			WHERE a.ID_PAYMENT = '$id'
+		")->result();
+
+		$kode_akun_bank = $this->db->query("SELECT * FROM ak_kode_akuntansi WHERE KATEGORI = 'Bank' ")->result();
+		$data = array(
+			'page' => 'pay_bill_detail_v', 
+			'kode_akun_bank' => $kode_akun_bank,
+			'msg' => $msg,
+			'dt' => $dt,
+			'dt_detail' => $dt_detail,
+			'post_url' => 'pay_bill_c/detail/'.$id, 
+			'get_vend'   => $this->model->get_all_supplier(),
+			'view' => 'vendors',
 		);
 
 		$this->load->view('dashboard_v', $data);

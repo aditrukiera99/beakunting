@@ -23,6 +23,7 @@
 <?PHP } ?>
 
 <form class="form-horizontal" method="post" action="<?=base_url();?>purchase_order_c">
+<input type="hidden" id="jml_tr" value="0">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -137,11 +138,11 @@
                     <thead>
                         <tr>
                             <th class="bg-success">ITEM</th>
-                            <th class="bg-success">DESCRIPTION</th>
-                            <th class="bg-success" style="width: 5%;">QUANTITY</th>
+                            <th class="bg-success" style="text-align: center; width: 5%;">QUANTITY</th>
                             <th class="bg-success" style="text-align: center; width: 5%;">U/M</th>
-                            <th class="bg-success" style="width: 15%;">RATE</th>
-                            <th class="bg-success" style="width: 15%;">AMOUNT</th>
+                            <th class="bg-success" style="text-align: center; width: 15%;">RATE</th>
+                            <th class="bg-success" style="text-align: center; width: 15%;">AMOUNT</th>
+                            <th class="bg-success" style="text-align: center; width: 15%;">#</th>
                         </tr>
                     </thead>
                     <tbody id="item_row">
@@ -295,17 +296,16 @@
                 var total = 1 * parseFloat(price);
                 total = NumberToMoney(total).split('.00').join('');
 
-                var jml = $('#item_row').find('tr').length;
-                var id2 = parseFloat(jml) * parseFloat(id);
+                var jml_tr = $('#jml_tr').val();
+                var id2 = parseFloat(jml_tr) + 1;
                 
 
-                var isi  =  '<tr class="item_selected">'+
+                var isi  =  '<tr class="item_selected" id="tr_'+id2+'">'+
                                 '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
                                 '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
                                 '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
-                                '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle;">'+
                                     '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
@@ -316,10 +316,14 @@
                                 '<td style="vertical-align: middle;">'+
                                     '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
                                 '</td>'+
+                                '<td align="center" style="vertical-align:middle;">'+
+                                    '<button onclick="hapus('+id2+');" type="button" class="btn btn-danger"><i class="icon-trash"></i> Delete </button>'+
+                                '</td>'+
                             '</tr>';
 
                 $('#item_row').append(isi);
                 hitung_total(id2);
+                $('#jml_tr').val(id2);
                 $('#modal_item_close').click();
 
             }
@@ -421,16 +425,15 @@
                     $('#no_item').hide();
                     $.each(result,function(i,res){      
                         if(res.TIPE == 'ITEM'){
-                            var jml = $('#item_row').find('tr').length;
-                            var id2 = parseFloat(jml) + parseFloat(res.ID_PRODUK);
+                            var jml_tr = $('#jml_tr').val();
+                            var id2 = parseFloat(jml_tr) + 1;
 
-                            var isi  =  '<tr class="item_selected">'+
+                            var isi  =  '<tr class="item_selected" id="tr_'+id2+'">'+
                                             '<input type="hidden" name="id_produk[]" value="'+res.ID_PRODUK+'"/>'+
                                             '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
                                             '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
                                             '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
                                             '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
-                                            '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                             '<td style="vertical-align: middle;">'+
                                                 '<input id="qty_'+id2+'" value="'+res.QTY+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
                                             '</td>'+
@@ -441,10 +444,14 @@
                                             '<td style="vertical-align: middle;">'+
                                                 '<input id="total_'+id2+'" value="'+NumberToMoney(res.TOTAL).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
                                             '</td>'+
+                                            '<td align="center" style="vertical-align:middle;">'+
+                                                '<button onclick="hapus('+id2+');" type="button" class="btn btn-danger"><i class="icon-trash"></i> Delete </button>'+
+                                            '</td>'+
                                         '</tr>';
 
                             $('#item_row').append(isi);
                             hitung_total(id2);
+                            $('#jml_tr').val(id2);
                         } else {
                             $('#id_pajak').val(res.ID_PRODUK);
                             get_info_pajak(res.ID_PRODUK);
@@ -484,5 +491,10 @@
                 }
             })
         }
+    }
+
+    function hapus(id){
+        $('#tr_'+id).remove();
+        hitung_all();
     }
 </script>

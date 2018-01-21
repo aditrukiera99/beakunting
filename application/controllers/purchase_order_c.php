@@ -83,6 +83,43 @@ class Purchase_order_c extends CI_Controller {
 		$this->load->view('dashboard_v', $data);
 	}
 
+	public function detail($id){
+
+		$msg = "";
+
+		$cek_data = count($this->db->query("SELECT * FROM ak_pembelian WHERE ID = '$id' AND TIPE = 'Purchase Order' ")->result());
+		if($cek_data == 0){
+			redirect(base_url()."purchase_order_c");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_pembelian WHERE ID = '$id'")->row();
+		$dt_detail = $this->db->query("SELECT * FROM ak_pembelian_detail WHERE ID_PEMBELIAN = '$id' AND TIPE = 'ITEM' ")->result();
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_vendor = $this->db->query("SELECT * FROM ak_supplier ORDER BY ID DESC")->result();
+		$get_cust   = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$get_tax    = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+		$get_so     = $this->db->query("SELECT * FROM ak_penjualan WHERE TIPE LIKE 'Sales Order' AND (NO_INV IS NULL OR NO_INV = '') ORDER BY ID DESC")->result();
+
+		$data = array(
+			'page' => 'purchase_order_detail_v', 
+			'msg'  => $msg,
+			'get_item' => $get_item, 
+			'get_vendor' => $get_vendor, 
+			'get_tax' => $get_tax,
+			'get_so' => $get_so,
+			'get_cust' => $get_cust,
+			'view' => 'vendors',
+			'dt' => $dt,
+			'dt_detail' => $dt_detail,
+			'post_url' => 'purchase_order_c/detail/'.$id, 
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
 	function get_so_number(){
 		$id = $this->input->post('id');
 		$data = $this->db->query("SELECT * FROM ak_penjualan WHERE ID_PELANGGAN = '$id' AND TIPE = 'Sales Order' AND  (NO_INV IS NULL OR NO_INV = '') ORDER BY ID DESC ")->result();

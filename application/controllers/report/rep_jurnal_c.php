@@ -49,6 +49,12 @@ class Rep_jurnal_c extends CI_Controller {
 				ORDER BY ID ASC
 			")->result();
 		}
+
+		if($this->input->post('excel')){
+			$this->cetak_excel();
+		} else if($this->input->post('pdf')){
+			$this->cetak_pdf();
+		}
 		
 		$data = array(
 			'page' => 'report/rep_jurnal_v', 
@@ -57,6 +63,18 @@ class Rep_jurnal_c extends CI_Controller {
 			'tgl_awal' => $tgl_awal,
 			'tgl_akhir' => $tgl_akhir,
 			'post_url' => 'report/rep_jurnal_c',
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
+	function cetak_excel(){
+		$tgl_awal = $this->input->post('tgl_awal_2');
+		$tgl_akhir = $this->input->post('tgl_akhir_2');
+
+		$data = array(
+			'dt' => $dt,
+			''
 		);
 
 		$this->load->view('dashboard_v', $data);

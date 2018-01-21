@@ -42,12 +42,20 @@ class Credit_vendor_c extends CI_Controller {
 			$memo    = addslashes($this->input->post('memo'));
 			$po_number = $this->input->post('po_number');
 
+			$this->db->query("
+				INSERT INTO ak_pembelian
+				(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, ID_PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN)
+				VALUES 
+				('Credit Vendor', '$ref_no', '$vend_id', '$vend_name', '0', '$tgl', '', '', '$memo', '', '$sub_total', '20000')
+			");
+			$id_pembelian = $this->db->insert_id();
+
 			// INSERT KE VOUCHER
 			$this->db->query("
 				INSERT INTO ak_input_voucher
-				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE, ID_TRX)
 				VALUES 
-				('$ref_no', '$tgl', '$memo', '$vend_name', 'Credit Vendor')
+				('$ref_no', '$tgl', '$memo', '$vend_name', 'Credit Vendor', '$id_pembelian')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -60,14 +68,6 @@ class Credit_vendor_c extends CI_Controller {
 				('$id_voucher', '20000', '$sub_total', '0', '$ref_no')
 			");
 			// END OF RECEIVABLE
-
-			$this->db->query("
-				INSERT INTO ak_pembelian
-				(TIPE, NO_BUKTI, ID_SUPPLIER, SUPPLIER, ID_PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, MESSAGE, SUB_TOTAL, KODE_AKUN)
-				VALUES 
-				('Credit Vendor', '$ref_no', '$vend_id', '$vend_name', '0', '$tgl', '', '', '$memo', '', '$sub_total', '20000')
-			");
-			$id_pembelian = $this->db->insert_id();
 
 			$id_produk   = $this->input->post('id_produk');
 			$kode_akun   = $this->input->post('kode_akun');
@@ -110,6 +110,42 @@ class Credit_vendor_c extends CI_Controller {
 			'get_cust' => $get_cust,
 			'view' => 'vendors',
 			'msg'  => $msg,
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
+	public function detail($id){
+
+		$msg = "";
+
+		$cek_data = count($this->db->query("SELECT * FROM ak_pembelian WHERE ID = '$id' AND TIPE = 'Credit Vendor' ")->result());
+		if($cek_data == 0){
+			redirect(base_url()."credit_vendor_c");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_pembelian WHERE ID = '$id'")->row();
+		$dt_detail = $this->db->query("SELECT * FROM ak_pembelian_detail WHERE ID_PEMBELIAN = '$id' AND TIPE = 'ITEM' ")->result();
+		$dt_detail2 = $this->db->query("SELECT a.*, b.NAMA_AKUN FROM ak_pembelian_detail a LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN WHERE a.ID_PEMBELIAN = '$id' AND a.TIPE = 'KODE AKUN' ")->result();
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID")->result();
+
+		$data = array(
+			'page' => 'credit_vendor_detail_v', 
+			'dt'   => $this->model->get_all_supplier(),
+			'accn'   => $this->model2->get_accounts_lims(),
+			'get_item' => $get_item,
+			'get_cust' => $get_cust,
+			'get_vend'   => $this->model->get_all_supplier(),
+			'view' => 'vendors',
+			'msg'  => $msg,
+			'dt' => $dt,
+			'dt_detail' => $dt_detail,
+			'dt_detail2' => $dt_detail2,
+			'post_url' => 'credit_vendor_c/detail/'.$id, 
 		);
 
 		$this->load->view('dashboard_v', $data);

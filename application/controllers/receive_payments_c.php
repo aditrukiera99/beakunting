@@ -50,9 +50,9 @@ class Receive_payments_c extends CI_Controller {
 			// INSERT KE VOUCHER
 			$this->db->query("
 				INSERT INTO ak_input_voucher
-				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE, ID_TRX)
 				VALUES 
-				('$no_reff', '$tgl', '$memo', '$cust_name', 'PAYMENT')
+				('$no_reff', '$tgl', '$memo', '$cust_name', 'PAYMENT', '$id_payment')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -98,6 +98,40 @@ class Receive_payments_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	public function detail($id){ 
+
+		$msg = "";
+
+		$cek_data = count($this->db->query("SELECT * FROM ak_receive_payment WHERE ID = '$id'")->result());
+		if($cek_data == 0){
+			redirect(base_url()."receive_payments_c");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_receive_payment WHERE ID = '$id'")->row();
+		$dt_detail = $this->db->query("SELECT * FROM ak_receive_payment_detail WHERE ID_PAYMENT = '$id' ")->result();
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$get_tax = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+
+		$data = array(
+			'page' => 'receive_payments_detail_v', 
+			'view' => 'customer', 
+			'get_item' => $get_item, 
+			'get_cust' => $get_cust, 
+			'get_tax' => $get_tax, 
+			'msg' => $msg, 
+			'dt' => $dt, 
+			'dt_detail' => $dt_detail, 
+			'post_url' => 'receive_payments_c/detail/'.$id, 
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
 
 	function get_invoice_aktif(){
 		$id = $this->input->post('id');

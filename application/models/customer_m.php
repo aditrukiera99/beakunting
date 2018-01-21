@@ -50,13 +50,13 @@ class Customer_m extends CI_Model
     function get_transaction_info($id){
         $sql = "
         SELECT a.* FROM (
-        SELECT a.TIPE, a.NO_BUKTI, a.TGL_TRX, a.KODE_AKUN, a.SUB_TOTAL, b.NAMA_AKUN FROM ak_penjualan a
+        SELECT a.ID, a.TIPE, a.NO_BUKTI, a.TGL_TRX, a.KODE_AKUN, a.SUB_TOTAL, b.NAMA_AKUN FROM ak_penjualan a
         LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
         WHERE ID_PELANGGAN = '$id' 
 
         UNION ALL 
 
-        SELECT 'Payment' AS TIPE, a.NO_BUKTI, a.TGL AS TGL_TRX, a.KODE_AKUN, a.TOTAL AS SUB_TOTAL, b.NAMA_AKUN FROM ak_receive_payment a
+        SELECT a.ID, 'Payment' AS TIPE, a.NO_BUKTI, a.TGL AS TGL_TRX, a.KODE_AKUN, a.TOTAL AS SUB_TOTAL, b.NAMA_AKUN FROM ak_receive_payment a
         LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
         WHERE ID_PELANGGAN = '$id' 
         ) a 

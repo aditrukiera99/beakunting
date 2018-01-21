@@ -37,11 +37,11 @@ input[type=checkbox]
 <!--Page level styles-->
 <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/radio_checkbox.css" />
 
-<form class="form-horizontal" method="post" action="<?=base_url();?>receive_payments_c">
+<form class="form-horizontal" method="post" action="<?=base_url().$post_url;?>">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a>  CUSTOMER PAYMENT</div>
+            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> DETAIL CUSTOMER PAYMENT</div>
             <div class="card-block cards_section_margin">                
                 <div class="card-block">
                     <br>
@@ -57,13 +57,9 @@ input[type=checkbox]
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-
-                                                    <?PHP if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ ?>
-                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
-                                                    <?PHP } else { ?>
-                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_USAHA;?></option>
+                                                    <?PHP foreach ($get_cust as $key => $row) { ?>
+                                                        <option <?PHP if($dt->ID_PELANGGAN == $row->ID){ echo "selected"; } ?> value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
                                                     <?PHP } ?>
-
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="">
@@ -80,7 +76,7 @@ input[type=checkbox]
                                             <span class="input-group-addon">
                                                 <i class="fa fa-money"></i>
                                             </span>
-                                            <input readonly="" type="text" name="amount" id="amount" class="form-control" placeholder="">
+                                            <input readonly="" type="text" name="amount" id="amount" class="form-control" placeholder="" value="<?=number_format($dt->TOTAL);?>">
                                         </div>
                                     </div>
                                     
@@ -95,7 +91,7 @@ input[type=checkbox]
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar-o"></i>
                                         </span>
-                                            <input type="text" name="tgl" class="form-control" placeholder="dd-mm-yyyy" id="dp1" value="<?=date('d-m-Y');?>">
+                                            <input type="text" name="tgl" class="form-control" placeholder="dd-mm-yyyy" id="dp1" value="<?=$dt->TGL;?>">
                                         </div>
                                     </div>                                    
                                 </div>
@@ -109,7 +105,7 @@ input[type=checkbox]
                                             <span class="input-group-addon">
                                                 <i class="fa fa-tags"></i>
                                             </span>
-                                            <input type="text" name="no_reff" class="form-control" placeholder="">
+                                            <input type="text" name="no_reff" class="form-control" placeholder="" value="<?=$dt->NO_BUKTI;?>">
                                         </div>
                                     </div>
                                     
@@ -120,34 +116,34 @@ input[type=checkbox]
                                     </div>
                                     <div class="col-lg-8 col-xl-4">
                                         <div class="btn-group button_group_rounded btn_group_padding" role="group" >
-                                            <button type="button" class="btn btn-labeled btn-default btn_method selected_btn" style="font-size: 22px;" onclick="get_metode_bayar(this, 'cash');">
+                                            <button type="button" class="btn btn-labeled btn-default btn_method <?PHP if($dt->METODE_BAYAR == 'cash'){ echo "selected_btn"; } ?>" style="font-size: 22px;" onclick="get_metode_bayar(this, 'cash');">
                                                 <span class="btn-label">
                                                     <i class="fa fa-money"></i>
                                                 </span>
                                                    CASH
                                             </button>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button type="button" class="btn btn-labeled btn-default btn_method" style="font-size: 22px;" onclick="get_metode_bayar(this, 'cc');">
+                                            <button type="button" class="btn btn-labeled btn-default btn_method <?PHP if($dt->METODE_BAYAR == 'cc'){ echo "selected_btn"; } ?>" style="font-size: 22px;" onclick="get_metode_bayar(this, 'cc');">
                                                 <span class="btn-label">
                                                     <i class="fa fa-credit-card"></i>
                                                 </span>
                                                    CREDIT CARD
                                             </button>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button type="button" class="btn btn-labeled btn-default btn_method" style="font-size: 22px;" onclick="get_metode_bayar(this, 'check');">
+                                            <button type="button" class="btn btn-labeled btn-default btn_method <?PHP if($dt->METODE_BAYAR == 'check'){ echo "selected_btn"; } ?>" style="font-size: 22px;" onclick="get_metode_bayar(this, 'check');">
                                                 <span class="btn-label">
                                                     <i class="ion-ios7-paper"></i>
                                                 </span>
                                                    CHECK
                                             </button>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button type="button" class="btn btn-labeled btn-default btn_method" style="font-size: 22px;" onclick="get_metode_bayar(this, 'echeck');">
+                                            <button type="button" class="btn btn-labeled btn-default btn_method <?PHP if($dt->METODE_BAYAR == 'echeck'){ echo "selected_btn"; } ?>" style="font-size: 22px;" onclick="get_metode_bayar(this, 'echeck');">
                                                 <span class="btn-label">
                                                     <i class="ion-ios7-paper"></i>
                                                 </span>
                                                    e-CHECK
                                             </button>
-                                            <input type="hidden" name="metode_bayar" id="metode_bayar" value="cash" />                                                        
+                                            <input type="hidden" name="metode_bayar" id="metode_bayar" value="<?=$dt->METODE_BAYAR;?>" />                                                        
                                         </div>
                                     </div>                                    
                                 </div>  
@@ -166,9 +162,6 @@ input[type=checkbox]
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
-                            <th class="bg-success" style="text-align: center; vertical-align: middle;">
-                                SELECT
-                            </th>
                             <th class="bg-success" style="text-align: center; vertical-align: middle;">DATE</th>
                             <th class="bg-success" style="text-align: center; vertical-align: middle;">NUMBER</th>
                             <th class="bg-success" style="text-align: center; vertical-align: middle;">ORIGINAL AMOUNT</th>
@@ -177,9 +170,22 @@ input[type=checkbox]
                         </tr>
                     </thead>
                     <tbody id="item_row">
-                        <tr style="background: #FFF !important;" id="no_item">
-                            <td style="vertical-align: middle; text-align: center;" colspan="6">There are no unpaid invoices for this customer</td>
+                        <?PHP foreach ($dt_detail as $key => $row) { ?>
+                        <tr>
+                            <input style="display: none;" name="id_penjualan[]" type="checkbox" value="<?=$row->ID_PENJUALAN;?>" class="cek_invoice" checked>
+                            <input name="id_penjualan2[]" id="id_penjualan2_<?=$row->ID_PENJUALAN;?>" type="hidden" value="<?=$row->ID_PENJUALAN;?>" >
+                            <td style="font-size:16px; vertical-align:middle; text-align:center;"><?=$row->TGL;?></td>
+                            <td style="font-size:16px; vertical-align:middle; text-align:left;"><?=$row->NO_BUKTI;?></td>
+                            <td style="font-size:16px; vertical-align:middle; text-align:right;">Rp <?=number_format($row->ORIGINAL_AMT);?></td>
+                            <td style="font-size:16px; vertical-align:middle; text-align:right;">Rp <?=number_format($row->ORIGINAL_AMT-$row->PAYMENT);?></td>
+                            <td style="font-size:16px; vertical-align:middle; text-align:right;">Rp <?=number_format($row->PAYMENT);?></td>
+                            <input style="font-size: 16px; text-align:right;" type="hidden" name="payment[]" value="<?=number_format($row->PAYMENT);?>" onkeyup="FormatCurrency(this); hitung_applied();" id="payment_<?=$row->ID_PENJUALAN;?>" />
+                            <input style="text-align:right;" type="hidden" name="orig_due[]" value="<?=$row->ORIGINAL_AMT;?>" onkeyup="FormatCurrency(this);" id="orig_due_<?=$row->ID_PENJUALAN;?>" />
+                            <input style="text-align:right;" type="hidden" name="am_due[]" value="<?=$row->ORIGINAL_AMT-$row->PAYMENT;?>" onkeyup="FormatCurrency(this);" id="am_due_<?=$row->ID_PENJUALAN;?>" />
+                            <input style="text-align:right;" type="hidden" name="no_bukti[]" value="<?=$row->NO_BUKTI;?>"/>
+                            <input style="text-align:right;" type="hidden" name="tgl_invoice[]" value="<?=$row->TGL;?>'"/>
                         </tr>
+                        <?PHP } ?>
                     </tbody>
                 </table>                                                   
             </div>
@@ -192,7 +198,7 @@ input[type=checkbox]
                         </div>
                         <div class="col-lg-8 col-xl-8">
                             <div class="input-group">
-                                <textarea class="form-control" name="memo" rows="3" placeholder="Type Memo Here...."></textarea>
+                                <textarea class="form-control" name="memo" rows="3" placeholder="Type Memo Here...."><?=$dt->MEMO;?></textarea>
                             </div>
                         </div>
                     </div>  
@@ -236,13 +242,13 @@ input[type=checkbox]
                         <div class="col-lg-6 col-xl-7 text-lg-right">
                             <button type="submit" class="btn btn-labeled btn-success">
                                 <span class="btn-label"><i class="fa fa-save"></i></span>
-                                Save Payments
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-3 col-xl-3 text-lg-right"> 
-                            <a href="<?=base_url();?>customer_c" class="btn btn-labeled btn-primary">
-                                <span class="btn-label"><i class="fa fa-times"></i></span>
-                                Cancel
+                            <a href="javascript:;" onclick="$('#dialog-btn').click(); $('#id_hapus').val('<?=$dt->ID;?>');"  class="btn btn-labeled btn-danger">
+                                <span class="btn-label"><i class="fa fa-trash"></i></span>
+                                Delete Transaction
                             </a>
                         </div>
                     </div>
@@ -290,8 +296,31 @@ input[type=checkbox]
     </div>
 </div>
 
+<!-- HAPUS MODAL -->
+<a id="dialog-btn" href="javascript:;" class="cd-popup-trigger" style="display:none;">View Pop-up</a>
+<div class="cd-popup" role="alert">
+    <div class="cd-popup-container">
 
+        <form id="delete" method="post" action="<?=base_url();?>receive_payments_c">
+            <input type="hidden" name="id_hapus" id="id_hapus" value="" />
+        </form>   
+         
+        <p>Are you sure to delete this transaction?</p>
+        <ul class="cd-buttons">            
+            <li><a href="javascript:;" onclick="$('#delete').submit();">Yes, I'm Sure</a></li>
+            <li><a onclick="$('.cd-popup-close').click(); $('#id_hapus').val('');" href="javascript:;">Cancel</a></li>
+        </ul>
+        <a href="#0" onclick="$('#id_hapus').val('');" class="cd-popup-close img-replace">Close</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+<!-- END HAPUS MODAL -->
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
+    $(document).ready(function(){
+        hitung_amount_due();
+    });
+
     function add_row(id) {
         $('#no_item').hide();
         $.ajax({

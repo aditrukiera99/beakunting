@@ -50,13 +50,13 @@ class Vendors_m extends CI_Model
     function get_transaction_info($id){
         $sql = "
         SELECT a.* FROM (
-        SELECT a.TIPE, a.NO_BUKTI, a.TGL_TRX, a.KODE_AKUN, a.SUB_TOTAL, b.NAMA_AKUN FROM ak_pembelian a
+        SELECT a.ID, a.TIPE, a.NO_BUKTI, a.TGL_TRX, a.KODE_AKUN, a.SUB_TOTAL, b.NAMA_AKUN FROM ak_pembelian a
         LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
         WHERE ID_SUPPLIER = '$id' 
 
         UNION ALL 
 
-        SELECT 'Payment' AS TIPE, a.NO_BUKTI, a.TGL AS TGL_TRX, aa.KODE_AKUN, a.PAYMENT  AS SUB_TOTAL, b.NAMA_AKUN FROM ak_bill_payment_detail a
+        SELECT aa.ID, 'Payment' AS TIPE, a.NO_BUKTI, a.TGL AS TGL_TRX, aa.KODE_AKUN, a.PAYMENT  AS SUB_TOTAL, b.NAMA_AKUN FROM ak_bill_payment_detail a
         JOIN ak_bill_payment aa ON a.ID_PAYMENT = aa.ID
         LEFT JOIN ak_kode_akuntansi b ON aa.KODE_AKUN = b.KODE_AKUN
         WHERE a.ID_SUPPLIER = '$id' 
