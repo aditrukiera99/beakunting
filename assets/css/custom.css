@@ -97,7 +97,7 @@ a.btn-secondary:focus {
   background: #7a7a7a; }
 
 #menu > li.active {
-  background: #2a5934 !important; }
+  background: #007fbd !important; }
 
 #menu li.active a {
   color: #fff; }
@@ -110,7 +110,7 @@ a.btn-secondary:focus {
   background-color: #ff8080; }
 
 #menu li:hover {
-  background: #3a3a3a; }
+  background: #007fbd; }
 
 #menu li ul li:hover {
   background: #3a3a3a; }
