@@ -42,7 +42,7 @@ table th{
         </div>
     </div>
     <div class="col-lg-9">
-        <button onclick="window.location = '<?=base_url();?>add_customer_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Inventory</button>
+        <button onclick="window.location = '<?=base_url();?>add_items_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Inventory</button>
         <div class="card" style="margin-top:10px;">
             <div class="card-header bg-success">INVENTORY INFORMATION 
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right;">

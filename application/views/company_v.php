@@ -37,18 +37,18 @@
                                 <div class="form-group row">
 
                                     <div class="col-lg-2  text-lg-right">
-                                        <img src="<?=base_url();?>/assets/img/purchase order.png">
+                                        <a href="<?=base_url();?>purchase_order_c"><img src="<?=base_url();?>/assets/img/purchase order.png"></a>
                                     </div>
                                     <div class="col-lg-2" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                         
                                     </div>
                                     <div class="col-lg-1 ">
-                                        <img style="" src="<?=base_url();?>/assets/img/receive inventory.png">
+                                        <a href="<?=base_url();?>bill_c"><img style="" src="<?=base_url();?>/assets/img/receive inventory.png"></a>
                                     </div>
                                     <div class="col-lg-2  text-lg-right" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                     </div>
                                     <div class="col-lg-1  text-lg-right">
-                                        <img src="<?=base_url();?>/assets/img/enter bill.png">
+                                        <a href="<?=base_url();?>enter_bill_receive_item_c"><img src="<?=base_url();?>/assets/img/enter bill.png"></a>
                                     </div>
                                 </div>
                                 <div class="form-group row" style="margin-bottom: 0rem !important;">
@@ -73,12 +73,12 @@
                                         
                                     </div>
                                     <div class="col-lg-1  text-lg-right">
-                                        <img src="<?=base_url();?>/assets/img/enter bill2.png">
+                                        <a href="<?=base_url();?>bill_c"><img src="<?=base_url();?>/assets/img/enter bill2.png"></a>
                                     </div>
                                     <div class="col-lg-3" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                     </div>
                                     <div class="col-lg-1 ">
-                                        <img style="" src="<?=base_url();?>/assets/img/pay bill.png">
+                                        <a href="<?=base_url();?>pay_bill_c"><img style="" src="<?=base_url();?>/assets/img/pay bill.png"></a>
                                     </div>
                                     
                                 </div>
@@ -100,7 +100,7 @@
                                         
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/sales order.png">
+                                        <a href="<?=base_url();?>sales_order_c"><img src="<?=base_url();?>/assets/img/sales order.png"></a>
                                     </div>
                                     <div class="col-lg-1  text-lg-right" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                         
@@ -108,7 +108,7 @@
                                     <div class="col-lg-1" style="height:72px;background: url(<?=base_url();?>/assets/img/garisatas.png) no-repeat center;">
                                     </div>
                                     <div class="col-lg-6 text-lg-right ">
-                                        <img style="" src="<?=base_url();?>/assets/img/create sales reeipt.png">
+                                        <a href="<?=base_url();?>sales_receipt_c"><img style="" src="<?=base_url();?>/assets/img/create sales reeipt.png"></a>
                                     </div>
                                     
                                 </div>
@@ -135,17 +135,17 @@
                                         
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/estimates.png">
+                                        <a href="<?=base_url();?>estimate_c"><img src="<?=base_url();?>/assets/img/estimates.png"></a>
                                     </div>
                                     <div class="col-lg-1  text-lg-right" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/create invoices.png">
+                                        <a href="<?=base_url();?>invoice_c"><img src="<?=base_url();?>/assets/img/create invoices.png"></a>
                                     </div>
                                     <div class="col-lg-4  text-lg-right" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/receive payments.png">
+                                        <a href="<?=base_url();?>receive_payments_c"><img src="<?=base_url();?>/assets/img/receive payments.png"></a>
                                     </div>
                                      <div class="col-lg-1  text-lg-right" style="background: url(<?=base_url();?>/assets/img/garis.png) repeat-x center;">
                                     </div>
@@ -160,8 +160,8 @@
                                     </div>
                                     <div class="col-lg-4">
                                     </div>
-                                    <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garisatas.png) no-repeat center;">
-                                    </div>
+                                    <!-- <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garisatas.png) no-repeat center;">
+                                    </div> -->
                                 </div>
 
                                 <div class="form-group row" style="margin-bottom: 0rem !important;" >
@@ -169,10 +169,12 @@
                                     </div>
                                     <div class="col-lg-1" style="height:70px;background: url(<?=base_url();?>/assets/img/garisatas.png) no-repeat center;">
                                     </div>
-                                    <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/Statement charges.png">
+                                    <div class="col-lg-1">
                                     </div>
-                                    <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garis.png) no-repeat center;">
+                                    <!-- <div class="col-lg-1" >
+                                        <img src="<?=base_url();?>/assets/img/Statement charges.png">
+                                    </div> -->
+                                    <!-- <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garis.png) no-repeat center;">
                                     </div>
                                     <div class="col-lg-1" >
                                         <img src="<?=base_url();?>/assets/img/finance charges.png">
@@ -181,7 +183,7 @@
                                     </div>
                                     <div class="col-lg-1" >
                                         <img src="<?=base_url();?>/assets/img/statements.png">
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="form-group row" >
@@ -195,7 +197,7 @@
                                     <div class="col-lg-1">
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/payroll center.png">
+                                        <a href="<?=base_url();?>payroll_c"><img src="<?=base_url();?>/assets/img/payroll center.png"></a>
                                     </div>
                                     <div class="col-lg-1">
                                     </div>
@@ -205,17 +207,17 @@
                                     <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garis.png) no-repeat center;">
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/pay employee.png">
+                                        <a href="<?=base_url();?>payroll_c"><img src="<?=base_url();?>/assets/img/pay employee.png"></a>
                                     </div>
                                     <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garis.png) no-repeat center;">
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/pay liabilities.png">
+                                        <a href="<?=base_url();?>payroll_c"><img src="<?=base_url();?>/assets/img/pay liabilities.png"></a>
                                     </div>
                                     <div class="col-lg-1" style="height:50px;background: url(<?=base_url();?>/assets/img/garis.png) no-repeat center;">
                                     </div>
                                     <div class="col-lg-1" >
-                                        <img src="<?=base_url();?>/assets/img/proces payroll.png">
+                                        <a href="<?=base_url();?>payroll_c"><img src="<?=base_url();?>/assets/img/proces payroll.png"></a>
                                     </div>
                                 </div>
 
@@ -232,24 +234,24 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6 text-lg-center" >
-                                        <img src="<?=base_url();?>/assets/img/chart of accounts.png">
+                                        <a href="<?=base_url();?>accounts_c"><img src="<?=base_url();?>/assets/img/chart of accounts.png"></a>
                                     </div>
                                     <div class="col-lg-6 text-lg-center" >
-                                        <img src="<?=base_url();?>/assets/img/inventory activities.png">
+                                        <a href="<?=base_url();?>inventory_center_c"><img src="<?=base_url();?>/assets/img/inventory activities.png"></a>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6 text-lg-center" >
-                                        <img src="<?=base_url();?>/assets/img/items service.png">
+                                        <a href="<?=base_url();?>items_c"><img src="<?=base_url();?>/assets/img/items service.png"></a>
                                     </div>
                                     <div class="col-lg-6 text-lg-center" >
                                         <img src="<?=base_url();?>/assets/img/order checks.png">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-lg-6 text-lg-center" >
+                                    <!-- <div class="col-lg-6 text-lg-center" >
                                         <img src="<?=base_url();?>/assets/img/calendar.png">
-                                    </div>
+                                    </div> -->
                                     
                                 </div>
                                 <div class="form-group row">
@@ -275,7 +277,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6 text-lg-center" >
-                                        <img src="<?=base_url();?>/assets/img/print check.png">
+                                        <a href="<?=base_url();?>check_c"><img src="<?=base_url();?>/assets/img/print check.png"></a>
                                     </div>
                                     <div class="col-lg-6 text-lg-center" >
                                         <img src="<?=base_url();?>/assets/img/enter credit.png">

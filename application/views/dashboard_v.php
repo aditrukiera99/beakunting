@@ -77,7 +77,7 @@ error_reporting(0);
                 </a>
                 <div class="menu" style="margin-top: 13px;">
                     <span class="toggle-left" id="menu-toggle" style="margin-top: 2px;">
-                        <i class="fa fa-bars" style="color:#008C62;"></i>
+                        <i class="fa fa-bars" style="color:#00334e;"></i>
                     </span>
                 </div>
                 <div class="topnav dropdown-menu-right">
@@ -85,7 +85,7 @@ error_reporting(0);
                         <div class="user-settings no-bg">
 
                             <button type="button" class="btn bg-gray" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">File </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">File </label>
                             </button>
                             <div class="dropdown-menu admire_admin">
                                 
@@ -100,7 +100,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">List </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">List </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
                                 <a class="dropdown-item" href="<?=base_url();?>accounts_c">
@@ -156,7 +156,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Accountant </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Accountant </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
                                 <a class="dropdown-item" href="<?=base_url();?>akun_center_c">
@@ -208,7 +208,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Company </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Company </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 220px;">
                                 <a class="dropdown-item" href="<?=base_url();?>company_c">
@@ -287,7 +287,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Customers </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Customers </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="<?=base_url();?>customer_c">
@@ -363,7 +363,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Vendors </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Vendors </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="<?=base_url();?>vendors_c">
@@ -408,7 +408,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Employee </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Employee </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="<?=base_url()?>employee_c">
@@ -471,7 +471,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Banking </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Banking </label>
                             </button>
                              <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="<?=base_url()?>check_c">
@@ -510,7 +510,7 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Master </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Master </label>
                             </button>
                              <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <!-- <a class="dropdown-item" href="#">
@@ -547,7 +547,7 @@ error_reporting(0);
                         <div class="user-settings no-bg">
                         
                             <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Report </label>
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Report </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 270px;">
                                 <a class="dropdown-item" href="<?=base_url()?>report_back_c">
@@ -570,21 +570,8 @@ error_reporting(0);
                     <span class="fa fa-user"></span>
                 </div>
                 <div class="user-wrapper bg-dark">
-                    <a class="user-link" href="">
-                        <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
-                             src="<?=base_url();?>/assets/img/admin.jpg">
-                        <p class="text-white user-info">Welcome Micheal</p>
-                    </a>
-                    <div class="search_bar col-lg-12">
-                        <div class="input-group">
-                            <input type="search" class="form-control" placeholder="search">
-                            <span class="input-group-btn">
-                            <button class="btn without_border" type="button">
-                            <span class="fa fa-search"></span>
-                            </button>
-                            </span>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
             </div>
             <!-- #menu -->

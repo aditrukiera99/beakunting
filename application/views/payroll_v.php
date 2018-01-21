@@ -19,11 +19,7 @@ table th{
    
     <div class="col-lg-12">
         <button onclick="window.location = '<?=base_url();?>add_schedule_payroll_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Payroll Schedule</button>
-        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Estimate</button>
-        <button onclick="window.location = '<?=base_url();?>sales_order_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Sales Order</button>
-        <button onclick="window.location = '<?=base_url();?>invoice_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Invoice</button>
-        <button onclick="window.location = '<?=base_url();?>receive_payments_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Receive Payments</button>
-        <button onclick="window.location = '<?=base_url();?>credit_memo_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Credit Memo / Refund</button>
+        <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Pay Liabilities</button>
         <div class="card" style="margin-top:10px;height: 500px; overflow-y: scroll;">
             <div class="card-header bg-success">CREATE PAYCHECK
                 <button type="button" class="btn btn-labeled btn-warning" style="float: right; display: none;" id="info_4">
