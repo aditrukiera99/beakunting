@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login | Admire</title>
+    <title>KnM Accounting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="shortcut icon" href="img/logo1.ico"/>
     <!--Global styles -->
@@ -15,43 +15,33 @@
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/login.css"/>
 </head>
 <body>
-<div class="preloader" style=" position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100000;
-  backface-visibility: hidden;
-  background: #ffffff;">
-    <div class="preloader_img" style="width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 48%;
-  top: 48%;
-  background-position: center;
-z-index: 999999">
-        <img src="<?=base_url();?>assets/img/loader.gif" style=" width: 40px;" alt="loading...">
-    </div>
-</div>
-<div class="container wow fadeInDown" data-wow-delay="0.5s" data-wow-duration="2s">
+
+<div class="container" >
     <div class="row">
         <div class="col-lg-8 push-lg-2 col-md-10 push-md-1 col-sm-10 push-sm-1 login_top_bottom">
             <div class="row">
                 <div class="col-lg-8 push-lg-2 col-md-10 push-md-1 col-sm-12">
                     <div class="login_logo login_border_radius1">
                         <h1 class="text-center">
-                            <span class="text-white"> KnM<br/>
+                            <span class="text-white"> KnM Accounting
                                 
                         </h1>
                     </div>
                     <div class="bg-white login_content login_border_radius">
-                        <form action="index.html" method="post" class="login_validator">
+                        <form action="<?=base_url();?>login_c" method="post" class="login_validator">
+                            <?PHP 
+                            if($msg == 1){
+                                echo "<center>";
+                                echo "<p style='color:red;'>Wrong username / password</p>";
+                                echo "</center>";
+                            }
+                            ?>
                             <div class="form-group">
                                 <label for="email" class="col-form-label"> Username</label>
                                 <div class="input-group">
                                     <span class="input-group-addon input_email"><i
                                             class="fa fa-users text-primary"></i></span>
-                                    <input type="text" class="form-control  form-control-md" id="" name="username" placeholder="username">
+                                    <input type="text" class="form-control  form-control-md" id="" name="username" placeholder="username" required="">
                                 </div>
                             </div>
                             <!--</h3>-->
@@ -60,7 +50,7 @@ z-index: 999999">
                                 <div class="input-group">
                                     <span class="input-group-addon addon_password"><i
                                             class="fa fa-lock text-primary"></i></span>
-                                    <input type="password" class="form-control form-control-md" id="password"   name="password" placeholder="Password">
+                                    <input type="password" class="form-control form-control-md" id="password"   name="password" placeholder="Password" required="">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -70,9 +60,7 @@ z-index: 999999">
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                       
-                        
+                        </form>                        
                     </div>
                 </div>
             </div>

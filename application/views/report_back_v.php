@@ -55,6 +55,10 @@ table th{
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="tbl_customer selected_cust" id="paneltab10" onclick="get_information('tab10');" style="cursor: pointer;">
+                        <td>Acountant & Taxes</td>
+                    </tr>
+
                     <tr class="tbl_customer" id="paneltab1" onclick="get_information('tab1');" style="cursor: pointer;">
                         <td>Company & Financial</td>
                     </tr>
@@ -82,9 +86,7 @@ table th{
                     <tr class="tbl_customer" id="paneltab9" onclick="get_information('tab9');" style="cursor: pointer;">
                         <td>Banking</td>
                     </tr>
-                    <tr class="tbl_customer" id="paneltab10" onclick="get_information('tab10');" style="cursor: pointer;">
-                        <td>Acountant & Taxes</td>
-                    </tr>
+                    
                     <tr class="tbl_customer" id="paneltab11" onclick="get_information('tab11');" style="cursor: pointer;">
                         <td>Budgets & Forecast</td>
                     </tr>
@@ -1994,7 +1996,7 @@ table th{
                                     </div>
                                 </div>
 
-                                <div class="tab-pane" id="tab10" style="display: none;">
+                                <div class="tab-pane active" id="tab10">
                                     <br>
                                     <h3>Accountant Only</h3>
                                    <div class="row no-gutters">
