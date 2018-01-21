@@ -39,6 +39,33 @@ class Terms_c extends CI_Controller {
 		$this->load->view('dashboard_v', $data);
 	}
 
+	function ubah_data($id=""){
+
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+			$anak_dari	 = $this->input->post('anak_dari');
+
+			$this->db->query("
+				UPDATE ak_terms SET NAMA = '$nama' , SUB = '$anak_dari' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_terms WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_terms_v", 
+			'title' => "Ubah terms Type", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'terms_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
+
 
 }
 

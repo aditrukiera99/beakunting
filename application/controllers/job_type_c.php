@@ -39,6 +39,33 @@ class Job_type_c extends CI_Controller {
 		$this->load->view('dashboard_v', $data);
 	}
 
+	function ubah_data($id=""){
+
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+			$anak_dari	 = $this->input->post('anak_dari');
+
+			$this->db->query("
+				UPDATE ak_job_type SET NAMA = '$nama' , SUB = '$anak_dari' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_job_type WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_job_type_v", 
+			'title' => "Ubah job Type", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'job_type_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
+
 
 }
 

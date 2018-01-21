@@ -33,6 +33,31 @@ class Ship_via_c extends CI_Controller {
 		$this->load->view('dashboard_v', $data);
 	}
 
+	function ubah_data($id=""){
+
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+
+			$this->db->query("
+				UPDATE ak_ship_via SET NAMA = '$nama' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_ship_via WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_ship_via_v", 
+			'title' => "Ubah vendor Type", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'ship_via_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
 
 }
 

@@ -33,6 +33,32 @@ class Messages_c extends CI_Controller {
 		$this->load->view('dashboard_v', $data);
 	}
 
+	function ubah_data($id=""){
+
+
+		if($this->input->post('pesan')){
+			$msg = 1;
+			$nama	 = $this->input->post('pesan');
+
+			$this->db->query("
+				UPDATE ak_messages SET PESAN = '$nama'  WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_messages WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_messages_v", 
+			'title' => "Ubah Messages", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'messages_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
+
 
 }
 
