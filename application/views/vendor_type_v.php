@@ -57,12 +57,10 @@
                         
                         <td><?=$row->NAMA;?></td>
                         <td>
-                            <a href="#" class="btn btn-success">
+                            <a href="<?=base_url();?>vendor_type_c/ubah_data/<?=$row->ID;?>" class="btn btn-success">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
-                            <a href="#" class="btn btn-danger">
-                                <i class="fa fa-trash"></i> Hapus
-                            </a>
+                            
                         </td>
                     </tr>
                     <tr>
@@ -79,12 +77,10 @@
                                 <i class="fa fa-circle" style="font-size: 6px; vertical-align: middle;"></i> <?=$row_2->NAMA;?>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-success">
+                                <a href="<?=base_url();?>vendor_type_c/ubah_data/<?=$row->ID;?>" class="btn btn-success">
                                     <i class="fa fa-edit"></i> Edit
                                 </a>
-                                <a href="#" class="btn btn-danger">
-                                    <i class="fa fa-edit"></i> Hapus
-                                </a>
+                            
                             </td>
                         </tr>
                         <?PHP     

@@ -58,12 +58,12 @@
                         <td><?=$i;?></td>
                         <td><?=$row->PESAN;?></td>
                         <td>
-                            <a href="#" class="btn btn-success">
+                            <a href="<?=base_url();?>messages_c/ubah_data/<?=$row->ID;?>" class="btn btn-success">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
-                            <a href="#" class="btn btn-danger">
+                            <!-- <a href="#" class="btn btn-danger">
                                 <i class="fa fa-edit"></i> Hapus
-                            </a>
+                            </a> -->
                         </td>
                     </tr>
                     

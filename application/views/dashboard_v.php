@@ -177,15 +177,15 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>general_journal_c">
                                     Make General Journal Entries
                                 </a>
-                                <a class="dropdown-item" href="edit_user.html">
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     Send General Journal Entries
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>reconcile_c">
                                     Reconcile
                                 </a>
-                                <a class="dropdown-item" href="<?=base_url();?>working_balance_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>working_balance_c">
                                     Working Trial Balance
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="edit_user.html">
                                     Set Closing Date
                                 </a> -->
@@ -198,9 +198,9 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="edit_user.html">
                                     Remote Access
                                 </a> -->
-                                <a class="dropdown-item" href="edit_user.html">
+                                <!-- <a class="dropdown-item" href="edit_user.html">
                                     Manage Fixed Assets
-                                </a>
+                                </a> -->
                                 
                             </div>
                         </div>
@@ -214,12 +214,12 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>company_c">
                                     Home Page
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Company Snapshot
-                                </a>
-                                <a class="dropdown-item" href="<?=base_url();?>calender_c">
+                                </a> -->
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>calender_c">
                                     Calendar
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Document
                                 </a> -->
@@ -241,9 +241,9 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Change Your Password
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Set Closing Date
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>set_budgets_c">
                                     Set Budgets
                                 </a>
@@ -253,9 +253,9 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     To Do List
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Rimenders
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Alerts Manager
                                 </a> -->
@@ -271,9 +271,9 @@ error_reporting(0);
                                 <!-- <a class="dropdown-item" href="#">
                                     Manage Currency
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Manage Fixed Assets
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>add_vehicle_service_c">
                                     Enter Vihicle Mileage
                                 </a>
@@ -326,9 +326,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>credit_memo_c">
                                     Create Credit Memos/Refund
                                 </a>
-                                <a class="dropdown-item" href="<?=base_url();?>income_tracker_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>income_tracker_c">
                                     Income Tracker
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Lead Center
                                 </a> -->
@@ -375,9 +375,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>pay_bill_c">
                                     Pay Bills
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Sales Tax
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>purchase_order_c">
                                     Create Purchase Order
                                 </a>
@@ -417,9 +417,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url()?>payroll_c">
                                     Payroll Center
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Enter Time
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url()?>unschedule_payroll_c">
                                     Pay Unschedule Payroll
                                 </a>
@@ -435,24 +435,24 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Payroll Tax Forms & W-2s
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Labor Law Posters
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     Worker Compensation
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Intuit Health Benefit
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Employee Organizer
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     My Payroll Service
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Pay With Direct Deposit
-                                </a>
+                                </a> -->
                                 <!-- <a class="dropdown-item" href="#">
                                     Payroll Setup
                                 </a> -->
@@ -462,9 +462,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="#">
                                     Get Payroll Updates
                                 </a> -->
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Billing Rate Level List
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>
@@ -513,9 +513,9 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Master </label>
                             </button>
                              <div class="dropdown-menu admire_admin" style="width: 270px;">
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     Sales Rep List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url()?>customer_type_c">
                                     Customer Type List
                                 </a>
@@ -599,11 +599,11 @@ error_reporting(0);
                         <i class="fa fa-money"> </i> &nbsp; Income Tracker
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?=base_url();?>calender_c">
                         <i class="fa fa-calendar"> </i> &nbsp; Calender
                     </a>
-                </li>
+                </li> -->
                 <!-- <li >
                     <a href="gallery.html">
                         <i class="ion-pie-graph"> </i> &nbsp; Snapshot
@@ -630,7 +630,7 @@ error_reporting(0);
                     </a>
                 </li> -->
                 <li >
-                    <a href="gallery.html">
+                    <a href="<?=base_url();?>report_back_c">
                         <i class="ion-clipboard"> </i> &nbsp; Reports
                     </a>
                 </li>
@@ -659,17 +659,17 @@ error_reporting(0);
                         <i class="fa fa-shopping-cart"> </i> &nbsp; Bill
                     </a>
                 </li>
-                <li >
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="fa fa-tasks"> </i> &nbsp; Reg
                     </a>
-                </li>
+                </li> -->
                 <li <?PHP if($view == "accounts"){ ?> class="active" <?PHP } ?>>
                     <a href="<?=base_url();?>accounts_c">
                         <i class="fa fa-calendar-o"> </i> &nbsp; Acccount
                     </a>
                 </li>
-                <li >
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="fa fa-clock-o"> </i> &nbsp; Rmnd
                     </a>
@@ -683,13 +683,13 @@ error_reporting(0);
                     <a href="gallery.html">
                         <i class="fa fa-comments"> </i> &nbsp; Feedback
                     </a>
-                </li>
-                <li >
+                </li> -->
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="fa fa-plus-square"> </i> &nbsp; Service
                     </a>
-                </li>
-                <li >
+                </li> -->
+                <!-- <li >
                     <a href="gallery.html">
                         <i class="ion-card"> </i> &nbsp; Add Payroll
                     </a>
@@ -698,7 +698,7 @@ error_reporting(0);
                     <a href="gallery.html">
                         <i class="ion-closed-captioning"> </i> &nbsp; Credit Cards
                     </a>
-                </li>
+                </li> -->
             </ul>
             <!-- /#menu -->
         </div>
