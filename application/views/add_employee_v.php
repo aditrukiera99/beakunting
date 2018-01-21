@@ -35,6 +35,7 @@
 <?PHP } ?>
 
 <form method="post" action="<?=base_url();?>add_employee_c">
+    <input id="tr_utama_count" value="1" type="hidden"/>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -69,6 +70,9 @@
                     </li>
                     <li class="nav-item card_nav_hover">
                         <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Additional Info</a>
+                    </li>
+                    <li class="nav-item card_nav_hover">
+                        <a class="nav-link" href="#tab5"  id="followers" data-toggle="tab">Payroll Info</a>
                     </li>
                     <li class="nav-item card_nav_hover">
                         <a class="nav-link" href="#tab4"  id="followers" data-toggle="tab">Employment Info</a>
@@ -277,22 +281,22 @@
                         </div>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane fade" id="tab4">
+                    <div role="tabpanel" class="tab-pane fade" id="tab5">
                         <div class="card_nav_body_padding follower_images">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group row">
                                         <div class="col-lg-2 col-xl-1">
-                                            <label for="name4" class=" col-form-label">Vendor Type</label>
+                                            <label for="name4" class=" col-form-label">Payroll Schedule</label>
                                         </div>
                                         <div class="col-lg-4 col-xl-4">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-users"></i>
                                                 </span>
-                                                <select class="form-control">
+                                                <select class="form-control" name="sche">
                                                     <option></option>
-                                                    <option>Commercial</option>
+                                                    <option>Beweekly</option>
                                                     <option>Industrial</option>
                                                 </select>
                                                 <span class="input-group-addon">
@@ -303,28 +307,99 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-2 col-xl-1">
-                                            <label for="name4" class=" col-form-label">Ref</label>
+                                            <label for="name4" class=" col-form-label">Pay Frequency</label>
                                         </div>
                                         <div class="col-lg-4 col-xl-4">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-users"></i>
                                                 </span>
-                                                <select class="form-control">
-                                                    <option></option>
-                                                    <option>Commercial</option>
-                                                    <option>Industrial</option>
+                                                <select name="jarak" class="form-control">
+                                                    <option value="">None</option>
+                                                    <option value="Daily">Daily</option>
+                                                    <option value="Weekly">Weekly</option>
+                                                    <option value="Beweekly">Beweekly</option>
+                                                    <option value="Semimonthly">Semimonthly</option>
+                                                    <option value="Monthly">Monthly</option>
+                                                    <option value="Quarterly">Quarterly</option>
+                                                    <option value="Annualy">Annualy</option>
                                                 </select>
-                                                <span class="input-group-addon">
-                                                    <a href="<?=base_url();?>add_price_c"><i class="fa fa-plus-circle"></i></a>
-                                                </span>
+                                                
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-2 col-xl-1">
+                                            <label for="name4" class=" col-form-label">Class</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-users"></i>
+                                                </span>
+                                                <select name="jarak" class="form-control">
+                                                    <option value="">None</option>
+                                                    <option value="Daily">Remodal</option>
+                                                    <option value="Weekly">Overhead</option>
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <table id="div1" class="display table table-stripped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Item Name</th>
+                                            <th>Hourly</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tes">
+                                            <tr id="tr_1" class="tr_utama">
+                                                <td align="left" style="vertical-align:middle;"> 
+                                                    <div class="control-group">
+                                                            <div class="controls">
+                                                               <select name="tipe" class="form-control">
+                                                                   <option value="">None</option>
+                                                                   <option value="Salary">Salary</option>
+                                                                   <option value="Sick Salary">Sick Salary</option>
+                                                                   <option value="Vaction Salary">Vaction Salary</option>
+                                                                   <option value="Overtime Rate">Overtime Rate</option>
+                                                                   <option value="Regular Pay">Regular Pay</option>
+                                                                   <option value="Sick Hourly">Sick Hourly</option>
+                                                                   <option value="Vacation Hourly">Vacation Hourly</option>
+                                                                   <option value="Bonus">Bonus</option>
+                                                               </select>
+                                                            </div>
+                                                    </div>
+                                                </td>
+
+                                                <td align="center" style="vertical-align:middle;"> 
+                                                    <div class="span12">
+                                                        <div class="control-group">
+                                                            <div class="controls">
+                                                                <input type="text" class="form-control" name="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="7"><button style="margin-bottom: 15px;" onclick="tambah_data();" type="button" class="btn btn-info"><i class="icon-plus"></i> Tambah Baris Data </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="7"><input style="float: right;" type="submit" class="btn btn-success" value="Save Transaction" name="checkk"></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -334,8 +409,56 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <input type="submit" class="btn btn-success btn-block" value="Save Vendor" name="save" />
+        <input type="submit" class="btn btn-success btn-block" value="Save Employee" name="save" />
     </div>
 </div>
 
 </form>
+<script type="text/javascript">
+    function tambah_data() {
+    var jml_tr = $('#tr_utama_count').val();
+    var i = parseInt(jml_tr) + 1;
+
+    var coa = $('#copy_ag').html();
+
+    $isi_1 = 
+    '<tr id="tr_'+i+'" class="tr_utama">'+
+        '<td class="center" style="vertical-align:middle;" id="td_chos_'+i+'">'+
+            '<div class="control-group">'+
+                '<div class="controls">'+
+                    '<select name="tipe" class="form-control">'+
+                    '   <option value="">None</option>'+
+                    '   <option value="Salary">Salary</option>'+
+                    '   <option value="Sick Salary">Sick Salary</option>'+
+                    '   <option value="Vaction Salary">Vaction Salary</option>'+
+                    '   <option value="Overtime Rate">Overtime Rate</option>'+
+                    '   <option value="Regular Pay">Regular Pay</option>'+
+                    '   <option value="Sick Hourly">Sick Hourly</option>'+
+                    '   <option value="Vacation Hourly">Vacation Hourly</option>'+
+                    '   <option value="Bonus">Bonus</option>'+
+                    '</select>'+
+                '</div>'+
+            '</div>'+
+        '</td>'+
+
+
+        '<td align="center" style="vertical-align:middle;"> '+
+            '<div class="span12">'+
+            '<div class="control-group">'+
+            '<div class="controls">'+
+                '<input type="text" class="form-control" name="">'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+        '</td>'+
+    '</tr>';
+
+    $('#tes').append($isi_1);
+
+    $('#tr_'+i).find('.cek_select').attr('class', 'cek_select_'+i);
+
+    $('#tr_utama_count').val(i);
+    $(".cek_select_"+i).chosen();
+
+}
+</script>

@@ -120,12 +120,12 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>sales_tax_code_c">
                                     Sales Tax Code List
                                 </a>
-                                <!-- <a class="dropdown-item" href="<?=base_url();?>payroll_item_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>payroll_c">
                                     Payroll Item List
                                 </a> -->
-                                <!-- <a class="dropdown-item" href="<?=base_url();?>payroll_schedule_c">
+                                <a class="dropdown-item" href="<?=base_url();?>payroll_schedule_c">
                                     Payroll Schedule List
-                                </a> -->
+                                </a>
                                 <!-- <a class="dropdown-item" href="<?=base_url();?>class_list_c">
                                     Class List
                                 </a> -->
@@ -380,7 +380,7 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>bill_c">
                                     Receive Item And Enter Bills
                                 </a>
-                                <a class="dropdown-item" href="<?=base_url();?>bill_c">
+                                <a class="dropdown-item" href="<?=base_url();?>item_receipts_c">
                                     Receive Items
                                 </a>
                                 <a class="dropdown-item" href="<?=base_url();?>enter_bill_receive_item_c">
@@ -410,19 +410,19 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url()?>employee_c">
                                     Employee Center
                                 </a>
-                                <!-- <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url()?>payroll_c">
                                     Payroll Center
-                                </a> -->
+                                </a>
                                 <a class="dropdown-item" href="#">
                                     Enter Time
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Pay Employees
+                                <a class="dropdown-item" href="<?=base_url()?>unschedule_payroll_c">
+                                    Pay Unschedule Payroll
                                 </a>
-                                <!-- <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url()?>payroll_schedule_c">
                                     Add or Edit Payroll Schedule
-                                </a> -->
-                                <a class="dropdown-item" href="#">
+                                </a>
+                                <a class="dropdown-item" href="<?=base_url()?>edit_paycheck_c">
                                     Edit/Void Paychecks
                                 </a>
                                 <!-- <a class="dropdown-item" href="#">
@@ -470,7 +470,7 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#008C62; cursor: pointer;">Banking </label>
                             </button>
                              <div class="dropdown-menu admire_admin" style="width: 270px;">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?=base_url()?>check_c">
                                     Write Check
                                 </a>
                                 <a class="dropdown-item" href="#">

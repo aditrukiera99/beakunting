@@ -4,27 +4,20 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-inbox"></i>
-                ADD PAYROLL SCHEDULE
+                ADD SCHEDULE PAYROLL
             </h4>
         </div>
-        <div class="col-sm-8">
-            <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
-                <li class="breadcrumb-item">
-                    <a href="index.html">
-                        <i class="fa fa-home" data-pack="default" data-tags=""></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="<?=base_url();?>items_c">Payroll</a>
-                </li>
-                <li class="active breadcrumb-item">Payroll Schedule</li>
-            </ol>
-        </div>
+        
         </div>
     </div>
 </header>
 <br>
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> New Price has been saved.
+</div>
+<?PHP } ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -33,33 +26,33 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" action="<?=base_url();?>add_schedule_payroll_c">
                                 <fieldset>
                                     <br>
                                     <div class="form-group row">
-                                        <div class="col-lg-5 col-xl-5 ">
-                                            <label for="name4" class=" col-form-label">What do you want to name this payroll schedule ? (e.g "Weekly","Biweekly","Monthly",etc)</label>
+                                        <div class="col-lg-4 col-xl-4 ">
+                                            <label for="name4" class=" col-form-label">What do you want to name this payroll schedule ?(e.g 'Weekly','Beweekly') </label>
                                         </div>
-                                        <div class="col-lg-4 col-xl-4">
+                                        <div class="col-lg-3 col-xl-3">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="fa fa-tags"></i>
+                                                    <i class="fa fa-code"></i>
                                                 </span>
-                                                <input type="text" class="form-control" name="nama" placeholder="">
+                                                <input type="text" class="form-control" name="nama" placeholder=""> 
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-lg-5 col-xl-5 ">
-                                            <label for="name4" class=" col-form-label">How often will you pay your employees on this schedule? </label>
+                                        <div class="col-lg-4 col-xl-4 ">
+                                            <label for="name4" class=" col-form-label">How often will you pay your employee on this schedule ? </label>
                                         </div>
-                                        <div class="col-lg-4 col-xl-4">
+                                        <div class="col-lg-3 col-xl-3">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="fa fa-users"></i>
+                                                    <i class="fa fa-code"></i>
                                                 </span>
-                                                <select id="gender4" class="form-control" name="tipe">
+                                                <select name="jarak" class="form-control">
                                                     <option value="">None</option>
                                                     <option value="Daily">Daily</option>
                                                     <option value="Weekly">Weekly</option>
@@ -74,61 +67,62 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-lg-5 col-xl-5 ">
-                                            <label for="name4" class=" col-form-label">What is the pay period end date ?</label>
+                                        <div class="col-lg-4 col-xl-4" >
+                                            <label for="name4" class=" col-form-label">What is the pay period end date ? </label>
                                         </div>
-                                        <div class="col-lg-4 col-xl-4">
+                                        <div class="col-lg-4 col-xl-6">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-calendar-o"></i>
                                                 </span>
-                                                <input type="date" name="tgl_1" class="form-control">
+                                                <input type="date" class="form-control" name="tgl">
+                                                </textarea>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-lg-5 col-xl-5 ">
-                                            <label for="name4" class=" col-form-label">What date should appear on paychecks for this period ?</label>
+                                        <div class="col-lg-4 col-xl-4" >
+                                            <label for="name4" class=" col-form-label">What date should appear on paychecks for this pay period ? </label>
                                         </div>
-                                        <div class="col-lg-4 col-xl-4">
+                                        <div class="col-lg-4 col-xl-6">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-calendar-o"></i>
                                                 </span>
-                                                <input type="date" name="tgl_2" class="form-control">
+                                                <input type="date" class="form-control" name="tgl_end">
+                                                </textarea>
                                             </div>
                                         </div>
                                     </div>
-
                                     
-
                                     
                                 </fieldset>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="form-group row">
+                                            <div class="col-lg-6 col-xl-12 text-lg-right">
+                                                <button type="submit" class="btn btn-labeled btn-success">
+                                                    <span class="btn-label">
+                                                        <i class="fa fa-save"></i>
+                                                    </span>
+                                                            Simpan
+                                                </button>
+                                                <button type="button" class="btn btn-labeled btn-primary">
+                                                    <span class="btn-label">
+                                                        <i class="fa fa-times"></i>
+                                                    </span>
+                                                            Batal
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                             </form>
                         </div>       
                     </div>      
                 </div>
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="form-group row">
-                            <div class="col-lg-12 col-xl-12 text-lg-right">
-                                <button type="button" class="btn btn-labeled btn-success">
-                                    <span class="btn-label">
-                                        <i class="fa fa-save"></i>
-                                    </span>
-                                            Simpan
-                                </button>
-                                <button type="button" class="btn btn-labeled btn-primary">
-                                    <span class="btn-label">
-                                        <i class="fa fa-times"></i>
-                                    </span>
-                                            Batal
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>                                         
+                                                        
             </div>    
         </div> 
     </div>

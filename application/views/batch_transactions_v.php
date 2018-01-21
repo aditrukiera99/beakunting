@@ -629,9 +629,10 @@
 
     <script type="text/javascript">
     function hapus_row (id) {
-    $('#tr_'+id).remove();
-    hitung_total_semua();
-}
+        $('#tr_'+id).remove();
+        hitung_total_semua();
+    }
+    
     function tambah_data() {
     var jml_tr = $('#tr_utama_count').val();
     var i = parseInt(jml_tr) + 1;

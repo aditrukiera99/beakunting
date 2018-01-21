@@ -1,6 +1,6 @@
 <header class="head">
                 <div class="main-bar">
-                    <div class="row">
+                    <div class="row ">
                     <div class="col-lg-6 col-md-4 col-sm-4">
                         <h4 class="nav_top_align">
                             <i class="fa fa-th"></i>
@@ -45,99 +45,31 @@
                                         <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
                                                 <thead>
                                                 <tr>
-                                                    <th>
+                                                    <th class="bg-success" style="color: white;">
                                                         Name
                                                     </th>
-                                                    <th class="hidden-xs">
+                                                    <th class="bg-success" style="color: white;">
                                                         Pay Frequency
                                                     </th>
-                                                    <th>
+                                                    <th class="bg-success" style="color: white;">
                                                         Next Check Date
                                                     </th>
-                                                    <th>
+                                                    <th class="bg-success" style="color: white;">
                                                         Next Pay Period End Date
                                                     </th>
-                                                    <th>Actions</th>
+                                                    <th class="bg-success" style="color: white;">Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Pixel Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    <td>
-                                                        52560.10$
-                                                        <span class="tag tag-primary">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Smart House</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Furniture Purchase</td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    <td>
-                                                        5760.00$
-                                                        <span class="tag tag-warning">Pending</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">FoodMaster Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Annual Expenses</td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    <td>
-                                                        12400.00$
-                                                        <span class="tag tag-success">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">WaterPure Ltd</a>
-                                                    </td>
-                                                    <td class="hidden-xs">Payment 2013</td>
-                                                    <td class="hidden-xs">Server Purchase</td>
-                                                    <td>
-                                                        610.50$
-                                                        <span class="tag tag-danger">Overdue</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger">
-                                                            <i class="fa fa-edit"></i> Hapus
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                    <?PHP foreach ($data_sch as $key => $row) { ?>
+                                                    <tr>
+                                                        <td><?=$row->NAMA;?></td>
+                                                        <td><?=$row->TIPE;?></td>
+                                                        <td><?=$row->CHECK_DATE;?></td>
+                                                        <td><?=$row->END_DATE;?></td>
+                                                        <td><button class="btn btn-warning" value="Hapus">HAPUS</button></td>
+                                                    </tr>
+                                                    <?PHP } ?>
                                                 </tbody>
                                             </table>
                                 </div>

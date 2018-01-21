@@ -1,13 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Payroll_schedule_c extends CI_Controller {
+class Add_schedule_payroll_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
 	 *
 	 * Maps to the following URL
 	 * 		http://example.com/index.php/welcome
-	 *	- or -   
+	 *	- or -  
 	 * 		http://example.com/index.php/welcome/index
 	 *	- or -
 	 * Since this controller is set as the default controller in 
@@ -19,11 +19,28 @@ class Payroll_schedule_c extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data_sch = $this->db->query("SELECT * FROM ak_schedule ORDER BY ID")->result();
+		$msg = "";
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama  = $this->input->post('nama');
+			$description = $this->input->post('description');
+			$tipe = $this->input->post('tipe');
+
+			$this->db->query("
+				INSERT INTO ak_sales_tax
+				(CODE_NAMA, DESCRIPTION, TYPE)
+				VALUES 
+				('$nama', '$description', '$tipe')
+			");
+		}
+
+
 
 		$data = array(
-			'page' => 'payroll_schedule_v', 
-			'data_sch' => $data_sch,
+			'page' => 'add_schedule_payroll_v',
+			'msg' => $msg,
+			
 		);
 
 		$this->load->view('dashboard_v', $data);
