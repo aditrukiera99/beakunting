@@ -28,6 +28,32 @@ class Um_set_list_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	function ubah_data($id=""){
+
+
+		if($this->input->post('simpan')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+
+			$this->db->query("
+				UPDATE ak_satuan SET NAMA_SATUAN = '$nama' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_satuan WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_um_list_v", 
+			'title' => "Ubah Belanja Harian", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'um_set_list_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
 }
 
 /* End of file welcome.php */

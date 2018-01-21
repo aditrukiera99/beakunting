@@ -28,6 +28,33 @@ class Price_list_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	function ubah_data($id=""){
+
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+			$persen	 = $this->input->post('persen');
+
+			$this->db->query("
+				UPDATE ak_price SET NAMA_PRICE = '$nama' , DETAILS_PRICE = '$persen' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_price WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_price_list_v", 
+			'title' => "Ubah Belanja Harian", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'price_list_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
 }
 
 /* End of file welcome.php */

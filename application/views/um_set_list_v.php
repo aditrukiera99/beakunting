@@ -50,6 +50,7 @@
                                             <th class="bg-success">Purchase U/M</th>
                                             <th class="bg-success">Sales U/M</th>
                                             <th class="bg-success">Shipping U/M</th>
+                                            <th class="bg-success">Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -61,6 +62,7 @@
                                             <td><?=$row->PURCHASE;?></td>
                                             <td><?=$row->SALES;?></td>
                                             <td><?=$row->SHIPPING;?></td>
+                                            <td><a href="<?=base_url();?>um_set_list_c/ubah_data/<?=$row->ID;?>"><button class="btn btn-success" value="UBAH">UBAH</button></a></td>
                                         </tr>
                                         <?php } ?>
                                         </tbody>

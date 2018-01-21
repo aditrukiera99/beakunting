@@ -28,6 +28,34 @@ class Payroll_schedule_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	function ubah_data($id=""){
+
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+			$tgl1	 = $this->input->post('tgl_1');
+			$tgl2    = $this->input->post('tgl_2');
+
+			$this->db->query("
+				UPDATE ak_schedule SET NAMA = '$nama' , END_DATE = '$tgl1' , CHECK_DATE = '$tgl2' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_schedule WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_payroll_schedule_v", 
+			'title' => "Ubah Payroll Schedule", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'payroll_schedule_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
 }
 
 /* End of file welcome.php */

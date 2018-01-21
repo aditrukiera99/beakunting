@@ -73,6 +73,12 @@
 <input type="hidden" id="jml_tr" value="0">
 <input type="hidden" id="jml_tr2" value="0">
 <input type="hidden" id="jml_tr3" value="0">
+<?PHP if($msg == 1){ ?>
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Saved!</strong> New Item has been saved.
+</div>
+<?PHP } ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -81,7 +87,7 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" action="<?=base_url();?>add_items_c">
                                 <fieldset>
                                     <br>
                                     <div class="form-group row">
@@ -93,7 +99,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-suitcase"></i>
                                                 </span>
-                                                <select id="type" name="type" class="form-control" onchange="showDiv(this.value);">
+                                                <select id="type" name="type_utama" class="form-control" onchange="showDiv(this.value);">
                                                     <option>Choose Type....</option>
                                                     <option value="Service">Service</option>
                                                     <option value="Inventory Part">Inventory Part</option>
@@ -119,7 +125,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-users"></i>
                                                 </span>
-                                                <input type="text" class="form-control" name="nama" placeholder="">
+                                                <input type="text" class="form-control" name="nama_utama" placeholder="">
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +139,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-tag"></i>
                                                 </span>
-                                                <select class="form-control chzn-select" name="anak_dari">
+                                                <select class="form-control chzn-select" name="anak_dari_utama">
                                                     <option value="">None</option>
                                                     <?PHP foreach ($data_item as $key => $row) { ?>
                                                         <option value="<?=$row->ID;?>"><?=$row->NAMA_PRODUK;?></option>
@@ -156,7 +162,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="um">
+                                                    <select class="form-control chzn-select" name="um_1">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_um as $key => $row) { ?>
                                                             <option value="<?=$row->BASE;?>"><?=$row->NAMA_SATUAN;?></option>
@@ -178,7 +184,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_1" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,7 +198,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="rate" placeholder="">
+                                                        <input type="text" id="password4" class="form-control" name="rate_1" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -206,7 +212,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="tax">
+                                                    <select class="form-control chzn-select" name="tax_1">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_tax as $key => $row) { ?>
                                                             <option value="<?=$row->ID;?>"><?=$row->CODE_NAMA;?></option>
@@ -228,7 +234,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="akun">
+                                                    <select class="form-control chzn-select" name="akun_1">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -252,7 +258,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="rate" placeholder="">
+                                                        <input type="text" id="password4" class="form-control" name="manuf_2" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -265,7 +271,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="um">
+                                                    <select class="form-control chzn-select" name="um_2">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_um as $key => $row) { ?>
                                                             <option value="<?=$row->BASE;?>"><?=$row->NAMA_SATUAN;?></option>
@@ -298,7 +304,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-edit"></i>
                                                             </span>
-                                                                <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                                <textarea class="form-control" name="deskripsi_pur_2" rows="3"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -312,7 +318,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-legal"></i>
                                                             </span>
-                                                                <input type="text" id="password4" class="form-control" name="cost" placeholder="">
+                                                                <input type="text" id="password4" class="form-control" name="cost_pur_2" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -326,7 +332,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-legal"></i>
                                                             </span>
-                                                                <select class="form-control chzn-select" name="akun_purchase">
+                                                                <select class="form-control chzn-select" name="akun_pur_2">
                                                                     <option value="">None</option>
                                                                     <?PHP foreach ($data_accn as $key => $row) { ?>
                                                                         <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -345,7 +351,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-legal"></i>
                                                             </span>
-                                                                <select class="form-control chzn-select" name="anak_dari">
+                                                                <select class="form-control chzn-select" name="vendor_pur_2">
                                                                     <option value="">None</option>
                                                                     <?PHP foreach ($data_vendor as $key => $row) { ?>
                                                                         <option value="<?=$row->ID;?>"><?=$row->NAMA_SUPPLIER;?></option>
@@ -374,7 +380,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-edit"></i>
                                                             </span>
-                                                                <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                                <textarea class="form-control" name="deskripsi_sales_2" rows="3"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -388,7 +394,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-legal"></i>
                                                             </span>
-                                                                <input type="text" id="password4" class="form-control" name="price" placeholder="">
+                                                                <input type="text" id="password4" class="form-control" name="price_sales_2" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -402,7 +408,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-legal"></i>
                                                             </span>
-                                                                <select class="form-control chzn-select" name="tax">
+                                                                <select class="form-control chzn-select" name="tax_sales_2">
                                                                     <option value="">None</option>
                                                                     <?PHP foreach ($data_tax as $key => $row) { ?>
                                                                         <option value="<?=$row->ID;?>"><?=$row->CODE_NAMA;?> - <?=$row->DESCRIPTION;?></option>
@@ -421,7 +427,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-legal"></i>
                                                             </span>
-                                                                <select class="form-control chzn-select" name="akun_sales">
+                                                                <select class="form-control chzn-select" name="akun_sales_2">
                                                                     <option value="">None</option>
                                                                     <?PHP foreach ($data_accn as $key => $row) { ?>
                                                                         <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -459,7 +465,7 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <select class="form-control chzn-select" name="akun_inven">
+                                                        <select class="form-control chzn-select" name="akun_inven_2">
                                                             <option value="">None</option>
                                                             <?PHP foreach ($data_accn as $key => $row) { ?>
                                                                 <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -467,19 +473,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="min_inv" class="form-control" >
+                                                        <input type="text" name="min_inv_2" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="max_inv" class="form-control" >
+                                                        <input type="text" name="max_inv_2" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="onhand" class="form-control" >
+                                                        <input type="text" name="onhand_2" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="total_value" class="form-control" >
+                                                        <input type="text" name="total_value_2" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="date" name="asof" class="form-control" >
+                                                        <input type="date" name="asof_2" class="form-control" >
                                                     </div>
                                                 </div>
 
@@ -497,7 +503,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="um">
+                                                    <select class="form-control chzn-select" name="um_3">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_um as $key => $row) { ?>
                                                             <option value="<?=$row->BASE;?>"><?=$row->NAMA_SATUAN;?></option>
@@ -519,7 +525,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="sel_cost">
+                                                    <select class="form-control chzn-select" name="cost_type_3">
                                                         <option value="">None</option>
                                                         <option value="Use Global Preference">Use Global Preference</option>
                                                         <option value="User Difined Cost">User Difined Cost</option>
@@ -529,7 +535,7 @@
                                             </div>
                                             <div class="col-lg-5 col-xl-3">
                                                 <div class="input-group">
-                                                    <input type="text" name="cost" class="form-control">
+                                                    <input type="text" name="cost_3" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -539,7 +545,7 @@
                                                 <label for="name4" class=" col-form-label">COGS Account</label>
                                             </div>
                                             <div class="col-lg-10 col-xl-6">
-                                                    <select class="form-control chzn-select" name="anak_dari">
+                                                    <select class="form-control chzn-select" name="cogs_akun_3">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -557,7 +563,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_3" rows="3"></textarea>
                                                 </div>  
                                             </div>
                                         </div>
@@ -567,13 +573,13 @@
                                                 <label for="name4" class=" col-form-label">Sales Price</label>
                                             </div>
                                             <div class="col-lg-4 col-xl-2">
-                                                 <input type="text" class="form-control" name="sales_price">
+                                                 <input type="text" class="form-control" name="sales_price_3">
                                             </div>
                                             <div class="col-lg-1 col-xl-1 ">
                                                 <label for="name4" class=" col-form-label">Tax Code</label>
                                             </div>
                                             <div class="col-lg-4 col-xl-3">
-                                                 <select class="form-control chzn-select" name="anak_dari">
+                                                 <select class="form-control chzn-select" name="tax_3">
                                                     <option value="">None</option>
                                                     <?PHP foreach ($data_tax as $key => $row) { ?>
                                                         <option value="<?=$row->ID;?>"><?=$row->CODE_NAMA;?> - <?=$row->DESCRIPTION;?></option>
@@ -587,7 +593,7 @@
                                                 <label for="name4" class=" col-form-label">Income Account</label>
                                             </div>
                                             <div class="col-lg-10 col-xl-6">
-                                                    <select class="form-control chzn-select" name="income_accn">
+                                                    <select class="form-control chzn-select" name="income_akun_3">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -616,7 +622,7 @@
                                                             <th class="bg-success" style="width: 5%;">QUANTITY</th>
                                                             <th class="bg-success" style="text-align: center; width: 5%;">U/M</th>
                                                             <th class="bg-success" style="width: 15%;">RATE</th>
-                                                            <th class="bg-success" style="width: 15%;">AMOUNT</th>
+                                                            <th class="bg-success" style="width: 15%;">TOTAL</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="item_row">
@@ -664,7 +670,7 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <select class="form-control chzn-select" name="akun_inven">
+                                                        <select class="form-control chzn-select" name="akun_inven_3">
                                                             <option value="">None</option>
                                                             <?PHP foreach ($data_accn as $key => $row) { ?>
                                                                 <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -672,19 +678,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="min_inv" class="form-control" >
+                                                        <input type="text" name="min_inv_3" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="max_inv" class="form-control" >
+                                                        <input type="text" name="max_inv_3" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="onhand" class="form-control" >
+                                                        <input type="text" name="onhand_3" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="text" name="total_value" class="form-control" >
+                                                        <input type="text" name="total_value_3" class="form-control" >
                                                     </div>
                                                     <div class="col-lg-2 col-xl-2 ">
-                                                        <input type="date" name="asof" class="form-control" >
+                                                        <input type="date" name="asof_3" class="form-control" >
                                                     </div>
                                                 </div>
 
@@ -702,7 +708,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="part_number" placeholder="">
+                                                        <input type="text" id="password4" class="form-control" name="manuf_4" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -715,7 +721,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="um">
+                                                    <select class="form-control chzn-select" name="um_4">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_um as $key => $row) { ?>
                                                             <option value="<?=$row->BASE;?>"><?=$row->NAMA_SATUAN;?></option>
@@ -737,7 +743,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_4" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -751,7 +757,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="rate" placeholder="">
+                                                        <input type="text" id="password4" class="form-control" name="rate_4" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -765,7 +771,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="tax">
+                                                    <select class="form-control chzn-select" name="tax_4">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_tax as $key => $row) { ?>
                                                             <option value="<?=$row->ID;?>"><?=$row->CODE_NAMA;?></option>
@@ -787,7 +793,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="akun">
+                                                    <select class="form-control chzn-select" name="akun_4">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -812,7 +818,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_5" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -826,7 +832,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="amount_or" placeholder="">
+                                                        <input type="text" id="password4" class="form-control" name="rate_5" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -840,7 +846,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="tax">
+                                                    <select class="form-control chzn-select" name="tax_5">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_tax as $key => $row) { ?>
                                                             <option value="<?=$row->ID;?>"><?=$row->CODE_NAMA;?></option>
@@ -862,7 +868,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="akun">
+                                                    <select class="form-control chzn-select" name="akun_5">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -887,7 +893,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_6" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -904,7 +910,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_7" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -945,7 +951,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_8" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -959,7 +965,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="rate" placeholder="">
+                                                        <input type="text" id="password4" class="form-control" name="rate_8" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -973,7 +979,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="tax">
+                                                    <select class="form-control chzn-select" name="tax_8">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_tax as $key => $row) { ?>
                                                             <option value="<?=$row->ID;?>"><?=$row->CODE_NAMA;?></option>
@@ -995,7 +1001,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control chzn-select" name="akun">
+                                                    <select class="form-control chzn-select" name="akun_8">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -1020,7 +1026,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_9" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -1034,7 +1040,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <select name="payment_method" class="form-control chzn-select">
+                                                        <select name="payment_method_9" class="form-control chzn-select">
                                                             <option value="">None</option>
                                                             <option value="Cash">Cash</option>
                                                             <option value="Check">Check</option>
@@ -1064,7 +1070,7 @@
                                             <div class="col-lg-10 col-xl-6">
                                                 <div class="input-group">
                                                     <input type="radio" value="1" name="pilih" > &nbsp &nbsp
-                                                    <select class="form-control" name="akun">
+                                                    <select class="form-control" name="akun_9">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_accn as $key => $row) { ?>
                                                             <option value="<?=$row->KODE_AKUN;?>"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></option>
@@ -1086,7 +1092,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_10" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -1100,7 +1106,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-legal"></i>
                                                     </span>
-                                                        <input type="text" id="password4" class="form-control" name="rate" placeholder="0.0 %">
+                                                        <input type="text" id="password4" class="form-control" name="rate_10" placeholder="0.0 %">
                                                 </div>
                                             </div>
                                         </div>
@@ -1114,7 +1120,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-tag"></i>
                                                     </span>
-                                                    <select class="form-control" name="akun">
+                                                    <select class="form-control" name="vendor_10">
                                                         <option value="">None</option>
                                                         <?PHP foreach ($data_vendor as $key => $row) { ?>
                                                             <option value="<?=$row->ID;?>"><?=$row->NAMA_SUPPLIER;?></option>
@@ -1139,7 +1145,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </span>
-                                                        <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                        <textarea class="form-control" name="deskripsi_11" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -1187,7 +1193,7 @@
 
 
                                 </fieldset>
-                            </form>
+                           
                         </div>       
                     </div>      
                 </div>
@@ -1195,7 +1201,7 @@
                     <div class="col-lg-8">
                         <div class="form-group row">
                             <div class="col-lg-6 col-xl-12 text-lg-right">
-                                <button type="button" class="btn btn-labeled btn-success">
+                                <button type="submit" class="btn btn-labeled btn-success">
                                     <span class="btn-label">
                                         <i class="fa fa-save"></i>
                                     </span>
@@ -1210,7 +1216,8 @@
                             </div>
                         </div>
                     </div>
-                </div>                                         
+                </div>   
+                 </form>                                      
             </div>    
         </div> 
     </div>
@@ -1343,21 +1350,21 @@
 
 
                 var isi  =  '<tr>'+
-                                '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
+                                '<input type="hidden" name="id_produk_2[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
                                 '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
                                 '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty_2[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
                                 '<td style="vertical-align: middle;">'+
                                     '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga[]" style="width: 100%; text-align: right;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total[]" style="width: 100%; text-align: right;" readonly>'+
+                                    '<input id="total_'+id2+'" value="'+total+'" class="form-control" onkeyup="FormatCurrency(this);" type="text" name="total_2[]" style="width: 100%; text-align: right;" readonly>'+
                                 '</td>'+
                             '</tr>';
 
@@ -1391,14 +1398,14 @@
 
 
                 var isi  =  '<tr>'+
-                                '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
+                                '<input type="hidden" name="id_produk_7[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
                                 '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
                                 '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle;">'+
-                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty[]" style="width: 100%; text-align: center;" required>'+
+                                    '<input id="qty_'+id2+'" value="1" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="qty_7[]" style="width: 100%; text-align: center;" required>'+
                                 '</td>'+
                                 '<td style="vertical-align: middle; text-align:center;">'+res.SATUAN+'</td>'+
                             '</tr>';
@@ -1431,16 +1438,14 @@
 
 
                 var isi  =  '<tr>'+
-                                '<input type="hidden" name="id_produk[]" value="'+res.ID+'"/>'+
+                                '<input type="hidden" name="id_produk_11[]" value="'+res.ID+'"/>'+
                                 '<input type="hidden" name="kode_akun[]" value="'+res.KODE_AKUN+'"/>'+
                                 '<input type="hidden" name="nama_produk[]" value="'+res.NAMA_PRODUK+'"/>'+
                                 '<input type="hidden" name="satuan[]" value="'+res.SATUAN+'"/>'+
                                 '<td style="vertical-align: middle;">'+res.NAMA_PRODUK+'</td>'+
                                 '<td style="vertical-align: middle;">'+res.DESKRIPSI+'</td>'+
                                 '<td style="vertical-align: middle; text-align:center;">'+res.TIPE+'</td>'+
-                                '<td style="vertical-align: middle;">'+
-                                    '<input id="harga_'+id2+'" value="'+NumberToMoney(res.HARGA_SATUAN).split('.00').join('')+'" class="form-control" onkeyup="FormatCurrency(this); hitung_total('+id2+');" type="text" name="harga2[]" style="width: 100%; text-align: right;" required>'+
-                                '</td>'+
+                                '<td style="vertical-align: middle;">'+res.HARGA_SATUAN+'</td>'+
                                 
                             '</tr>';
 

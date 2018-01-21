@@ -29,6 +29,35 @@ class Worker_comp_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	function ubah_data($id=""){
+
+
+		if($this->input->post('code')){
+			$msg = 1;
+			$code	 = $this->input->post('code');
+			$deskripsi	 = $this->input->post('deskripsi');
+			$rate	 = $this->input->post('rate');
+			$tanggal	 = $this->input->post('tanggal');
+
+			$this->db->query("
+				UPDATE ak_worker SET WORKER_CODE = '$code' , DESCRIPTION = '$deskripsi' , RATE = '$rate' , TANGGAL = '$tanggal' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_worker WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_worker_comp_v", 
+			'title' => "Ubah Worker Harian", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'worker_comp_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
 }
 
 /* End of file welcome.php */

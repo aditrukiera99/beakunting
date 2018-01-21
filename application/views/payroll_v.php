@@ -18,7 +18,7 @@ table th{
 <div class="row">
    
     <div class="col-lg-12">
-        <button onclick="window.location = '<?=base_url();?>add_payroll_schedule_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Payroll Schedule</button>
+        <button onclick="window.location = '<?=base_url();?>add_schedule_payroll_c'; " class="btn btn-danger"><i class="fa fa-plus"></i> Add Payroll Schedule</button>
         <button onclick="window.location = '<?=base_url();?>estimate_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Estimate</button>
         <button onclick="window.location = '<?=base_url();?>sales_order_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Sales Order</button>
         <button onclick="window.location = '<?=base_url();?>invoice_c'; " class="btn btn-secondary"><i class="fa fa-plus"></i> Invoice</button>

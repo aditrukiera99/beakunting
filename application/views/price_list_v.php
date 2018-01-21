@@ -42,7 +42,7 @@
                                     </a>
                                     <br>
                                     <br>
-                                        <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
+                                        <table class="display table table-stripped table-bordered table-hover">
                                                 <thead>
                                                 <tr>
                                                     <th class="bg-success">No</th>
@@ -66,7 +66,7 @@
                                                         <?=$row->DETAILS_PRICE;?>%
                                                     </td>
                                                     <td>
-                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                        <a href="<?=base_url();?>price_list_c/ubah_data/<?=$row->ID;?>" class="btn btn-success btn-xs purple">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
                                                     </td>

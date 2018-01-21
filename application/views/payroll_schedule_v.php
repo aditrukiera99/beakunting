@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="card-block">
                                     <br>
-                                    <a href="<?=base_url();?>add_payroll_schedule_c">
+                                    <a href="<?=base_url();?>add_schedule_payroll_c">
                                         <button type="button" class="btn btn-labeled btn-success" >
                                             <span class="btn-label">
                                                 <i class="fa fa-plus-square"></i>
@@ -67,7 +67,7 @@
                                                         <td><?=$row->TIPE;?></td>
                                                         <td><?=$row->CHECK_DATE;?></td>
                                                         <td><?=$row->END_DATE;?></td>
-                                                        <td><button class="btn btn-warning" value="Hapus">HAPUS</button></td>
+                                                        <td><a href="<?=base_url();?>payroll_schedule_c/ubah_data/<?=$row->ID;?>"><button class="btn btn-success" value="Hapus">EDIT</button></td>
                                                     </tr>
                                                     <?PHP } ?>
                                                 </tbody>

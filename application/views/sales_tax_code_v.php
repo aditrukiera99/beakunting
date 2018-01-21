@@ -42,7 +42,7 @@
                                     </a>
                                     <br>
                                     <br>
-                                        <table class="table table-striped table-bordered table-advance table-hover table_status_padding">
+                                        <table class="display table table-stripped table-bordered table-hover">
                                                 <thead>
                                                 <tr>
                                                     <th class="bg-success">Code</th>
@@ -71,10 +71,10 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <a href="#" class="btn btn-success">
+                                                        <a href="<?=base_url();?>sales_tax_code_c/ubah_data/<?=$row->ID;?>" class="btn btn-success">
                                                             <i class="fa fa-edit"></i> Edit
                                                         </a>
-                                                        <a href="#" class="btn btn-danger">
+                                                        <a href="" class="btn btn-danger">
                                                             <i class="fa fa-edit"></i> Hapus
                                                         </a>
 

@@ -29,6 +29,33 @@ class Sales_tax_code_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	function ubah_data($id=""){
+
+
+		if($this->input->post('nama')){
+			$msg = 1;
+			$nama	 = $this->input->post('nama');
+			$deskripsi	 = $this->input->post('description');
+
+			$this->db->query("
+				UPDATE ak_sales_tax SET CODE_NAMA = '$nama' , DESCRIPTION = '$deskripsi' WHERE ID = '$id'
+			");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_sales_tax WHERE ID = '$id'")->row();
+
+		$data =  array(
+			'page' => "edit_sales_tax_code_v", 
+			'title' => "Ubah Sales Tax", 
+			'msg' => "",
+			'view' => "",
+			'dt' => $dt,
+			'post_url' => 'sales_tax_code_c/ubah_data/'.$id, 
+		);
+		
+		$this->load->view('dashboard_v', $data);
+	}
 }
 
 /* End of file welcome.php */
