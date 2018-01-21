@@ -45,6 +45,10 @@ error_reporting(0);
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/c3/css/c3.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/toastr/css/toastr.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/vendors/switchery/css/switchery.min.css" />
+
+    <link rel="stylesheet" href="<?=base_url();?>material/dialog/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="<?=base_url();?>material/dialog/css/style.css"> <!-- Resource style -->
+    <script src="<?=base_url();?>material/dialog/js/modernizr.js"></script>
     <!-- <link type="text/css" rel="stylesheet" href="<?=base_url();?>assets/css/pages/general_components.css"/> -->
     
 
@@ -781,6 +785,6 @@ error_reporting(0);
 <!-- <script type="text/javascript" src="<?=base_url();?>assets/js/pages/new_dashboard.js"></script> -->
 <script type="text/javascript" src="<?=base_url();?>assets/js/form.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/form_elements.js"></script>
-
+<script src="<?=base_url();?>material/dialog/js/main.js"></script>
 </body>
 </html>

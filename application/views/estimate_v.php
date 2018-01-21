@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">Create Estimate</div>
+            <div class="card-header bg-success"><a href="<?=base_url();?>customer_c" style="color: #FFF; padding-right: 10px;"><i class="fa fa-arrow-left"></i></a> Create Estimate</div>
             <div class="card-block cards_section_margin">                
                 <div class="card-block">
                     <br>

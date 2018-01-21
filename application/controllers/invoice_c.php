@@ -43,13 +43,24 @@ class Invoice_c extends CI_Controller {
 				");
 			}
 
+			// INSERT KE NO PENJUALAN / PEMBELIAN
+
+			$this->db->query("
+				INSERT INTO ak_penjualan
+				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL, KODE_AKUN)
+				VALUES 
+				('INVOICE', '$inv_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '11000')
+			");
+			
+			$id_penjualan = $this->db->insert_id();
+
 			// INSERT KE VOUCHER
 
 			$this->db->query("
 				INSERT INTO ak_input_voucher
-				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE)
+				(NO_BUKTI, TGL, MEMO, KONTAK, TIPE, ID_TRX)
 				VALUES 
-				('$inv_number', '$tgl', '$memo', '$cust_name', 'INVOICE')
+				('$inv_number', '$tgl', '$memo', '$cust_name', 'INVOICE', '$id_penjualan')
 			");
 
 			$id_voucher = $this->db->insert_id();
@@ -62,18 +73,6 @@ class Invoice_c extends CI_Controller {
 				('$id_voucher', '11000', '$subtotal', '0', '$inv_number')
 			");
 			// END OF RECEIVABLE
-
-
-			// INSERT KE NO PENJUALAN / PEMBELIAN
-
-			$this->db->query("
-				INSERT INTO ak_penjualan
-				(TIPE, NO_BUKTI, ID_PELANGGAN, PELANGGAN, TGL_TRX, ALAMAT, ALAMAT_KIRIM, MEMO, CUST_MESSAGE, SUB_TOTAL, KODE_AKUN)
-				VALUES 
-				('INVOICE', '$inv_number', '$cust_id', '$cust_name', '$tgl', '$cust_address', '$ship_to', '$memo', '$cust_msg', '$subtotal', '11000')
-			");
-			
-			$id_penjualan = $this->db->insert_id();
 
 			$id_produk   = $this->input->post('id_produk');
 			$kode_akun   = $this->input->post('kode_akun');
@@ -115,6 +114,41 @@ class Invoice_c extends CI_Controller {
 			'get_tax' => $get_tax,
 			'get_so' => $get_so,
 			'view' => 'customer', 
+		);
+
+		$this->load->view('dashboard_v', $data);
+	}
+
+	public function detail($id){ 
+
+		$msg = "";
+
+		$cek_data = count($this->db->query("SELECT * FROM ak_penjualan WHERE ID = '$id' AND TIPE = 'INVOICE' ")->result());
+		if($cek_data == 0){
+			redirect(base_url()."invoice_c");
+		}
+
+		$dt = $this->db->query("SELECT * FROM ak_penjualan WHERE ID = '$id'")->row();
+		$dt_detail = $this->db->query("SELECT * FROM ak_penjualan_detail WHERE ID_PENJUALAN = '$id' AND TIPE = 'ITEM' ")->result();
+		$dt_pajak = $this->db->query("SELECT * FROM ak_penjualan_detail WHERE ID_PENJUALAN = '$id' AND TIPE = 'PAJAK' ")->row();
+
+		$get_item = $this->db->query("SELECT * FROM ak_produk WHERE TIPE != 'Other Charge' AND TIPE != 'Discount' AND TIPE != 'Payment' AND TIPE != 'Sales Tax Item' AND TIPE != 'Sales Tax Group'
+					ORDER BY ID DESC LIMIT 10")->result();
+
+		$get_cust = $this->db->query("SELECT * FROM ak_pelanggan ORDER BY ID DESC")->result();
+		$get_tax = $this->db->query("SELECT * FROM ak_produk WHERE TIPE LIKE '%Sales Tax%' ORDER BY ID DESC")->result();
+
+		$data = array(
+			'page' => 'invoice_detail_v', 
+			'view' => 'customer', 
+			'get_item' => $get_item, 
+			'get_cust' => $get_cust, 
+			'get_tax' => $get_tax, 
+			'msg' => $msg, 
+			'dt' => $dt, 
+			'dt_detail' => $dt_detail, 
+			'dt_pajak' => $dt_pajak, 
+			'post_url' => 'invoice_c/detail/'.$id, 
 		);
 
 		$this->load->view('dashboard_v', $data);

@@ -19,15 +19,44 @@ class Rep_jurnal_c extends CI_Controller {
 	 */
 	public function index(){
 
-		
+		$tgl = date('d');
+		$bln = date('m');
+		$thn = date('Y');
+
+		$tgl_awal  = "01-$bln-$thn";
+		$tgl_akhir = "$tgl-$bln-$thn";
+		$sel_date = 1;
 
 		$dt = $this->db->query("
-			SELECT * FROM ak_input_voucher ORDER BY ID ASC
+			SELECT * FROM ak_input_voucher  
+			WHERE STR_TO_DATE(TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')
+			ORDER BY ID ASC
 		")->result();
+
+		if($this->input->post('cari')){
+			$tgl_awal  = $this->input->post('from');
+			$tgl_akhir = $this->input->post('to');
+			$sel_date = $this->input->post('sel_date');
+
+			$where = "1=1";
+			if($sel_date != 0){
+				$where = "STR_TO_DATE(TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')";
+			}
+
+			$dt = $this->db->query("
+				SELECT * FROM ak_input_voucher  
+				WHERE $where
+				ORDER BY ID ASC
+			")->result();
+		}
 		
 		$data = array(
 			'page' => 'report/rep_jurnal_v', 
 			'dt' => $dt,
+			'sel_date' => $sel_date,
+			'tgl_awal' => $tgl_awal,
+			'tgl_akhir' => $tgl_akhir,
+			'post_url' => 'report/rep_jurnal_c',
 		);
 
 		$this->load->view('dashboard_v', $data);
