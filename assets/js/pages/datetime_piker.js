@@ -10,6 +10,27 @@ $(document).ready(function () {
         orientation:"bottom"
     });
 
+    $('#dp11').datepicker({
+        format: 'dd-mm-yyyy',
+        todayHighlight: true,
+        autoclose: true,
+        orientation:"bottom"
+    });
+
+    $('#dp111').datepicker({
+        format: 'dd-mm-yyyy',
+        todayHighlight: true,
+        autoclose: true,
+        orientation:"bottom"
+    });
+
+    $('#dp1111').datepicker({
+        format: 'dd-mm-yyyy',
+        todayHighlight: true,
+        autoclose: true,
+        orientation:"bottom"
+    });
+
     $('#bill_due').datepicker({
         format: 'dd-mm-yyyy',
         todayHighlight: true,

@@ -88,6 +88,8 @@
                                         <?PHP } ?>
                                     </select>
                                 </div>
+
+                                <input type="hidden" name="">
                             </div>
                         </div>                       
                     </div>

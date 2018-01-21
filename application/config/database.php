@@ -48,15 +48,15 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'akunting_lama';
+// $db['default']['hostname'] = 'localhost';
+// $db['default']['username'] = 'root';
+// $db['default']['password'] = '';
+// $db['default']['database'] = 'akunting_lama';
 
-// $db['default']['hostname'] = 'akunting.tamboraagungmakmur.com';
-// $db['default']['username'] = 'fauzan';
-// $db['default']['password'] = 'kalenderhokben';
-// $db['default']['database'] = 'percobaan';
+$db['default']['hostname'] = 'akunting.tamboraagungmakmur.com';
+$db['default']['username'] = 'fauzan';
+$db['default']['password'] = 'kalenderhokben';
+$db['default']['database'] = 'percobaan';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

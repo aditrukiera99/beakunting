@@ -2081,12 +2081,12 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <a class="btn btn-labeled btn-success" href="<?=base_url();?>report/rep_jurnal_c" target="_blank">
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
                                                         VIEW
-                                                    </button>
+                                                    </a>
                                                     </div>
                                                 </figcaption>
                                             </figure>
@@ -2096,12 +2096,12 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <a class="btn btn-labeled btn-success" href="<?=base_url();?>report/rep_jurnal_c">
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
                                                         VIEW
-                                                    </button>
+                                                    </a>
                                                     </div>
                                                 </figcaption>
                                             </figure>
