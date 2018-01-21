@@ -42,14 +42,9 @@
                                         <div class="input-group">
                                             <select class="form-control chzn-select" name="cust_id" onchange="get_cust_info(this.value);" required>
                                                 <option value="">Choose a customer</option>
+                                                <option value="add_new_123">(Add New)</option>
                                                 <?PHP foreach ($get_cust as $key => $row) { ?>
-
-                                                    <?PHP if($row->NAMA_USAHA == "" || $row->NAMA_USAHA == null){ ?>
-                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
-                                                    <?PHP } else { ?>
-                                                    <option value="<?=$row->ID;?>"><?=$row->NAMA_USAHA;?></option>
-                                                    <?PHP } ?>
-
+                                                <option value="<?=$row->ID;?>"><?=$row->NAMA_PELANGGAN;?></option>
                                                 <?PHP } ?>
                                             </select>
                                             <input type="hidden" name="cust_name" id="cust_name" value="">
@@ -354,6 +349,9 @@
     }
 
     function get_cust_info(id){
+        if(id == "add_new_123"){
+            window.location="<?=base_url();?>add_customer_c";
+        } else {
         $(".tbl_customer").removeClass("selected_cust");
         $("#data_"+id).addClass("selected_cust");
         $.ajax({
@@ -371,6 +369,7 @@
                 }
             }
         });
+        }
     }
 
     function get_info_pajak(id){

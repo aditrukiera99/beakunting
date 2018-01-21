@@ -548,3 +548,12 @@
 
 </form>
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $(document).keyup(function(e) {
+      // if (e.keyCode === 13) $('.save').click();     // enter
+      if (e.keyCode === 27) { // esc
+        history.go(-1); // go back
+      } 
+    });
+</script>

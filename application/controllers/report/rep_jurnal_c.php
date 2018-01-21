@@ -71,13 +71,49 @@ class Rep_jurnal_c extends CI_Controller {
 	function cetak_excel(){
 		$tgl_awal = $this->input->post('tgl_awal_2');
 		$tgl_akhir = $this->input->post('tgl_akhir_2');
+		$view = "xls/rep_jurnal_xls";
 
-		$data = array(
+		$where = "1=1";
+		if($tgl_awal != ""){
+			$where = "STR_TO_DATE(TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')";
+		}
+
+		$dt = $this->db->query("
+			SELECT * FROM ak_input_voucher  
+			WHERE $where
+			ORDER BY ID ASC
+		")->result();
+
+		$data = array(	
 			'dt' => $dt,
-			''
+			'judul' => date('d/m/Y', strtotime($tgl_awal))." - ".date('d/m/Y', strtotime($tgl_akhir)),
 		);
 
-		$this->load->view('dashboard_v', $data);
+		$this->load->view($view, $data);
+	}
+
+	function cetak_pdf(){
+		$tgl_awal = $this->input->post('tgl_awal_2');
+		$tgl_akhir = $this->input->post('tgl_akhir_2');
+		$view = "pdf/rep_jurnal_pdf";
+
+		$where = "1=1";
+		if($tgl_awal != ""){
+			$where = "STR_TO_DATE(TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')";
+		}
+
+		$dt = $this->db->query("
+			SELECT * FROM ak_input_voucher  
+			WHERE $where
+			ORDER BY ID ASC
+		")->result();
+
+		$data = array(	
+			'dt' => $dt,
+			'judul' => date('d/m/Y', strtotime($tgl_awal))." - ".date('d/m/Y', strtotime($tgl_akhir)),
+		);
+
+		$this->load->view($view, $data);
 	}
 }
 

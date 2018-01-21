@@ -83,7 +83,7 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-file"></i>
-                JOURNAL
+                ADJUSTED TRIAL BALANCE
             </h4>
         </div>
         <div class="col-sm-8">
@@ -103,14 +103,21 @@
 <table class="table table-bordered table_report">
 	<thead>
 		<tr>
-			<th style="text-align: center;">Type</th>
-			<th style="text-align: center;">Date</th>
-			<th style="text-align: center;">Num</th>
-			<th style="text-align: center;">Name</th>
-			<th style="text-align: center;">Memo</th>
-			<th style="text-align: center;">Account</th>
-			<th style="text-align: center; width: 10%;">Debit</th>
-			<th style="text-align: center; width: 10%;">Credit</th>
+			<th style="vertical-align: middle; text-align: center;" rowspan="2">Account</th>
+			<th style="vertical-align: middle; text-align: center;" colspan="2">Unadjusted Balance</th>
+			<th style="vertical-align: middle; text-align: center;" colspan="2">Adjustments</th>
+			<th style="vertical-align: middle; text-align: center;" colspan="2">Adjusted Balance</th>
+		</tr>
+
+		<tr>
+			<th style="vertical-align: middle; text-align: center;">Debit</th>
+			<th style="vertical-align: middle; text-align: center;">Credit</th>
+
+			<th style="vertical-align: middle; text-align: center;">Debit</th>
+			<th style="vertical-align: middle; text-align: center;">Credit</th>
+
+			<th style="vertical-align: middle; text-align: center;">Debit</th>
+			<th style="vertical-align: middle; text-align: center;">Credit</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -119,67 +126,20 @@
 		$total_deb_all = 0;
 		$total_kre_all = 0;
 		foreach ($dt as $key => $row) { 
-
-			$link = get_link($row->TIPE, $row->ID_TRX);
-
-			$total_deb = 0;
-			$total_kre = 0;
-			$dt_2 = $this->db->query("
-				SELECT a.ID, a.TIPE, a.TGL, a.NO_BUKTI, a.KONTAK, a.MEMO, b.KODE_AKUN, b.DEBET, b.KREDIT, c.NAMA_AKUN FROM ak_input_voucher a 
-				JOIN ak_input_voucher_detail b ON a.ID = b.ID_VOUCHER
-				JOIN ak_kode_akuntansi c ON b.KODE_AKUN = c.KODE_AKUN
-				WHERE b.ID_VOUCHER = '$row->ID'
-				ORDER BY a.ID, b.ID_VOUCHER
-			")->result();
-
-			foreach ($dt_2 as $key => $row_2) {
-				$total_deb += $row_2->DEBET;
-				$total_kre += $row_2->KREDIT;
-
-				$total_deb_all += $row_2->DEBET;
-				$total_kre_all += $row_2->KREDIT;
+			$total_deb_all += $row->DEBET;
+		    $total_kre_all += $row->KREDIT;
 		?>
 
-			<?PHP if($id_voc != $row_2->ID){ ?>
 			<tr>
-				<td style="text-align: center;"><?=$row_2->TIPE;?></td>
-				<td style="text-align: center;"><?=$row_2->TGL;?></td>
-				<td><?=$row_2->NO_BUKTI;?></td>
-				<td><?=$row_2->KONTAK;?></td>
-				<td><?=$row_2->MEMO;?></td>
-				<td><?=$row_2->KODE_AKUN;?> - <?=$row_2->NAMA_AKUN;?></td>
-				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->DEBET);?></td>
-				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->KREDIT);?></td>
-			</tr>
-			<?PHP } else {  ?>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><?=$row_2->MEMO;?></td>
-				<td><?=$row_2->KODE_AKUN;?> - <?=$row_2->NAMA_AKUN;?></td>
-				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->DEBET);?></td>
-				<td onclick="window.open('<?=$link?>');" class="nilai_report" style="text-align: right; cursor: pointer;"><?=number_format($row_2->KREDIT);?></td>
-			</tr>
-			<?PHP } ?>
-
-			<?PHP $id_voc = $row_2->ID; ?>
-
-			<?PHP } ?>
-
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td style="border-top: 3px solid #000 !important; text-align: right;"><b><?=number_format($total_deb);?></b></td>
-				<td style="border-top: 3px solid #000 !important; text-align: right;"><b><?=number_format($total_kre);?></b></td>
+				<td style="text-align: left;"><?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET);?></td>
+				<td style="text-align: right;"><?=number_format($row->KREDIT);?></td>
+				<td style="text-align: right;"><?=number_format(0);?></td>
+				<td style="text-align: right;"><?=number_format(0);?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET);?></td>
+				<td style="text-align: right;"><?=number_format($row->KREDIT);?></td>
 			</tr>
 
-			<tr><td colspan="8">&nbsp;</td></tr>
 		<?PHP } ?>
 
 		<?PHP 
@@ -187,7 +147,7 @@
 			echo '<tr><td colspan="8" style="text-align:center;"><b>There is no data available on this date</b></td></tr>';
 		} else { ?>
 		<tr>
-				<td colspan="6" style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>TOTAL</b></td>
+				<td colspan="5" style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>TOTAL</b></td>
 				<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all);?></b></td>
 				<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_kre_all);?></b></td>
 			</tr>

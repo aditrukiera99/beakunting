@@ -786,5 +786,15 @@ error_reporting(0);
 <script type="text/javascript" src="<?=base_url();?>assets/js/form.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/pages/form_elements.js"></script>
 <script src="<?=base_url();?>material/dialog/js/main.js"></script>
+
+<script type="text/javascript">
+    $(document).keyup(function(e) {
+      // if (e.keyCode === 13) $('.save').click();     // enter
+      if (e.keyCode === 27) { // esc
+        history.go(-1); // go back
+      } 
+    });
+</script>
 </body>
 </html>
+
