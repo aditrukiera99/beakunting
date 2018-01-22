@@ -151,7 +151,6 @@
                             <th class="bg-success" style="text-align: center; width: 10%;">NEW QTY</th>
                             <th class="bg-success" style="width: 10%;">QTY DIFFERENCE</th>
                             <th class="bg-success" style="width: 10%;">U/M</th>
-                            <th class="bg-success" style="width: 10%;">CLASS</th>
                         </tr>
                     </thead>
                     <tbody id="item_row">
@@ -278,7 +277,7 @@
                     </thead>
                     <tbody>
                     <?PHP foreach ($get_item as $key => $row) { ?>
-                    <tr class="data_item" onclick="add_row_1('<?=$row->ID;?>');">
+                    <tr class="data_item" onclick="add_row('<?=$row->ID;?>');">
                         <td><?=$row->NAMA_PRODUK;?></td>
                         <td><?=$row->DESKRIPSI;?></td>
                         <td style="text-align: center;"><?=$row->STOK;?></td>

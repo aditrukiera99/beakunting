@@ -68,9 +68,9 @@ table th{
                     <tr class="tbl_customer" id="paneltab3" onclick="get_information('tab3');" style="cursor: pointer;">
                         <td>Sales</td>
                     </tr>
-                    <tr class="tbl_customer" id="paneltab4" onclick="get_information('tab4');" style="cursor: pointer;">
+                    <!-- <tr class="tbl_customer" id="paneltab4" onclick="get_information('tab4');" style="cursor: pointer;">
                         <td>Jobs, Time & Miliage</td>
-                    </tr>
+                    </tr> -->
                     <tr class="tbl_customer" id="paneltab5" onclick="get_information('tab5');" style="cursor: pointer;">
                         <td>Vendor & Payable</td>
                     </tr>
@@ -80,7 +80,7 @@ table th{
                     <tr class="tbl_customer" id="paneltab7" onclick="get_information('tab7');" style="cursor: pointer;">
                         <td>Inventory</td>
                     </tr>
-                    <tr class="tbl_customer" id="paneltab8" onclick="get_information('tab8');" style="cursor: pointer;">
+                    <!-- <tr class="tbl_customer" id="paneltab8" onclick="get_information('tab8');" style="cursor: pointer;">
                         <td>Employee & Payroll</td>
                     </tr>
                     <tr class="tbl_customer" id="paneltab9" onclick="get_information('tab9');" style="cursor: pointer;">
@@ -89,17 +89,17 @@ table th{
                     
                     <tr class="tbl_customer" id="paneltab11" onclick="get_information('tab11');" style="cursor: pointer;">
                         <td>Budgets & Forecast</td>
-                    </tr>
+                    </tr> -->
                     <tr class="tbl_customer" id="paneltab12" onclick="get_information('tab12');" style="cursor: pointer;">
                         <td>List</td>
                     </tr>
-                    <tr class="tbl_customer" id="paneltab13" onclick="get_information('tab13');" style="cursor: pointer;">
+                    <!-- <tr class="tbl_customer" id="paneltab13" onclick="get_information('tab13');" style="cursor: pointer;">
                         <td>Contractor</td>
-                    </tr>
+                    </tr> -->
                     <tr class="tbl_customer" id="paneltab14" onclick="get_information('tab14');" style="cursor: pointer;">
                         <td>Mfg & Wholesale</td>
                     </tr>
-                    <tr class="tbl_customer" id="paneltab15" onclick="get_information('tab15');" style="cursor: pointer;">
+                    <!-- <tr class="tbl_customer" id="paneltab15" onclick="get_information('tab15');" style="cursor: pointer;">
                         <td>Profesional Service</td>
                     </tr>
                     <tr class="tbl_customer" id="paneltab16" onclick="get_information('tab16');" style="cursor: pointer;">
@@ -107,7 +107,7 @@ table th{
                     </tr>
                     <tr class="tbl_customer" id="panel17" onclick="get_information('tab17');" style="cursor: pointer;">
                         <td>Non Profit</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
                 </table>
                         
@@ -148,7 +148,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_profit_loss_detail_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -159,11 +159,12 @@ table th{
                                             </figure>
                                             <h5 align="center">Profit & Loss Detail</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_profit_loss_std_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -174,11 +175,12 @@ table th{
                                             </figure>
                                             <h5 align="center">Profit & Loss YTD Comparison</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_profit_loss_std_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -189,7 +191,8 @@ table th{
                                             </figure>
                                             <h5 align="center">Profit & Loss Prev Year Comparison</h5>
                                         </div>
-                                        <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+
+                                        <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
@@ -204,6 +207,7 @@ table th{
                                             </figure>
                                             <h5 align="center">Profit & Loss By Job</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
@@ -219,6 +223,7 @@ table th{
                                             </figure>
                                             <h5 align="center">Profit & Loss By Class</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
@@ -233,7 +238,7 @@ table th{
                                                 </figcaption>
                                             </figure>
                                             <h5 align="center">Profit & Loss Unclassified</h5>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <br>
                                     <h3>Income & Expenses </h3>
@@ -242,7 +247,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_income_cust_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -253,11 +258,12 @@ table th{
                                             </figure>
                                             <h5 align="center">Income By Customer Summary</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_income_cust_detail_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -298,7 +304,7 @@ table th{
                                             </figure>
                                             <h5 align="center">Income By Vendor Detail</h5>
                                         </div>
-                                        <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                                        <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
@@ -312,10 +318,10 @@ table th{
                                                 </figcaption>
                                             </figure>
                                             <h5 align="center">Income & Expenses Graph</h5>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <br>
-                                    <h3>Balance Sheet & Net Worth </h3>
+                                    <!-- <h3>Balance Sheet & Net Worth </h3>
                                    <div class="row no-gutters">
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
@@ -407,7 +413,7 @@ table th{
                                             </figure>
                                             <h5 align="center">Net Worth Graph</h5>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <br>
                                     <h3>Cash Flow </h3>
                                    <div class="row no-gutters">
@@ -2038,7 +2044,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_adj_trial_balance_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -2053,7 +2059,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_adj_trial_balance_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -2109,7 +2115,7 @@ table th{
                                             </figure>
                                             <h5 align="center">Audit Trail</h5>
                                         </div>
-                                        <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
+                                        <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
@@ -2123,7 +2129,7 @@ table th{
                                                 </figcaption>
                                             </figure>
                                             <h5 align="center">Closing Date Exception Report</h5>
-                                        </div>
+                                        </div> -->
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >

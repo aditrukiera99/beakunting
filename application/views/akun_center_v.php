@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-6  text-lg-left">
-                                <a class="linke" href="<?=base_url();?>batch_transaction_c">Quickbooks File Manager</a>
+                                <!-- <a class="linke" href="<?=base_url();?>batch_transaction_c">Quickbooks File Manager</a> -->
                             </div>
                             <div class="col-lg-6  text-lg-left">
                                  <a class="linke" href="<?=base_url();?>batch_transaction_c">Client Data Review</a>
@@ -90,7 +90,7 @@
     </div>
 </div>
 <br>
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header bg-white"><i class="fa fa-check" aria-hidden="true"></i>&nbsp Reconciliation</div>
@@ -145,6 +145,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
         
            

@@ -109,9 +109,9 @@ error_reporting(0);
                                 <a class="dropdown-item" href="<?=base_url();?>items_c">
                                     Item List
                                 </a>
-                                <a class="dropdown-item" href="<?=base_url();?>fixed_item_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>fixed_item_c">
                                     Fixed Assets Item List
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>um_set_list_c">
                                     U/M Set List
                                 </a>
@@ -159,9 +159,9 @@ error_reporting(0);
                                 <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">Accountant </label>
                             </button>
                             <div class="dropdown-menu admire_admin" style="width: 214px;">
-                                <a class="dropdown-item" href="<?=base_url();?>akun_center_c">
+                                <!-- <a class="dropdown-item" href="<?=base_url();?>akun_center_c">
                                     Accountant Center
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="<?=base_url();?>accounts_c">
                                     Chart Of Acountant
                                 </a>
@@ -581,11 +581,11 @@ error_reporting(0);
                         <i class="fa fa-bank"> </i> &nbsp; My Company
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?=base_url();?>income_tracker_c">
                         <i class="fa fa-money"> </i> &nbsp; Income Tracker
                     </a>
-                </li>
+                </li> -->
                 <!-- <li>
                     <a href="<?=base_url();?>calender_c">
                         <i class="fa fa-calendar"> </i> &nbsp; Calender

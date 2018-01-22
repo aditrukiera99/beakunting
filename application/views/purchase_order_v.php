@@ -42,6 +42,7 @@
                                         <div class="input-group">
                                             <select class="form-control chzn-select" name="vend_id" onchange="get_vendor_info(this.value);" required>
                                                 <option value="">Choose a vendors</option>
+                                                <option value="add_new_123">(Add New)</option>
                                                 <?PHP foreach ($get_vendor as $key => $row) { ?>                                                    
                                                     <option value="<?=$row->ID;?>"><?=$row->NAMA_SUPPLIER;?></option>
                                                 <?PHP } ?>
@@ -376,6 +377,9 @@
     }
 
     function get_vendor_info(id){
+        if(id == "add_new_123"){
+            window.location="<?=base_url();?>add_vendor_c";
+        } else {
         $(".tbl_customer").removeClass("selected_cust");
         $("#data_"+id).addClass("selected_cust");
         $('.item_selected').remove();
@@ -392,6 +396,7 @@
                 $('#vend_name').val(res.NAMA_SUPPLIER);
             }
         });
+        }
     }
 
     function get_so_number(id){

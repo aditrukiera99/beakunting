@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Rep_profit_loss_std_c extends CI_Controller {
+class Rep_profit_loss_detail_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -77,13 +77,13 @@ class Rep_profit_loss_std_c extends CI_Controller {
 		}
 		
 		$data = array(
-			'page' => 'report/rep_profit_loss_std_v', 
+			'page' => 'report/rep_profit_loss_detail_v', 
 			'dt' => $dt,
 			'dt2' => $dt2,
 			'sel_date' => $sel_date,
 			'tgl_awal' => $tgl_awal,
 			'tgl_akhir' => $tgl_akhir,
-			'post_url' => 'report/rep_profit_loss_std_c',
+			'post_url' => 'report/rep_profit_loss_detail_c',
 		);
 
 		$this->load->view('dashboard_v', $data);

@@ -83,7 +83,7 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-file"></i>
-                PROFIT & LOSS STANDART
+                Income Customer Summary
             </h4>
         </div>
         <div class="col-sm-8">
@@ -110,60 +110,25 @@
 	</thead>
 	<tbody>
 		<!-- INCOME -->
-		<tr>
-			<td style="text-align: left; vertical-align: middle;"><b>INCOME</b></td>
-			<td style="text-align: right; font-size: 20px;"></td>
-		</tr>
 		<?PHP 
 		$id_voc = "";
 		$total_deb_all = 0;
 		$total_kre_all = 0;
 		foreach ($dt as $key => $row) { 
-			$total_deb_all += $row->DEBET - $row->KREDIT;
+			$total_deb_all += $row->DEBET;
 		?>
 
 			<tr>
-				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
-				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
+				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->NAMA_PELANGGAN;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET);?></td>
 			</tr>
 
 		<?PHP } ?>
 
 
 		<tr>
-			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;"><b>TOTAL INCOME</b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>TOTAL </b></td>
 			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all);?></b></td>
-		</tr>
-
-
-		<!-- EXPENSES -->
-		<tr>
-			<td style="text-align: left; vertical-align: middle;"><b>EXPENSES</b></td>
-			<td style="text-align: right; font-size: 20px;"></td>
-		</tr>
-		<?PHP 
-		$id_voc = "";
-		$total_deb_all = 0;
-		$total_kre_all = 0;
-		foreach ($dt2 as $key => $row) { 
-			$total_kre_all += $row->DEBET - $row->KREDIT;
-		?>
-
-			<tr>
-				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
-				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
-			</tr>
-
-		<?PHP } ?>
-
-		<tr>
-			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;"><b>TOTAL EXPENSES</b></td>
-			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_kre_all);?></b></td>
-		</tr>
-
-		<tr>
-			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;"><b>NET INCOME</b></td>
-			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all - $total_kre_all);?></b></td>
 		</tr>
 
 	</tbody>

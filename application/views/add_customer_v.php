@@ -54,12 +54,12 @@
                     <li class="nav-item card_nav_hover">
                         <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Sales Tax Setting</a>
                     </li>
-                    <li class="nav-item card_nav_hover">
+                    <!-- <li class="nav-item card_nav_hover">
                         <a class="nav-link" href="#tab4"  id="followers" data-toggle="tab">Additional Info</a>
                     </li>
                     <li class="nav-item card_nav_hover">
                         <a class="nav-link" href="#tab5"  id="followers" data-toggle="tab">Job Info</a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <div id="clothing-nav-content" class="tab-content m-t-10">

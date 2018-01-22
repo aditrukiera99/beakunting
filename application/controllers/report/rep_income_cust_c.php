@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Rep_profit_loss_std_c extends CI_Controller {
+class Rep_income_cust_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,30 +28,17 @@ class Rep_profit_loss_std_c extends CI_Controller {
 		$sel_date = 1;
 
 		$dt = $this->db->query("
-			SELECT a.*, IFNULL(b.DEBET, 0) AS DEBET, IFNULL(b.KREDIT, 0) AS KREDIT FROM ak_kode_akuntansi a 
+			SELECT a.*, IFNULL(b.DEBET, 0) AS DEBET, IFNULL(b.KREDIT, 0) AS KREDIT FROM ak_pelanggan a 
 			LEFT JOIN (
-				SELECT b.KODE_AKUN, SUM(b.DEBET) AS DEBET, SUM(b.KREDIT) AS KREDIT
+				SELECT a.KONTAK, SUM(b.DEBET) AS DEBET, SUM(b.KREDIT) AS KREDIT
 				FROM ak_input_voucher a 
 				JOIN ak_input_voucher_detail b ON a.ID = b.ID_VOUCHER
 				WHERE STR_TO_DATE(a.TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(a.TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')
-				GROUP BY b.KODE_AKUN
-			) b ON a.KODE_AKUN = b.KODE_AKUN
-			WHERE a.KATEGORI = 'Other Income' OR a.KATEGORI = 'Income'
-			ORDER BY a.KODE_AKUN
+				GROUP BY a.KONTAK
+			) b ON a.NAMA_PELANGGAN = b.KONTAK
+			ORDER BY a.NAMA_PELANGGAN
 		")->result();
 
-		$dt2 = $this->db->query("
-			SELECT a.*, IFNULL(b.DEBET, 0) AS DEBET, IFNULL(b.KREDIT, 0) AS KREDIT FROM ak_kode_akuntansi a 
-			LEFT JOIN (
-				SELECT b.KODE_AKUN, SUM(b.DEBET) AS DEBET, SUM(b.KREDIT) AS KREDIT
-				FROM ak_input_voucher a 
-				JOIN ak_input_voucher_detail b ON a.ID = b.ID_VOUCHER
-				WHERE STR_TO_DATE(a.TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(a.TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')
-				GROUP BY b.KODE_AKUN
-			) b ON a.KODE_AKUN = b.KODE_AKUN
-			WHERE a.KATEGORI = 'Other Expense' OR a.KATEGORI = 'Expense'
-			ORDER BY a.KODE_AKUN
-		")->result();
 
 		if($this->input->post('cari')){
 			$tgl_awal  = $this->input->post('from');
@@ -64,10 +51,16 @@ class Rep_profit_loss_std_c extends CI_Controller {
 			}
 
 			$dt = $this->db->query("
-				SELECT * FROM ak_input_voucher  
+			SELECT a.*, IFNULL(b.DEBET, 0) AS DEBET, IFNULL(b.KREDIT, 0) AS KREDIT FROM ak_pelanggan a 
+			LEFT JOIN (
+				SELECT a.KONTAK, SUM(b.DEBET) AS DEBET, SUM(b.KREDIT) AS KREDIT
+				FROM ak_input_voucher a 
+				JOIN ak_input_voucher_detail b ON a.ID = b.ID_VOUCHER
 				WHERE $where
-				ORDER BY ID ASC
-			")->result();
+				GROUP BY a.KONTAK
+			) b ON a.NAMA_PELANGGAN = b.KONTAK
+			ORDER BY a.NAMA_PELANGGAN
+		")->result();
 		}
 
 		if($this->input->post('excel')){
@@ -77,13 +70,12 @@ class Rep_profit_loss_std_c extends CI_Controller {
 		}
 		
 		$data = array(
-			'page' => 'report/rep_profit_loss_std_v', 
+			'page' => 'report/rep_income_cust_v', 
 			'dt' => $dt,
-			'dt2' => $dt2,
 			'sel_date' => $sel_date,
 			'tgl_awal' => $tgl_awal,
 			'tgl_akhir' => $tgl_akhir,
-			'post_url' => 'report/rep_profit_loss_std_c',
+			'post_url' => 'report/rep_income_cust_c',
 		);
 
 		$this->load->view('dashboard_v', $data);

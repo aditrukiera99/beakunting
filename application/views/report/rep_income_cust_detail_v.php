@@ -83,7 +83,7 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-file"></i>
-                PROFIT & LOSS STANDART
+                INCOME CUSTOMER DETAIL
             </h4>
         </div>
         <div class="col-sm-8">
@@ -103,67 +103,50 @@
 <table class="table table-bordered table_report">
 	<thead>
 		<tr>
-			<th style="vertical-align: middle; text-align: center;" rowspan="2">Name</th>
-			<th style="vertical-align: middle; text-align: center;" colspan="2">Value</th>
+			<th style="vertical-align: middle; text-align: center;">Type</th>
+			<th style="vertical-align: middle; text-align: center;">Date</th>
+			<th style="vertical-align: middle; text-align: center;">Num</th>
+			<th style="vertical-align: middle; text-align: center;">Adj</th>
+			<th style="vertical-align: middle; text-align: center;">Name</th>
+			<th style="vertical-align: middle; text-align: center;">Memo</th>
+			<th style="vertical-align: middle; text-align: center;">Account</th>
+			<th style="vertical-align: middle; text-align: center;">Debit</th>
+			<th style="vertical-align: middle; text-align: center;">Credit</th>
 		</tr>
 
 	</thead>
 	<tbody>
-		<!-- INCOME -->
-		<tr>
-			<td style="text-align: left; vertical-align: middle;"><b>INCOME</b></td>
-			<td style="text-align: right; font-size: 20px;"></td>
-		</tr>
 		<?PHP 
 		$id_voc = "";
 		$total_deb_all = 0;
 		$total_kre_all = 0;
+
+		$total_deb_all_2 = 0;
+		$total_kre_all_2 = 0;
 		foreach ($dt as $key => $row) { 
-			$total_deb_all += $row->DEBET - $row->KREDIT;
+			$total_deb_all += $row->DEBET;
+			$total_kre_all += $row->KREDIT;
 		?>
 
 			<tr>
-				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
-				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
+				<td style="text-align: left;"></td>
+				<td style="text-align: left;"></td>
+				<td style="text-align: left;"></td>
+				<td style="text-align: left;"></td>
+				<td style="text-align: left;"></td>
+				<td style="text-align: left;"></td>
+				<td style="text-align: left;"><?=$row->NAMA_PELANGGAN;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET);?></td>
+				<td style="text-align: right;"><?=number_format($row->KREDIT);?></td>
 			</tr>
 
 		<?PHP } ?>
 
 
 		<tr>
-			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;"><b>TOTAL INCOME</b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;" colspan="7"><b>TOTAL INCOME</b></td>
 			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all);?></b></td>
-		</tr>
-
-
-		<!-- EXPENSES -->
-		<tr>
-			<td style="text-align: left; vertical-align: middle;"><b>EXPENSES</b></td>
-			<td style="text-align: right; font-size: 20px;"></td>
-		</tr>
-		<?PHP 
-		$id_voc = "";
-		$total_deb_all = 0;
-		$total_kre_all = 0;
-		foreach ($dt2 as $key => $row) { 
-			$total_kre_all += $row->DEBET - $row->KREDIT;
-		?>
-
-			<tr>
-				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
-				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
-			</tr>
-
-		<?PHP } ?>
-
-		<tr>
-			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;"><b>TOTAL EXPENSES</b></td>
 			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_kre_all);?></b></td>
-		</tr>
-
-		<tr>
-			<td style="border-top: 3px solid #000 !important; text-align: left; vertical-align: middle;"><b>NET INCOME</b></td>
-			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all - $total_kre_all);?></b></td>
 		</tr>
 
 	</tbody>
