@@ -133,7 +133,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_profit_loss_std_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -2019,7 +2019,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_adj_trial_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -2028,7 +2028,7 @@ table th{
                                                     </div>
                                                 </figcaption>
                                             </figure>
-                                            <h5 align="center">Adjusting Trial Entries</h5>
+                                            <h5 align="center">Adjusting Journal Entries</h5>
                                         </div>
                                     </div>
                                     <br>
