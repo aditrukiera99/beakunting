@@ -557,6 +557,16 @@ error_reporting(0);
                              
                         </div>
                     </div>
+                    <div class="btn-group" style="margin-top: 3px;">
+                        <div class="user-settings no-bg">
+                        
+                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;"><a class="dropdown-item" href="<?=base_url()?>logout_c">Logout</a> </label>
+                            </button>
+                            
+                             
+                        </div>
+                    </div>
                 </div>
                 
             </div>
