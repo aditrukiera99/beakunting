@@ -83,7 +83,7 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-file"></i>
-                INCOME CUSTOMER DETAIL
+                Income Vendor Summary
             </h4>
         </div>
         <div class="col-sm-8">
@@ -103,52 +103,34 @@
 <table class="table table-bordered table_report">
 	<thead>
 		<tr>
-			<th style="vertical-align: middle; text-align: center;">Type</th>
-			<th style="vertical-align: middle; text-align: center;">Date</th>
-			<th style="vertical-align: middle; text-align: center;">Num</th>
-			<th style="vertical-align: middle; text-align: center;">Memo</th>
-			<th style="vertical-align: middle; text-align: center;">Account</th>
-			<th style="vertical-align: middle; text-align: center;">Value</th>
+			<th style="vertical-align: middle; text-align: center;" rowspan="2">Name</th>
+			<th style="vertical-align: middle; text-align: center;" colspan="2">Value</th>
 		</tr>
 
 	</thead>
 	<tbody>
+		<!-- INCOME -->
 		<?PHP 
-		$total = 0;
-		foreach ($dt_pelanggan as $key => $row) {
-			$total = 0;
+		$id_voc = "";
+		$total_deb_all = 0;
+		$total_kre_all = 0;
+		foreach ($dt as $key => $row) { 
+			$total_deb_all += $row->DEBET;
 		?>
-		<tr>
-			<td><b style="font-size: 16px;"><?=$row->NAMA_PELANGGAN;?></b></td>
-			<td colspan="5"><b></b></td>
-		</tr>
 
-		<?PHP 
-		$sql_detail = $this->db->query("
-			SELECT a.*, b.NAMA_AKUN FROM ak_penjualan a 
-			LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
-			WHERE a.ID_PELANGGAN = '$row->ID' 
-		")->result();
+			<tr>
+				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->NAMA_SUPPLIER;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET);?></td>
+			</tr>
 
-		foreach ($sql_detail as $key => $row_detail) { 
-			$total += $row_detail->SUB_TOTAL;
-		?>
-		<tr>
-			<td><?=$row_detail->TIPE;?></td>
-			<td><?=$row_detail->TGL_TRX;?></td>
-			<td><?=$row_detail->NO_BUKTI;?></td>
-			<td><?=$row_detail->MEMO;?></td>
-			<td><?=$row_detail->KODE_AKUN;?> - <?=$row_detail->NAMA_AKUN;?></td>
-			<td><?=number_format($row_detail->SUB_TOTAL);?></td>
-		</tr>
 		<?PHP } ?>
 
+
 		<tr>
-			<td colspan="5" style="text-align: center;"><b style="font-size: 16px;">Total <?=$row->NAMA_PELANGGAN;?></b></td>
-			<td><b><?=number_format($total);?></b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>TOTAL </b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_deb_all);?></b></td>
 		</tr>
 
-		<?PHP } ?>
 	</tbody>
 </table>
 

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Rep_income_cust_detail_c extends CI_Controller {
+class Rep_income_vendor_detail_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,20 +28,9 @@ class Rep_income_cust_detail_c extends CI_Controller {
 		$sel_date = 1;
 
 		$dt_pelanggan = $this->db->query("
-			SELECT * FROM ak_pelanggan ORDER BY ID ASC
+			SELECT * FROM ak_supplier ORDER BY ID ASC
 		")->result();
 
-		$dt = $this->db->query("
-			SELECT a.*, IFNULL(b.DEBET, 0) AS DEBET, IFNULL(b.KREDIT, 0) AS KREDIT FROM ak_pelanggan a 
-			LEFT JOIN (
-				SELECT a.KONTAK, SUM(b.DEBET) AS DEBET, SUM(b.KREDIT) AS KREDIT
-				FROM ak_input_voucher a 
-				JOIN ak_input_voucher_detail b ON a.ID = b.ID_VOUCHER
-				WHERE STR_TO_DATE(a.TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(a.TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')
-				GROUP BY a.KONTAK
-			) b ON a.NAMA_PELANGGAN = b.KONTAK
-			ORDER BY a.NAMA_PELANGGAN
-		")->result();
 
 
 		if($this->input->post('cari')){
@@ -53,18 +42,6 @@ class Rep_income_cust_detail_c extends CI_Controller {
 			if($sel_date != 0){
 				$where = "STR_TO_DATE(TGL, '%d-%c-%Y') <= STR_TO_DATE('$tgl_akhir' , '%d-%c-%Y') AND STR_TO_DATE(TGL, '%d-%c-%Y') >= STR_TO_DATE('$tgl_awal' , '%d-%c-%Y')";
 			}
-
-			$dt = $this->db->query("
-			SELECT a.*, IFNULL(b.DEBET, 0) AS DEBET, IFNULL(b.KREDIT, 0) AS KREDIT FROM ak_pelanggan a 
-			LEFT JOIN (
-				SELECT a.KONTAK, SUM(b.DEBET) AS DEBET, SUM(b.KREDIT) AS KREDIT
-				FROM ak_input_voucher a 
-				JOIN ak_input_voucher_detail b ON a.ID = b.ID_VOUCHER
-				WHERE $where
-				GROUP BY a.KONTAK
-			) b ON a.NAMA_PELANGGAN = b.KONTAK
-			ORDER BY a.NAMA_PELANGGAN
-		")->result();
 		}
 
 		if($this->input->post('excel')){
@@ -74,13 +51,12 @@ class Rep_income_cust_detail_c extends CI_Controller {
 		}
 		
 		$data = array(
-			'page' => 'report/rep_income_cust_detail_v', 
-			'dt' => $dt,
+			'page' => 'report/rep_income_vendor_detail_v', 
 			'dt_pelanggan' => $dt_pelanggan,
 			'sel_date' => $sel_date,
 			'tgl_awal' => $tgl_awal,
 			'tgl_akhir' => $tgl_akhir,
-			'post_url' => 'report/rep_income_cust_detail_c',
+			'post_url' => 'report/rep_income_vendor_detail_c',
 		);
 
 		$this->load->view('dashboard_v', $data);

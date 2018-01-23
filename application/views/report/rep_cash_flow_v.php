@@ -83,7 +83,7 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-file"></i>
-                INCOME CUSTOMER DETAIL
+                Cash Flow
             </h4>
         </div>
         <div class="col-sm-8">
@@ -103,52 +103,122 @@
 <table class="table table-bordered table_report">
 	<thead>
 		<tr>
-			<th style="vertical-align: middle; text-align: center;">Type</th>
-			<th style="vertical-align: middle; text-align: center;">Date</th>
-			<th style="vertical-align: middle; text-align: center;">Num</th>
-			<th style="vertical-align: middle; text-align: center;">Memo</th>
-			<th style="vertical-align: middle; text-align: center;">Account</th>
-			<th style="vertical-align: middle; text-align: center;">Value</th>
+			<th style="vertical-align: middle; text-align: center;" rowspan="2">NAME</th>
+			<th style="vertical-align: middle; text-align: center;" rowspan="2">VALUE</th>
 		</tr>
-
 	</thead>
 	<tbody>
-		<?PHP 
-		$total = 0;
-		foreach ($dt_pelanggan as $key => $row) {
-			$total = 0;
-		?>
+		<!-- OPERATING ACT -->
 		<tr>
-			<td><b style="font-size: 16px;"><?=$row->NAMA_PELANGGAN;?></b></td>
-			<td colspan="5"><b></b></td>
+			<td colspan="2" style="text-align: left;"><b>OPERATING ACTIVITIES</b></td>
 		</tr>
-
 		<?PHP 
-		$sql_detail = $this->db->query("
-			SELECT a.*, b.NAMA_AKUN FROM ak_penjualan a 
-			LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
-			WHERE a.ID_PELANGGAN = '$row->ID' 
-		")->result();
-
-		foreach ($sql_detail as $key => $row_detail) { 
-			$total += $row_detail->SUB_TOTAL;
+		$id_voc = "";
+		$total_1 = 0;
+		$total_2 = 0;
+		$total_3 = 0;
+		
+		foreach ($dt as $key => $row) { 
+			$total_1 += $row->DEBET - $row->KREDIT;
 		?>
-		<tr>
-			<td><?=$row_detail->TIPE;?></td>
-			<td><?=$row_detail->TGL_TRX;?></td>
-			<td><?=$row_detail->NO_BUKTI;?></td>
-			<td><?=$row_detail->MEMO;?></td>
-			<td><?=$row_detail->KODE_AKUN;?> - <?=$row_detail->NAMA_AKUN;?></td>
-			<td><?=number_format($row_detail->SUB_TOTAL);?></td>
-		</tr>
+
+			<tr>
+				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
+			</tr>
+
 		<?PHP } ?>
 
 		<tr>
-			<td colspan="5" style="text-align: center;"><b style="font-size: 16px;">Total <?=$row->NAMA_PELANGGAN;?></b></td>
-			<td><b><?=number_format($total);?></b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>Net Cash provided by Operating Activities </b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_1);?></b></td>
 		</tr>
 
+		<tr>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>&nbsp;</b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b>&nbsp;</b></td>
+		</tr>
+
+		<!-- INVESTING ACT -->
+		<tr>
+			<td colspan="2" style="text-align: left;"><b>INVESTING ACTIVITIES</b></td>
+		</tr>
+		<?PHP 
+		$id_voc = "";
+		$total_1 = 0;
+		$total_2 = 0;
+		$total_3 = 0;
+		
+		foreach ($dt2 as $key => $row) { 
+			$total_2 += $row->DEBET - $row->KREDIT;
+		?>
+
+			<tr>
+				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
+			</tr>
+
 		<?PHP } ?>
+
+
+		<tr>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>Net Cash provided by Investing Activities </b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_2);?></b></td>
+		</tr>
+
+		<tr>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>&nbsp;</b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b>&nbsp;</b></td>
+		</tr>
+
+		<!-- FINANCING ACT -->
+		<tr>
+			<td colspan="2" style="text-align: left;"><b>FINANCING ACTIVITIES</b></td>
+		</tr>
+		<?PHP 
+		$id_voc = "";
+		$total_1 = 0;
+		$total_2 = 0;
+		$total_3 = 0;
+		
+		foreach ($dt3 as $key => $row) { 
+			$total_3 += $row->DEBET - $row->KREDIT;
+		?>
+
+			<tr>
+				<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row->KODE_AKUN;?> - <?=$row->NAMA_AKUN;?></td>
+				<td style="text-align: right;"><?=number_format($row->DEBET - $row->KREDIT);?></td>
+			</tr>
+
+		<?PHP } ?>
+
+
+		<tr>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>Net Cash provided by Financing Activities </b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_3);?></b></td>
+		</tr>
+
+		<tr>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>&nbsp;</b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b>&nbsp;</b></td>
+		</tr>
+
+
+
+
+		<tr>
+			<td><b>&nbsp;</b></td>
+			<td><b>&nbsp;</b></td>
+		</tr>
+		<tr>
+			<td><b>&nbsp;</b></td>
+			<td><b>&nbsp;</b></td>
+		</tr>
+
+		<tr>
+			<td style="border-top: 3px solid #000 !important; text-align: center; vertical-align: middle;"><b>Net Cash provided by Financing Activities </b></td>
+			<td style="border-top: 3px solid #000 !important; text-align: right; font-size: 20px;"><b><?=number_format($total_3);?></b></td>
+		</tr>
 	</tbody>
 </table>
 

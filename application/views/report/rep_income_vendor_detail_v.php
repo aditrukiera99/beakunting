@@ -83,7 +83,7 @@
         <div class="col-sm-4">
             <h4 class="nav_top_align">
                 <i class="fa fa-file"></i>
-                INCOME CUSTOMER DETAIL
+                INCOME VENDOR DETAIL
             </h4>
         </div>
         <div class="col-sm-8">
@@ -119,13 +119,13 @@
 			$total = 0;
 		?>
 		<tr>
-			<td><b style="font-size: 16px;"><?=$row->NAMA_PELANGGAN;?></b></td>
+			<td><b style="font-size: 16px;"><?=$row->NAMA_SUPPLIER;?></b></td>
 			<td colspan="5"><b></b></td>
 		</tr>
 
 		<?PHP 
 		$sql_detail = $this->db->query("
-			SELECT a.*, b.NAMA_AKUN FROM ak_penjualan a 
+			SELECT a.*, b.NAMA_AKUN FROM ak_pembelian a 
 			LEFT JOIN ak_kode_akuntansi b ON a.KODE_AKUN = b.KODE_AKUN
 			WHERE a.ID_PELANGGAN = '$row->ID' 
 		")->result();
@@ -144,7 +144,7 @@
 		<?PHP } ?>
 
 		<tr>
-			<td colspan="5" style="text-align: center;"><b style="font-size: 16px;">Total <?=$row->NAMA_PELANGGAN;?></b></td>
+			<td colspan="5" style="text-align: center;"><b style="font-size: 16px;">Total <?=$row->NAMA_SUPPLIER;?></b></td>
 			<td><b><?=number_format($total);?></b></td>
 		</tr>
 

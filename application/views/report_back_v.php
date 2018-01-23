@@ -274,11 +274,12 @@ table th{
                                             </figure>
                                             <h5 align="center">Income By Customer Detail</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_income_vendor_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -289,11 +290,12 @@ table th{
                                             </figure>
                                             <h5 align="center">Income By Vendor Summary</h5>
                                         </div>
+
                                         <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_income_vendor_detail_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -421,7 +423,7 @@ table th{
                                             <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
                                                 <figcaption >
                                                     <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
+                                                    <button class="btn btn-labeled btn-success" onclick="window.open('<?=base_url();?>report/rep_cash_flow_c');" >
                                                         <span class="btn-label">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
@@ -1274,40 +1276,6 @@ table th{
                                                 </figcaption>
                                             </figure>
                                             <h5 align="center">Transaction List By Vendor</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <h3>1099</h3>
-                                   <div class="row no-gutters">
-                                        <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
-                                            <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
-                                                <figcaption >
-                                                    <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
-                                                        <span class="btn-label">
-                                                            <i class="fa fa-eye"></i>
-                                                        </span>
-                                                        VIEW
-                                                    </button>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <h5 align="center">1099 Summary</h5>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-3 col-md-4 col-6 gallery-border">
-                                            <figure class="imghvr-push-down"><img src="<?=base_url();?>/assets/img/gallery/thumbs/1.png" alt="example-image"/>
-                                                <figcaption >
-                                                    <div style="margin: 0 auto;text-align: center;" >
-                                                    <button class="btn btn-labeled btn-success" name="">
-                                                        <span class="btn-label">
-                                                            <i class="fa fa-eye"></i>
-                                                        </span>
-                                                        VIEW
-                                                    </button>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <h5 align="center">1099 Detail</h5>
                                         </div>
                                     </div>
                                     <br>

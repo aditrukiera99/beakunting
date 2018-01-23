@@ -1,12 +1,17 @@
 <?PHP 
 error_reporting(0);
+$sess_user = $this->session->userdata('masuk_akuntansi');
+$id_user = $sess_user['id'];
+if($id_user == "" || $id_user == null){
+    redirect('login_c');
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Be Account</title>
+    <title>Knm Accounting</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="<?=base_url();?>assets/img/logo1.ico"/>
@@ -560,8 +565,10 @@ error_reporting(0);
                     <div class="btn-group" style="margin-top: 3px;">
                         <div class="user-settings no-bg">
                         
-                            <button type="button" class="btn success_bg_dark" data-toggle="dropdown" style="background: #f0f5f5 !important;">
-                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;"><a class="dropdown-item" href="<?=base_url()?>logout_c">Logout</a> </label>
+                            <button type="button" class="btn success_bg_dark" style="background: #f0f5f5 !important;" onclick="<?=base_url();?>company_c/sign_out">
+                                <label class="col-from-label" style="margin-bottom: -0.5rem;color:#00334e; cursor: pointer;">
+                                    <a class="dropdown-item" href="<?=base_url();?>company_c/sign_out">Logout</a> 
+                                </label>
                             </button>
                             
                              

@@ -25,6 +25,17 @@ class Company_c extends CI_Controller {
 
 		$this->load->view('dashboard_v', $data);
 	}
+
+	public function sign_out(){
+
+		$sess_user = $this->session->userdata('masuk_akuntansi');
+
+
+		$this->session->unset_userdata('masuk_akuntansi');
+		$this->session->sess_destroy();
+
+		redirect('login_c');	
+	}
 }
 
 /* End of file welcome.php */
